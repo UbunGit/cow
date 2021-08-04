@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,9 +13,19 @@
 		844D5AE426BA604300AC08AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844D5AE226BA604300AC08AF /* Main.storyboard */; };
 		844D5AE626BA604400AC08AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844D5AE526BA604400AC08AF /* Assets.xcassets */; };
 		844D5AE926BA604400AC08AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844D5AE726BA604400AC08AF /* LaunchScreen.storyboard */; };
+		844D5AF426BA6C8000AC08AF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D5AF326BA6C8000AC08AF /* BaseViewController.swift */; };
+		844D5AFB26BA6EBC00AC08AF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D5AF926BA6EBC00AC08AF /* HomeViewController.swift */; };
+		844D5AFC26BA6EBC00AC08AF /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844D5AFA26BA6EBC00AC08AF /* HomeViewController.xib */; };
+		844D5B0326BA803400AC08AF /* HomeBandas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D5B0226BA803400AC08AF /* HomeBandas.swift */; };
+		844D5B0926BA955600AC08AF /* HomeBandas.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844D5B0826BA955600AC08AF /* HomeBandas.xib */; };
+		844D5B0C26BA9F1500AC08AF /* HomeBandasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D5B0A26BA9F1500AC08AF /* HomeBandasCell.swift */; };
+		844D5B0D26BA9F1500AC08AF /* HomeBandasCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844D5B0B26BA9F1500AC08AF /* HomeBandasCell.xib */; };
+		B361F4813D5409C336DE9241 /* Pods_Cow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F60CF171DAB942E8AD2C091 /* Pods_Cow.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		151F7326438B1BA4C0FF8619 /* Pods-Cow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cow.release.xcconfig"; path = "Target Support Files/Pods-Cow/Pods-Cow.release.xcconfig"; sourceTree = "<group>"; };
+		5F60CF171DAB942E8AD2C091 /* Pods_Cow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		844D5AD926BA604300AC08AF /* Cow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844D5ADC26BA604300AC08AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		844D5ADE26BA604300AC08AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +34,14 @@
 		844D5AE526BA604400AC08AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		844D5AE826BA604400AC08AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		844D5AEA26BA604400AC08AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		844D5AF326BA6C8000AC08AF /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		844D5AF926BA6EBC00AC08AF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		844D5AFA26BA6EBC00AC08AF /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		844D5B0226BA803400AC08AF /* HomeBandas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBandas.swift; sourceTree = "<group>"; };
+		844D5B0826BA955600AC08AF /* HomeBandas.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBandas.xib; sourceTree = "<group>"; };
+		844D5B0A26BA9F1500AC08AF /* HomeBandasCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBandasCell.swift; sourceTree = "<group>"; };
+		844D5B0B26BA9F1500AC08AF /* HomeBandasCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBandasCell.xib; sourceTree = "<group>"; };
+		CC7410E06C8E6185BA9732D2 /* Pods-Cow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cow.debug.xcconfig"; path = "Target Support Files/Pods-Cow/Pods-Cow.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B361F4813D5409C336DE9241 /* Pods_Cow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +61,8 @@
 			children = (
 				844D5ADB26BA604300AC08AF /* Cow */,
 				844D5ADA26BA604300AC08AF /* Products */,
+				8F8AB82B2CEEF3700D010E99 /* Pods */,
+				B4354AA5A072044BF7CB7B54 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +77,7 @@
 		844D5ADB26BA604300AC08AF /* Cow */ = {
 			isa = PBXGroup;
 			children = (
+				844D5AF126BA6C5600AC08AF /* Pages */,
 				844D5ADC26BA604300AC08AF /* AppDelegate.swift */,
 				844D5ADE26BA604300AC08AF /* SceneDelegate.swift */,
 				844D5AE026BA604300AC08AF /* ViewController.swift */,
@@ -67,6 +89,61 @@
 			path = Cow;
 			sourceTree = "<group>";
 		};
+		844D5AF026BA6C4900AC08AF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				844D5AFD26BA74AC00AC08AF /* View */,
+				844D5AF926BA6EBC00AC08AF /* HomeViewController.swift */,
+				844D5AFA26BA6EBC00AC08AF /* HomeViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		844D5AF126BA6C5600AC08AF /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				844D5AF226BA6C6C00AC08AF /* Base */,
+				844D5AF026BA6C4900AC08AF /* Home */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		844D5AF226BA6C6C00AC08AF /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				844D5AF326BA6C8000AC08AF /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		844D5AFD26BA74AC00AC08AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				844D5B0226BA803400AC08AF /* HomeBandas.swift */,
+				844D5B0826BA955600AC08AF /* HomeBandas.xib */,
+				844D5B0A26BA9F1500AC08AF /* HomeBandasCell.swift */,
+				844D5B0B26BA9F1500AC08AF /* HomeBandasCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8F8AB82B2CEEF3700D010E99 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CC7410E06C8E6185BA9732D2 /* Pods-Cow.debug.xcconfig */,
+				151F7326438B1BA4C0FF8619 /* Pods-Cow.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B4354AA5A072044BF7CB7B54 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F60CF171DAB942E8AD2C091 /* Pods_Cow.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +151,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 844D5AED26BA604400AC08AF /* Build configuration list for PBXNativeTarget "Cow" */;
 			buildPhases = (
+				5E654F315E7FF456F3AD5D7F /* [CP] Check Pods Manifest.lock */,
 				844D5AD526BA604300AC08AF /* Sources */,
 				844D5AD626BA604300AC08AF /* Frameworks */,
 				844D5AD726BA604300AC08AF /* Resources */,
+				016A73793BBE0D886A61F14F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,21 +204,70 @@
 			buildActionMask = 2147483647;
 			files = (
 				844D5AE926BA604400AC08AF /* LaunchScreen.storyboard in Resources */,
+				844D5B0926BA955600AC08AF /* HomeBandas.xib in Resources */,
 				844D5AE626BA604400AC08AF /* Assets.xcassets in Resources */,
 				844D5AE426BA604300AC08AF /* Main.storyboard in Resources */,
+				844D5AFC26BA6EBC00AC08AF /* HomeViewController.xib in Resources */,
+				844D5B0D26BA9F1500AC08AF /* HomeBandasCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		016A73793BBE0D886A61F14F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cow/Pods-Cow-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cow/Pods-Cow-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cow/Pods-Cow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E654F315E7FF456F3AD5D7F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cow-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		844D5AD526BA604300AC08AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				844D5AFB26BA6EBC00AC08AF /* HomeViewController.swift in Sources */,
+				844D5B0C26BA9F1500AC08AF /* HomeBandasCell.swift in Sources */,
 				844D5AE126BA604300AC08AF /* ViewController.swift in Sources */,
+				844D5AF426BA6C8000AC08AF /* BaseViewController.swift in Sources */,
 				844D5ADD26BA604300AC08AF /* AppDelegate.swift in Sources */,
 				844D5ADF26BA604300AC08AF /* SceneDelegate.swift in Sources */,
+				844D5B0326BA803400AC08AF /* HomeBandas.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,12 +411,14 @@
 		};
 		844D5AEE26BA604400AC08AF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC7410E06C8E6185BA9732D2 /* Pods-Cow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQTXMU76N3;
 				INFOPLIST_FILE = Cow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,12 +432,14 @@
 		};
 		844D5AEF26BA604400AC08AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 151F7326438B1BA4C0FF8619 /* Pods-Cow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQTXMU76N3;
 				INFOPLIST_FILE = Cow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
