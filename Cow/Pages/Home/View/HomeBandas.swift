@@ -8,10 +8,12 @@
 import UIKit
 import Magicbox
 
-class HomeBandas: UIView {
+class HomeBandas:UIView {
     
-    var beginpoint:CGPoint = CGPoint(x: 0, y: 0)
-    var index = IndexPath(row: 0, section: 0)
+    public var index = 0
+    
+    private var beginpoint:CGPoint = CGPoint(x: 0, y: 0)
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -21,7 +23,6 @@ class HomeBandas: UIView {
     }
     func configUI(){
         collectionView.register(UINib.init(nibName: "HomeBandasCell", bundle: nil), forCellWithReuseIdentifier: "HomeBandasCell")
-        collectionView.isPagingEnabled = true
         guard let layout:UICollectionViewFlowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
             return
         }
@@ -30,23 +31,24 @@ class HomeBandas: UIView {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
 
     }
-    
-    
-
 }
+
+
+
 extension HomeBandas:UICollectionViewDataSource,UICollectionViewDelegate{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        return 3
     }
-    
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeBandasCell", for: indexPath)
         return cell
     }
   
 }
+
 extension HomeBandas:UIScrollViewDelegate{
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         collectionView.isUserInteractionEnabled = false
     }
@@ -56,12 +58,12 @@ extension HomeBandas:UIScrollViewDelegate{
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if decelerate == false {
-          scrollertoIndex()
+          scrollertoIndex(indexpath: nextIndexPath(), animated: true)
         }
     }
     
     func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
-        scrollertoIndex()
+        scrollertoIndex(indexpath: nextIndexPath(), animated: true)
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         scrollViewDidEndScrollingAnimation(scrollView)
@@ -70,38 +72,43 @@ extension HomeBandas:UIScrollViewDelegate{
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         collectionView.isUserInteractionEnabled = true
     }
-    func scrollertoIndex(animated:Bool = true)  {
-      
-        let  endpoint = collectionView.contentOffset
-         var tpoint = collectionView.convert(self.center, to: collectionView)
-         let offset = endpoint.x - beginpoint.x
-         tpoint.x = tpoint.x + offset
-//        let indexpath = IndexPath(item: index.row+2, section: 1)
-
+    
+    func nextIndexPath() -> Int {
+        
+        let endpoint = collectionView.contentOffset
+        var tpoint = self.convert(self.center, to: collectionView)
+        let offset = endpoint.x - beginpoint.x
+        tpoint.x = tpoint.x + offset
         guard let indexpath = collectionView.indexPathForItem(at: tpoint) else {
-            print("indexpath nil")
-            return
+           return index
         }
+        return indexpath.row
+    }
+    
+    
+    func scrollertoIndex(indexpath:Int, animated:Bool = false)  {
         
         guard let layout:UICollectionViewFlowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
             print(" layout nil")
             return
         }
-//        collectionView.scrollToItem(at: IndexPath.init(row: 5, section: 0), at: .centeredHorizontally, animated: true)
-        collectionView.scrollToItem(at: IndexPath.init(row: 5, section: 0), at: .centeredVertically, animated: true)
-//        switch layout.scrollDirection {
-//        case .horizontal:
-//            collectionView.scrollToItem(at: indexpath, at: .centeredHorizontally, animated: animated)
-//            print("\(indexpath.row) - \(indexpath.section)")
-//        case .vertical:
-//            collectionView.scrollToItem(at: indexpath, at: .centeredVertically, animated: animated)
-//            print("\(indexpath.row) - \(indexpath.section)")
-//        default:
-//            break
-//        }
-        index = indexpath
+        
+        switch layout.scrollDirection {
+        case .horizontal:
+            
+            self.collectionView.scrollToItem(at: IndexPath(row: index, section: 0), at: .centeredHorizontally, animated: animated)
+        
+        case .vertical:
+            
+            self.collectionView.scrollToItem(at: IndexPath(row: index, section: 0), at: .centeredVertically, animated: animated)
+            
+        default:
+            break
+        }
+        self.index = indexpath
     }
 }
+
 
 
 
