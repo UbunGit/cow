@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+@IBDesignable
 public extension UIView {
     @IBInspectable
     var mb_radius: CGFloat {

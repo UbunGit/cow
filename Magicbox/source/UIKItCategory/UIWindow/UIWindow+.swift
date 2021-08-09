@@ -22,5 +22,7 @@ public let KWidth = UIScreen.main.bounds.width
 /// 屏幕高度
 public let KHeight = UIScreen.main.bounds.height
 
-
+public func K_AutoWidth(_ width:CGFloat) -> CGFloat{
+    return (375.0/KWidth) * width
+}
 

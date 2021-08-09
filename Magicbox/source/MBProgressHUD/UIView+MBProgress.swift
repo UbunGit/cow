@@ -40,7 +40,7 @@ import MBProgressHUD
      e.g
      UIView.error()
      */
-    static func error(_ msg:NSString = "失败", icon:String = "error.png"){
+    static func error(_ msg:String = "失败", icon:String = "error.png"){
         
         KWindow??.error(msg)
     }
@@ -50,7 +50,7 @@ import MBProgressHUD
      e.g
      aview.error()
      */
-    func error(_ mag:NSString = "失败" , icon:String = "error.png"){
+    func error(_ mag:String = "失败" , icon:String = "error.png"){
         DispatchQueue.main.async {
             let hud =  self.show(text: mag as String, icon: icon )
             hud.hide(animated: true, afterDelay: 1.5)
@@ -62,7 +62,7 @@ import MBProgressHUD
      e.g
      UIView.error()
      */
-    static func debug(_ msg:NSString = "失败", icon:String = "error.png"){
+    static func debug(_ msg:String = "失败", icon:String = "error.png"){
         
         KWindow??.debug(msg)
     }
@@ -72,7 +72,7 @@ import MBProgressHUD
      e.g
      aview.error()
      */
-    func debug(_ mag:NSString = "失败" , icon:String = "error.png"){
+    func debug(_ mag:String = "失败" , icon:String = "error.png"){
         DispatchQueue.main.async {
             let hud =  self.show(text: mag as String, icon: icon )
             hud.bezelView.backgroundColor = .red

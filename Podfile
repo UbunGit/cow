@@ -7,10 +7,12 @@ target 'Cow' do
 
   pod 'MBProgressHUD'
   pod 'MJRefresh'
-  pod 'YYKit'
+  pod 'HandyJSON'
   pod 'SnapKit'
   pod 'Charts'
-
+  pod 'SQLite.swift'
+  pod 'Alamofire'
+  
 pod 'Magicbox', :path=>'./'
   
 

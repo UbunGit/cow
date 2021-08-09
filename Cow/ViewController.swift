@@ -30,7 +30,8 @@ class ViewController: UITabBarController,UITabBarControllerDelegate
     }()
     
     lazy var nav4: UINavigationController = {
-        let vc1 = UIViewController()
+        let vc1 = SettingVC()
+        vc1.title = "设置"
         let nav1 = UINavigationController.init(rootViewController: vc1)
         return nav1
     }()
