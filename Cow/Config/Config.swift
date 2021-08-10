@@ -14,19 +14,18 @@ var baseurl:String{
     UserDefaults.standard.string(forKey: "baseurl") ?? "http://10.10.11.143:5000"
 }
 
-class  APIData<T:Codable>:HandyJSON,Codable{
-    var code:Int = -1
-    var message:String = ""
-    var data:T?
-    required init() {
-        
-    }
 
-}
 
 
 extension DataRequest{
     
+    struct APIData<T:Codable>:HandyJSON,Codable{
+        var code:Int = -1
+        var message:String = ""
+        var data:T?
+      
+    }
+
     open func responseModel<T>(_ type: T.Type, callback:@escaping (Result<T, APIError>) ->  ()) where T : Codable{
 
         self.responseJSON { (response) in
@@ -52,8 +51,6 @@ extension DataRequest{
             }
         }
     }
-    
-
 }
 
 

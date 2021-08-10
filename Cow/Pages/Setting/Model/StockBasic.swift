@@ -11,37 +11,20 @@ import Alamofire
 import HandyJSON
 import SQLite
 
+
 let id = Expression<Int64>("id")
 
 
-class StockBasic:HandyJSON, Codable,SqliteProtocol{
+struct StockBasic:HandyJSON, Codable{
 
     var name:String = ""
     var code:String = ""
     var area:String = ""
     var industry:String = ""
     var market:String = ""
-    var changeTime:String = ""
+    var changeTime:String = "\(Date().mb_toString("yyyy-MM-dd"))"
+
     
-    func expression(keyPath:AnyKeyPath, column:String) -> Setter? {
-        
-        guard let value = self[keyPath: keyPath]  else {
-            return nil
-        }
-//        let type = value.self
-        typealias UnderlyingType = value.self
-        
-        let expression = Expression<value.self>(column)
-   
-        let srtt = expression <- (value as! Int64)
-        try? db?.run((table?.insert(srtt))!)
-        return srtt
-    }
-    
-    
-    required init() {
-        
-    }
     
 }
 
@@ -50,6 +33,7 @@ extension StockBasic{
     static func api_update(finesh:@escaping (BaseError?)->()){
         let url = "\(baseurl)/store/basic"
         let param = ["changeTime":"","keyword":""]
+ 
         AF.request(url, method: .get, parameters: param) { urlRequest in
             urlRequest.timeoutInterval = 15
         }.responseModel([StockBasic].self) { result in
@@ -57,14 +41,51 @@ extension StockBasic{
             case .failure(let error):
                 finesh(BaseError.init(code: -1, msg: error.msg))
             case .success(let value):
-//                try? StockBasic().insert(setters: <#T##[Setter]#>)
-                
+                do{
+                   _ = try Self.mutableinster(datas: value)
+                }catch{
+                    finesh(BaseError.init(code: -1, msg: error.localizedDescription))
+                }
+             
                 finesh(nil)
             }
         }
-        
     }
 }
-extension StockBasic{
-  
+extension StockBasic:SqliteProtocol{
+    
+    init(row: Row) {
+        name = row[Expression<String>.init("name")]
+        code = row[Expression<String>.init("code")]
+        area = row[Expression<String>.init("area")]
+        industry = row[Expression<String>.init("industry")]
+        market = row[Expression<String>.init("market")]
+        changeTime = row[Expression<String>.init("changeTime")]
+        
+    }
+    var table: Table? {
+        
+        
+        let  e_name = Expression<String>.init("name")
+        let  e_code = Expression<String>.init("code")
+        let  e_area = Expression<String>.init("area")
+        let  e_industry = Expression<String>.init("industry")
+        let  e_market = Expression<String>.init("market")
+        let  e_changeTime = Expression<String>.init("changeTime")
+        
+        let _table = self.createTable(tableName: "\(type(of: self))".lowercased(), block: { builder in
+            builder.column(e_code, primaryKey:true)
+            builder.column(e_name)
+            builder.column(e_area)
+            builder.column(e_industry)
+            builder.column(e_market)
+            builder.column(e_changeTime)
+        })
+        return _table
+        
+    }
+    
+   
+
 }
+

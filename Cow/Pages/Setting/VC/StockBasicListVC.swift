@@ -7,13 +7,24 @@
 
 import UIKit
 import Magicbox
+import HandyJSON
+import MJRefresh
 
 class StockBasicListVC: BaseViewController {
 
+    var datasource:[StockBasic] = []{
+        didSet{
+            tableView.reloadData()
+        }
+    }
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "股票列表"
         configNav()
+        configTableview()
+        updateDataSource()
     }
     
     // 刷新
@@ -28,21 +39,60 @@ class StockBasicListVC: BaseViewController {
    
 
     func configNav()  {
-        navigationItem.rightBarButtonItems = [refreshItem]
+//        navigationItem.rightBarButtonItems = [refreshItem]
     }
 
 }
 extension StockBasicListVC:UITableViewDelegate,UITableViewDataSource{
+    
+    func configTableview()  {
+//        tableView.separatorStyle = .none
+        tableView.estimatedRowHeight = 60
+        tableView.register(UINib(nibName: "StockBasicListCell", bundle: nil), forCellReuseIdentifier: "StockBasicListCell")
+        tableView.mj_header = MJRefreshGifHeader(refreshingBlock: {
+            self.updateStockBasic()
+        })
+        
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return datasource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StockBasicListCell", for: indexPath) as! StockBasicListCell
+        cell.celldata = datasource[indexPath.row]
         return cell
+    }
+    // 左侧按钮自定义
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let leftAction = UIContextualAction(style: .normal, title: "左侧") { (action, view, finished) in
+            
+            finished(true)
+        }
+        
+        
+        return UISwipeActionsConfiguration(actions: [leftAction])
+    }
+    
+    // 右侧按钮自定义
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "删除") { (action, view, finished) in
+            
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
+//
+//            // 回调告知执行成功，否则不会删除此行！！！
+//            finished(true)
+        }
+        
+        
+        let archiveAction = UIContextualAction(style: .normal, title: "关注") { (action, view, finished) in
+            finished(true)
+        }
+        
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction, archiveAction])
     }
     
     
@@ -52,11 +102,22 @@ extension StockBasicListVC{
         view.lodding()
         StockBasic.api_update { error in
             self.view.loadingDismiss()
+           
+            self.tableView.mj_header?.endRefreshing()
             if error != nil{
                 self.view.error(error!.msg)
+            }else{
+                self.updateDataSource()
+          
             }
-       
-            
         }
+    }
+    
+    func updateDataSource()  {
+        guard let result = StockBasic().select()  else {
+            return
+        }
+        datasource = result
+        
     }
 }

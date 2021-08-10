@@ -37,6 +37,8 @@
 		846B4CBE26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B4CBC26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib */; };
 		846B4CC726C104A100EB5BA7 /* CollectionViewGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B4CC626C104A100EB5BA7 /* CollectionViewGridCell.swift */; };
 		846B4CC826C104E400EB5BA7 /* CollectionViewGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B4CC426C1044B00EB5BA7 /* CollectionViewGridCell.xib */; };
+		849D787826C287F5003DFE5F /* StockBasicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D787626C287F5003DFE5F /* StockBasicListCell.swift */; };
+		849D787926C287F5003DFE5F /* StockBasicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849D787726C287F5003DFE5F /* StockBasicListCell.xib */; };
 		B361F4813D5409C336DE9241 /* Pods_Cow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F60CF171DAB942E8AD2C091 /* Pods_Cow.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		846B4CBC26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		846B4CC426C1044B00EB5BA7 /* CollectionViewGridCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewGridCell.xib; sourceTree = "<group>"; };
 		846B4CC626C104A100EB5BA7 /* CollectionViewGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewGridCell.swift; sourceTree = "<group>"; };
+		849D787626C287F5003DFE5F /* StockBasicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBasicListCell.swift; sourceTree = "<group>"; };
+		849D787726C287F5003DFE5F /* StockBasicListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockBasicListCell.xib; sourceTree = "<group>"; };
 		CC7410E06C8E6185BA9732D2 /* Pods-Cow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cow.debug.xcconfig"; path = "Target Support Files/Pods-Cow/Pods-Cow.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,6 +225,8 @@
 			children = (
 				846B4CBB26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.swift */,
 				846B4CBC26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib */,
+				849D787626C287F5003DFE5F /* StockBasicListCell.swift */,
+				849D787726C287F5003DFE5F /* StockBasicListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -312,6 +318,7 @@
 			files = (
 				8410012126C10D2700C64E53 /* StockBasicListVC.xib in Resources */,
 				844D5AE926BA604400AC08AF /* LaunchScreen.storyboard in Resources */,
+				849D787926C287F5003DFE5F /* StockBasicListCell.xib in Resources */,
 				846B4CB926C0F82D00EB5BA7 /* SettingVC.xib in Resources */,
 				846B4CBE26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib in Resources */,
 				844D5B0926BA955600AC08AF /* HomeBandas.xib in Resources */,
@@ -385,6 +392,7 @@
 				844D5AE126BA604300AC08AF /* ViewController.swift in Sources */,
 				844D5AF426BA6C8000AC08AF /* BaseViewController.swift in Sources */,
 				846B4CBD26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.swift in Sources */,
+				849D787826C287F5003DFE5F /* StockBasicListCell.swift in Sources */,
 				8410013626C11D8700C64E53 /* StockBasic.swift in Sources */,
 				844D5ADD26BA604300AC08AF /* AppDelegate.swift in Sources */,
 				8410013426C116DD00C64E53 /* SqliteProtocolUpdate.swift in Sources */,

@@ -7,6 +7,7 @@
 
 import Foundation
 import SQLite
+import HandyJSON
 
 extension SqliteProtocol{
     func select(
@@ -14,7 +15,7 @@ extension SqliteProtocol{
         filter: Expression<Bool>? = nil,
         order: [Expressible] = [],
         limit: Int? = nil,
-        offset: Int? = nil) -> [Row]?
+        offset: Int? = nil) -> [Self]?
     {
         guard let stable = table else {
             return nil
@@ -28,7 +29,7 @@ extension SqliteProtocol{
         filter: Expression<Bool>? = nil,
         order: [Expressible] = [],
         limit: Int? = nil,
-        offset: Int? = nil) -> [Row]?
+        offset: Int? = nil) -> [Self]?
     {
         guard var queryTable = table else {
             return nil
@@ -51,8 +52,11 @@ extension SqliteProtocol{
                     queryTable = queryTable.limit(lim)
                 }
             }
-            guard let result = try db?.prepare(queryTable) else { return nil }
-            return Array.init(result)
+            guard let dresult = try db?.prepare(queryTable) else { return nil }
+            let result = dresult.map { row -> Self in
+                Self.init(row: row)
+            }
+            return result
         } catch let error {
             debugPrint(error.localizedDescription)
             return nil

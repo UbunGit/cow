@@ -80,6 +80,8 @@ import MBProgressHUD
         }
     }
     
+   
+    
     /**
      加载框，提示在window上
      e.g
@@ -116,8 +118,9 @@ import MBProgressHUD
      aview.loadingDismiss()
      */
     func loadingDismiss(){
+        let hub:MBProgressHUD? = MBProgressHUD.forView(self)
         DispatchQueue.main.async {
-            MBProgressHUD.hide(for: self, animated: false)
+            hub?.hide(animated: false)
         }
         
     }

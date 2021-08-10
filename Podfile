@@ -1,10 +1,23 @@
 # Uncomment the next line to define a global platform for your project
  platform :ios, '11.0'
 
+def debug
+  pod 'DoraemonKit/Core', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.2', :configurations => ['Debug'] #必选
+  pod 'DoraemonKit/WithLogger', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.2', :configurations => ['Debug'] #可选
+#  pod 'DoraemonKit/WithGPS', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.2', :configurations => ['Debug'] #可选
+  pod 'DoraemonKit/WithLoad', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.2', :configurations => ['Debug'] #可选
+  pod 'DoraemonKit/WithDatabase', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.2', :configurations => ['Debug'] #可选
+  pod 'DoraemonKit/WithMLeaksFinder', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.2', :configurations => ['Debug'] #可选
+  pod 'DoraemonKit/WithWeex', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.2', :configurations => ['Debug'] #可选
+  
+end
+
 target 'Cow' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
+  
+  debug
+  
   pod 'MBProgressHUD'
   pod 'MJRefresh'
   pod 'HandyJSON'
@@ -13,9 +26,9 @@ target 'Cow' do
   pod 'SQLite.swift'
   pod 'Alamofire'
   
-pod 'Magicbox', :path=>'./'
+  pod 'Magicbox', :path=>'./'
   
-
+  
 end
 
 

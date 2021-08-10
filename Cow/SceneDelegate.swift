@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DoraemonKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -13,9 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        DoraemonManager.shareInstance().install(withPid: "db4146378948b4a04e74c1172ce45590")
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
