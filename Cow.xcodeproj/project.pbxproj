@@ -37,6 +37,8 @@
 		846B4CBE26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B4CBC26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib */; };
 		846B4CC726C104A100EB5BA7 /* CollectionViewGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B4CC626C104A100EB5BA7 /* CollectionViewGridCell.swift */; };
 		846B4CC826C104E400EB5BA7 /* CollectionViewGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B4CC426C1044B00EB5BA7 /* CollectionViewGridCell.xib */; };
+		8492CBEC26C3CC6B004048EF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CBEA26C3CC6B004048EF /* WebViewController.swift */; };
+		8492CBF026C3D641004048EF /* FollowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CBEF26C3D641004048EF /* FollowModel.swift */; };
 		849D787826C287F5003DFE5F /* StockBasicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D787626C287F5003DFE5F /* StockBasicListCell.swift */; };
 		849D787926C287F5003DFE5F /* StockBasicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849D787726C287F5003DFE5F /* StockBasicListCell.xib */; };
 		B361F4813D5409C336DE9241 /* Pods_Cow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F60CF171DAB942E8AD2C091 /* Pods_Cow.framework */; };
@@ -77,6 +79,8 @@
 		846B4CBC26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		846B4CC426C1044B00EB5BA7 /* CollectionViewGridCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewGridCell.xib; sourceTree = "<group>"; };
 		846B4CC626C104A100EB5BA7 /* CollectionViewGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewGridCell.swift; sourceTree = "<group>"; };
+		8492CBEA26C3CC6B004048EF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		8492CBEF26C3D641004048EF /* FollowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowModel.swift; sourceTree = "<group>"; };
 		849D787626C287F5003DFE5F /* StockBasicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBasicListCell.swift; sourceTree = "<group>"; };
 		849D787726C287F5003DFE5F /* StockBasicListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockBasicListCell.xib; sourceTree = "<group>"; };
 		CC7410E06C8E6185BA9732D2 /* Pods-Cow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cow.debug.xcconfig"; path = "Target Support Files/Pods-Cow/Pods-Cow.debug.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +187,8 @@
 		844D5AF126BA6C5600AC08AF /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				8492CBEE26C3D606004048EF /* Flow */,
+				8492CBE926C3CC48004048EF /* WebView */,
 				846B4CB526C0F80600EB5BA7 /* Setting */,
 				844D5AF226BA6C6C00AC08AF /* Base */,
 				844D5AF026BA6C4900AC08AF /* Home */,
@@ -238,6 +244,22 @@
 				846B4CC426C1044B00EB5BA7 /* CollectionViewGridCell.xib */,
 			);
 			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		8492CBE926C3CC48004048EF /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				8492CBEA26C3CC6B004048EF /* WebViewController.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		8492CBEE26C3D606004048EF /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				8492CBEF26C3D641004048EF /* FollowModel.swift */,
+			);
+			path = Flow;
 			sourceTree = "<group>";
 		};
 		8F8AB82B2CEEF3700D010E99 /* Pods */ = {
@@ -380,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8410012E26C1160C00C64E53 /* SqliteProtocolSelect.swift in Sources */,
+				8492CBEC26C3CC6B004048EF /* WebViewController.swift in Sources */,
 				8410013226C116AA00C64E53 /* SqliteProtocolDelete.swift in Sources */,
 				8410012C26C1143800C64E53 /* SqliteProtocolTable.swift in Sources */,
 				844D5AFB26BA6EBC00AC08AF /* HomeViewController.swift in Sources */,
@@ -398,6 +421,7 @@
 				8410013426C116DD00C64E53 /* SqliteProtocolUpdate.swift in Sources */,
 				844D5ADF26BA604300AC08AF /* SceneDelegate.swift in Sources */,
 				8410013B26C11FF900C64E53 /* Config.swift in Sources */,
+				8492CBF026C3D641004048EF /* FollowModel.swift in Sources */,
 				8410013026C1165C00C64E53 /* SqliteProtocolInster.swift in Sources */,
 				844D5B0326BA803400AC08AF /* HomeBandas.swift in Sources */,
 			);

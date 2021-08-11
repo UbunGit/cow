@@ -84,8 +84,5 @@ extension StockBasic:SqliteProtocol{
         return _table
         
     }
-    
-   
-
 }
 

@@ -63,6 +63,15 @@ extension StockBasicListVC:UITableViewDelegate,UITableViewDataSource{
         cell.celldata = datasource[indexPath.row]
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let web = WebViewController()
+        self.navigationController?.pushViewController(web, animated: true)
+        let codes = datasource[indexPath.row].code.components(separatedBy: ".")
+        if codes.count == 2 {
+            web.url = "https://quotes.sina.cn/hs/company/quotes/view/\(codes[1])\(codes[0])"
+        }
+        
+    }
     // 左侧按钮自定义
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
@@ -87,7 +96,9 @@ extension StockBasicListVC:UITableViewDelegate,UITableViewDataSource{
         }
         
         
-        let archiveAction = UIContextualAction(style: .normal, title: "关注") { (action, view, finished) in
+        let archiveAction = UIContextualAction(style: .normal, title: "关注") { [self] (action, view, finished) in
+            let follow = FollowModel( type: 1, pid: datasource[indexPath.row].code)
+            follow.insert()
             finished(true)
         }
         

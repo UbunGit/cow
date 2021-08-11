@@ -10,6 +10,7 @@ import SQLite
 import HandyJSON
 
 extension SqliteProtocol{
+    
     func select(
         select: [Expressible] = [],
         filter: Expression<Bool>? = nil,
