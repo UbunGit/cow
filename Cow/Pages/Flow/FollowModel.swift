@@ -9,54 +9,49 @@ import Foundation
 import SQLite
 import HandyJSON
 import Magicbox
-struct FollowModel:HandyJSON {
+
+public struct FollowModel:HandyJSON {
+    
     var id:Int = 0
-    var type:Int = 0 // 1->股票
-    var pid:String = ""
+    public var code:String = ""
+    public var name:String = ""
+    public init() {
+        
+    }
 }
 
-extension FollowModel:SqliteProtocol{
-    
-    init(row: Row) {
-        id  = row[Expression<Int>.init("id")]
-        type = row[Expression<Int>.init("type")]
-        pid = row[Expression<String>.init("pid")]
-    }
-    var table: Table? {
-        do{
+extension FollowModel{
+
+    func fitter(type:Int) throws -> [FollowModel] {
+        do {
             let sql = """
-         CREATE TABLE IF NOT EXISTS "\(tableName)"(
-            "id" integer AUTO_INCREMENT,
-            "type" integer,
-            "pid" integer,
-            PRIMARY KEY("id")
-         )
-         """
-            try db?.execute(sql)
-            return Table(tableName)
-        }catch let error {
-            debugPrint(error.localizedDescription)
-            return nil
-        }
-    }
-    func insert()->Bool {
-        
-        do{
-            guard table != nil else {
-                throw BaseError(code: -2, msg: "表未创建")
+                SELECT t1.id, t2.code, t2.name
+                FROM  follow t1
+                LEFT JOIN stockbasic t2 ON t1.pid=t2.code
+                WHERE t1.type = 1
+                """
+            
+            guard let stmt = try sm.db?.prepare(sql) else {
+                throw(BaseError(code: -2, msg: ""))
             }
-            let sql = """
-         INSERT INTO "\(tableName)" (type,pid) VALUES ('\(type)','\(pid)')
-         WHERE NOT EXISTS ( SELECT * FROM "\(tableName)"
-                            WHERE type = '\(type)'
-                            AND pid = '\(pid)');
-         """
-            try db?.execute(sql)
-            return true
-        }catch let error {
+            let result = stmt.map { row->Self in
+                
+                var item:Dictionary = [String:Any]()
+                for (index, name) in stmt.columnNames.enumerated() {
+                    item[name] = row[index]!
+                }
+                return Self.deserialize(from: item)!
+            }
+            return result
+        } catch let error {
             debugPrint(error.localizedDescription)
-            return false
+            return []
         }
+        
+    }
+    
+    func unfollow() throws {
+        try sm.delete_follow(id: id)
     }
    
 }

@@ -96,9 +96,14 @@ extension StockBasicListVC:UITableViewDelegate,UITableViewDataSource{
         }
         
         
+        
         let archiveAction = UIContextualAction(style: .normal, title: "关注") { [self] (action, view, finished) in
-            let follow = FollowModel( type: 1, pid: datasource[indexPath.row].code)
-            follow.insert()
+            do{
+               try sm.inster_follow(type: 1, pid: datasource[indexPath.row].code)
+            }catch let error{
+                self.view.error(error.localizedDescription)
+            }
+            
             finished(true)
         }
         
@@ -110,7 +115,7 @@ extension StockBasicListVC:UITableViewDelegate,UITableViewDataSource{
 }
 extension StockBasicListVC{
     @objc func updateStockBasic(){
-        view.lodding()
+        view.loading()
         StockBasic.api_update { error in
             self.view.loadingDismiss()
            

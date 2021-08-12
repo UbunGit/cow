@@ -1,6 +1,21 @@
 # Uncomment the next line to define a global platform for your project
  platform :ios, '11.0'
 
+
+def common
+
+  
+  pod 'MBProgressHUD'
+  pod 'MJRefresh'
+  pod 'HandyJSON'
+  pod 'SnapKit'
+  pod 'Charts'
+  pod 'SQLite.swift'
+  pod 'Alamofire'
+  
+  pod 'Magicbox', :path=>'./'
+end
+
 def debug
   pod 'DoraemonKit/Core', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.2', :configurations => ['Debug'] #必选
   pod 'DoraemonKit/WithLogger', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.2', :configurations => ['Debug'] #可选
@@ -15,18 +30,18 @@ end
 target 'Cow' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  
   debug
+  common
+
   
-  pod 'MBProgressHUD'
-  pod 'MJRefresh'
-  pod 'HandyJSON'
-  pod 'SnapKit'
-  pod 'Charts'
-  pod 'SQLite.swift'
-  pod 'Alamofire'
   
-  pod 'Magicbox', :path=>'./'
+end
+target 'CowTests' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  debug
+  common
+
   
   
 end

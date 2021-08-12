@@ -31,7 +31,11 @@ import MBProgressHUD
     func success(_ msg:String = "成功", icon:String = "success.png"){
         DispatchQueue.main.async {
             let hud =  self.show(text: msg, icon:icon )
-            hud.hide(animated: true, afterDelay: 1.5)
+            hud.tag = 6000
+            DispatchQueue.main.asyncAfter(deadline: .now()+3.5) {
+                self .hubhidden(6000)
+            }
+            
         }
     }
     
@@ -53,7 +57,10 @@ import MBProgressHUD
     func error(_ mag:String = "失败" , icon:String = "error.png"){
         DispatchQueue.main.async {
             let hud =  self.show(text: mag as String, icon: icon )
-            hud.hide(animated: true, afterDelay: 1.5)
+            hud.tag = 6001
+            DispatchQueue.main.asyncAfter(deadline: .now()+3.5) {
+                self .hubhidden(6001)
+            }
         }
     }
     
@@ -62,7 +69,7 @@ import MBProgressHUD
      e.g
      UIView.error()
      */
-    static func debug(_ msg:String = "失败", icon:String = "error.png"){
+    static func debug(_ msg:NSString = "失败", icon:String = "error.png"){
         
         KWindow??.debug(msg)
     }
@@ -72,23 +79,26 @@ import MBProgressHUD
      e.g
      aview.error()
      */
-    func debug(_ mag:String = "失败" , icon:String = "error.png"){
+    func debug(_ mag:NSString = "失败" , icon:String = "error.png"){
         DispatchQueue.main.async {
             let hud =  self.show(text: mag as String, icon: icon )
             hud.bezelView.backgroundColor = .red
-            hud.hide(animated: true, afterDelay: 2.5)
+            hud.tag = 6002
+            DispatchQueue.main.asyncAfter(deadline: .now()+3.5) {
+                self .hubhidden(6002)
+            }
         }
+        
     }
     
-   
     
     /**
      加载框，提示在window上
      e.g
      UIView.lodding()
      */
-    static func lodding(_ msg:String? = nil){
-        KWindow??.lodding(msg)
+    static func loading(_ msg:String? = nil){
+        KWindow??.loading(msg)
     }
     
     /**
@@ -96,10 +106,13 @@ import MBProgressHUD
      e.g
      aview.lodding()
      */
-    func lodding(_ msg:String? = nil){
+    func loading(_ msg:String? = nil){
         DispatchQueue.main.async {
             let hud = self.show(text: msg, icon: nil)
             hud.mode = .indeterminate
+            hud.tag = 6003
+          
+            
         }
     }
     
@@ -118,18 +131,45 @@ import MBProgressHUD
      aview.loadingDismiss()
      */
     func loadingDismiss(){
-        let hub:MBProgressHUD? = MBProgressHUD.forView(self)
+        self.hubhidden(6003)
+    }
+    
+    func alertView(aview:UIView) {
+        let bgview = UIView(frame: self.bounds)
+        bgview.tag = 6004
         DispatchQueue.main.async {
-            hub?.hide(animated: false)
+            
+            bgview.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
+            bgview.alpha = 0
+            self.addSubview(bgview)
+            bgview.addSubview(aview)
+            aview.center = self.center
+            UIView.animate(withDuration: 0.35) {
+                bgview.alpha = 1
+            }
+            self.isUserInteractionEnabled = false;
         }
+       
         
+    }
+    
+    func hiddenAlertView(aview:UIView) {
+        
+        guard let bgview = self.viewWithTag(6004)  else {
+            return
+        }
+        DispatchQueue.main.async{
+            bgview.removeFromSuperview()
+            self.isUserInteractionEnabled = true;
+        }
     }
 }
 
 private extension UIView{
+    
     func show(text:String?, icon:String?) -> MBProgressHUD {
         
-        
+        self.isUserInteractionEnabled = false;
         let hud = MBProgressHUD.showAdded(to: self, animated: true)
         if text != nil {
             
@@ -142,8 +182,15 @@ private extension UIView{
         }
         hud.bezelView.backgroundColor = .black    //背景颜色
         hud.mode = .customView;
-        hud.isUserInteractionEnabled = false;
         hud.removeFromSuperViewOnHide = true;
         return hud
+    }
+    
+    func hubhidden(_ viewTag:Int)  {
+        self.isUserInteractionEnabled = true;
+        guard let hub = self.viewWithTag(viewTag) as? MBProgressHUD  else {
+            return
+        }
+        hub.hide(animated: false)
     }
 }

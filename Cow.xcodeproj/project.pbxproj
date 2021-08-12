@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FBF569FA57EA29049EC978F /* Pods_CowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C7744FD96C6DA2CA9753D2 /* Pods_CowTests.framework */; };
 		8410011C26C106EA00C64E53 /* DataHandleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410011B26C106EA00C64E53 /* DataHandleModel.swift */; };
 		8410012026C10D2700C64E53 /* StockBasicListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410011E26C10D2700C64E53 /* StockBasicListVC.swift */; };
 		8410012126C10D2700C64E53 /* StockBasicListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8410011F26C10D2700C64E53 /* StockBasicListVC.xib */; };
@@ -39,14 +40,31 @@
 		846B4CC826C104E400EB5BA7 /* CollectionViewGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B4CC426C1044B00EB5BA7 /* CollectionViewGridCell.xib */; };
 		8492CBEC26C3CC6B004048EF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CBEA26C3CC6B004048EF /* WebViewController.swift */; };
 		8492CBF026C3D641004048EF /* FollowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CBEF26C3D641004048EF /* FollowModel.swift */; };
+		8492CBF326C4BACD004048EF /* FollowListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CBF126C4BACD004048EF /* FollowListViewController.swift */; };
+		8492CBF426C4BACD004048EF /* FollowListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8492CBF226C4BACD004048EF /* FollowListViewController.xib */; };
+		8492CBFF26C4C233004048EF /* CowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CBFE26C4C233004048EF /* CowTests.swift */; };
+		8492CC0726C4C260004048EF /* FollowModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CC0626C4C260004048EF /* FollowModelTest.swift */; };
+		8492CC0926C4D256004048EF /* SqlliteManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CC0826C4D256004048EF /* SqlliteManage.swift */; };
+		8492CC0D26C4FBE6004048EF /* SqlliteManageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CC0C26C4FBE6004048EF /* SqlliteManageTest.swift */; };
 		849D787826C287F5003DFE5F /* StockBasicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D787626C287F5003DFE5F /* StockBasicListCell.swift */; };
 		849D787926C287F5003DFE5F /* StockBasicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849D787726C287F5003DFE5F /* StockBasicListCell.xib */; };
 		B361F4813D5409C336DE9241 /* Pods_Cow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F60CF171DAB942E8AD2C091 /* Pods_Cow.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8492CC0126C4C233004048EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 844D5AD126BA604300AC08AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 844D5AD826BA604300AC08AF;
+			remoteInfo = Cow;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		151F7326438B1BA4C0FF8619 /* Pods-Cow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cow.release.xcconfig"; path = "Target Support Files/Pods-Cow/Pods-Cow.release.xcconfig"; sourceTree = "<group>"; };
 		5F60CF171DAB942E8AD2C091 /* Pods_Cow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74237E86FA104E2E54D663EC /* Pods-CowTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CowTests.release.xcconfig"; path = "Target Support Files/Pods-CowTests/Pods-CowTests.release.xcconfig"; sourceTree = "<group>"; };
 		8410011B26C106EA00C64E53 /* DataHandleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandleModel.swift; sourceTree = "<group>"; };
 		8410011E26C10D2700C64E53 /* StockBasicListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBasicListVC.swift; sourceTree = "<group>"; };
 		8410011F26C10D2700C64E53 /* StockBasicListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockBasicListVC.xib; sourceTree = "<group>"; };
@@ -81,8 +99,18 @@
 		846B4CC626C104A100EB5BA7 /* CollectionViewGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewGridCell.swift; sourceTree = "<group>"; };
 		8492CBEA26C3CC6B004048EF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		8492CBEF26C3D641004048EF /* FollowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowModel.swift; sourceTree = "<group>"; };
+		8492CBF126C4BACD004048EF /* FollowListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowListViewController.swift; sourceTree = "<group>"; };
+		8492CBF226C4BACD004048EF /* FollowListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowListViewController.xib; sourceTree = "<group>"; };
+		8492CBFC26C4C233004048EF /* CowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8492CBFE26C4C233004048EF /* CowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CowTests.swift; sourceTree = "<group>"; };
+		8492CC0026C4C233004048EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8492CC0626C4C260004048EF /* FollowModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowModelTest.swift; sourceTree = "<group>"; };
+		8492CC0826C4D256004048EF /* SqlliteManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqlliteManage.swift; sourceTree = "<group>"; };
+		8492CC0C26C4FBE6004048EF /* SqlliteManageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqlliteManageTest.swift; sourceTree = "<group>"; };
 		849D787626C287F5003DFE5F /* StockBasicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBasicListCell.swift; sourceTree = "<group>"; };
 		849D787726C287F5003DFE5F /* StockBasicListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockBasicListCell.xib; sourceTree = "<group>"; };
+		8944AC9A803FD0C9983B9A34 /* Pods-CowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CowTests.debug.xcconfig"; path = "Target Support Files/Pods-CowTests/Pods-CowTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B2C7744FD96C6DA2CA9753D2 /* Pods_CowTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CowTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7410E06C8E6185BA9732D2 /* Pods-Cow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cow.debug.xcconfig"; path = "Target Support Files/Pods-Cow/Pods-Cow.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +120,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B361F4813D5409C336DE9241 /* Pods_Cow.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8492CBF926C4C233004048EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FBF569FA57EA29049EC978F /* Pods_CowTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +163,7 @@
 				8410012F26C1165C00C64E53 /* SqliteProtocolInster.swift */,
 				8410013126C116AA00C64E53 /* SqliteProtocolDelete.swift */,
 				8410013326C116DD00C64E53 /* SqliteProtocolUpdate.swift */,
+				8492CC0826C4D256004048EF /* SqlliteManage.swift */,
 			);
 			path = SQLlite;
 			sourceTree = "<group>";
@@ -143,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				844D5ADB26BA604300AC08AF /* Cow */,
+				8492CBFD26C4C233004048EF /* CowTests */,
 				844D5ADA26BA604300AC08AF /* Products */,
 				8F8AB82B2CEEF3700D010E99 /* Pods */,
 				B4354AA5A072044BF7CB7B54 /* Frameworks */,
@@ -153,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				844D5AD926BA604300AC08AF /* Cow.app */,
+				8492CBFC26C4C233004048EF /* CowTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -257,9 +296,30 @@
 		8492CBEE26C3D606004048EF /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				8492CC0E26C52658004048EF /* View */,
 				8492CBEF26C3D641004048EF /* FollowModel.swift */,
+				8492CBF126C4BACD004048EF /* FollowListViewController.swift */,
+				8492CBF226C4BACD004048EF /* FollowListViewController.xib */,
 			);
 			path = Flow;
+			sourceTree = "<group>";
+		};
+		8492CBFD26C4C233004048EF /* CowTests */ = {
+			isa = PBXGroup;
+			children = (
+				8492CBFE26C4C233004048EF /* CowTests.swift */,
+				8492CC0626C4C260004048EF /* FollowModelTest.swift */,
+				8492CC0C26C4FBE6004048EF /* SqlliteManageTest.swift */,
+				8492CC0026C4C233004048EF /* Info.plist */,
+			);
+			path = CowTests;
+			sourceTree = "<group>";
+		};
+		8492CC0E26C52658004048EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8F8AB82B2CEEF3700D010E99 /* Pods */ = {
@@ -267,6 +327,8 @@
 			children = (
 				CC7410E06C8E6185BA9732D2 /* Pods-Cow.debug.xcconfig */,
 				151F7326438B1BA4C0FF8619 /* Pods-Cow.release.xcconfig */,
+				8944AC9A803FD0C9983B9A34 /* Pods-CowTests.debug.xcconfig */,
+				74237E86FA104E2E54D663EC /* Pods-CowTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -275,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				5F60CF171DAB942E8AD2C091 /* Pods_Cow.framework */,
+				B2C7744FD96C6DA2CA9753D2 /* Pods_CowTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -301,6 +364,26 @@
 			productReference = 844D5AD926BA604300AC08AF /* Cow.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8492CBFB26C4C233004048EF /* CowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8492CC0326C4C233004048EF /* Build configuration list for PBXNativeTarget "CowTests" */;
+			buildPhases = (
+				667F03C36980CBE9643F2E93 /* [CP] Check Pods Manifest.lock */,
+				8492CBF826C4C233004048EF /* Sources */,
+				8492CBF926C4C233004048EF /* Frameworks */,
+				8492CBFA26C4C233004048EF /* Resources */,
+				21FAFDB5444168F178391453 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8492CC0226C4C233004048EF /* PBXTargetDependency */,
+			);
+			name = CowTests;
+			productName = CowTests;
+			productReference = 8492CBFC26C4C233004048EF /* CowTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -312,6 +395,10 @@
 				TargetAttributes = {
 					844D5AD826BA604300AC08AF = {
 						CreatedOnToolsVersion = 12.5.1;
+					};
+					8492CBFB26C4C233004048EF = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 844D5AD826BA604300AC08AF;
 					};
 				};
 			};
@@ -329,6 +416,7 @@
 			projectRoot = "";
 			targets = (
 				844D5AD826BA604300AC08AF /* Cow */,
+				8492CBFB26C4C233004048EF /* CowTests */,
 			);
 		};
 /* End PBXProject section */
@@ -340,6 +428,7 @@
 			files = (
 				8410012126C10D2700C64E53 /* StockBasicListVC.xib in Resources */,
 				844D5AE926BA604400AC08AF /* LaunchScreen.storyboard in Resources */,
+				8492CBF426C4BACD004048EF /* FollowListViewController.xib in Resources */,
 				849D787926C287F5003DFE5F /* StockBasicListCell.xib in Resources */,
 				846B4CB926C0F82D00EB5BA7 /* SettingVC.xib in Resources */,
 				846B4CBE26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib in Resources */,
@@ -349,6 +438,13 @@
 				844D5AE426BA604300AC08AF /* Main.storyboard in Resources */,
 				844D5AFC26BA6EBC00AC08AF /* HomeViewController.xib in Resources */,
 				844D5B0D26BA9F1500AC08AF /* HomeBandasCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8492CBFA26C4C233004048EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +466,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cow/Pods-Cow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		21FAFDB5444168F178391453 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CowTests/Pods-CowTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CowTests/Pods-CowTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CowTests/Pods-CowTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5E654F315E7FF456F3AD5D7F /* [CP] Check Pods Manifest.lock */ = {
@@ -394,6 +507,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		667F03C36980CBE9643F2E93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CowTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -402,7 +537,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8410012E26C1160C00C64E53 /* SqliteProtocolSelect.swift in Sources */,
+				8492CC0926C4D256004048EF /* SqlliteManage.swift in Sources */,
 				8492CBEC26C3CC6B004048EF /* WebViewController.swift in Sources */,
+				8492CBF326C4BACD004048EF /* FollowListViewController.swift in Sources */,
 				8410013226C116AA00C64E53 /* SqliteProtocolDelete.swift in Sources */,
 				8410012C26C1143800C64E53 /* SqliteProtocolTable.swift in Sources */,
 				844D5AFB26BA6EBC00AC08AF /* HomeViewController.swift in Sources */,
@@ -427,7 +564,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8492CBF826C4C233004048EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8492CBFF26C4C233004048EF /* CowTests.swift in Sources */,
+				8492CC0D26C4FBE6004048EF /* SqlliteManageTest.swift in Sources */,
+				8492CC0726C4C260004048EF /* FollowModelTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8492CC0226C4C233004048EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 844D5AD826BA604300AC08AF /* Cow */;
+			targetProxy = 8492CC0126C4C233004048EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		844D5AE226BA604300AC08AF /* Main.storyboard */ = {
@@ -500,7 +655,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -555,7 +710,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -574,7 +729,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQTXMU76N3;
 				INFOPLIST_FILE = Cow/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -595,7 +750,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQTXMU76N3;
 				INFOPLIST_FILE = Cow/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -604,6 +759,48 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8492CC0426C4C233004048EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8944AC9A803FD0C9983B9A34 /* Pods-CowTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HQTXMU76N3;
+				INFOPLIST_FILE = CowTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = DM.CowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cow.app/Cow";
+			};
+			name = Debug;
+		};
+		8492CC0526C4C233004048EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74237E86FA104E2E54D663EC /* Pods-CowTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HQTXMU76N3;
+				INFOPLIST_FILE = CowTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = DM.CowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cow.app/Cow";
 			};
 			name = Release;
 		};
@@ -624,6 +821,15 @@
 			buildConfigurations = (
 				844D5AEE26BA604400AC08AF /* Debug */,
 				844D5AEF26BA604400AC08AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8492CC0326C4C233004048EF /* Build configuration list for PBXNativeTarget "CowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8492CC0426C4C233004048EF /* Debug */,
+				8492CC0526C4C233004048EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

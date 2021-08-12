@@ -15,7 +15,7 @@ import SQLite
 let id = Expression<Int64>("id")
 
 
-struct StockBasic:HandyJSON, Codable{
+public struct StockBasic:HandyJSON, Codable{
 
     var name:String = ""
     var code:String = ""
@@ -23,9 +23,10 @@ struct StockBasic:HandyJSON, Codable{
     var industry:String = ""
     var market:String = ""
     var changeTime:String = "\(Date().mb_toString("yyyy-MM-dd"))"
+    public init() {
+        
+    }
 
-    
-    
 }
 
 extension StockBasic{
@@ -42,7 +43,10 @@ extension StockBasic{
                 finesh(BaseError.init(code: -1, msg: error.msg))
             case .success(let value):
                 do{
-                   _ = try Self.mutableinster(datas: value)
+                    _ = try sm.mutableinster(
+                        table: "stockbasic",
+                        column: ["name","code","area","industry","market","changeTime"],
+                        datas: value.map{$0.toJSON() ?? [:]})
                 }catch{
                     finesh(BaseError.init(code: -1, msg: error.localizedDescription))
                 }
@@ -54,7 +58,7 @@ extension StockBasic{
 }
 extension StockBasic:SqliteProtocol{
     
-    init(row: Row) {
+    public init(row: Row) {
         name = row[Expression<String>.init("name")]
         code = row[Expression<String>.init("code")]
         area = row[Expression<String>.init("area")]
@@ -63,7 +67,7 @@ extension StockBasic:SqliteProtocol{
         changeTime = row[Expression<String>.init("changeTime")]
         
     }
-    var table: Table? {
+    public var table: Table? {
         
         
         let  e_name = Expression<String>.init("name")

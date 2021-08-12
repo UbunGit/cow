@@ -19,12 +19,14 @@ class ViewController: UITabBarController,UITabBarControllerDelegate
     
     lazy var nav2: UINavigationController = {
         let vc1 = UIViewController()
+        vc1.title = "消息"
         let nav1 = UINavigationController.init(rootViewController: vc1)
         return nav1
     }()
     
     lazy var nav3: UINavigationController = {
-        let vc1 = UIViewController()
+        let vc1 = FollowListViewController()
+        vc1.title = "关注"
         let nav1 = UINavigationController.init(rootViewController: vc1)
         return nav1
     }()

@@ -50,10 +50,10 @@ extension SqliteProtocol{
     public var db:Connection?{
         return Self.db
     }
-    static var tableName:String{
+    public static var tableName:String{
         return "\(Self.self)".lowercased()
     }
-    var tableName:String{
+    public var tableName:String{
         return Self.tableName
     }
     
