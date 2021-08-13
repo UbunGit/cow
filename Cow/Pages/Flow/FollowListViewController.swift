@@ -7,27 +7,80 @@
 
 import UIKit
 import MJRefresh
+import HandyJSON
+import Magicbox
+class FollowListModel: HandyJSON {
+    var dataSource:[FollowModel] = []
+    required init() {
+        
+    }
+   
+    
+    func updatedataSource(type:Int,finesh:(Error?)->()) {
+        do {
+            let sql = """
+                SELECT t1.id, t2.code, t2.name
+                FROM  follow t1
+                LEFT JOIN stockbasic t2 ON t1.pid=t2.code
+                WHERE t1.type = 1
+                """
+            
+            guard let stmt = try sm.db?.prepare(sql) else {
+                throw(BaseError(code: -2, msg: ""))
+            }
+            let result = stmt.map { row-> FollowModel in
+                
+                var item:Dictionary = [String:Any]()
+                for (index, name) in stmt.columnNames.enumerated() {
+                    item[name] = row[index]!
+                }
+                return FollowModel.deserialize(from: item)!
+            }
+            dataSource =  result
+            finesh(nil)
+        } catch let error {
+            debugPrint(error.localizedDescription)
+            finesh(error)
+        }
+        
+    }
+    
+    func unfollow(id:Int, finesh:(Error?)->()) {
+        do {
+            try sm.delete_follow(id: id)
+            finesh(nil)
+        } catch let error {
+            debugPrint(error.localizedDescription)
+            finesh(error)
+        }
+        
+    }
+}
 
 class FollowListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var dataSource:[FollowModel] = []
+    var pageData:FollowListModel = FollowListModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableview()
+        
+      
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         updateData()
     }
-    
-    func updateData()  {
-        do {
-            try dataSource = FollowModel().fitter(type: 1)
-            self.tableView.mj_header?.endRefreshing()
-            tableView.reloadData()
-        } catch let error {
-            view.error(error.localizedDescription)
+    func updateData(){
+        pageData.updatedataSource(type: 1) { error in
+            if error == nil{
+                tableView.mj_header?.endRefreshing()
+                tableView.reloadData()
+            }else{
+                self.view.error(error!.localizedDescription)
+            }
         }
     }
-
 }
 
 extension FollowListViewController:UITableViewDelegate,UITableViewDataSource{
@@ -42,12 +95,12 @@ extension FollowListViewController:UITableViewDelegate,UITableViewDataSource{
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        return pageData.dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = dataSource[indexPath.row].name
+        cell.textLabel?.text = pageData.dataSource[indexPath.row].name
         return cell
     }
     // 左侧按钮自定义
@@ -55,20 +108,21 @@ extension FollowListViewController:UITableViewDelegate,UITableViewDataSource{
         
         let leftAction = UIContextualAction(style: .normal, title: "取消关注") { (action, view, finished) in
             do{
-                try self.dataSource[indexPath.row].unfollow()
-            }catch let error{
-                self.view.error(error.localizedDescription)
-                return
+                self.pageData.unfollow(id: self.pageData.dataSource[indexPath.row].id){ error in
+                    if error == nil{
+                        self.pageData.dataSource.remove(at: indexPath.row)
+                        tableView.beginUpdates()
+                        tableView.deleteRow(at: indexPath, with: .right)
+                        tableView.endUpdates()
+                        finished(true)
+                    }else{
+                        self.view.error(error!.localizedDescription)
+                        finished(true)
+                        return
+                    }
+                }
             }
-            self.dataSource.remove(at: indexPath.row)
-            tableView.beginUpdates()
-            tableView.deleteRow(at: indexPath, with: .right)
-            
-            tableView.endUpdates()
-            finished(true)
         }
-        
-        
         return UISwipeActionsConfiguration(actions: [leftAction])
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -9,7 +9,7 @@ import UIKit
 
 class StockBasicListCell: UITableViewCell {
     
-    var celldata:StockBasic?=nil{
+    var celldata:StockBasicListModel.Stroe?=nil{
         didSet{
             updateUI()
         }
@@ -29,6 +29,7 @@ class StockBasicListCell: UITableViewCell {
         }
         nameLab.text = tdata.name
         codeLab.text = tdata.code
+        flowImageView.isHidden = !tdata.isfollow
         
         
     }

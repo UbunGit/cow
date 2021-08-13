@@ -10,13 +10,45 @@ import Magicbox
 import HandyJSON
 import MJRefresh
 
+class StockBasicListModel: HandyJSON {
+    
+    struct Stroe:HandyJSON{
+        var name:String = ""
+        var code:String = ""
+        var area:String = ""
+        var industry:String = ""
+        var isfollow:Bool = false
+        var market:String = ""
+        var changeTime:String = "\(Date().mb_toString("yyyy-MM-dd"))"
+
+    }
+    var stroes:[Stroe] = []
+
+
+    required init() {
+        
+    }
+    func updatestroes(finesh:(Error?)->()){
+        do {
+            let sql = """
+                SELECT t1.*,  ifnull(t2.id>0,false) as isfollow FROM stockbasic t1
+                LEFT JOIN follow t2 on t1.code=t2.pid
+                """
+            let smt = try sm.db?.prepare(sql)
+            smt?.to_moden(Stroe.self, finesh: { (result) in
+                self.stroes = result
+                finesh(nil)
+            })
+        } catch let error {
+            debugPrint(error.localizedDescription)
+        }
+        
+    }
+}
+
 class StockBasicListVC: BaseViewController {
 
-    var datasource:[StockBasic] = []{
-        didSet{
-            tableView.reloadData()
-        }
-    }
+    var pageData = StockBasicListModel()
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -24,7 +56,11 @@ class StockBasicListVC: BaseViewController {
         title = "股票列表"
         configNav()
         configTableview()
-        updateDataSource()
+       
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updatedata()
     }
     
     // 刷新
@@ -46,7 +82,7 @@ class StockBasicListVC: BaseViewController {
 extension StockBasicListVC:UITableViewDelegate,UITableViewDataSource{
     
     func configTableview()  {
-//        tableView.separatorStyle = .none
+
         tableView.estimatedRowHeight = 60
         tableView.register(UINib(nibName: "StockBasicListCell", bundle: nil), forCellReuseIdentifier: "StockBasicListCell")
         tableView.mj_header = MJRefreshGifHeader(refreshingBlock: {
@@ -55,51 +91,33 @@ extension StockBasicListVC:UITableViewDelegate,UITableViewDataSource{
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return datasource.count
+        return pageData.stroes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StockBasicListCell", for: indexPath) as! StockBasicListCell
-        cell.celldata = datasource[indexPath.row]
+        cell.celldata = pageData.stroes[indexPath.row]
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let web = WebViewController()
         self.navigationController?.pushViewController(web, animated: true)
-        let codes = datasource[indexPath.row].code.components(separatedBy: ".")
+        let codes = pageData.stroes[indexPath.row].code.components(separatedBy: ".")
         if codes.count == 2 {
             web.url = "https://quotes.sina.cn/hs/company/quotes/view/\(codes[1])\(codes[0])"
         }
         
     }
-    // 左侧按钮自定义
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        let leftAction = UIContextualAction(style: .normal, title: "左侧") { (action, view, finished) in
-            
-            finished(true)
-        }
-        
-        
-        return UISwipeActionsConfiguration(actions: [leftAction])
-    }
+
     
     // 右侧按钮自定义
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        let deleteAction = UIContextualAction(style: .destructive, title: "删除") { (action, view, finished) in
-            
-//            tableView.deleteRows(at: [indexPath], with: .automatic)
-//
-//            // 回调告知执行成功，否则不会删除此行！！！
-//            finished(true)
-        }
-        
-        
-        
+
         let archiveAction = UIContextualAction(style: .normal, title: "关注") { [self] (action, view, finished) in
             do{
-               try sm.inster_follow(type: 1, pid: datasource[indexPath.row].code)
+                try sm.inster_follow(type: 1, pid: pageData.stroes[indexPath.row].code)
+                pageData.stroes[indexPath.row].isfollow = true
+                tableView.reloadRow(at: indexPath, with: .automatic)
             }catch let error{
                 self.view.error(error.localizedDescription)
             }
@@ -108,7 +126,7 @@ extension StockBasicListVC:UITableViewDelegate,UITableViewDataSource{
         }
         
         
-        return UISwipeActionsConfiguration(actions: [deleteAction, archiveAction])
+        return UISwipeActionsConfiguration(actions: [ archiveAction])
     }
     
     
@@ -118,22 +136,24 @@ extension StockBasicListVC{
         view.loading()
         StockBasic.api_update { error in
             self.view.loadingDismiss()
-           
+            
             self.tableView.mj_header?.endRefreshing()
             if error != nil{
                 self.view.error(error!.msg)
             }else{
-                self.updateDataSource()
-          
+                self.updatedata()
+                
             }
         }
     }
-    
-    func updateDataSource()  {
-        guard let result = StockBasic().select()  else {
-            return
-        }
-        datasource = result
-        
+    func updatedata()  {
+        self.pageData.updatestroes(finesh: { error in
+            if error == nil{
+                self.tableView.reloadData()
+            }else{
+                self.view.error(error!.localizedDescription)
+            }
+        })
     }
+
 }

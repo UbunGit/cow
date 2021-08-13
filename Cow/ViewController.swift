@@ -13,6 +13,7 @@ class ViewController: UITabBarController,UITabBarControllerDelegate
     lazy var nav1: UINavigationController = {
         let vc1 = HomeViewController()
         vc1.title = "首页"
+        vc1.tabBarItem.image = UIImage(systemName: "house")
         let nav1 = UINavigationController.init(rootViewController: vc1)
         return nav1
     }()
@@ -20,6 +21,7 @@ class ViewController: UITabBarController,UITabBarControllerDelegate
     lazy var nav2: UINavigationController = {
         let vc1 = UIViewController()
         vc1.title = "消息"
+        vc1.tabBarItem.image = UIImage(systemName: "message")
         let nav1 = UINavigationController.init(rootViewController: vc1)
         return nav1
     }()
@@ -27,6 +29,7 @@ class ViewController: UITabBarController,UITabBarControllerDelegate
     lazy var nav3: UINavigationController = {
         let vc1 = FollowListViewController()
         vc1.title = "关注"
+        vc1.tabBarItem.image = UIImage(systemName: "suit.heart")
         let nav1 = UINavigationController.init(rootViewController: vc1)
         return nav1
     }()
@@ -34,6 +37,7 @@ class ViewController: UITabBarController,UITabBarControllerDelegate
     lazy var nav4: UINavigationController = {
         let vc1 = SettingVC()
         vc1.title = "设置"
+        vc1.tabBarItem.image = UIImage(systemName: "light.min")
         let nav1 = UINavigationController.init(rootViewController: vc1)
         return nav1
     }()

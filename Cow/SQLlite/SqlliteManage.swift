@@ -8,7 +8,7 @@
 import Foundation
 import Magicbox
 import SQLite
-
+import HandyJSON
 public extension DispatchQueue{
     private static var _onceTracker = [String]()
     
@@ -179,5 +179,22 @@ public extension SqlliteManage{
         print(sql)
         try db?.execute(sql)
         }
+
+}
+
+extension Statement{
+
+    
+    public func to_moden<T>(_ type: T.Type, finesh:([T]) -> ()) where T : HandyJSON{
+        finesh( map { row-> T in
+            
+            var item:Dictionary = [String:Any]()
+            for (index, name) in self.columnNames.enumerated() {
+                item[name] = row[index]!
+            }
+            return T.deserialize(from: item)!
+        }
+        )
+    }
 
 }
