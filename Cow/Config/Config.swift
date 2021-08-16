@@ -19,14 +19,15 @@ var baseurl:String{
 
 extension DataRequest{
     
-    struct APIData<T:Codable>:HandyJSON,Codable{
+    struct APIData<T>:HandyJSON{
         var code:Int = -1
         var message:String = ""
         var data:T?
       
     }
+    
 
-    open func responseModel<T>(_ type: T.Type, callback:@escaping (Result<T, APIError>) ->  ()) where T : Codable{
+    open func responseModel<T>(_ type: T.Type, callback:@escaping (Result<T, APIError>)  ->  ()) {
 
         self.responseJSON { (response) in
             switch response.result {
@@ -48,6 +49,7 @@ extension DataRequest{
             case .failure(let error):
                 print("🐬 \(error)")
                 callback(.failure(APIError(code: -200, msg: "http error")))
+                
             }
         }
     }

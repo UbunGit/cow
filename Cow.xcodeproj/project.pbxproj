@@ -20,7 +20,6 @@
 		8410013626C11D8700C64E53 /* StockBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410013526C11D8700C64E53 /* StockBasic.swift */; };
 		8410013B26C11FF900C64E53 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410013A26C11FF900C64E53 /* Config.swift */; };
 		844D5ADD26BA604300AC08AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D5ADC26BA604300AC08AF /* AppDelegate.swift */; };
-		844D5ADF26BA604300AC08AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D5ADE26BA604300AC08AF /* SceneDelegate.swift */; };
 		844D5AE126BA604300AC08AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D5AE026BA604300AC08AF /* ViewController.swift */; };
 		844D5AE426BA604300AC08AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844D5AE226BA604300AC08AF /* Main.storyboard */; };
 		844D5AE626BA604400AC08AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844D5AE526BA604400AC08AF /* Assets.xcassets */; };
@@ -32,6 +31,7 @@
 		844D5B0926BA955600AC08AF /* HomeBandas.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844D5B0826BA955600AC08AF /* HomeBandas.xib */; };
 		844D5B0C26BA9F1500AC08AF /* HomeBandasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D5B0A26BA9F1500AC08AF /* HomeBandasCell.swift */; };
 		844D5B0D26BA9F1500AC08AF /* HomeBandasCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844D5B0B26BA9F1500AC08AF /* HomeBandasCell.xib */; };
+		845E457826CA5CF6002E77C3 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E457726CA5CF6002E77C3 /* Task.swift */; };
 		846B4CB826C0F82D00EB5BA7 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B4CB626C0F82D00EB5BA7 /* SettingVC.swift */; };
 		846B4CB926C0F82D00EB5BA7 /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B4CB726C0F82D00EB5BA7 /* SettingVC.xib */; };
 		846B4CBD26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B4CBB26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.swift */; };
@@ -78,7 +78,6 @@
 		8410013A26C11FF900C64E53 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		844D5AD926BA604300AC08AF /* Cow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844D5ADC26BA604300AC08AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		844D5ADE26BA604300AC08AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		844D5AE026BA604300AC08AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		844D5AE326BA604300AC08AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		844D5AE526BA604400AC08AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,6 +90,7 @@
 		844D5B0826BA955600AC08AF /* HomeBandas.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBandas.xib; sourceTree = "<group>"; };
 		844D5B0A26BA9F1500AC08AF /* HomeBandasCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBandasCell.swift; sourceTree = "<group>"; };
 		844D5B0B26BA9F1500AC08AF /* HomeBandasCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBandasCell.xib; sourceTree = "<group>"; };
+		845E457726CA5CF6002E77C3 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		846B4CB626C0F82D00EB5BA7 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		846B4CB726C0F82D00EB5BA7 /* SettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
 		846B4CBB26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -199,11 +199,11 @@
 		844D5ADB26BA604300AC08AF /* Cow */ = {
 			isa = PBXGroup;
 			children = (
+				845E457626CA5CD7002E77C3 /* Task */,
 				8410013926C11FE900C64E53 /* Config */,
 				8410012626C1119C00C64E53 /* SQLlite */,
 				844D5AF126BA6C5600AC08AF /* Pages */,
 				844D5ADC26BA604300AC08AF /* AppDelegate.swift */,
-				844D5ADE26BA604300AC08AF /* SceneDelegate.swift */,
 				844D5AE026BA604300AC08AF /* ViewController.swift */,
 				844D5AE226BA604300AC08AF /* Main.storyboard */,
 				844D5AE526BA604400AC08AF /* Assets.xcassets */,
@@ -253,6 +253,14 @@
 				844D5B0B26BA9F1500AC08AF /* HomeBandasCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		845E457626CA5CD7002E77C3 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				845E457726CA5CF6002E77C3 /* Task.swift */,
+			);
+			path = Task;
 			sourceTree = "<group>";
 		};
 		846B4CB526C0F80600EB5BA7 /* Setting */ = {
@@ -544,6 +552,7 @@
 				8410012C26C1143800C64E53 /* SqliteProtocolTable.swift in Sources */,
 				844D5AFB26BA6EBC00AC08AF /* HomeViewController.swift in Sources */,
 				846B4CB826C0F82D00EB5BA7 /* SettingVC.swift in Sources */,
+				845E457826CA5CF6002E77C3 /* Task.swift in Sources */,
 				846B4CC726C104A100EB5BA7 /* CollectionViewGridCell.swift in Sources */,
 				844D5B0C26BA9F1500AC08AF /* HomeBandasCell.swift in Sources */,
 				8410012026C10D2700C64E53 /* StockBasicListVC.swift in Sources */,
@@ -556,7 +565,6 @@
 				8410013626C11D8700C64E53 /* StockBasic.swift in Sources */,
 				844D5ADD26BA604300AC08AF /* AppDelegate.swift in Sources */,
 				8410013426C116DD00C64E53 /* SqliteProtocolUpdate.swift in Sources */,
-				844D5ADF26BA604300AC08AF /* SceneDelegate.swift in Sources */,
 				8410013B26C11FF900C64E53 /* Config.swift in Sources */,
 				8492CBF026C3D641004048EF /* FollowModel.swift in Sources */,
 				8410013026C1165C00C64E53 /* SqliteProtocolInster.swift in Sources */,

@@ -36,7 +36,7 @@ extension StockBasic{
         let param = ["changeTime":"","keyword":""]
  
         AF.request(url, method: .get, parameters: param) { urlRequest in
-            urlRequest.timeoutInterval = 15
+            urlRequest.timeoutInterval = 50
         }.responseModel([StockBasic].self) { result in
             switch result{
             case .failure(let error):

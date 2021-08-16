@@ -100,12 +100,13 @@ extension StockBasicListVC:UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let web = WebViewController()
-        self.navigationController?.pushViewController(web, animated: true)
-        let codes = pageData.stroes[indexPath.row].code.components(separatedBy: ".")
-        if codes.count == 2 {
-            web.url = "https://quotes.sina.cn/hs/company/quotes/view/\(codes[1])\(codes[0])"
-        }
+        try? Task.task_updateSoredata()
+//        let web = WebViewController()
+//        self.navigationController?.pushViewController(web, animated: true)
+//        let codes = pageData.stroes[indexPath.row].code.components(separatedBy: ".")
+//        if codes.count == 2 {
+//            web.url = "https://quotes.sina.cn/hs/company/quotes/view/\(codes[1])\(codes[0])"
+//        }
         
     }
 

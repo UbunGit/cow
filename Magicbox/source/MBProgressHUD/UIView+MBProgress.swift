@@ -98,7 +98,9 @@ import MBProgressHUD
      UIView.lodding()
      */
     static func loading(_ msg:String? = nil){
+        DispatchQueue.main.async {
         KWindow??.loading(msg)
+        }
     }
     
     /**
@@ -107,13 +109,29 @@ import MBProgressHUD
      aview.lodding()
      */
     func loading(_ msg:String? = nil){
+        let notificationName = Notification.Name(rawValue: "msg")
+        NotificationCenter.default.addObserver(self,
+                                               selector:#selector(self.loadingUpdate(notif:)),
+                                               name: notificationName, object: nil)
         DispatchQueue.main.async {
             let hud = self.show(text: msg, icon: nil)
             hud.mode = .indeterminate
             hud.tag = 6003
-          
             
         }
+    }
+    @objc func loadingUpdate(notif:Notification){
+        
+        DispatchQueue.main.async {
+            guard let hub = self.viewWithTag(6003) as? MBProgressHUD else{
+                return
+            }
+            guard let msg = notif.object as? String else{
+                return
+            }
+            hub.label.text = msg
+        }
+
     }
     
     /**
@@ -122,7 +140,10 @@ import MBProgressHUD
      UIView.loadingDismiss()
      */
     static func loadingDismiss(){
-        KWindow??.loadingDismiss()
+        DispatchQueue.main.async {
+            KWindow??.loadingDismiss()
+        }
+        
     }
     
     /**
@@ -131,7 +152,10 @@ import MBProgressHUD
      aview.loadingDismiss()
      */
     func loadingDismiss(){
-        self.hubhidden(6003)
+        DispatchQueue.main.async {
+            self.hubhidden(6003)
+        }
+        
     }
     
     func alertView(aview:UIView) {
@@ -187,10 +211,12 @@ private extension UIView{
     }
     
     func hubhidden(_ viewTag:Int)  {
-        self.isUserInteractionEnabled = true;
-        guard let hub = self.viewWithTag(viewTag) as? MBProgressHUD  else {
-            return
+        DispatchQueue.main.async{
+            self.isUserInteractionEnabled = true;
+            guard let hub = self.viewWithTag(viewTag) as? MBProgressHUD  else {
+                return
+            }
+            hub.hide(animated: false)
         }
-        hub.hide(animated: false)
     }
 }
