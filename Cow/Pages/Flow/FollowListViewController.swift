@@ -45,9 +45,10 @@ class FollowListModel: HandyJSON {
         
     }
     
-    func unfollow(id:Int, finesh:(Error?)->()) {
+    func unfollow(data:FollowModel, finesh:(Error?)->()) {
         do {
-            try sm.delete_follow(id: id)
+            try sm.delete_follow(id: data.id)
+            try sm.delete_stockdaily(code: data.code)
             finesh(nil)
         } catch let error {
             debugPrint(error.localizedDescription)
@@ -108,7 +109,7 @@ extension FollowListViewController:UITableViewDelegate,UITableViewDataSource{
         
         let leftAction = UIContextualAction(style: .normal, title: "取消关注") { (action, view, finished) in
             do{
-                self.pageData.unfollow(id: self.pageData.dataSource[indexPath.row].id){ error in
+                self.pageData.unfollow(data: self.pageData.dataSource[indexPath.row]){ error in
                     if error == nil{
                         self.pageData.dataSource.remove(at: indexPath.row)
                         tableView.beginUpdates()

@@ -7,10 +7,12 @@
 
 import UIKit
 
+
+
 class SettingVC: BaseViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    lazy var grids: [DataHandleModel] = {
+    lazy var downGrids: [DataHandleModel] = {
         let grids = [
             DataHandleModel.init(
                 name: "股票列表",
@@ -50,6 +52,18 @@ class SettingVC: BaseViewController {
         ]
         return grids
     }()
+    lazy var tableGrids: [DataHandleModel] = {
+        let grids = [
+            DataHandleModel.init(
+                name: "表管理",
+                icon: "🦊",
+                handle: {
+                    self.mb_push("Cow.SQLTableListVC", params: [:])
+                }
+            )
+        ]
+        return grids
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -71,7 +85,7 @@ extension SettingVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -79,7 +93,9 @@ extension SettingVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         case 0:
             return 1
         case 1:
-            return grids.count
+            return downGrids.count
+        case 2:
+            return tableGrids.count
         default:
             return 0
         }
@@ -92,9 +108,15 @@ extension SettingVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewGridCell", for: indexPath) as! CollectionViewGridCell
-            cell.imageLab.text = grids[indexPath.row].icon;
-            cell.titleLab.text = grids[indexPath.row].name
-            cell.imageView.image = UIImage(systemName: grids[indexPath.row].icon)
+            cell.imageLab.text = downGrids[indexPath.row].icon;
+            cell.titleLab.text = downGrids[indexPath.row].name
+            cell.imageView.image = UIImage(systemName: downGrids[indexPath.row].icon)
+            return cell
+        case 2:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewGridCell", for: indexPath) as! CollectionViewGridCell
+            cell.imageLab.text = tableGrids[indexPath.row].icon;
+            cell.titleLab.text = tableGrids[indexPath.row].name
+            cell.imageView.image = UIImage(systemName: tableGrids[indexPath.row].icon)
             return cell
         default:
             return UICollectionViewCell()
@@ -107,6 +129,8 @@ extension SettingVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
             return UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         case 1:
             return UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        case 2:
+            return UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         default:
             return .zero
         }
@@ -118,6 +142,8 @@ extension SettingVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
             return CGSize(width: collectionView.bounds.size.width, height: 100)
         case 1:
             return CGSize(width: ((collectionView.bounds.size.width-16)/5)-1, height: (collectionView.bounds.size.width-16)/5 + 20 )
+        case 2:
+            return CGSize(width: ((collectionView.bounds.size.width-16)/5)-1, height: (collectionView.bounds.size.width-16)/5 + 20 )
         default:
             return .zero
         }
@@ -128,7 +154,9 @@ extension SettingVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         case 0:
             return 
         case 1:
-            grids[indexPath.row].handle()
+            downGrids[indexPath.row].handle()
+        case 2:
+            tableGrids[indexPath.row].handle()
         default:
             return
         }

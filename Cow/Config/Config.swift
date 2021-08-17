@@ -26,10 +26,43 @@ extension DataRequest{
       
     }
     
+    func debugLog(_ json:AFDataResponse<Any>) {
+        #if DEBUG
+        
+        guard let request = performedRequests.last ?? lastRequest,
+              let url = request.url,
+              let method = request.httpMethod,
+              let headers = request.allHTTPHeaderFields
+        else {
+            return debugPrint("DM No request created yet.")
+        }
+//        let body = String(data: request.httpBody ?? Data(), encoding: .utf8)
+        let body =  request.httpBody.map { String(decoding: $0, as: UTF8.self) }
+        let requestDescription = "\(method) \(url.absoluteString)"
+        let state  =  response.map { "\(requestDescription) (\($0.statusCode))" } ?? requestDescription
+        let result = json.description
+        let icon = (response?.statusCode == 200) ? "🧘‍♂️" : " 🧱"
+        debugPrint(
+           
+            """
+            *****************\(icon)******************
+            url:\(state)
+            header:\(headers)
+            body:\(body ?? "")
+            result:\(result)
+            ******************************************
+            """
+        )
+
+        #endif
+        
+    }
+    
 
     open func responseModel<T>(_ type: T.Type, callback:@escaping (Result<T, APIError>)  ->  ()) {
-
+        
         self.responseJSON { (response) in
+            self.debugLog(response)
             switch response.result {
             case .success(let value):
                 

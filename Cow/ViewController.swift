@@ -48,9 +48,7 @@ class ViewController: UITabBarController,UITabBarControllerDelegate
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
-            Task.task_createTable()
-        })
+        Task.task_createTable()
       
        
     }

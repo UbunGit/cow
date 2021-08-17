@@ -32,7 +32,11 @@ import YYKit
         
         if (cls.isSubclass(of: UIViewController.self) == true) {
             let vc = cls.init()
-            vc.modelSet(with: params as! [AnyHashable : Any])
+            guard let value = params as? [String : Any] else {
+                return
+            }
+           
+            vc.modelSet(with: value)
             nav.pushViewController(vc, animated: true)
         }else{
             return

@@ -11,12 +11,6 @@
 		8410011C26C106EA00C64E53 /* DataHandleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410011B26C106EA00C64E53 /* DataHandleModel.swift */; };
 		8410012026C10D2700C64E53 /* StockBasicListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410011E26C10D2700C64E53 /* StockBasicListVC.swift */; };
 		8410012126C10D2700C64E53 /* StockBasicListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8410011F26C10D2700C64E53 /* StockBasicListVC.xib */; };
-		8410012A26C1122900C64E53 /* SqliteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410012926C1122900C64E53 /* SqliteProtocol.swift */; };
-		8410012C26C1143800C64E53 /* SqliteProtocolTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410012B26C1143800C64E53 /* SqliteProtocolTable.swift */; };
-		8410012E26C1160C00C64E53 /* SqliteProtocolSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410012D26C1160C00C64E53 /* SqliteProtocolSelect.swift */; };
-		8410013026C1165C00C64E53 /* SqliteProtocolInster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410012F26C1165C00C64E53 /* SqliteProtocolInster.swift */; };
-		8410013226C116AA00C64E53 /* SqliteProtocolDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410013126C116AA00C64E53 /* SqliteProtocolDelete.swift */; };
-		8410013426C116DD00C64E53 /* SqliteProtocolUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410013326C116DD00C64E53 /* SqliteProtocolUpdate.swift */; };
 		8410013626C11D8700C64E53 /* StockBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410013526C11D8700C64E53 /* StockBasic.swift */; };
 		8410013B26C11FF900C64E53 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410013A26C11FF900C64E53 /* Config.swift */; };
 		844D5ADD26BA604300AC08AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D5ADC26BA604300AC08AF /* AppDelegate.swift */; };
@@ -32,6 +26,12 @@
 		844D5B0C26BA9F1500AC08AF /* HomeBandasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D5B0A26BA9F1500AC08AF /* HomeBandasCell.swift */; };
 		844D5B0D26BA9F1500AC08AF /* HomeBandasCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844D5B0B26BA9F1500AC08AF /* HomeBandasCell.xib */; };
 		845E457826CA5CF6002E77C3 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E457726CA5CF6002E77C3 /* Task.swift */; };
+		845E45A826CBA94E002E77C3 /* SQLTableListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E45A626CBA947002E77C3 /* SQLTableListVC.swift */; };
+		845E45A926CBA94E002E77C3 /* SQLTableListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845E45A726CBA948002E77C3 /* SQLTableListVC.xib */; };
+		845E45AB26CBABF1002E77C3 /* SqliteTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E45AA26CBABF1002E77C3 /* SqliteTable.swift */; };
+		845E45AD26CBB81F002E77C3 /* SqliteSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E45AC26CBB81F002E77C3 /* SqliteSelect.swift */; };
+		845E45B126CBB988002E77C3 /* SQLTableInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E45AF26CBB988002E77C3 /* SQLTableInfoVC.swift */; };
+		845E45B226CBB988002E77C3 /* SQLTableInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845E45B026CBB988002E77C3 /* SQLTableInfoVC.xib */; };
 		846B4CB826C0F82D00EB5BA7 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B4CB626C0F82D00EB5BA7 /* SettingVC.swift */; };
 		846B4CB926C0F82D00EB5BA7 /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B4CB726C0F82D00EB5BA7 /* SettingVC.xib */; };
 		846B4CBD26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B4CBB26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.swift */; };
@@ -68,12 +68,6 @@
 		8410011B26C106EA00C64E53 /* DataHandleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandleModel.swift; sourceTree = "<group>"; };
 		8410011E26C10D2700C64E53 /* StockBasicListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBasicListVC.swift; sourceTree = "<group>"; };
 		8410011F26C10D2700C64E53 /* StockBasicListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockBasicListVC.xib; sourceTree = "<group>"; };
-		8410012926C1122900C64E53 /* SqliteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteProtocol.swift; sourceTree = "<group>"; };
-		8410012B26C1143800C64E53 /* SqliteProtocolTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteProtocolTable.swift; sourceTree = "<group>"; };
-		8410012D26C1160C00C64E53 /* SqliteProtocolSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteProtocolSelect.swift; sourceTree = "<group>"; };
-		8410012F26C1165C00C64E53 /* SqliteProtocolInster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteProtocolInster.swift; sourceTree = "<group>"; };
-		8410013126C116AA00C64E53 /* SqliteProtocolDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteProtocolDelete.swift; sourceTree = "<group>"; };
-		8410013326C116DD00C64E53 /* SqliteProtocolUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteProtocolUpdate.swift; sourceTree = "<group>"; };
 		8410013526C11D8700C64E53 /* StockBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBasic.swift; sourceTree = "<group>"; };
 		8410013A26C11FF900C64E53 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		844D5AD926BA604300AC08AF /* Cow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +85,12 @@
 		844D5B0A26BA9F1500AC08AF /* HomeBandasCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBandasCell.swift; sourceTree = "<group>"; };
 		844D5B0B26BA9F1500AC08AF /* HomeBandasCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBandasCell.xib; sourceTree = "<group>"; };
 		845E457726CA5CF6002E77C3 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		845E45A626CBA947002E77C3 /* SQLTableListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLTableListVC.swift; sourceTree = "<group>"; };
+		845E45A726CBA948002E77C3 /* SQLTableListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SQLTableListVC.xib; sourceTree = "<group>"; };
+		845E45AA26CBABF1002E77C3 /* SqliteTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteTable.swift; sourceTree = "<group>"; };
+		845E45AC26CBB81F002E77C3 /* SqliteSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteSelect.swift; sourceTree = "<group>"; };
+		845E45AF26CBB988002E77C3 /* SQLTableInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLTableInfoVC.swift; sourceTree = "<group>"; };
+		845E45B026CBB988002E77C3 /* SQLTableInfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SQLTableInfoVC.xib; sourceTree = "<group>"; };
 		846B4CB626C0F82D00EB5BA7 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		846B4CB726C0F82D00EB5BA7 /* SettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
 		846B4CBB26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -157,13 +157,10 @@
 		8410012626C1119C00C64E53 /* SQLlite */ = {
 			isa = PBXGroup;
 			children = (
-				8410012926C1122900C64E53 /* SqliteProtocol.swift */,
-				8410012B26C1143800C64E53 /* SqliteProtocolTable.swift */,
-				8410012D26C1160C00C64E53 /* SqliteProtocolSelect.swift */,
-				8410012F26C1165C00C64E53 /* SqliteProtocolInster.swift */,
-				8410013126C116AA00C64E53 /* SqliteProtocolDelete.swift */,
-				8410013326C116DD00C64E53 /* SqliteProtocolUpdate.swift */,
+				845E45AE26CBB946002E77C3 /* VC */,
 				8492CC0826C4D256004048EF /* SqlliteManage.swift */,
+				845E45AC26CBB81F002E77C3 /* SqliteSelect.swift */,
+				845E45AA26CBABF1002E77C3 /* SqliteTable.swift */,
 			);
 			path = SQLlite;
 			sourceTree = "<group>";
@@ -261,6 +258,17 @@
 				845E457726CA5CF6002E77C3 /* Task.swift */,
 			);
 			path = Task;
+			sourceTree = "<group>";
+		};
+		845E45AE26CBB946002E77C3 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				845E45A626CBA947002E77C3 /* SQLTableListVC.swift */,
+				845E45A726CBA948002E77C3 /* SQLTableListVC.xib */,
+				845E45AF26CBB988002E77C3 /* SQLTableInfoVC.swift */,
+				845E45B026CBB988002E77C3 /* SQLTableInfoVC.xib */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 		846B4CB526C0F80600EB5BA7 /* Setting */ = {
@@ -434,11 +442,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845E45B226CBB988002E77C3 /* SQLTableInfoVC.xib in Resources */,
 				8410012126C10D2700C64E53 /* StockBasicListVC.xib in Resources */,
 				844D5AE926BA604400AC08AF /* LaunchScreen.storyboard in Resources */,
 				8492CBF426C4BACD004048EF /* FollowListViewController.xib in Resources */,
 				849D787926C287F5003DFE5F /* StockBasicListCell.xib in Resources */,
 				846B4CB926C0F82D00EB5BA7 /* SettingVC.xib in Resources */,
+				845E45A926CBA94E002E77C3 /* SQLTableListVC.xib in Resources */,
 				846B4CBE26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib in Resources */,
 				844D5B0926BA955600AC08AF /* HomeBandas.xib in Resources */,
 				846B4CC826C104E400EB5BA7 /* CollectionViewGridCell.xib in Resources */,
@@ -544,30 +554,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8410012E26C1160C00C64E53 /* SqliteProtocolSelect.swift in Sources */,
 				8492CC0926C4D256004048EF /* SqlliteManage.swift in Sources */,
+				845E45B126CBB988002E77C3 /* SQLTableInfoVC.swift in Sources */,
 				8492CBEC26C3CC6B004048EF /* WebViewController.swift in Sources */,
 				8492CBF326C4BACD004048EF /* FollowListViewController.swift in Sources */,
-				8410013226C116AA00C64E53 /* SqliteProtocolDelete.swift in Sources */,
-				8410012C26C1143800C64E53 /* SqliteProtocolTable.swift in Sources */,
+				845E45A826CBA94E002E77C3 /* SQLTableListVC.swift in Sources */,
 				844D5AFB26BA6EBC00AC08AF /* HomeViewController.swift in Sources */,
+				845E45AB26CBABF1002E77C3 /* SqliteTable.swift in Sources */,
 				846B4CB826C0F82D00EB5BA7 /* SettingVC.swift in Sources */,
 				845E457826CA5CF6002E77C3 /* Task.swift in Sources */,
 				846B4CC726C104A100EB5BA7 /* CollectionViewGridCell.swift in Sources */,
+				845E45AD26CBB81F002E77C3 /* SqliteSelect.swift in Sources */,
 				844D5B0C26BA9F1500AC08AF /* HomeBandasCell.swift in Sources */,
 				8410012026C10D2700C64E53 /* StockBasicListVC.swift in Sources */,
 				8410011C26C106EA00C64E53 /* DataHandleModel.swift in Sources */,
-				8410012A26C1122900C64E53 /* SqliteProtocol.swift in Sources */,
 				844D5AE126BA604300AC08AF /* ViewController.swift in Sources */,
 				844D5AF426BA6C8000AC08AF /* BaseViewController.swift in Sources */,
 				846B4CBD26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.swift in Sources */,
 				849D787826C287F5003DFE5F /* StockBasicListCell.swift in Sources */,
 				8410013626C11D8700C64E53 /* StockBasic.swift in Sources */,
 				844D5ADD26BA604300AC08AF /* AppDelegate.swift in Sources */,
-				8410013426C116DD00C64E53 /* SqliteProtocolUpdate.swift in Sources */,
 				8410013B26C11FF900C64E53 /* Config.swift in Sources */,
 				8492CBF026C3D641004048EF /* FollowModel.swift in Sources */,
-				8410013026C1165C00C64E53 /* SqliteProtocolInster.swift in Sources */,
 				844D5B0326BA803400AC08AF /* HomeBandas.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -663,7 +671,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -718,7 +726,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -737,7 +745,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQTXMU76N3;
 				INFOPLIST_FILE = Cow/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -758,7 +766,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQTXMU76N3;
 				INFOPLIST_FILE = Cow/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

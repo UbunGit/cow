@@ -56,37 +56,5 @@ extension StockBasic{
         }
     }
 }
-extension StockBasic:SqliteProtocol{
-    
-    public init(row: Row) {
-        name = row[Expression<String>.init("name")]
-        code = row[Expression<String>.init("code")]
-        area = row[Expression<String>.init("area")]
-        industry = row[Expression<String>.init("industry")]
-        market = row[Expression<String>.init("market")]
-        changeTime = row[Expression<String>.init("changeTime")]
-        
-    }
-    public var table: Table? {
-        
-        
-        let  e_name = Expression<String>.init("name")
-        let  e_code = Expression<String>.init("code")
-        let  e_area = Expression<String>.init("area")
-        let  e_industry = Expression<String>.init("industry")
-        let  e_market = Expression<String>.init("market")
-        let  e_changeTime = Expression<String>.init("changeTime")
-        
-        let _table = self.createTable(tableName: "\(type(of: self))".lowercased(), block: { builder in
-            builder.column(e_code, primaryKey:true)
-            builder.column(e_name)
-            builder.column(e_area)
-            builder.column(e_industry)
-            builder.column(e_market)
-            builder.column(e_changeTime)
-        })
-        return _table
-        
-    }
-}
+
 

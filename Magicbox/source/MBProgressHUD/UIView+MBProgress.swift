@@ -143,7 +143,6 @@ import MBProgressHUD
         DispatchQueue.main.async {
             KWindow??.loadingDismiss()
         }
-        
     }
     
     /**

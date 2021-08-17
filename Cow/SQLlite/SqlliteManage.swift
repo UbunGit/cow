@@ -77,17 +77,7 @@ extension SqlliteManage{
         return (result == 1)
     }
     
-    /**
-     删除表
-     */
-    public  func droptable( tablename:String) throws {
-        guard let tdb = db else {
-            throw BaseError(code: -2, msg: "db 初始化错误")
-        }
-        let exeStr = "drop table if exists \(tablename) "
-        try tdb.execute(exeStr)
-        
-    }
+
     
     /**
      批量插入数据
@@ -116,12 +106,13 @@ extension SqlliteManage{
             return "(\(tvar))"
         }.joined(separator: ",")
         sql.append(val)
-       
+       debugPrint(sql)
        _ = try db?.execute(sql)
     }
     
  
 }
+
 
 // StockBasic
 public extension SqlliteManage{
@@ -182,11 +173,73 @@ public extension SqlliteManage{
 
 }
 
+// StockDaily
+public extension SqlliteManage{
+    func create_stockdaily() throws{
+        let sql = """
+        CREATE TABLE IF NOT EXISTS "stockdaily" -- 股票日数据
+     (
+        "date" TEXT, -- 时间
+        "code" TEXT, -- 股票代码
+        "open" NUMERIC, -- 开盘价
+        "close" NUMERIC, -- 收盘价
+        "high" NUMERIC, -- 最高价
+        "low" NUMERIC, -- 最低价
+        "vol" NUMERIC, -- 交易量
+        "amount" NUMERIC, -- 交易价
+        PRIMARY KEY("code","date")
+     )
+     """
+        print(sql)
+        try db?.execute(sql)
+    }
+    
+    func delete_stockdaily(code:String) throws {
+        let sql = """
+         delete FROM  "stockdaily"
+         where code = '\(code)'
+         """
+        print(sql)
+        try db?.execute(sql)
+    }
+}
+
+extension SqlliteManage{
+    // 检查表是否创建完成
+    func checkupTable() throws -> [Task] {
+        var tasks:[Task] = []
+        if try istable(tablename: "stockbasic") == false {
+            tasks.append(Task.init(name: "创建StockBasic表", handle: {group in
+                let _ =  try sm.create_stockbasic()
+                group.leave()
+            }))
+        }
+        if try istable(tablename: "follow") == false {
+            tasks.append(Task.init(name: "创建follow表", handle: {group in
+                let _ =  try sm.create_stockbasic()
+                group.leave()
+            }))
+        }
+        if try istable(tablename: "stockdaily") == false {
+            tasks.append(Task.init(name: "创建stockdaily表", handle: {group in
+                let _ =  try sm.create_stockdaily()
+                group.leave()
+            }))
+        }
+        
+        return tasks
+    }
+    
+
+}
+
+
 extension Statement{
 
     
-    public func to_moden<T>(_ type: T.Type, finesh:([T]) -> ()) where T : HandyJSON{
-        finesh( map { row-> T in
+    public func to_moden<T>(_ type: T.Type)->[T] where T : HandyJSON{
+        
+         map { row-> T in
             
             var item:Dictionary = [String:Any]()
             for (index, name) in self.columnNames.enumerated() {
@@ -194,7 +247,22 @@ extension Statement{
             }
             return T.deserialize(from: item)!
         }
-        )
+        
+    }
+    public func to_dict()->[[String:Any]]{
+        
+         map { row-> [String:Any] in
+            
+            var item:Dictionary = [String:Any]()
+            for (index, name) in self.columnNames.enumerated() {
+                
+                item[name] = row[index] ?? "?"
+            }
+            return item
+        }
+        
     }
 
 }
+
+

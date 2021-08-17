@@ -8,9 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StockBasicListVC" customModule="Cow" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SQLTableListVC" customModule="Cow" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="YGm-cv-u5k" id="XxP-cZ-8xq"/>
+                <outlet property="tableView" destination="IFF-4C-gpd" id="xoU-37-NZz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,24 +19,24 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YGm-cv-u5k">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IFF-4C-gpd">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="K5C-pH-t4b"/>
-                        <outlet property="delegate" destination="-1" id="WXW-3M-Cu9"/>
+                        <outlet property="dataSource" destination="-1" id="XXT-sq-8Ur"/>
+                        <outlet property="delegate" destination="-1" id="2T2-P5-GAX"/>
                     </connections>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YGm-cv-u5k" secondAttribute="bottom" id="6BB-Mr-PZg"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YGm-cv-u5k" secondAttribute="trailing" id="PcK-tW-SNd"/>
-                <constraint firstItem="YGm-cv-u5k" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bDz-Uj-31U"/>
-                <constraint firstItem="YGm-cv-u5k" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="g4v-c7-PTM"/>
+                <constraint firstItem="IFF-4C-gpd" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="2Fa-1p-LD1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="IFF-4C-gpd" secondAttribute="bottom" id="HoV-ph-uzr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IFF-4C-gpd" secondAttribute="trailing" id="Ops-KP-no4"/>
+                <constraint firstItem="IFF-4C-gpd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gfS-2M-f7L"/>
             </constraints>
-            <point key="canvasLocation" x="25" y="58"/>
+            <point key="canvasLocation" x="139" y="68"/>
         </view>
     </objects>
     <resources>
