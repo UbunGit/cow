@@ -19,7 +19,7 @@ class StockBasicListModel: HandyJSON {
         var industry:String = ""
         var isfollow:Bool = false
         var market:String = ""
-        var changeTime:String = "\(Date().mb_toString("yyyy-MM-dd"))"
+        var changeTime:String = "\(Date().toString("yyyy-MM-dd"))"
 
     }
     var stroes:[Stroe] = []

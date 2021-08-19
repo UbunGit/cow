@@ -22,7 +22,7 @@ public struct StockBasic:HandyJSON, Codable{
     var area:String = ""
     var industry:String = ""
     var market:String = ""
-    var changeTime:String = "\(Date().mb_toString("yyyy-MM-dd"))"
+    var changeTime:String = "\(Date().toString("yyyy-MM-dd"))"
     public init() {
         
     }

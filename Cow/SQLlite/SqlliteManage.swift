@@ -95,9 +95,10 @@ extension SqlliteManage{
             INSERT OR REPLACE INTO '\(table)' (\(column.map{"'\($0)'"}.joined(separator: ",")))
             VALUES 
             """
+        
         let val = datas.map { item in
             let tvar = column.map {
-                guard let str = item[$0] as? String else{
+                guard let str = item[$0] else{
                     return "''"
                 }
                 return "'\(str)'"

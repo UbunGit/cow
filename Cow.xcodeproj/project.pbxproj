@@ -32,6 +32,10 @@
 		845E45AD26CBB81F002E77C3 /* SqliteSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E45AC26CBB81F002E77C3 /* SqliteSelect.swift */; };
 		845E45B126CBB988002E77C3 /* SQLTableInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E45AF26CBB988002E77C3 /* SQLTableInfoVC.swift */; };
 		845E45B226CBB988002E77C3 /* SQLTableInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845E45B026CBB988002E77C3 /* SQLTableInfoVC.xib */; };
+		845E45CE26CCFEC5002E77C3 /* KLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E45CC26CCFEC5002E77C3 /* KLineViewController.swift */; };
+		845E45CF26CCFEC5002E77C3 /* KLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845E45CD26CCFEC5002E77C3 /* KLineViewController.xib */; };
+		845E45D126CD1877002E77C3 /* SoreSimpleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845E45D026CD1877002E77C3 /* SoreSimpleView.xib */; };
+		845E45D326CD188C002E77C3 /* SoreSimpleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E45D226CD188C002E77C3 /* SoreSimpleView.swift */; };
 		846B4CB826C0F82D00EB5BA7 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B4CB626C0F82D00EB5BA7 /* SettingVC.swift */; };
 		846B4CB926C0F82D00EB5BA7 /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B4CB726C0F82D00EB5BA7 /* SettingVC.xib */; };
 		846B4CBD26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B4CBB26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.swift */; };
@@ -91,6 +95,10 @@
 		845E45AC26CBB81F002E77C3 /* SqliteSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteSelect.swift; sourceTree = "<group>"; };
 		845E45AF26CBB988002E77C3 /* SQLTableInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLTableInfoVC.swift; sourceTree = "<group>"; };
 		845E45B026CBB988002E77C3 /* SQLTableInfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SQLTableInfoVC.xib; sourceTree = "<group>"; };
+		845E45CC26CCFEC5002E77C3 /* KLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLineViewController.swift; sourceTree = "<group>"; };
+		845E45CD26CCFEC5002E77C3 /* KLineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KLineViewController.xib; sourceTree = "<group>"; };
+		845E45D026CD1877002E77C3 /* SoreSimpleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SoreSimpleView.xib; sourceTree = "<group>"; };
+		845E45D226CD188C002E77C3 /* SoreSimpleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoreSimpleView.swift; sourceTree = "<group>"; };
 		846B4CB626C0F82D00EB5BA7 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		846B4CB726C0F82D00EB5BA7 /* SettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
 		846B4CBB26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -216,6 +224,8 @@
 				844D5AFD26BA74AC00AC08AF /* View */,
 				844D5AF926BA6EBC00AC08AF /* HomeViewController.swift */,
 				844D5AFA26BA6EBC00AC08AF /* HomeViewController.xib */,
+				845E45CC26CCFEC5002E77C3 /* KLineViewController.swift */,
+				845E45CD26CCFEC5002E77C3 /* KLineViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -248,6 +258,8 @@
 				844D5B0826BA955600AC08AF /* HomeBandas.xib */,
 				844D5B0A26BA9F1500AC08AF /* HomeBandasCell.swift */,
 				844D5B0B26BA9F1500AC08AF /* HomeBandasCell.xib */,
+				845E45D226CD188C002E77C3 /* SoreSimpleView.swift */,
+				845E45D026CD1877002E77C3 /* SoreSimpleView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -443,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				845E45B226CBB988002E77C3 /* SQLTableInfoVC.xib in Resources */,
+				845E45D126CD1877002E77C3 /* SoreSimpleView.xib in Resources */,
 				8410012126C10D2700C64E53 /* StockBasicListVC.xib in Resources */,
 				844D5AE926BA604400AC08AF /* LaunchScreen.storyboard in Resources */,
 				8492CBF426C4BACD004048EF /* FollowListViewController.xib in Resources */,
@@ -454,6 +467,7 @@
 				846B4CC826C104E400EB5BA7 /* CollectionViewGridCell.xib in Resources */,
 				844D5AE626BA604400AC08AF /* Assets.xcassets in Resources */,
 				844D5AE426BA604300AC08AF /* Main.storyboard in Resources */,
+				845E45CF26CCFEC5002E77C3 /* KLineViewController.xib in Resources */,
 				844D5AFC26BA6EBC00AC08AF /* HomeViewController.xib in Resources */,
 				844D5B0D26BA9F1500AC08AF /* HomeBandasCell.xib in Resources */,
 			);
@@ -572,10 +586,12 @@
 				844D5AF426BA6C8000AC08AF /* BaseViewController.swift in Sources */,
 				846B4CBD26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.swift in Sources */,
 				849D787826C287F5003DFE5F /* StockBasicListCell.swift in Sources */,
+				845E45D326CD188C002E77C3 /* SoreSimpleView.swift in Sources */,
 				8410013626C11D8700C64E53 /* StockBasic.swift in Sources */,
 				844D5ADD26BA604300AC08AF /* AppDelegate.swift in Sources */,
 				8410013B26C11FF900C64E53 /* Config.swift in Sources */,
 				8492CBF026C3D641004048EF /* FollowModel.swift in Sources */,
+				845E45CE26CCFEC5002E77C3 /* KLineViewController.swift in Sources */,
 				844D5B0326BA803400AC08AF /* HomeBandas.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

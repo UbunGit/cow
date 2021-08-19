@@ -127,7 +127,7 @@ extension FollowListViewController:UITableViewDelegate,UITableViewDataSource{
         return UISwipeActionsConfiguration(actions: [leftAction])
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        self.mb_push("Cow.KLineViewController", params: ["code":pageData.dataSource[indexPath.row].code])
         
     }
  

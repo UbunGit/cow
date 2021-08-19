@@ -2,11 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,58 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="牛" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6Y-zW-g9a">
-                                <rect key="frame" x="20" y="573" width="80" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="b5w-F4-dTd"/>
-                                    <constraint firstAttribute="width" constant="80" id="fk8-3x-tvK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="STSongti-SC-Regular" family="Songti SC" pointSize="24"/>
-                                <color key="textColor" name="Text 1"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="牛" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zly-uQ-Wf7">
-                                <rect key="frame" x="133" y="450" width="80" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="RZT-Hl-oxe"/>
-                                    <constraint firstAttribute="width" constant="80" id="d6F-dR-VZB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="36"/>
-                                <color key="textColor" name="Text 1"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="牛" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgc-yc-dl0">
-                                <rect key="frame" x="324" y="148" width="80" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="dBq-GT-qVH"/>
-                                    <constraint firstAttribute="width" constant="80" id="kKe-Ao-FjT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="64"/>
-                                <color key="textColor" name="Text 1"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="牛" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcD-MJ-Vai">
-                                <rect key="frame" x="245" y="307" width="80" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="PA4-F6-Gkx"/>
-                                    <constraint firstAttribute="height" constant="80" id="Xm3-rH-Y3c"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🐮" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgc-yc-dl0">
+                                <rect key="frame" x="47" y="271" width="320" height="354.5"/>
+                                <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="320"/>
                                 <color key="textColor" name="Text 1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                        <color key="backgroundColor" name="AccentColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="n6Y-zW-g9a" secondAttribute="trailing" constant="314" id="4D0-f8-iDY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PcD-MJ-Vai" secondAttribute="trailing" constant="89" id="EUd-ri-m7N"/>
-                            <constraint firstItem="n6Y-zW-g9a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="529" id="Udt-2A-w5A"/>
-                            <constraint firstItem="PcD-MJ-Vai" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="263" id="WhS-3g-1jU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zly-uQ-Wf7" secondAttribute="trailing" constant="201" id="bMg-oY-ppp"/>
-                            <constraint firstItem="Mgc-yc-dl0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="104" id="fKa-2f-oau"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mgc-yc-dl0" secondAttribute="trailing" constant="10" id="hs8-jZ-HtE"/>
-                            <constraint firstItem="zly-uQ-Wf7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="406" id="iRM-Q7-LIf"/>
+                            <constraint firstItem="Mgc-yc-dl0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5Ds-nI-Ylo"/>
+                            <constraint firstItem="Mgc-yc-dl0" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="C1Y-ZU-cGF"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -79,11 +37,11 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.38431376218795776" green="0.20392158627510071" blue="0.83529412746429443" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Text 1">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

@@ -58,4 +58,38 @@ extension SqlliteManage{
         }
         return datas.last
     }
+    
+    func select(table:String,
+                fitter:String = "",
+                orderby:[String] = [],
+                limmit:NSRange,
+                isasc:Bool = false
+                ) throws -> [[String:Any]] {
+       
+        var sql = """
+            
+            SELECT * FROM  \(table)
+            """
+        if fitter.count>0 {
+            sql.append("""
+           
+              WHERE \(fitter)
+           """)
+        }
+        if orderby.count>0 {
+            sql.append("""
+            
+            ORDER BY \(orderby.joined(separator: ",")) \(isasc ? "ASC" : "DESC" )
+            """)
+            sql.append("""
+            
+            LIMIT \(limmit.length) OFFSET \(limmit.location)
+            """)
+        }
+        print(sql)
+        guard let datas = try db?.prepare(sql).to_dict() else {
+            return []
+        }
+        return datas
+    }
 }
