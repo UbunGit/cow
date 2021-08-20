@@ -62,8 +62,8 @@ extension SqlliteManage{
     func select(table:String,
                 fitter:String = "",
                 orderby:[String] = [],
-                limmit:NSRange,
-                isasc:Bool = false
+                limmit:NSRange? = nil,
+                isasc:Bool = true
                 ) throws -> [[String:Any]] {
        
         var sql = """
@@ -81,9 +81,11 @@ extension SqlliteManage{
             
             ORDER BY \(orderby.joined(separator: ",")) \(isasc ? "ASC" : "DESC" )
             """)
+        }
+        if limmit != nil{
             sql.append("""
             
-            LIMIT \(limmit.length) OFFSET \(limmit.location)
+            LIMIT \(limmit!.length) OFFSET \(limmit!.location)
             """)
         }
         print(sql)

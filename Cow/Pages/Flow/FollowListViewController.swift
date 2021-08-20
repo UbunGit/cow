@@ -9,6 +9,7 @@ import UIKit
 import MJRefresh
 import HandyJSON
 import Magicbox
+
 class FollowListModel: HandyJSON {
     var dataSource:[FollowModel] = []
     required init() {
@@ -58,7 +59,7 @@ class FollowListModel: HandyJSON {
     }
 }
 
-class FollowListViewController: UIViewController {
+class FollowListViewController: CViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var pageData:FollowListModel = FollowListModel()
@@ -127,7 +128,11 @@ extension FollowListViewController:UITableViewDelegate,UITableViewDataSource{
         return UISwipeActionsConfiguration(actions: [leftAction])
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.mb_push("Cow.KLineViewController", params: ["code":pageData.dataSource[indexPath.row].code])
+        self.mb_push("Cow.KLineViewController", params:
+                        [
+                            "code":pageData.dataSource[indexPath.row].code,
+                            "name":pageData.dataSource[indexPath.row].name
+                        ] )
         
     }
  

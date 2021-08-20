@@ -9,51 +9,76 @@ import UIKit
 import Charts
 import Magicbox
 
-class KLineViewController: UIViewController {
-    @objc var code:String = ""
 
+
+class KLineViewController: CViewController {
+    @objc var code:String = ""
+    @objc var name:String = ""
+    
     var end:String = ""
-    var count:Int = 100
-    @IBOutlet weak var candleStickChart: CandleStickChartView!
+    
+    var range:NSRange = .init(location: 0, length: 100)
+    
+    var datas:[[String:Any]] = []
+    @IBOutlet weak var chartView: CombinedChartView!
     
     lazy var soreSimpleView: SoreSimpleView = {
-   
+        
         return SoreSimpleView.initWithNib()
     }()
+    lazy var naveView:KlineNavBarView = {
+        let aview = KlineNavBarView.initWithNib()
+        return aview
+    }()
     
-   
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = code
+        naveView.codeLab.text = code
+        naveView.nameLab.text = name
+        navigationItem.titleView = naveView
         view.addSubview(soreSimpleView)
         soreSimpleView.snp.makeConstraints { snp in
             snp.width.equalToSuperview()
-            snp.height.equalTo(120)
-            snp.bottom.equalTo(candleStickChart.snp_topMargin)
+            snp.top.equalToSuperview()
+            snp.bottom.equalTo(chartView.snp_topMargin)
         }
         style_candleStickChart()
-        candleStickChart.delegate = self
-        candleStickChart.data = setDataCount(100, range: 100)
+        chartView.delegate = self
+        updateDate()
     }
     
+    
+    
+    func updateDate()  {
+        do {
+            self.datas = try sm.select(table: "stockdaily", fitter: "code='\(code)'", orderby: ["date"], limmit:range, isasc: false).reversed()
+            soreSimpleView.data = datas.last
+            reloadChartView()
+        } catch  {
+            self.view.error(error.localizedDescription)
+            
+        }
+    }
     func style_candleStickChart()  {
         // 禁止Y轴的滚动与放大
-        candleStickChart.scaleYEnabled = false
-        candleStickChart.dragYEnabled = false
+        chartView.scaleYEnabled = false
+        chartView.dragYEnabled = false
         // 允许X轴的滚动与放大
-        candleStickChart.dragXEnabled = true
-        candleStickChart.scaleXEnabled = true
+        chartView.dragXEnabled = true
+        chartView.scaleXEnabled = true
         // X轴动画
-//        chartView.animate(xAxisDuration: 0.35);
-    
-        // 边框
-        candleStickChart.borderLineWidth = 0.5;
-        candleStickChart.drawBordersEnabled = true
-        candleStickChart.setScaleMinima(1.01, scaleY: 1)
-        candleStickChart.doubleTapToZoomEnabled = false
+        //        chartView.animate(xAxisDuration: 0.35);
         
-        let axis = candleStickChart.xAxis
+        // 边框
+        chartView.borderLineWidth = 0.5;
+        chartView.drawBordersEnabled = true
+        chartView.setScaleMinima(1, scaleY: 1)
+        chartView.doubleTapToZoomEnabled = false
+        
+        
+        let axis = chartView.xAxis
         axis.labelPosition = .bottom
         axis.axisLineWidth = 1
         axis.gridLineWidth = 0.5
@@ -61,56 +86,123 @@ class KLineViewController: UIViewController {
         axis.labelCount = 3
         axis.labelRotationAngle = -1
         
-        let legend = candleStickChart.legend
+        let leftAxis = chartView.leftAxis
+        leftAxis.labelPosition = .insideChart
+        leftAxis.axisLineWidth = 1
+        leftAxis.gridLineWidth = 0.5
+        leftAxis.gridColor = .black.withAlphaComponent(0.2)
+        leftAxis.labelCount = 3
+        leftAxis.decimals = 3
+        
+        let rightAxis = chartView.rightAxis
+        rightAxis.labelPosition = .insideChart
+        rightAxis.axisLineWidth = 1
+        rightAxis.gridLineWidth = 0.5
+        rightAxis.gridColor = .black.withAlphaComponent(0.2)
+        rightAxis.labelCount = 3
+        
+        
+        let legend = chartView.legend
         legend.horizontalAlignment = .center
         legend.verticalAlignment = .top
         legend.orientation = .horizontal
-        legend.drawInside = false
+        legend.drawInside = true
         legend.xEntrySpace = 4
         legend.yEntrySpace = 4
         legend.yOffset = 10
+        
     }
-
-
-
+}
+extension KLineViewController{
+    func reloadChartView() {
+        let candledata = candleData
+        let chartData = CombinedChartData()
+        chartData.candleData = candledata;
+        chartData.lineData = LineChartData(dataSets: maLineSets)
+        chartView.data = chartData
+    }
+    // MARK K线图
+    var candleData:CandleChartData{
+        let yVals1 =  datas.enumerated().map { (index,item) -> CandleChartDataEntry in
+            
+            let high = item["high"].double()
+            let low = item["low"].double()
+            let open = item["open"].double()
+            let close = item["close"].double()
+            return CandleChartDataEntry(x: Double(index), shadowH: high, shadowL: low, open: open, close: close)
+        }
+        let xaxis = chartView.xAxis
+        xaxis.valueFormatter = IndexAxisValueFormatter.init(
+            values:datas.map { $0["date"].string().toDate("yyyyMMdd")?.toString("yyyy-MM-dd") ?? "0" }
+        )
+        
+        let set = CandleChartDataSet(entries: yVals1)
+        
+        set.label = "\(code)"
+        set.decreasingColor = .green
+        set.decreasingFilled = true
+        set.increasingColor = .red
+        set.increasingFilled = true
+        set.shadowColorSameAsCandle = true
+        set.drawValuesEnabled = false
+        
+        return CandleChartData(dataSet: set)
+    }
+    
+    // MA
+    var maLineSets:[ChartDataSet]{
+        
+        let closes = datas.map{$0["close"].double()}
+        let ma5 = lib_ma(5, closes: closes)
+        let entrys = ma5.enumerated().map{ ChartDataEntry(x: Double($0), y: $1)}
+        let set5 =  LineChartDataSet(entries: entrys)
+        set5.mode = .cubicBezier
+        set5.drawCirclesEnabled = false
+        set5.drawFilledEnabled = false
+        set5.drawValuesEnabled = false
+        set5.fillColor = .yellow.withAlphaComponent(0.1)
+        set5.colors = [UIColor(named: "ma5")!]
+        return [set5]
+        
+    }
 }
 extension KLineViewController:ChartViewDelegate{
     
-    func setDataCount(_ count: Int, range: UInt32)->CandleChartData {
-        do {
-            let datas = try sm.select(table: "stockdaily", fitter: "code='\(code)'", orderby: ["date"], limmit: .init(location: 0, length: 100), isasc: false)
-            soreSimpleView.data = datas.last
-            let yVals1 =  datas.enumerated().map { (index,item) -> CandleChartDataEntry in
-             
-                let high = item["high"].double()
-                let low = item["low"].double()
-                let open = item["open"].double()
-                let close = item["close"].double()
-                return CandleChartDataEntry(x: Double(index), shadowH: high, shadowL: low, open: open, close: close)
-            }
-            let xaxis = candleStickChart.xAxis
-            xaxis.valueFormatter = IndexAxisValueFormatter.init(
-                values:datas.map { $0["date"].string().toDate("yyyyMMdd")?.toString("yyyy-MM-dd") ?? "0" }
-            )
-            
-           
-
-            let set = CandleChartDataSet(entries: yVals1)
-      
-            set.label = "\(code)"
-            set.decreasingColor = .green
-            set.decreasingFilled = true
-            set.increasingColor = .red
-            set.increasingFilled = true
-            set.shadowColorSameAsCandle = true
-            set.drawValuesEnabled = false
-            let data = CandleChartData(dataSet: set)
-            return data
-        } catch  {
-            self.view.error(error.localizedDescription)
-            return CandleChartData()
-        }
-        }
+   
+    
+    // 选中
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight){
+        let select = Int(entry.x)
+        soreSimpleView.data = datas[select]
+    }
+    
+    /// Called when a user stops panning between values on the chart
+    // 手指离开
+    func chartViewDidEndPanning(_ chartView: ChartViewBase){
+        
+    }
+    
+    // Called when nothing has been selected or an "un-select" has been made.
+    // 没有选中任何内容
+    func chartValueNothingSelected(_ chartView: ChartViewBase){
+        soreSimpleView.data = datas.last
+    }
+    
+    // Callbacks when the chart is scaled / zoomed via pinch zoom gesture.
+    func chartScaled(_ chartView: ChartViewBase, scaleX: CGFloat, scaleY: CGFloat){
+        print("scaleX:\(scaleX)")
+        print("scaleY:\(scaleY)")
+    }
+    
+    // Callbacks when the chart is moved / translated via drag gesture.
+    func chartTranslated(_ chartView: ChartViewBase, dX: CGFloat, dY: CGFloat){
+        
+    }
+    
+    // Callbacks when Animator stops animating
+    func chartView(_ chartView: ChartViewBase, animatorDidStop animator: Animator){
+        
+    }
     
 }
 
@@ -129,6 +221,33 @@ extension Optional{
     }
     func price(_ formatter:String="%0.2f") -> String {
         return String(format: formatter, self.double())
+    }
+}
+
+extension KLineViewController{
+    @IBAction func leftClick(_ sender: Any) {
+        range.location = range.location + 30
+        updateDate()
+    }
+    @IBAction func rightclick(_ sender: Any) {
+        range.location = ((range.location - 30) < 0) ? 0 : range.location - 30
+        updateDate()
+    }
+    @IBAction func addclick(_ sender: Any) {
+        let offse = Int(Float(range.length)*0.1)
+        if range.length + offse > 1000{
+            return
+        }
+        range.length = range.length + offse
+        updateDate()
+    }
+    @IBAction func minusclick(_ sender: Any) {
+        let offse = Int(Float(range.length)*0.1)
+        if range.length - offse < 10{
+            return
+        }
+        range.length = range.length - offse
+        updateDate()
     }
 }
 

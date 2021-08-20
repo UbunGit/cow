@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -110,11 +109,10 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Y7K-cK-0Fc" firstAttribute="leading" secondItem="OPS-uC-xL0" secondAttribute="trailing" constant="2" id="2lI-hu-8fM"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="2EM-5W-ASv" secondAttribute="trailing" constant="8" id="3PI-vQ-ywM"/>
+                <constraint firstAttribute="trailing" secondItem="2EM-5W-ASv" secondAttribute="trailing" constant="8" id="3PI-vQ-ywM"/>
                 <constraint firstItem="Zbd-vn-Nd9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="5KS-Wq-4bR"/>
                 <constraint firstItem="Zbd-vn-Nd9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="6XR-eB-SyQ"/>
                 <constraint firstItem="4cC-yV-3fk" firstAttribute="centerY" secondItem="JKl-ru-E1U" secondAttribute="centerY" id="824-og-Nfa"/>
@@ -130,7 +128,7 @@
                 <constraint firstItem="JcB-ZL-IU5" firstAttribute="centerY" secondItem="tn0-kB-SC3" secondAttribute="centerY" id="LhP-ik-APQ"/>
                 <constraint firstItem="OPS-uC-xL0" firstAttribute="centerY" secondItem="tn0-kB-SC3" secondAttribute="centerY" id="OQ8-o8-avY"/>
                 <constraint firstItem="LXw-rb-nLd" firstAttribute="top" secondItem="Zbd-vn-Nd9" secondAttribute="bottom" constant="8" id="PlA-mi-ar2"/>
-                <constraint firstItem="LXw-rb-nLd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="VQb-Ca-11M"/>
+                <constraint firstItem="LXw-rb-nLd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="VQb-Ca-11M"/>
                 <constraint firstItem="JKl-ru-E1U" firstAttribute="leading" secondItem="NGQ-33-OxO" secondAttribute="leading" id="Wi8-BF-Jjo"/>
                 <constraint firstItem="ecw-Zw-nri" firstAttribute="leading" secondItem="JKl-ru-E1U" secondAttribute="trailing" constant="2" id="XYT-GZ-0ck"/>
                 <constraint firstItem="sx8-XF-BgJ" firstAttribute="leading" secondItem="JKl-ru-E1U" secondAttribute="trailing" constant="61" id="XqQ-80-61l"/>
@@ -140,7 +138,7 @@
                 <constraint firstItem="ecw-Zw-nri" firstAttribute="centerY" secondItem="JKl-ru-E1U" secondAttribute="centerY" id="dU3-qu-3z4"/>
                 <constraint firstItem="Y7K-cK-0Fc" firstAttribute="centerY" secondItem="tn0-kB-SC3" secondAttribute="centerY" id="eX4-ze-Wx8"/>
                 <constraint firstItem="NGQ-33-OxO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="gEV-mV-dvQ"/>
-                <constraint firstItem="msq-MB-Lop" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="p5E-eY-GVy"/>
+                <constraint firstItem="msq-MB-Lop" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="p5E-eY-GVy"/>
                 <constraint firstItem="JKl-ru-E1U" firstAttribute="top" secondItem="NGQ-33-OxO" secondAttribute="bottom" constant="12" id="vSa-MK-NfF"/>
                 <constraint firstItem="tn0-kB-SC3" firstAttribute="centerY" secondItem="NGQ-33-OxO" secondAttribute="centerY" id="vh1-6g-fHD"/>
                 <constraint firstItem="OPS-uC-xL0" firstAttribute="leading" secondItem="NGQ-33-OxO" secondAttribute="trailing" constant="61" id="yXy-ae-gFX"/>
@@ -150,6 +148,7 @@
             <connections>
                 <outlet property="amiuntLab" destination="2EM-5W-ASv" id="Mn1-gt-Yev"/>
                 <outlet property="closeLab" destination="RXR-4E-wTr" id="fG5-ST-ZbX"/>
+                <outlet property="dateLab" destination="msq-MB-Lop" id="BMx-vo-AIP"/>
                 <outlet property="difLab" destination="LXw-rb-nLd" id="FbA-et-jWc"/>
                 <outlet property="difvLab" destination="Klf-VP-hsD" id="uSM-8s-CMq"/>
                 <outlet property="highLab" destination="tn0-kB-SC3" id="NMJ-CV-wiF"/>

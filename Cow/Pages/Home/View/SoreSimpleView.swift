@@ -28,6 +28,7 @@ class SoreSimpleView: UIView {
     @IBOutlet weak var volLab: UILabel!
     @IBOutlet weak var amiuntLab: UILabel!
     
+    @IBOutlet weak var dateLab: UILabel!
     
  
 
@@ -41,13 +42,14 @@ class SoreSimpleView: UIView {
         nowPriceLab.text = vdata["close"].price()
         difLab.text = (vdata["close"].double()-vdata["open"].double()).price()
         difvLab.text = ((vdata["close"].double()-vdata["open"].double())/vdata["open"].double()).price("%0.2f%%")
+        
         highLab.text = vdata["high"].price()
         openLab.text = vdata["open"].price()
         lowLab.text = vdata["low"].price()
         closeLab.text = vdata["close"].price()
         volLab.text = vdata["vol"].price()
-        amiuntLab.text = vdata["amiunt"].price()
-        
+        amiuntLab.text = vdata["amount"].price()
+        dateLab.text = vdata["date"].string().toDate("yyyyMMdd")?.toString("yyyy/MM/dd")
         let bgcolor:UIColor = (vdata["close"].double()-vdata["open"].double())>0 ? .systemRed : .systemGreen
         backgroundColor = bgcolor
     }
