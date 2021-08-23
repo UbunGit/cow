@@ -59,6 +59,16 @@
 		8492CC0D26C4FBE6004048EF /* SqlliteManageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CC0C26C4FBE6004048EF /* SqlliteManageTest.swift */; };
 		849D787826C287F5003DFE5F /* StockBasicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D787626C287F5003DFE5F /* StockBasicListCell.swift */; };
 		849D787926C287F5003DFE5F /* StockBasicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849D787726C287F5003DFE5F /* StockBasicListCell.xib */; };
+		84D8DD7026D37D990074E9A4 /* SqliteInster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DD6F26D37D990074E9A4 /* SqliteInster.swift */; };
+		84D8DD7326D380390074E9A4 /* stockdaily+stockma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DD7226D380390074E9A4 /* stockdaily+stockma.swift */; };
+		84D8DD7526D380FC0074E9A4 /* stockdaily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DD7426D380FC0074E9A4 /* stockdaily.swift */; };
+		84D8DD7726D3811D0074E9A4 /* stockma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DD7626D3811D0074E9A4 /* stockma.swift */; };
+		84D8DD7B26D39E660074E9A4 /* RecommendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DD7926D39E660074E9A4 /* RecommendVC.swift */; };
+		84D8DD7C26D39E660074E9A4 /* RecommendVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D8DD7A26D39E660074E9A4 /* RecommendVC.xib */; };
+		84D8DD8026D39EB40074E9A4 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DD7E26D39EB40074E9A4 /* RecommendCell.swift */; };
+		84D8DD8126D39EB40074E9A4 /* RecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D8DD7F26D39EB40074E9A4 /* RecommendCell.xib */; };
+		84D8DD8326D3A7D50074E9A4 /* follow+stockbasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DD8226D3A7D50074E9A4 /* follow+stockbasic.swift */; };
+		84D8DD8526D3AD7A0074E9A4 /* follow+stockbasic+stockma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DD8426D3AD7A0074E9A4 /* follow+stockbasic+stockma.swift */; };
 		B361F4813D5409C336DE9241 /* Pods_Cow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F60CF171DAB942E8AD2C091 /* Pods_Cow.framework */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +141,16 @@
 		8492CC0C26C4FBE6004048EF /* SqlliteManageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqlliteManageTest.swift; sourceTree = "<group>"; };
 		849D787626C287F5003DFE5F /* StockBasicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBasicListCell.swift; sourceTree = "<group>"; };
 		849D787726C287F5003DFE5F /* StockBasicListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockBasicListCell.xib; sourceTree = "<group>"; };
+		84D8DD6F26D37D990074E9A4 /* SqliteInster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteInster.swift; sourceTree = "<group>"; };
+		84D8DD7226D380390074E9A4 /* stockdaily+stockma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "stockdaily+stockma.swift"; sourceTree = "<group>"; };
+		84D8DD7426D380FC0074E9A4 /* stockdaily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stockdaily.swift; sourceTree = "<group>"; };
+		84D8DD7626D3811D0074E9A4 /* stockma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stockma.swift; sourceTree = "<group>"; };
+		84D8DD7926D39E660074E9A4 /* RecommendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendVC.swift; sourceTree = "<group>"; };
+		84D8DD7A26D39E660074E9A4 /* RecommendVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendVC.xib; sourceTree = "<group>"; };
+		84D8DD7E26D39EB40074E9A4 /* RecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
+		84D8DD7F26D39EB40074E9A4 /* RecommendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendCell.xib; sourceTree = "<group>"; };
+		84D8DD8226D3A7D50074E9A4 /* follow+stockbasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "follow+stockbasic.swift"; sourceTree = "<group>"; };
+		84D8DD8426D3AD7A0074E9A4 /* follow+stockbasic+stockma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "follow+stockbasic+stockma.swift"; sourceTree = "<group>"; };
 		8944AC9A803FD0C9983B9A34 /* Pods-CowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CowTests.debug.xcconfig"; path = "Target Support Files/Pods-CowTests/Pods-CowTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B2C7744FD96C6DA2CA9753D2 /* Pods_CowTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CowTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7410E06C8E6185BA9732D2 /* Pods-Cow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cow.debug.xcconfig"; path = "Target Support Files/Pods-Cow/Pods-Cow.debug.xcconfig"; sourceTree = "<group>"; };
@@ -190,10 +210,12 @@
 		8410012626C1119C00C64E53 /* SQLlite */ = {
 			isa = PBXGroup;
 			children = (
+				84D8DD7126D380130074E9A4 /* other */,
 				845E45AE26CBB946002E77C3 /* VC */,
 				8492CC0826C4D256004048EF /* SqlliteManage.swift */,
 				845E45AC26CBB81F002E77C3 /* SqliteSelect.swift */,
 				845E45AA26CBABF1002E77C3 /* SqliteTable.swift */,
+				84D8DD6F26D37D990074E9A4 /* SqliteInster.swift */,
 			);
 			path = SQLlite;
 			sourceTree = "<group>";
@@ -259,6 +281,7 @@
 		844D5AF126BA6C5600AC08AF /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				84D8DD7826D39B060074E9A4 /* Recommend */,
 				8492CBEE26C3D606004048EF /* Flow */,
 				8492CBE926C3CC48004048EF /* WebView */,
 				846B4CB526C0F80600EB5BA7 /* Setting */,
@@ -379,6 +402,37 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		84D8DD7126D380130074E9A4 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				84D8DD7226D380390074E9A4 /* stockdaily+stockma.swift */,
+				84D8DD7426D380FC0074E9A4 /* stockdaily.swift */,
+				84D8DD7626D3811D0074E9A4 /* stockma.swift */,
+				84D8DD8226D3A7D50074E9A4 /* follow+stockbasic.swift */,
+				84D8DD8426D3AD7A0074E9A4 /* follow+stockbasic+stockma.swift */,
+			);
+			path = other;
+			sourceTree = "<group>";
+		};
+		84D8DD7826D39B060074E9A4 /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				84D8DD7D26D39E970074E9A4 /* View */,
+				84D8DD7926D39E660074E9A4 /* RecommendVC.swift */,
+				84D8DD7A26D39E660074E9A4 /* RecommendVC.xib */,
+			);
+			path = Recommend;
+			sourceTree = "<group>";
+		};
+		84D8DD7D26D39E970074E9A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84D8DD7E26D39EB40074E9A4 /* RecommendCell.swift */,
+				84D8DD7F26D39EB40074E9A4 /* RecommendCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8F8AB82B2CEEF3700D010E99 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -494,11 +548,13 @@
 				845E45A926CBA94E002E77C3 /* SQLTableListVC.xib in Resources */,
 				846B4CBE26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib in Resources */,
 				844D5B0926BA955600AC08AF /* HomeBandas.xib in Resources */,
+				84D8DD7C26D39E660074E9A4 /* RecommendVC.xib in Resources */,
 				846B4CC826C104E400EB5BA7 /* CollectionViewGridCell.xib in Resources */,
 				844D5AE626BA604400AC08AF /* Assets.xcassets in Resources */,
 				844D5AE426BA604300AC08AF /* Main.storyboard in Resources */,
 				845E45CF26CCFEC5002E77C3 /* KLineViewController.xib in Resources */,
 				844D5AFC26BA6EBC00AC08AF /* HomeViewController.xib in Resources */,
+				84D8DD8126D39EB40074E9A4 /* RecommendCell.xib in Resources */,
 				844D5B0D26BA9F1500AC08AF /* HomeBandasCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -609,8 +665,11 @@
 				845E457826CA5CF6002E77C3 /* Task.swift in Sources */,
 				846B4CC726C104A100EB5BA7 /* CollectionViewGridCell.swift in Sources */,
 				845E45AD26CBB81F002E77C3 /* SqliteSelect.swift in Sources */,
+				84D8DD7B26D39E660074E9A4 /* RecommendVC.swift in Sources */,
 				8400CD4326CFB85700C6DE3F /* lib.swift in Sources */,
+				84D8DD7326D380390074E9A4 /* stockdaily+stockma.swift in Sources */,
 				844D5B0C26BA9F1500AC08AF /* HomeBandasCell.swift in Sources */,
+				84D8DD7526D380FC0074E9A4 /* stockdaily.swift in Sources */,
 				8410012026C10D2700C64E53 /* StockBasicListVC.swift in Sources */,
 				8410011C26C106EA00C64E53 /* DataHandleModel.swift in Sources */,
 				8400CD4126CFAF0700C6DE3F /* Cerebro.swift in Sources */,
@@ -618,17 +677,22 @@
 				8400CD4526CFB8B200C6DE3F /* ma.swift in Sources */,
 				844D5AE126BA604300AC08AF /* ViewController.swift in Sources */,
 				844D5AF426BA6C8000AC08AF /* BaseViewController.swift in Sources */,
+				84D8DD7026D37D990074E9A4 /* SqliteInster.swift in Sources */,
+				84D8DD8026D39EB40074E9A4 /* RecommendCell.swift in Sources */,
 				846B4CBD26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.swift in Sources */,
 				849D787826C287F5003DFE5F /* StockBasicListCell.swift in Sources */,
 				84463B9326CF7BEC00F2262B /* KlineNavBarView.swift in Sources */,
+				84D8DD7726D3811D0074E9A4 /* stockma.swift in Sources */,
 				845E45D326CD188C002E77C3 /* SoreSimpleView.swift in Sources */,
 				8410013626C11D8700C64E53 /* StockBasic.swift in Sources */,
 				844D5ADD26BA604300AC08AF /* AppDelegate.swift in Sources */,
+				84D8DD8526D3AD7A0074E9A4 /* follow+stockbasic+stockma.swift in Sources */,
 				8410013B26C11FF900C64E53 /* Config.swift in Sources */,
 				8400CD3F26CFAF0700C6DE3F /* Kirogi.swift in Sources */,
 				8492CBF026C3D641004048EF /* FollowModel.swift in Sources */,
 				845E45CE26CCFEC5002E77C3 /* KLineViewController.swift in Sources */,
 				844D5B0326BA803400AC08AF /* HomeBandas.swift in Sources */,
+				84D8DD8326D3A7D50074E9A4 /* follow+stockbasic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,7 +787,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -778,7 +842,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -797,7 +861,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQTXMU76N3;
 				INFOPLIST_FILE = Cow/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -818,7 +882,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQTXMU76N3;
 				INFOPLIST_FILE = Cow/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

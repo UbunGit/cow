@@ -8,11 +8,12 @@
 import Foundation
 import Magicbox
 // 计算并保存均值（5，10，20，30，60）
-let ma_s = [5,10,20,30,60]
-func task_ma_save(code:String,type:Int) throws {
+public let KDefualMAS = [5,10,20,30,60]
+
+func task_ma_save(code:String,type:Int = 1) throws {
     var table:String?
     switch type {
-    case 0:
+    case 1:
         table = "StockDaily"
     default:
         break
@@ -21,13 +22,7 @@ func task_ma_save(code:String,type:Int) throws {
         throw BaseError(code: -1, msg: "表不存在")
     }
     let datas = try sm.select(table: ntable,  isasc: true)
-    let close = datas.enumerated().map { (index,item) in
-        item["close"].double()
-    }
-    var mas = [Any]()
-    for item in ma_s {
-        mas.append(lib_ma(item, closes: close))
-    }
-  
-    
+    let ma = datas.lib_muma(KDefualMAS, cloume: "close")
+ 
+    try sm.mutableinster(table: "stockma", column: ["code","date","ma5","ma10","ma20","ma30","ma60"], datas: ma)
 }

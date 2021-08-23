@@ -46,14 +46,22 @@ class KLineViewController: CViewController {
         }
         style_candleStickChart()
         chartView.delegate = self
+        updateDBdata()
         updateDate()
     }
-    
+    func updateDBdata()  {
+        do {
+        try task_ma_save(code: code, type: 1)
+        } catch  {
+            self.view.error(error.localizedDescription)
+        }
+    }
     
     
     func updateDate()  {
         do {
-            self.datas = try sm.select(table: "stockdaily", fitter: "code='\(code)'", orderby: ["date"], limmit:range, isasc: false).reversed()
+            
+            self.datas = try sm.select_stockdaily_stockma(fitter: "t1.code='\(code)'", orderby: ["t1.date"], limmit:range, isasc: false).reversed()
             soreSimpleView.data = datas.last
             reloadChartView()
         } catch  {
@@ -152,17 +160,20 @@ extension KLineViewController{
     // MA
     var maLineSets:[ChartDataSet]{
         
-        let closes = datas.map{$0["close"].double()}
-        let ma5 = lib_ma(5, closes: closes)
-        let entrys = ma5.enumerated().map{ ChartDataEntry(x: Double($0), y: $1)}
-        let set5 =  LineChartDataSet(entries: entrys)
-        set5.mode = .cubicBezier
-        set5.drawCirclesEnabled = false
-        set5.drawFilledEnabled = false
-        set5.drawValuesEnabled = false
-        set5.fillColor = .yellow.withAlphaComponent(0.1)
-        set5.colors = [UIColor(named: "ma5")!]
-        return [set5]
+        return KDefualMAS.map { ma ->LineChartDataSet in
+            let str = "ma\(ma)"
+            let entrys = datas.enumerated().map{ ChartDataEntry(x: Double($0), y: $1[str].double())}
+            let set =  LineChartDataSet(entries: entrys)
+            set.mode = .cubicBezier
+            set.label = str
+            set.drawCirclesEnabled = false
+            set.drawFilledEnabled = false
+            set.drawValuesEnabled = false
+            set.fillColor = .yellow.withAlphaComponent(0.1)
+            set.colors = [UIColor(named: str)!]
+            return set
+        }
+     
         
     }
 }
@@ -206,23 +217,6 @@ extension KLineViewController:ChartViewDelegate{
     
 }
 
-extension Optional{
-    func string() -> String {
-        guard let str = self else {
-            return ""
-        }
-        return "\(str)"
-    }
-    func double(_ defual:Double=0) -> Double {
-        guard let str = self else {
-            return defual
-        }
-        return Double("\(str)") ?? defual
-    }
-    func price(_ formatter:String="%0.2f") -> String {
-        return String(format: formatter, self.double())
-    }
-}
 
 extension KLineViewController{
     @IBAction func leftClick(_ sender: Any) {

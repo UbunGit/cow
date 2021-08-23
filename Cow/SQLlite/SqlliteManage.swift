@@ -79,37 +79,7 @@ extension SqlliteManage{
     
 
     
-    /**
-     批量插入数据
-     */
-    public func mutableinster(table:String, column:[String],datas:[[String:Any]]) throws  {
-        
-        if try istable(tablename: table) == false {
-            throw BaseError(code: -1, msg: "table 未创建")
-        }
-      
-        if datas.count <= 0 {
-            throw BaseError(code: -1, msg: "插入数据为空")
-        }
-        var sql = """
-            INSERT OR REPLACE INTO '\(table)' (\(column.map{"'\($0)'"}.joined(separator: ",")))
-            VALUES 
-            """
-        
-        let val = datas.map { item in
-            let tvar = column.map {
-                guard let str = item[$0] else{
-                    return "''"
-                }
-                return "'\(str)'"
-                
-            }.joined(separator: ",")
-            return "(\(tvar))"
-        }.joined(separator: ",")
-        sql.append(val)
-       debugPrint(sql)
-       _ = try db?.execute(sql)
-    }
+  
     
  
 }
@@ -174,59 +144,9 @@ public extension SqlliteManage{
 
 }
 
-// StockDaily
-public extension SqlliteManage{
-    func create_stockdaily() throws{
-        let sql = """
-        CREATE TABLE IF NOT EXISTS "stockdaily" -- 股票日数据
-     (
-        "date" TEXT, -- 时间
-        "code" TEXT, -- 股票代码
-        "open" NUMERIC, -- 开盘价
-        "close" NUMERIC, -- 收盘价
-        "high" NUMERIC, -- 最高价
-        "low" NUMERIC, -- 最低价
-        "vol" NUMERIC, -- 交易量
-        "amount" NUMERIC, -- 交易价
-        PRIMARY KEY("code","date")
-     )
-     """
-        print(sql)
-        try db?.execute(sql)
-    }
-    
-    func delete_stockdaily(code:String) throws {
-        let sql = """
-         delete FROM  "stockdaily"
-         where code = '\(code)'
-         """
-        print(sql)
-        try db?.execute(sql)
-    }
-}
 
-// StockMA
-public extension SqlliteManage{
-    func create_stockma() throws{
-        let sql = """
-        CREATE TABLE IF NOT EXISTS "stockma" -- 股票均线
-     (
-        "date" TEXT, -- 时间
-        "code" TEXT, -- 股票代码
-        "ma5" NUMERIC, -- 开盘价
-        "ma10" NUMERIC, -- 收盘价
-        "ma20" NUMERIC, -- 最高价
-        "ma30" NUMERIC, -- 最低价
-        "ma60" NUMERIC, -- 交易量
-        PRIMARY KEY("code","date")
-     )
-     """
-        print(sql)
-        try db?.execute(sql)
-    }
-    
-   
-}
+
+
 
 extension SqlliteManage{
     // 检查表是否创建完成
@@ -252,7 +172,7 @@ extension SqlliteManage{
         }
         if try istable(tablename: "stockma") == false {
             tasks.append(Task.init(name: "创建stockma表", handle: {group in
-                let _ =  try sm.create_stockdaily()
+                let _ =  try sm.create_stockma()
                 group.leave()
             }))
         }
@@ -294,5 +214,11 @@ extension Statement{
     }
 
 }
+public extension Array where Element == [String:Any]  {
+    func to_model<T>() -> [T]  where T:HandyJSON{
+        map { T.deserialize(from: $0)! }
+    }
+}
+
 
 

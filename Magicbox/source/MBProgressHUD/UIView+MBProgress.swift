@@ -58,6 +58,8 @@ import MBProgressHUD
         DispatchQueue.main.async {
             let hud =  self.show(text: mag as String, icon: icon )
             hud.tag = 6001
+            hud.label.textColor = .white
+            hud.backgroundColor = .red
             DispatchQueue.main.asyncAfter(deadline: .now()+3.5) {
                 self .hubhidden(6001)
             }

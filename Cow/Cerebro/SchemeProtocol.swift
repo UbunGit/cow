@@ -9,17 +9,19 @@ import Foundation
 
 
 // 方案
-protocol SchemeProtocol{
+class SchemeProtocol{
     
-    associatedtype T:Any
 
-    var datas:[T] { get set }
+    var datas:[[String:Any]] = []
     
     // 计算信号量
-    func signal(index:Int) -> Float
+    func signal(index:Int) -> Float{return 0}
     
     // 交易
-    func transaction(index:Int) -> Any
+    func transaction(index:Int) -> Any?{ return nil}
+    
+    // 获取今日推荐
+    func recommend(_ data:String)throws -> [[String:Any]] {return [] }
 }
 
 

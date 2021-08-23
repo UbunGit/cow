@@ -19,7 +19,7 @@ class ViewController: UITabBarController,UITabBarControllerDelegate
     }()
     
     lazy var nav2: CSuperNavigationController = {
-        let vc1 = UIViewController()
+        let vc1 = RecommendVC()
         vc1.title = "消息"
         vc1.tabBarItem.image = UIImage(systemName: "message")
         let nav1 = CSuperNavigationController.init(rootViewController: vc1)
