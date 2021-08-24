@@ -16,9 +16,8 @@ extension SqlliteManage{
         var sql = """
                 SELECT *
                 FROM  follow t1
-                LEFT JOIN stockbasic t2
-                LEFT JOIN stockma t3
-                ON t1.pid=t2.code AND t2.code=t3.code
+                LEFT JOIN stockbasic t2 ON t1.pid=t2.code
+                LEFT JOIN stockma t3 ON t2.code=t3.code
                 """
         
         if fitter.count>0 {

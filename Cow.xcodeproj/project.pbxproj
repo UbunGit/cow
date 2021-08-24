@@ -251,6 +251,7 @@
 		844D5ADB26BA604300AC08AF /* Cow */ = {
 			isa = PBXGroup;
 			children = (
+				84D8DD8626D47C900074E9A4 /* Github */,
 				8400CD3B26CFAF0700C6DE3F /* Cerebro */,
 				845E457626CA5CD7002E77C3 /* Task */,
 				8410013926C11FE900C64E53 /* Config */,
@@ -431,6 +432,13 @@
 				84D8DD7F26D39EB40074E9A4 /* RecommendCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		84D8DD8626D47C900074E9A4 /* Github */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Github;
 			sourceTree = "<group>";
 		};
 		8F8AB82B2CEEF3700D010E99 /* Pods */ = {

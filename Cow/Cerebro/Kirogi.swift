@@ -38,14 +38,20 @@ class Kirogi:SchemeProtocol{
     
     
     // 获取今日推荐
-    override func recommend(_ data:String)throws -> [[String:Any]] {
-     
-        let datas = try sm.select_follow_stockbasic_stockma(fitter:
-                                                                "t3.date='\(data)' and t3.ma\(ma1)>=t3.ma\(ma2)"
-        )
+    override func recommend(_ date:String? = nil)throws -> [[String:Any]] {
+        var fitter = "t3.ma\(ma1)>=t3.ma\(ma2)"
+        var limmit:NSRange? = nil
+        if date != nil {
+            fitter.append(" and t3.date='\(date!)'")
+            
+        }else{
+            limmit = _NSRange(location: 0, length: 1)
+        }
         
-       return datas
-       
+        let datas = try sm.select_follow_stockbasic_stockma(fitter:fitter,orderby: ["t3.date"],limmit: limmit)
+        
+        return datas
+        
         
     }
     

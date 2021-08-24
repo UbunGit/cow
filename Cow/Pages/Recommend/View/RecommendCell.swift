@@ -28,7 +28,7 @@ class RecommendCell: UITableViewCell {
         guard let obj = celldata as? SchemeProtocol else {
             return
         }
-        recommentCodeLab.text = try? obj.recommend(Date().toString("yyyyMMdd"))
+        recommentCodeLab.text = try? obj.recommend()
             .map{
                 guard let code = $0["code"] as? String else{
                     return "--"

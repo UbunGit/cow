@@ -21,7 +21,7 @@ class SchemeProtocol{
     func transaction(index:Int) -> Any?{ return nil}
     
     // 获取今日推荐
-    func recommend(_ data:String)throws -> [[String:Any]] {return [] }
+    func recommend(_ data:String? = nil)throws -> [[String:Any]] {return [] }
 }
 
 

@@ -33,6 +33,7 @@ extension RecommendVC:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "RecommendCell", for: indexPath) as! RecommendCell
+        cell.celldata = dataSouce[indexPath.row]
         return cell
     }
 }
