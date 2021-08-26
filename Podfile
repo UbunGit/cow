@@ -12,7 +12,7 @@ def common
   pod 'Charts'
   pod 'SQLite.swift'
   pod 'Alamofire'
-  
+  pod 'AliyunOSSiOS'
   pod 'Magicbox', :path=>'./'
 end
 

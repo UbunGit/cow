@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Magicbox
 
 
 class SettingVC: BaseViewController {
@@ -25,7 +25,9 @@ class SettingVC: BaseViewController {
                 name: "ETF列表",
                 icon: "🐱",
                 handle: {
-                    
+                    var oss = OSS()
+                    oss.savefile = "\(KDocumnetPath)/sqlite/sqlite.db"
+                    oss.downloadSql(url: "https://ubungit.oss-cn-shenzhen.aliyuncs.com/sqlite.db")
                 }
             ),
             DataHandleModel.init(

@@ -11,7 +11,8 @@ import Foundation
 // 方案
 class SchemeProtocol{
     
-
+    var date:String = Date().toString("yyyyMMdd")
+    
     var datas:[[String:Any]] = []
     
     // 计算信号量

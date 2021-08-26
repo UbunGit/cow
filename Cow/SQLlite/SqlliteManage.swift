@@ -160,7 +160,7 @@ extension SqlliteManage{
         }
         if try istable(tablename: "follow") == false {
             tasks.append(Task.init(name: "创建follow表", handle: {group in
-                let _ =  try sm.create_stockbasic()
+                let _ =  try sm.create_follow()
                 group.leave()
             }))
         }
@@ -193,7 +193,7 @@ extension Statement{
             
             var item:Dictionary = [String:Any]()
             for (index, name) in self.columnNames.enumerated() {
-                item[name] = row[index]!
+                item[name] = row[index].string()
             }
             return T.deserialize(from: item)!
         }

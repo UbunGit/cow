@@ -18,6 +18,9 @@
 		8410012126C10D2700C64E53 /* StockBasicListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8410011F26C10D2700C64E53 /* StockBasicListVC.xib */; };
 		8410013626C11D8700C64E53 /* StockBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410013526C11D8700C64E53 /* StockBasic.swift */; };
 		8410013B26C11FF900C64E53 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410013A26C11FF900C64E53 /* Config.swift */; };
+		842C3E9026D6353C00F012DD /* OSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C3E8F26D6353C00F012DD /* OSS.swift */; };
+		842C3E9226D6585200F012DD /* kirogi+stockbasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C3E9126D6585200F012DD /* kirogi+stockbasic.swift */; };
+		842C3E9426D65D2100F012DD /* kirogi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C3E9326D65D2100F012DD /* kirogi.swift */; };
 		84463B9326CF7BEC00F2262B /* KlineNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84463B9226CF7BEC00F2262B /* KlineNavBarView.swift */; };
 		84463B9526CF7BFF00F2262B /* KlineNavBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84463B9426CF7BFF00F2262B /* KlineNavBarView.xib */; };
 		844D5ADD26BA604300AC08AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D5ADC26BA604300AC08AF /* AppDelegate.swift */; };
@@ -96,6 +99,9 @@
 		8410011F26C10D2700C64E53 /* StockBasicListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockBasicListVC.xib; sourceTree = "<group>"; };
 		8410013526C11D8700C64E53 /* StockBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBasic.swift; sourceTree = "<group>"; };
 		8410013A26C11FF900C64E53 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		842C3E8F26D6353C00F012DD /* OSS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSS.swift; sourceTree = "<group>"; };
+		842C3E9126D6585200F012DD /* kirogi+stockbasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "kirogi+stockbasic.swift"; sourceTree = "<group>"; };
+		842C3E9326D65D2100F012DD /* kirogi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kirogi.swift; sourceTree = "<group>"; };
 		84463B9226CF7BEC00F2262B /* KlineNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlineNavBarView.swift; sourceTree = "<group>"; };
 		84463B9426CF7BFF00F2262B /* KlineNavBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KlineNavBarView.xib; sourceTree = "<group>"; };
 		844D5AD926BA604300AC08AF /* Cow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,7 +257,7 @@
 		844D5ADB26BA604300AC08AF /* Cow */ = {
 			isa = PBXGroup;
 			children = (
-				84D8DD8626D47C900074E9A4 /* Github */,
+				84D8DD8626D47C900074E9A4 /* OSS */,
 				8400CD3B26CFAF0700C6DE3F /* Cerebro */,
 				845E457626CA5CD7002E77C3 /* Task */,
 				8410013926C11FE900C64E53 /* Config */,
@@ -411,6 +417,8 @@
 				84D8DD7626D3811D0074E9A4 /* stockma.swift */,
 				84D8DD8226D3A7D50074E9A4 /* follow+stockbasic.swift */,
 				84D8DD8426D3AD7A0074E9A4 /* follow+stockbasic+stockma.swift */,
+				842C3E9126D6585200F012DD /* kirogi+stockbasic.swift */,
+				842C3E9326D65D2100F012DD /* kirogi.swift */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -434,11 +442,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		84D8DD8626D47C900074E9A4 /* Github */ = {
+		84D8DD8626D47C900074E9A4 /* OSS */ = {
 			isa = PBXGroup;
 			children = (
+				842C3E8F26D6353C00F012DD /* OSS.swift */,
 			);
-			path = Github;
+			path = OSS;
 			sourceTree = "<group>";
 		};
 		8F8AB82B2CEEF3700D010E99 /* Pods */ = {
@@ -662,6 +671,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				842C3E9226D6585200F012DD /* kirogi+stockbasic.swift in Sources */,
 				8492CC0926C4D256004048EF /* SqlliteManage.swift in Sources */,
 				845E45B126CBB988002E77C3 /* SQLTableInfoVC.swift in Sources */,
 				8492CBEC26C3CC6B004048EF /* WebViewController.swift in Sources */,
@@ -671,9 +681,11 @@
 				845E45AB26CBABF1002E77C3 /* SqliteTable.swift in Sources */,
 				846B4CB826C0F82D00EB5BA7 /* SettingVC.swift in Sources */,
 				845E457826CA5CF6002E77C3 /* Task.swift in Sources */,
+				842C3E9026D6353C00F012DD /* OSS.swift in Sources */,
 				846B4CC726C104A100EB5BA7 /* CollectionViewGridCell.swift in Sources */,
 				845E45AD26CBB81F002E77C3 /* SqliteSelect.swift in Sources */,
 				84D8DD7B26D39E660074E9A4 /* RecommendVC.swift in Sources */,
+				842C3E9426D65D2100F012DD /* kirogi.swift in Sources */,
 				8400CD4326CFB85700C6DE3F /* lib.swift in Sources */,
 				84D8DD7326D380390074E9A4 /* stockdaily+stockma.swift in Sources */,
 				844D5B0C26BA9F1500AC08AF /* HomeBandasCell.swift in Sources */,

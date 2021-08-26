@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -55,9 +56,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="datelab" destination="ceE-Mo-teh" id="GJL-rJ-Dx6"/>
                 <outlet property="recommentCodeLab" destination="Gb7-6O-EF8" id="R4B-C7-Vyu"/>
             </connections>
-            <point key="canvasLocation" x="24.637681159420293" y="114.84375"/>
+            <point key="canvasLocation" x="-167" y="111"/>
         </tableViewCell>
     </objects>
     <resources>
