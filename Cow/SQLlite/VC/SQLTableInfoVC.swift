@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class SQLTableInfoVC: UIViewController {
 
     @objc var tableInfo:[String:Any] = [:]
@@ -20,24 +20,71 @@ class SQLTableInfoVC: UIViewController {
 
     }
     func updateUI()  {
+        guard let tablename = tableInfo["name"] as? String else {
+            return
+        }
+  
+       
+      
+        view.loading()
+        var lastdata:[[String:Any]] = []
+        let group =  DispatchGroup.init()
+        group.enter()
         if let sql = tableInfo["sql"] as? String {
-            createSql.text = sql
-        }
-        do {
-            guard let tablename = tableInfo["name"] as? String else {
-                return
+                    createSql.text = sql
+                }
+        let url = "\(baseurl)/select"
+        let param = ["sql":sm.lastsql(table: tablename)]
+        AF.request(url, method: .post, parameters: param, encoder: JSONParameterEncoder.default)
+            .responseModel([[String:Any]].self) { result in
+                
+                switch result{
+                case .success(let value):
+                    lastdata = value
+                    
+                case .failure(let error):
+                    self.view.error(error.localizedDescription)
+                }
+                group.leave()
             }
-            let count = try sm.count(table: tablename)
-            countLab.text = "数据量：\(count)"
-            let lastdata = try sm.last(table: tablename)
-            lastDataLab.text = lastdata?.description
-            
-            let tableinfo = try sm.info(table: tablename)
-            infoLab.text = tableinfo.map({ $0.description
-            }).joined(separator: "\n")
-        } catch  {
-            view.error(error.localizedDescription)
+        
+        group.enter()
+        var countdata:[[String:Any]] = []
+        let counturl = "\(baseurl)/select"
+        let countparam = ["sql":sm.countsql(table: tablename)]
+        AF.request(counturl, method: .post, parameters: countparam, encoder: JSONParameterEncoder.default)
+            .responseModel([[String:Any]].self) { result in
+                
+                switch result{
+                case .success(let value):
+                    countdata = value
+                    
+                case .failure(let error):
+                    self.view.error(error.localizedDescription)
+                }
+                group.leave()
+            }
+        
+        group.notify(queue: .main) {
+            self.view.loadingDismiss()
+            self.lastDataLab.text = lastdata.description
+            self.countLab.text = "数据量：\(countdata.description)"
         }
+        
+//
+//        do {
+//
+//            let count = try sm.count(table: tablename)
+//            countLab.text = "数据量：\(count)"
+//            let lastdata = try sm.last(table: tablename)
+//            lastDataLab.text = lastdata?.description
+//
+            let tableinfo = try sm.info(table: tablename)
+//            infoLab.text = tableinfo.map({ $0.description
+//            }).joined(separator: "\n")
+//        } catch  {
+//            view.error(error.localizedDescription)
+//        }
     }
 
 

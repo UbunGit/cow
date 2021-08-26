@@ -38,6 +38,16 @@ extension SqlliteManage{
         return Int(result)
     }
     
+    func countsql(table:String, fitter:String? = nil) -> String {
+        var sql = """
+            select count(*) as 'count' from '\(table)'
+            """
+        if fitter != nil{
+            sql.append(fitter!)
+        }
+        return sql
+    }
+    
     func last(table:String,
               orderby:[String] = [],
               isasc:Bool = false)throws -> [String:Any]? {
@@ -57,6 +67,23 @@ extension SqlliteManage{
             return [:]
         }
         return datas.last
+    }
+    func lastsql(table:String,
+              orderby:[String] = [],
+              isasc:Bool = false) -> String {
+        
+        var sql = """
+            SELECT * FROM  \(table) 
+            """
+        if orderby.count>0 {
+            sql.append("""
+            ORDER BY \(orderby.joined(separator: ",")) \(isasc ? "ASC" : "" )
+            """)
+        }
+        sql.append("""
+         LIMIT 1 OFFSET 0
+        """)
+        return sql
     }
     
     func select(table:String,

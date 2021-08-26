@@ -7,7 +7,7 @@
 
 import UIKit
 import Magicbox
-
+import Alamofire
 
 class SettingVC: BaseViewController {
     
@@ -34,7 +34,7 @@ class SettingVC: BaseViewController {
                 name: "可转债",
                 icon: "🐭",
                 handle: {
-                    
+                   
                 }
             ),
             DataHandleModel.init(

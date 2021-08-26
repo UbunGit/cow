@@ -11,7 +11,7 @@ import Magicbox
 import YYKit
 import HandyJSON
 var baseurl:String{
-    UserDefaults.standard.string(forKey: "baseurl") ?? "http://10.10.11.143:5000"
+    UserDefaults.standard.string(forKey: "baseurl") ?? "http://47.107.38.1"
 }
 
 

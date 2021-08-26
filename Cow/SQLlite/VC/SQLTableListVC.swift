@@ -7,6 +7,7 @@
 
 import UIKit
 import MJRefresh
+import Alamofire
 
 class SQLTableListVC: UIViewController {
     
@@ -21,24 +22,36 @@ class SQLTableListVC: UIViewController {
         super.viewWillAppear(animated)
     }
     func updatetables()  {
-        do {
-            self.tables = try sm.tables()
-            tableView.mj_header?.endRefreshing()
-            tableView.reloadData()
-        } catch  {
-            view.error(error.localizedDescription)
-        }
+        let url = "\(baseurl)/select"
+        let param = ["sql":"""
+                        SELECT * FROM sqlite_master
+                        WHERE type="table"
+                        """
+        ]
+        view.loading()
         
+        AF.request(url, method: .post, parameters: param, encoder: JSONParameterEncoder.default)
+            .responseModel([[String:Any]].self) { result in
+                self.view.loadingDismiss()
+                switch result{
+                case .success(let value):
+                    self.tables = value
+                    self.tableView.mj_header?.endRefreshing()
+                    self.tableView.reloadData()
+                case .failure(let error):
+                    self.view.error(error.localizedDescription)
+                }
+            }
     }
     
-
-
+    
+    
 }
 
 extension SQLTableListVC:UITableViewDelegate,UITableViewDataSource{
     
     func configTableview()  {
-
+        
         tableView.estimatedRowHeight = 60
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.mj_header = MJRefreshGifHeader(refreshingBlock: {
@@ -67,7 +80,7 @@ extension SQLTableListVC:UITableViewDelegate,UITableViewDataSource{
     
     // 右侧按钮自定义
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-
+        
         let archiveAction = UIContextualAction(style: .normal, title: "删除表") { [self] (action, view, finished) in
             do{
                 if let name = tables[indexPath.row]["name"] as? String {
@@ -87,8 +100,8 @@ extension SQLTableListVC:UITableViewDelegate,UITableViewDataSource{
         
         return UISwipeActionsConfiguration(actions: [ archiveAction])
     }
-
-   
+    
+    
     
     
 }
