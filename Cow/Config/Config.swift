@@ -131,3 +131,13 @@ extension Data {
         }
     }
 }
+
+
+extension Session{
+    func af_select(_ sql:String, callback:@escaping (Result<[[String:Any]], Error>)  ->  ())  {
+        let url = "\(baseurl)/select"
+        let param = ["sql":sql]
+        self.request(url, method: .post, parameters: param, encoder: JSONParameterEncoder.default)
+            .responseModel([[String:Any]].self, callback: callback)
+    }
+}

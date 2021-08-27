@@ -14,6 +14,9 @@
 		8400CD4326CFB85700C6DE3F /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400CD4226CFB85700C6DE3F /* lib.swift */; };
 		8405463B26D8BE48007E7F0F /* ETFDetaiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405463926D8BE48007E7F0F /* ETFDetaiViewController.swift */; };
 		8405463C26D8BE48007E7F0F /* ETFDetaiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8405463A26D8BE48007E7F0F /* ETFDetaiViewController.xib */; };
+		8405464126D8C206007E7F0F /* ETFDetaiKlineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405463F26D8C206007E7F0F /* ETFDetaiKlineCell.swift */; };
+		8405464226D8C206007E7F0F /* ETFDetaiKlineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8405464026D8C206007E7F0F /* ETFDetaiKlineCell.xib */; };
+		8405464426D8C58E007E7F0F /* etfdaily+kirogietf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405464326D8C58E007E7F0F /* etfdaily+kirogietf.swift */; };
 		8410011C26C106EA00C64E53 /* DataHandleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410011B26C106EA00C64E53 /* DataHandleModel.swift */; };
 		8410012026C10D2700C64E53 /* StockBasicListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410011E26C10D2700C64E53 /* StockBasicListVC.swift */; };
 		8410012126C10D2700C64E53 /* StockBasicListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8410011F26C10D2700C64E53 /* StockBasicListVC.xib */; };
@@ -96,6 +99,9 @@
 		8405463526D8AF13007E7F0F /* Cow-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cow-Bridging-Header.h"; sourceTree = "<group>"; };
 		8405463926D8BE48007E7F0F /* ETFDetaiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFDetaiViewController.swift; sourceTree = "<group>"; };
 		8405463A26D8BE48007E7F0F /* ETFDetaiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ETFDetaiViewController.xib; sourceTree = "<group>"; };
+		8405463F26D8C206007E7F0F /* ETFDetaiKlineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFDetaiKlineCell.swift; sourceTree = "<group>"; };
+		8405464026D8C206007E7F0F /* ETFDetaiKlineCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ETFDetaiKlineCell.xib; sourceTree = "<group>"; };
+		8405464326D8C58E007E7F0F /* etfdaily+kirogietf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "etfdaily+kirogietf.swift"; sourceTree = "<group>"; };
 		8410011B26C106EA00C64E53 /* DataHandleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandleModel.swift; sourceTree = "<group>"; };
 		8410011E26C10D2700C64E53 /* StockBasicListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBasicListVC.swift; sourceTree = "<group>"; };
 		8410011F26C10D2700C64E53 /* StockBasicListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockBasicListVC.xib; sourceTree = "<group>"; };
@@ -194,6 +200,25 @@
 			path = Cerebro;
 			sourceTree = "<group>";
 		};
+		8405463D26D8BFC1007E7F0F /* ETF */ = {
+			isa = PBXGroup;
+			children = (
+				8405463E26D8C10D007E7F0F /* View */,
+				8405463926D8BE48007E7F0F /* ETFDetaiViewController.swift */,
+				8405463A26D8BE48007E7F0F /* ETFDetaiViewController.xib */,
+			);
+			path = ETF;
+			sourceTree = "<group>";
+		};
+		8405463E26D8C10D007E7F0F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8405463F26D8C206007E7F0F /* ETFDetaiKlineCell.swift */,
+				8405464026D8C206007E7F0F /* ETFDetaiKlineCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8410011A26C106A400C64E53 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,8 +306,6 @@
 				844D5AF926BA6EBC00AC08AF /* HomeViewController.swift */,
 				844D5AFA26BA6EBC00AC08AF /* HomeViewController.xib */,
 				845E45CC26CCFEC5002E77C3 /* KLineViewController.swift */,
-				8405463926D8BE48007E7F0F /* ETFDetaiViewController.swift */,
-				8405463A26D8BE48007E7F0F /* ETFDetaiViewController.xib */,
 				845E45CD26CCFEC5002E77C3 /* KLineViewController.xib */,
 			);
 			path = Home;
@@ -291,6 +314,7 @@
 		844D5AF126BA6C5600AC08AF /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				8405463D26D8BFC1007E7F0F /* ETF */,
 				84D8DD7826D39B060074E9A4 /* Recommend */,
 				8492CBEE26C3D606004048EF /* Flow */,
 				8492CBE926C3CC48004048EF /* WebView */,
@@ -413,6 +437,7 @@
 				84D8DD8426D3AD7A0074E9A4 /* follow+stockbasic+stockma.swift */,
 				842C3E9126D6585200F012DD /* kirogi+stockbasic.swift */,
 				842C3E9326D65D2100F012DD /* kirogi.swift */,
+				8405464326D8C58E007E7F0F /* etfdaily+kirogietf.swift */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -559,6 +584,7 @@
 				846B4CB926C0F82D00EB5BA7 /* SettingVC.xib in Resources */,
 				845E45A926CBA94E002E77C3 /* SQLTableListVC.xib in Resources */,
 				846B4CBE26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib in Resources */,
+				8405464226D8C206007E7F0F /* ETFDetaiKlineCell.xib in Resources */,
 				844D5B0926BA955600AC08AF /* HomeBandas.xib in Resources */,
 				84D8DD7C26D39E660074E9A4 /* RecommendVC.xib in Resources */,
 				8405463C26D8BE48007E7F0F /* ETFDetaiViewController.xib in Resources */,
@@ -669,6 +695,7 @@
 			files = (
 				842C3E9226D6585200F012DD /* kirogi+stockbasic.swift in Sources */,
 				8492CC0926C4D256004048EF /* SqlliteManage.swift in Sources */,
+				8405464426D8C58E007E7F0F /* etfdaily+kirogietf.swift in Sources */,
 				845E45B126CBB988002E77C3 /* SQLTableInfoVC.swift in Sources */,
 				8492CBEC26C3CC6B004048EF /* WebViewController.swift in Sources */,
 				8492CBF326C4BACD004048EF /* FollowListViewController.swift in Sources */,
@@ -676,6 +703,7 @@
 				844D5AFB26BA6EBC00AC08AF /* HomeViewController.swift in Sources */,
 				8405463B26D8BE48007E7F0F /* ETFDetaiViewController.swift in Sources */,
 				845E45AB26CBABF1002E77C3 /* SqliteTable.swift in Sources */,
+				8405464126D8C206007E7F0F /* ETFDetaiKlineCell.swift in Sources */,
 				846B4CB826C0F82D00EB5BA7 /* SettingVC.swift in Sources */,
 				842C3E9026D6353C00F012DD /* OSS.swift in Sources */,
 				846B4CC726C104A100EB5BA7 /* CollectionViewGridCell.swift in Sources */,

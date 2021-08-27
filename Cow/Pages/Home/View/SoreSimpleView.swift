@@ -27,7 +27,6 @@ class SoreSimpleView: UIView {
     @IBOutlet weak var closeLab: UILabel!
     @IBOutlet weak var volLab: UILabel!
     @IBOutlet weak var amiuntLab: UILabel!
-    
     @IBOutlet weak var dateLab: UILabel!
     
  

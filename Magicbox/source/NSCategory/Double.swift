@@ -10,7 +10,12 @@ public extension Double {
     func double() -> Double{
         Double(self)
     }
-  
+    
+    func price(_ formatter:String="%0.2f") -> String {
+        return String(format: formatter, self)
+    }
+    
+    
 }
 public extension Float {
     func double() -> Double{

@@ -8,7 +8,7 @@
 import UIKit
 import YYKit
 protocol RecommendCellDelegate{
-    func codeclick(code:String,celldata:SchemeProtocol)
+    func codeclick(code:String,name:String, celldata:SchemeProtocol)
 }
 
 class RecommendCell: UITableViewCell {
@@ -47,7 +47,7 @@ class RecommendCell: UITableViewCell {
                                    backgroundColor: UIColor(named: "AccentColor"))
                 { view, attstr, range, recet in
                     
-                    self.delegate?.codeclick(code: item["code"].string(), celldata: self.celldata!)
+                    self.delegate?.codeclick(code: item["code"].string(),name: item["name"].string(), celldata: self.celldata!)
                 }
                 t.backgroundColor = .clear
                 muatt.append(t)

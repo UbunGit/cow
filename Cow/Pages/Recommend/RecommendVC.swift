@@ -97,11 +97,8 @@ extension RecommendVC:UITableViewDelegate,UITableViewDataSource{
     }
 }
 extension RecommendVC:RecommendCellDelegate{
-    func codeclick(code: String, celldata: SchemeProtocol) {
+    func codeclick(code: String,name:String, celldata: SchemeProtocol) {
         
-        self.mb_push("Cow.KLineViewController", params:
-                        [
-                            "code":code,
-                        ] )
+        self.mb_push("Cow.ETFDetaiViewController", params:["code":code,"name":name] )
     }
 }

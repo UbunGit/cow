@@ -46,16 +46,10 @@ class KLineViewController: CViewController {
         }
         style_candleStickChart()
         chartView.delegate = self
-        updateDBdata()
+
         updateDate()
     }
-    func updateDBdata()  {
-//        do {
-////        try task_ma_save(code: code, type: 1)
-//        } catch  {
-//            self.view.error(error.localizedDescription)
-//        }
-    }
+
     
     
     func updateDate()  {
@@ -69,6 +63,10 @@ class KLineViewController: CViewController {
             
         }
     }
+    
+}
+extension KLineViewController{
+    
     func style_candleStickChart()  {
         // 禁止Y轴的滚动与放大
         chartView.scaleYEnabled = false
@@ -120,8 +118,6 @@ class KLineViewController: CViewController {
         legend.yOffset = 10
         
     }
-}
-extension KLineViewController{
     func reloadChartView() {
         let candledata = candleData
         let chartData = CombinedChartData()
@@ -245,9 +241,5 @@ extension KLineViewController{
     }
 }
 
-extension Double{
-    func price(_ formatter:String="%0.2f") -> String {
-        return String(format: formatter, self)
-    }
-}
+
 
