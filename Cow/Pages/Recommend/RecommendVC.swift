@@ -6,41 +6,72 @@
 //
 
 import UIKit
-
+import MJRefresh
 class RecommendVC: UIViewController {
-
-    @IBOutlet weak var tableview: UITableView!
     
-    var dataSouce:[AnyObject] = []{
-        didSet{
-            tableview.reloadData()
-        }
-    }
+    @IBOutlet weak var tableview: UITableView!
+    var page = NSRange(location: 0, length: 1)
+    var dataSouce:[SchemeProtocol] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableview.register(UINib(nibName: "RecommendCell", bundle: nil), forCellReuseIdentifier: "RecommendCell")
+        tableview.rowHeight = 100
+
+        tableview.separatorStyle = .none
+        tableview.mj_footer = MJRefreshBackStateFooter(refreshingBlock: {
+            self.dataSouce.removeAll()
+            self.page.location=0
+            self.loaddates()
+            
+        })
+        tableview.mj_header = MJRefreshStateHeader(refreshingBlock: {
+            self.page.location += 1
+            self.loaddates()
+            
+        })
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loaddates()
     }
     func loaddates() {
-        do {
-            let data = try sm.kirogidates(limmit: NSRange(location: 0, length: 10), type: "etf").map{ item -> Kirogi in
-                let kir = Kirogi()
-                kir.date = item["date"].string()
-                return kir
-            }
-            dataSouce = data
+        view.loading()
+        sm.af_kirogidates(limmit: page, type: "etf") { result in
+            self.view.loadingDismiss()
+            switch result{
             
-        } catch  {
-            view.error(error.localizedDescription)
+            case .success(let value):
+                if self.page.location==0 {
+                    self.dataSouce = value.map{ item -> Kirogi in
+                        let kir = Kirogi()
+                        kir.date = item["date"].string()
+                        return kir
+                    }
+                    self.tableview.scrollToBottom()
+                }else{
+                    let tem = value.map{ item -> Kirogi in
+                        let kir = Kirogi()
+                        kir.date = item["date"].string()
+                        return kir
+                    }
+                    self.dataSouce += tem
+                   
+                }
+                self.tableview.reloadData()
+                
+            case .failure(let err):
+                self.view.error(err.localizedDescription)
+            }
+            self.tableview.mj_footer?.endRefreshing()
+            self.tableview.mj_header?.endRefreshing()
         }
-        
-        
     }
-
-
-
+    
+    
+    
 }
 extension RecommendVC:UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -50,11 +81,27 @@ extension RecommendVC:UITableViewDelegate,UITableViewDataSource{
         return dataSouce.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        280
+        200
     }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
+    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "RecommendCell", for: indexPath) as! RecommendCell
-        cell.celldata = dataSouce[indexPath.row]
+        let row = dataSouce.count-indexPath.row-1
+        cell.celldata = dataSouce[row]
+        cell.delegate = self
         return cell
+    }
+}
+extension RecommendVC:RecommendCellDelegate{
+    func codeclick(code: String, celldata: SchemeProtocol) {
+        
+        self.mb_push("Cow.KLineViewController", params:
+                        [
+                            "code":code,
+                        ] )
     }
 }

@@ -79,7 +79,7 @@ class SQLTableInfoVC: UIViewController {
 //            let lastdata = try sm.last(table: tablename)
 //            lastDataLab.text = lastdata?.description
 //
-            let tableinfo = try sm.info(table: tablename)
+//            let tableinfo = try sm.info(table: tablename)
 //            infoLab.text = tableinfo.map({ $0.description
 //            }).joined(separator: "\n")
 //        } catch  {

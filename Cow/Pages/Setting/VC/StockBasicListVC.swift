@@ -97,8 +97,7 @@ extension StockBasicListVC:UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        try? Task.task_updateSoredata()
-
+       
         
     }
 

@@ -148,40 +148,6 @@ public extension SqlliteManage{
 
 
 
-extension SqlliteManage{
-    // 检查表是否创建完成
-    func checkupTable() throws -> [Task] {
-        var tasks:[Task] = []
-        if try istable(tablename: "stockbasic") == false {
-            tasks.append(Task.init(name: "创建StockBasic表", handle: {group in
-                let _ =  try sm.create_stockbasic()
-                group.leave()
-            }))
-        }
-        if try istable(tablename: "follow") == false {
-            tasks.append(Task.init(name: "创建follow表", handle: {group in
-                let _ =  try sm.create_follow()
-                group.leave()
-            }))
-        }
-        if try istable(tablename: "stockdaily") == false {
-            tasks.append(Task.init(name: "创建stockdaily表", handle: {group in
-                let _ =  try sm.create_stockdaily()
-                group.leave()
-            }))
-        }
-        if try istable(tablename: "stockma") == false {
-            tasks.append(Task.init(name: "创建stockma表", handle: {group in
-                let _ =  try sm.create_stockma()
-                group.leave()
-            }))
-        }
-        
-        return tasks
-    }
-    
-
-}
 
 
 extension Statement{

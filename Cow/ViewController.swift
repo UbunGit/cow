@@ -48,7 +48,7 @@ class ViewController: UITabBarController,UITabBarControllerDelegate
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        Task.task_createTable()
+    
       
        
     }

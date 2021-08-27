@@ -32,6 +32,7 @@ import MBProgressHUD
         DispatchQueue.main.async {
             let hud =  self.show(text: msg, icon:icon )
             hud.tag = 6000
+            hud.customView?.backgroundColor = .systemGreen
             DispatchQueue.main.asyncAfter(deadline: .now()+3.5) {
                 self .hubhidden(6000)
             }
@@ -59,7 +60,7 @@ import MBProgressHUD
             let hud =  self.show(text: mag as String, icon: icon )
             hud.tag = 6001
             hud.label.textColor = .white
-            hud.backgroundColor = .red
+            hud.customView?.backgroundColor = .red
             DispatchQueue.main.asyncAfter(deadline: .now()+3.5) {
                 self .hubhidden(6001)
             }
@@ -84,7 +85,7 @@ import MBProgressHUD
     func debug(_ mag:NSString = "失败" , icon:String = "error.png"){
         DispatchQueue.main.async {
             let hud =  self.show(text: mag as String, icon: icon )
-            hud.bezelView.backgroundColor = .red
+            hud.customView?.backgroundColor = .red
             hud.tag = 6002
             DispatchQueue.main.asyncAfter(deadline: .now()+3.5) {
                 self .hubhidden(6002)
@@ -214,10 +215,16 @@ private extension UIView{
     func hubhidden(_ viewTag:Int)  {
         DispatchQueue.main.async{
             self.isUserInteractionEnabled = true;
-            guard let hub = self.viewWithTag(viewTag) as? MBProgressHUD  else {
-                return
+            for aview in self.subviews{
+                if aview.tag == viewTag {
+                    guard let hub = aview as? MBProgressHUD  else {
+                        return
+                    }
+                    hub.hide(animated: false)
+                }
             }
-            hub.hide(animated: false)
+         
+         
         }
     }
 }

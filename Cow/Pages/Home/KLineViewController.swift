@@ -50,11 +50,11 @@ class KLineViewController: CViewController {
         updateDate()
     }
     func updateDBdata()  {
-        do {
-        try task_ma_save(code: code, type: 1)
-        } catch  {
-            self.view.error(error.localizedDescription)
-        }
+//        do {
+////        try task_ma_save(code: code, type: 1)
+//        } catch  {
+//            self.view.error(error.localizedDescription)
+//        }
     }
     
     
@@ -159,21 +159,21 @@ extension KLineViewController{
     
     // MA
     var maLineSets:[ChartDataSet]{
-        
-        return KDefualMAS.map { ma ->LineChartDataSet in
-            let str = "ma\(ma)"
-            let entrys = datas.enumerated().map{ ChartDataEntry(x: Double($0), y: $1[str].double())}
-            let set =  LineChartDataSet(entries: entrys)
-            set.mode = .cubicBezier
-            set.label = str
-            set.drawCirclesEnabled = false
-            set.drawFilledEnabled = false
-            set.drawValuesEnabled = false
-            set.fillColor = .yellow.withAlphaComponent(0.1)
-            set.colors = [UIColor(named: str)!]
-            return set
-        }
-     
+        return []
+//        return KDefualMAS.map { ma ->LineChartDataSet in
+//            let str = "ma\(ma)"
+//            let entrys = datas.enumerated().map{ ChartDataEntry(x: Double($0), y: $1[str].double())}
+//            let set =  LineChartDataSet(entries: entrys)
+//            set.mode = .cubicBezier
+//            set.label = str
+//            set.drawCirclesEnabled = false
+//            set.drawFilledEnabled = false
+//            set.drawValuesEnabled = false
+//            set.fillColor = .yellow.withAlphaComponent(0.1)
+//            set.colors = [UIColor(named: str)!]
+//            return set
+//        }
+//
         
     }
 }

@@ -40,7 +40,7 @@ extension StockBasic{
         }.responseModel([StockBasic].self) { result in
             switch result{
             case .failure(let error):
-                finesh(BaseError.init(code: -1, msg: error.msg))
+                finesh(BaseError.init(code: -1, msg: error.localizedDescription))
             case .success(let value):
                 do{
                     _ = try sm.mutableinster(

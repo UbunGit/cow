@@ -18,8 +18,13 @@ class Kirogi:SchemeProtocol{
         super.init()
     }
     var cachedata:[[String:Any]]? = nil
+
     
-    func loadrecommend()  {
+    override func recommend(_ data:String? = nil ,didchange:@escaping ([[String:Any]])->()) {
+        
+        if let cadata = cachedata {
+            didchange(cadata)
+        }
         let url = "\(baseurl)/select"
         let speed = 5
         let param = ["sql":"""
@@ -36,18 +41,11 @@ class Kirogi:SchemeProtocol{
                 switch result{
                 case .success(let value):
                     self.cachedata = value
+                    didchange(value)
                 case .failure(_):
                     break
                 }
             }
-    }
-    
-    override func recommend(_ data:String? = nil)throws -> [[String:Any]] {
-        if let cadata = cachedata {
-            return cadata
-        }
-        loadrecommend()
-        return []
     }
 
     

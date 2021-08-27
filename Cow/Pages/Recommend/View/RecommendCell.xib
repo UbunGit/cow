@@ -5,64 +5,113 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="RecommendCell" customModule="Cow" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="143"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="290" id="KGk-i7-Jjw" customClass="RecommendCell" customModule="Cow" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="475" height="290"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="143"/>
+                <rect key="frame" x="0.0" y="0.0" width="475" height="290"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rrl-od-kaQ">
+                        <rect key="frame" x="8" y="39" width="459" height="1"/>
+                        <color key="backgroundColor" name="Text 2"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="JuP-z9-GhL"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kirogi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEA-NY-IHK">
-                        <rect key="frame" x="8" y="8" width="37.5" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="8" y="8" width="46" height="23"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021/12/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceE-Mo-teh">
-                        <rect key="frame" x="251" y="8" width="61" height="14.5"/>
+                        <rect key="frame" x="406" y="8" width="61" height="23"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" name="Text 4"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gb7-6O-EF8">
-                        <rect key="frame" x="8" y="33" width="304" height="102"/>
-                        <color key="backgroundColor" red="0.92156862750000001" green="0.92941176469999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGO-V2-FLS" customClass="YYLabel">
+                        <rect key="frame" x="8" y="40" width="459" height="246"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="mb_radius">
+                            <userDefinedRuntimeAttribute type="number" keyPath="numberOfLines">
+                                <integer key="value" value="0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="textAlignment">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="insetBottom_">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="insetLeft_">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="insetRight_">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="insetTop_">
                                 <real key="value" value="8"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
-                    </label>
+                    </view>
                 </subviews>
+                <color key="backgroundColor" name="Background 1"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="Gb7-6O-EF8" secondAttribute="bottom" constant="8" id="HqC-dV-HmI"/>
+                    <constraint firstAttribute="trailing" secondItem="Rrl-od-kaQ" secondAttribute="trailing" constant="8" id="1Nt-m7-E6V"/>
+                    <constraint firstItem="Rrl-od-kaQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="GJP-NN-bWn"/>
+                    <constraint firstItem="cGO-V2-FLS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="40" id="MmU-Tx-QSa"/>
+                    <constraint firstAttribute="bottom" secondItem="cGO-V2-FLS" secondAttribute="bottom" constant="4" id="NSv-aL-AEw"/>
                     <constraint firstAttribute="trailing" secondItem="ceE-Mo-teh" secondAttribute="trailing" constant="8" id="Pgg-U5-t5T"/>
-                    <constraint firstItem="Gb7-6O-EF8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Ral-yo-BPb"/>
-                    <constraint firstItem="Gb7-6O-EF8" firstAttribute="top" secondItem="MEA-NY-IHK" secondAttribute="bottom" constant="8" id="flA-eb-atI"/>
+                    <constraint firstItem="Rrl-od-kaQ" firstAttribute="top" secondItem="MEA-NY-IHK" secondAttribute="bottom" constant="8" id="iVG-xm-lbC"/>
                     <constraint firstItem="ceE-Mo-teh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="jwJ-oe-0qp"/>
+                    <constraint firstItem="cGO-V2-FLS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="k3T-sf-uaN"/>
                     <constraint firstItem="MEA-NY-IHK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="mkq-dl-uMF"/>
+                    <constraint firstItem="Rrl-od-kaQ" firstAttribute="top" secondItem="ceE-Mo-teh" secondAttribute="bottom" constant="8" id="o4G-Gy-uPh"/>
                     <constraint firstItem="MEA-NY-IHK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="qBL-qV-buU"/>
-                    <constraint firstAttribute="trailing" secondItem="Gb7-6O-EF8" secondAttribute="trailing" constant="8" id="tN8-kg-sI4"/>
+                    <constraint firstAttribute="trailing" secondItem="cGO-V2-FLS" secondAttribute="trailing" constant="8" id="s0a-hW-ZpZ"/>
+                    <constraint firstItem="Rrl-od-kaQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="39" id="vGu-zy-iZr"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="mb_radius">
+                        <real key="value" value="8"/>
+                    </userDefinedRuntimeAttribute>
+                    <userDefinedRuntimeAttribute type="color" keyPath="mb_borderColor">
+                        <color key="value" name="AccentColor"/>
+                    </userDefinedRuntimeAttribute>
+                    <userDefinedRuntimeAttribute type="number" keyPath="mb_borderWidth">
+                        <real key="value" value="1"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="mb_radius">
+                    <real key="value" value="0.0"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="datelab" destination="ceE-Mo-teh" id="GJL-rJ-Dx6"/>
-                <outlet property="recommentCodeLab" destination="Gb7-6O-EF8" id="R4B-C7-Vyu"/>
+                <outlet property="recommentCodeLab" destination="cGO-V2-FLS" id="IUK-MX-nYL"/>
             </connections>
-            <point key="canvasLocation" x="-167" y="111"/>
+            <point key="canvasLocation" x="-55.797101449275367" y="159.375"/>
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.38431376218795776" green="0.20392158627510071" blue="0.83529412746429443" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Background 1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Text 2">
+            <color red="0.93300002813339233" green="0.93300002813339233" blue="0.93300002813339233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Text 4">
             <color red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

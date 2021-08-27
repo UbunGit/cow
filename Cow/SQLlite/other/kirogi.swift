@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 extension SqlliteManage{
     
     
@@ -23,6 +24,27 @@ extension SqlliteManage{
             return []
         }
         return datas
+    }
+    
+    func kirogidatesSql(limmit:NSRange = NSRange(location: 0, length: 10), type:String="stock") -> String {
+        
+        
+        let sql = """
+                select date from kirogi\(type)
+                GROUP BY date
+                ORDER BY date DESC
+                LIMIT \(limmit.length) OFFSET \(limmit.location)
+                """
+       
+        return sql
+    }
+    
+    func af_kirogidates(limmit:NSRange = NSRange(location: 0, length: 10), type:String="stock", callback:@escaping (Result< [[String:Any]], Error>)  ->  ()) {
+        let url = "\(baseurl)/select"
+        let param = ["sql":self.kirogidatesSql(limmit: limmit, type: type)
+        ]
+        AF.request(url, method: .post, parameters: param, encoder: JSONParameterEncoder.default)
+            .responseModel([[String:Any]].self, callback: callback) 
     }
 }
 

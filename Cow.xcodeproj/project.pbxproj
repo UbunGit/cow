@@ -12,7 +12,8 @@
 		8400CD4026CFAF0700C6DE3F /* SchemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400CD3D26CFAF0700C6DE3F /* SchemeProtocol.swift */; };
 		8400CD4126CFAF0700C6DE3F /* Cerebro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400CD3E26CFAF0700C6DE3F /* Cerebro.swift */; };
 		8400CD4326CFB85700C6DE3F /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400CD4226CFB85700C6DE3F /* lib.swift */; };
-		8400CD4526CFB8B200C6DE3F /* ma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400CD4426CFB8B200C6DE3F /* ma.swift */; };
+		8405463B26D8BE48007E7F0F /* ETFDetaiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405463926D8BE48007E7F0F /* ETFDetaiViewController.swift */; };
+		8405463C26D8BE48007E7F0F /* ETFDetaiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8405463A26D8BE48007E7F0F /* ETFDetaiViewController.xib */; };
 		8410011C26C106EA00C64E53 /* DataHandleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410011B26C106EA00C64E53 /* DataHandleModel.swift */; };
 		8410012026C10D2700C64E53 /* StockBasicListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410011E26C10D2700C64E53 /* StockBasicListVC.swift */; };
 		8410012126C10D2700C64E53 /* StockBasicListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8410011F26C10D2700C64E53 /* StockBasicListVC.xib */; };
@@ -35,7 +36,6 @@
 		844D5B0926BA955600AC08AF /* HomeBandas.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844D5B0826BA955600AC08AF /* HomeBandas.xib */; };
 		844D5B0C26BA9F1500AC08AF /* HomeBandasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D5B0A26BA9F1500AC08AF /* HomeBandasCell.swift */; };
 		844D5B0D26BA9F1500AC08AF /* HomeBandasCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844D5B0B26BA9F1500AC08AF /* HomeBandasCell.xib */; };
-		845E457826CA5CF6002E77C3 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E457726CA5CF6002E77C3 /* Task.swift */; };
 		845E45A826CBA94E002E77C3 /* SQLTableListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E45A626CBA947002E77C3 /* SQLTableListVC.swift */; };
 		845E45A926CBA94E002E77C3 /* SQLTableListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845E45A726CBA948002E77C3 /* SQLTableListVC.xib */; };
 		845E45AB26CBABF1002E77C3 /* SqliteTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E45AA26CBABF1002E77C3 /* SqliteTable.swift */; };
@@ -93,7 +93,9 @@
 		8400CD3D26CFAF0700C6DE3F /* SchemeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemeProtocol.swift; sourceTree = "<group>"; };
 		8400CD3E26CFAF0700C6DE3F /* Cerebro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cerebro.swift; sourceTree = "<group>"; };
 		8400CD4226CFB85700C6DE3F /* lib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lib.swift; sourceTree = "<group>"; };
-		8400CD4426CFB8B200C6DE3F /* ma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ma.swift; sourceTree = "<group>"; };
+		8405463526D8AF13007E7F0F /* Cow-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cow-Bridging-Header.h"; sourceTree = "<group>"; };
+		8405463926D8BE48007E7F0F /* ETFDetaiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFDetaiViewController.swift; sourceTree = "<group>"; };
+		8405463A26D8BE48007E7F0F /* ETFDetaiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ETFDetaiViewController.xib; sourceTree = "<group>"; };
 		8410011B26C106EA00C64E53 /* DataHandleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandleModel.swift; sourceTree = "<group>"; };
 		8410011E26C10D2700C64E53 /* StockBasicListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBasicListVC.swift; sourceTree = "<group>"; };
 		8410011F26C10D2700C64E53 /* StockBasicListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockBasicListVC.xib; sourceTree = "<group>"; };
@@ -118,7 +120,6 @@
 		844D5B0826BA955600AC08AF /* HomeBandas.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBandas.xib; sourceTree = "<group>"; };
 		844D5B0A26BA9F1500AC08AF /* HomeBandasCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBandasCell.swift; sourceTree = "<group>"; };
 		844D5B0B26BA9F1500AC08AF /* HomeBandasCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBandasCell.xib; sourceTree = "<group>"; };
-		845E457726CA5CF6002E77C3 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		845E45A626CBA947002E77C3 /* SQLTableListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLTableListVC.swift; sourceTree = "<group>"; };
 		845E45A726CBA948002E77C3 /* SQLTableListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SQLTableListVC.xib; sourceTree = "<group>"; };
 		845E45AA26CBABF1002E77C3 /* SqliteTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteTable.swift; sourceTree = "<group>"; };
@@ -259,7 +260,6 @@
 			children = (
 				84D8DD8626D47C900074E9A4 /* OSS */,
 				8400CD3B26CFAF0700C6DE3F /* Cerebro */,
-				845E457626CA5CD7002E77C3 /* Task */,
 				8410013926C11FE900C64E53 /* Config */,
 				8410012626C1119C00C64E53 /* SQLlite */,
 				844D5AF126BA6C5600AC08AF /* Pages */,
@@ -269,6 +269,7 @@
 				844D5AE526BA604400AC08AF /* Assets.xcassets */,
 				844D5AE726BA604400AC08AF /* LaunchScreen.storyboard */,
 				844D5AEA26BA604400AC08AF /* Info.plist */,
+				8405463526D8AF13007E7F0F /* Cow-Bridging-Header.h */,
 			);
 			path = Cow;
 			sourceTree = "<group>";
@@ -280,6 +281,8 @@
 				844D5AF926BA6EBC00AC08AF /* HomeViewController.swift */,
 				844D5AFA26BA6EBC00AC08AF /* HomeViewController.xib */,
 				845E45CC26CCFEC5002E77C3 /* KLineViewController.swift */,
+				8405463926D8BE48007E7F0F /* ETFDetaiViewController.swift */,
+				8405463A26D8BE48007E7F0F /* ETFDetaiViewController.xib */,
 				845E45CD26CCFEC5002E77C3 /* KLineViewController.xib */,
 			);
 			path = Home;
@@ -320,15 +323,6 @@
 				84463B9426CF7BFF00F2262B /* KlineNavBarView.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		845E457626CA5CD7002E77C3 /* Task */ = {
-			isa = PBXGroup;
-			children = (
-				845E457726CA5CF6002E77C3 /* Task.swift */,
-				8400CD4426CFB8B200C6DE3F /* ma.swift */,
-			);
-			path = Task;
 			sourceTree = "<group>";
 		};
 		845E45AE26CBB946002E77C3 /* VC */ = {
@@ -523,6 +517,7 @@
 				TargetAttributes = {
 					844D5AD826BA604300AC08AF = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 					8492CBFB26C4C233004048EF = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -566,6 +561,7 @@
 				846B4CBE26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib in Resources */,
 				844D5B0926BA955600AC08AF /* HomeBandas.xib in Resources */,
 				84D8DD7C26D39E660074E9A4 /* RecommendVC.xib in Resources */,
+				8405463C26D8BE48007E7F0F /* ETFDetaiViewController.xib in Resources */,
 				846B4CC826C104E400EB5BA7 /* CollectionViewGridCell.xib in Resources */,
 				844D5AE626BA604400AC08AF /* Assets.xcassets in Resources */,
 				844D5AE426BA604300AC08AF /* Main.storyboard in Resources */,
@@ -678,9 +674,9 @@
 				8492CBF326C4BACD004048EF /* FollowListViewController.swift in Sources */,
 				845E45A826CBA94E002E77C3 /* SQLTableListVC.swift in Sources */,
 				844D5AFB26BA6EBC00AC08AF /* HomeViewController.swift in Sources */,
+				8405463B26D8BE48007E7F0F /* ETFDetaiViewController.swift in Sources */,
 				845E45AB26CBABF1002E77C3 /* SqliteTable.swift in Sources */,
 				846B4CB826C0F82D00EB5BA7 /* SettingVC.swift in Sources */,
-				845E457826CA5CF6002E77C3 /* Task.swift in Sources */,
 				842C3E9026D6353C00F012DD /* OSS.swift in Sources */,
 				846B4CC726C104A100EB5BA7 /* CollectionViewGridCell.swift in Sources */,
 				845E45AD26CBB81F002E77C3 /* SqliteSelect.swift in Sources */,
@@ -694,7 +690,6 @@
 				8410011C26C106EA00C64E53 /* DataHandleModel.swift in Sources */,
 				8400CD4126CFAF0700C6DE3F /* Cerebro.swift in Sources */,
 				8400CD4026CFAF0700C6DE3F /* SchemeProtocol.swift in Sources */,
-				8400CD4526CFB8B200C6DE3F /* ma.swift in Sources */,
 				844D5AE126BA604300AC08AF /* ViewController.swift in Sources */,
 				844D5AF426BA6C8000AC08AF /* BaseViewController.swift in Sources */,
 				84D8DD7026D37D990074E9A4 /* SqliteInster.swift in Sources */,
@@ -878,6 +873,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQTXMU76N3;
 				INFOPLIST_FILE = Cow/Info.plist;
@@ -888,6 +884,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = UG.Cow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cow/Cow-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -899,6 +897,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQTXMU76N3;
 				INFOPLIST_FILE = Cow/Info.plist;
@@ -909,6 +908,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = UG.Cow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cow/Cow-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

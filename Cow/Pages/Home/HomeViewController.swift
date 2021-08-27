@@ -8,7 +8,9 @@
 import UIKit
 import Magicbox
 import SnapKit
+import YYKit
 class HomeViewController: BaseViewController {
+
 
     // 我
     lazy var mineItem: UIBarButtonItem = {
@@ -46,7 +48,7 @@ class HomeViewController: BaseViewController {
         configNav()
         configUI()
         updateLayer()
-        
+  
     }
     
 }

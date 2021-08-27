@@ -6,37 +6,60 @@
 //
 
 import UIKit
+import YYKit
+protocol RecommendCellDelegate{
+    func codeclick(code:String,celldata:SchemeProtocol)
+}
 
 class RecommendCell: UITableViewCell {
-    var celldata:Any?{
+    var delegate:RecommendCellDelegate? = nil
+    var celldata:SchemeProtocol?{
         didSet{
             updateUI()
         }
     }
-    @IBOutlet weak var recommentCodeLab: UILabel!
+
+    
+    @IBOutlet weak var recommentCodeLab: YYLabel!
     @IBOutlet weak var datelab: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.selectionStyle = .none
+        recommentCodeLab.textAlignment = .left
+        recommentCodeLab.isUserInteractionEnabled = true
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     func updateUI() {
         
-        guard let obj = celldata as? SchemeProtocol else {
+        guard let obj = celldata else {
             return
         }
         datelab.text = obj.date
-        recommentCodeLab.text = try? obj.recommend()
-            .map{
-                return "\($0["code"].string())\($0["name"].string())\n"
-                
-        }.joined(separator: ",")
-        
+        self.loading()
+        obj.recommend(didchange: { result in
+            let muatt = NSMutableAttributedString(string: "")
+            for item in result{
+                let str = " \(item["code"].string())\(item["name"].string()) "
+                let t = NSMutableAttributedString(string:str )
+                t.font = .systemFont(ofSize: 14)
+                t.setTextHighlight(_NSRange(location: 0, length: str.count),
+                                   color:.red ,
+                                   backgroundColor: UIColor(named: "AccentColor"))
+                { view, attstr, range, recet in
+                    
+                    self.delegate?.codeclick(code: item["code"].string(), celldata: self.celldata!)
+                }
+                t.backgroundColor = .clear
+                muatt.append(t)
+                muatt.append(NSMutableAttributedString(string: " "))
+               
+            }
+            muatt.lineSpacing = 4
+            self.recommentCodeLab.attributedText = muatt
+      
+            self.loadingDismiss()
+        })
+
     }
     
 }
