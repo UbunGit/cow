@@ -15,7 +15,7 @@ class RecommendVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loaddates()
         tableview.register(UINib(nibName: "RecommendCell", bundle: nil), forCellReuseIdentifier: "RecommendCell")
         tableview.rowHeight = 100
 
@@ -35,7 +35,7 @@ class RecommendVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loaddates()
+       
     }
     func loaddates() {
         view.loading()
