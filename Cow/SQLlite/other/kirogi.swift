@@ -33,7 +33,7 @@ extension SqlliteManage{
                 select date from kirogi\(type)
                 GROUP BY date
                 ORDER BY date DESC
-                LIMIT \(limmit.length) OFFSET \(limmit.location)
+                LIMIT \(limmit.length) OFFSET \(limmit.location*limmit.length)
                 """
        
         return sql

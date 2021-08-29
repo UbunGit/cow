@@ -15,6 +15,8 @@ class SchemeProtocol{
     
     var datas:[[String:Any]] = []
     
+    var cellheight:CGFloat = 120.0
+    
     // 计算信号量
     func signal(index:Int) -> Float{return 0}
     

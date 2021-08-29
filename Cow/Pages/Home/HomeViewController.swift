@@ -11,18 +11,30 @@ import SnapKit
 import YYKit
 class HomeViewController: BaseViewController {
 
+    lazy var minebtn: UIButton = {
+        let button = UIButton.init(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        button.setTitle("🐂", for: .normal)
+        button.mb_radius = 18
+        button.setTitleColor(UIColor(named: "Background 5"), for: .normal)
+        button.mb_borderColor = UIColor(named: "Background 3")
+        button.mb_borderWidth = 1
+        button.titleEdgeInsets = .init(top: 4, left: 8, bottom: 4, right: 8)
+        button.addTarget(self, action: #selector(userInfo), for: .touchUpInside)
+        return button
+    }()
 
     // 我
     lazy var mineItem: UIBarButtonItem = {
-        let button = UIButton.init(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
-        button.setTitle("🐂", for: .normal)
-        let mineItem = UIBarButtonItem.init(customView: button)
-        button.mb_radius = 18
-        button.mb_borderColor = UIColor(named: "Background 3")
-        button.mb_borderWidth = 1
-     
+
+        let mineItem = UIBarButtonItem.init(customView: minebtn)
+       
         return mineItem
     }()
+    @objc func userInfo()  {
+        if Global.share.user == nil{
+            self.tabBarController?.present(loginViewController(), animated: true, completion: nil)
+        }
+    }
     // 搜素
     lazy var searchBtn: UIBarButtonItem = {
         let button = UIButton()
@@ -49,6 +61,14 @@ class HomeViewController: BaseViewController {
         configUI()
         updateLayer()
   
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let gu = Global.share.user?.userName{
+            let f:String = String(gu.prefix(1))
+            minebtn.setTitle(f, for: .normal)
+        }
     }
     
 }

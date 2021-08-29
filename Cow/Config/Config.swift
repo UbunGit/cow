@@ -17,9 +17,6 @@ var baseurl:String{
 
 typealias ResultClosure<T> = (Result<T, APIError>)  ->  ()
 
-
-
-
 extension DataRequest{
     
     struct APIData<T>:HandyJSON{
@@ -40,7 +37,8 @@ extension DataRequest{
             return debugPrint("DM No request created yet.")
         }
         var body = ""
-        if let instream:String = String(data: try! Data.init(reading: request.httpBodyStream!), encoding: .utf8){
+        
+        if let instream:String = String(data: try! Data.init(reading: request.httpBodyStream), encoding: .utf8){
             body = instream.removingPercentEncoding ?? "--"
             body = body.split(separator: "&").map{$0}.joined(separator: "\n\t")
         }
@@ -49,7 +47,7 @@ extension DataRequest{
         let state  =  response.map { "\(requestDescription) (\($0.statusCode))" } ?? requestDescription
         let result = json.description
         let icon = (response?.statusCode == 200) ? "🧘‍♂️" : " 🧱"
-        let arr =
+     
         print(
            
             """
@@ -106,11 +104,17 @@ extension JSONDecoder{
 }
 
 extension Data {
-    init(reading input: InputStream) throws {
+    
+    init(reading input: InputStream?) throws {
+        
+      
         self.init()
-        input.open()
+        guard let stream = input else {
+            return
+        }
+        stream.open()
         defer {
-            input.close()
+            stream.close()
         }
 
         let bufferSize = 1024
@@ -118,11 +122,11 @@ extension Data {
         defer {
             buffer.deallocate()
         }
-        while input.hasBytesAvailable {
-            let read = input.read(buffer, maxLength: bufferSize)
+        while stream.hasBytesAvailable {
+            let read = stream.read(buffer, maxLength: bufferSize)
             if read < 0 {
                 //Stream error occured
-                throw input.streamError!
+                throw stream.streamError!
             } else if read == 0 {
                 //EOF
                 break
@@ -139,5 +143,11 @@ extension Session{
         let param = ["sql":sql]
         self.request(url, method: .post, parameters: param, encoder: JSONParameterEncoder.default)
             .responseModel([[String:Any]].self, callback: callback)
+    }
+    func af_update(_ sql:String, callback:@escaping (Result<[String:Any], Error>)  ->  ())  {
+        let url = "\(baseurl)/update"
+        let param = ["sql":sql]
+        self.request(url, method: .post, parameters: param, encoder: JSONParameterEncoder.default)
+            .responseModel([String:Any].self, callback: callback)
     }
 }

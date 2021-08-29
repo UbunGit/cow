@@ -18,7 +18,7 @@ class RecommendVC: UIViewController {
         loaddates()
         tableview.register(UINib(nibName: "RecommendCell", bundle: nil), forCellReuseIdentifier: "RecommendCell")
         tableview.rowHeight = 100
-
+        
         tableview.separatorStyle = .none
         tableview.mj_footer = MJRefreshBackStateFooter(refreshingBlock: {
             self.dataSouce.removeAll()
@@ -75,13 +75,14 @@ class RecommendVC: UIViewController {
 }
 extension RecommendVC:UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSouce.count
     }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        200
+        let row = dataSouce.count-indexPath.section-1
+        return dataSouce[row].cellheight
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
@@ -90,7 +91,7 @@ extension RecommendVC:UITableViewDelegate,UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "RecommendCell", for: indexPath) as! RecommendCell
-        let row = dataSouce.count-indexPath.row-1
+        let row = dataSouce.count-indexPath.section-1
         cell.celldata = dataSouce[row]
         cell.delegate = self
         return cell
@@ -100,5 +101,8 @@ extension RecommendVC:RecommendCellDelegate{
     func codeclick(code: String,name:String, celldata: SchemeProtocol) {
         
         self.mb_push("Cow.ETFDetaiViewController", params:["code":code,"name":name] )
+    }
+    func reloadHeight() {
+        tableview.reloadData()
     }
 }

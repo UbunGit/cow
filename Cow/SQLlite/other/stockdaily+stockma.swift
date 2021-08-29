@@ -35,7 +35,7 @@ extension SqlliteManage{
         if limmit != nil{
             sql.append("""
             
-            LIMIT \(limmit!.length) OFFSET \(limmit!.location)
+            LIMIT \(limmit!.length) OFFSET \(limmit!.location*limmit!.length)
             """)
         }
         print(sql)

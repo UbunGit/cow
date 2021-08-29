@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FollowListSettingVC" customModule="Cow" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X4F-Fe-gVK">
+                    <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zf-hV-Ghz">
+                            <rect key="frame" x="8" y="15" width="35" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="c8m-oT-jv4">
+                            <rect key="frame" x="261" y="3" width="145" height="44"/>
+                            <subviews>
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCU-ly-H3f">
+                                    <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
+                                    <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="dUF-i1-Xyc"/>
+                                        <constraint firstAttribute="width" constant="60" id="tns-xt-p00"/>
+                                    </constraints>
+                                    <state key="normal" title="股票">
+                                        <color key="titleColor" name="Commit"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="mb_radius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="typeBtnClick:" destination="-1" eventType="touchUpInside" id="Fbk-ty-ztD"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3I-xS-NQW">
+                                    <rect key="frame" x="85" y="0.0" width="60" height="44"/>
+                                    <color key="backgroundColor" name="Background 1"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="DPN-K5-sMX"/>
+                                        <constraint firstAttribute="width" constant="60" id="Yax-2R-Dw9"/>
+                                    </constraints>
+                                    <state key="normal" title="ETF">
+                                        <color key="titleColor" name="Commit"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="mb_radius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="typeBtnClick:" destination="-1" eventType="touchUpInside" id="VWi-HZ-HfX"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" name="defual_.3"/>
+                    <constraints>
+                        <constraint firstItem="c8m-oT-jv4" firstAttribute="centerY" secondItem="4zf-hV-Ghz" secondAttribute="centerY" id="8yL-Ck-qLX"/>
+                        <constraint firstItem="4zf-hV-Ghz" firstAttribute="leading" secondItem="X4F-Fe-gVK" secondAttribute="leading" constant="8" id="EzK-nh-wxH"/>
+                        <constraint firstItem="4zf-hV-Ghz" firstAttribute="centerY" secondItem="X4F-Fe-gVK" secondAttribute="centerY" id="aKC-qt-31w"/>
+                        <constraint firstItem="4zf-hV-Ghz" firstAttribute="leading" secondItem="X4F-Fe-gVK" secondAttribute="leading" constant="8" id="asV-hN-0pt"/>
+                        <constraint firstAttribute="height" constant="50" id="o7Q-uT-sbl"/>
+                        <constraint firstAttribute="trailing" secondItem="c8m-oT-jv4" secondAttribute="trailing" constant="8" id="sqF-Oi-dlB"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="X4F-Fe-gVK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="6qz-Cl-9n7"/>
+                <constraint firstItem="X4F-Fe-gVK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dBY-XG-k1Q"/>
+                <constraint firstItem="X4F-Fe-gVK" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="wYW-SV-oV8"/>
+            </constraints>
+            <point key="canvasLocation" x="237.68115942028987" y="65.625"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Background 1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Commit">
+            <color red="0.38400000333786011" green="0.20399998128414154" blue="0.83500003814697266" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="defual_.3">
+            <color red="0.38400000333786011" green="0.20399999618530273" blue="0.83499997854232788" alpha="0.30000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

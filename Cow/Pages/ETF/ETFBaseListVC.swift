@@ -1,72 +1,45 @@
 //
-//  StockBasicListVC.swift
+//  ETFBaseListVC.swift
 //  Cow
 //
-//  Created by admin on 2021/8/9.
+//  Created by admin on 2021/8/29.
 //
 
 import UIKit
-import Magicbox
-import HandyJSON
 import MJRefresh
 import Alamofire
-
-
-class StockBasicListModel: HandyJSON {
-    
+class ETFBaseListModel {
     var delegate:BasetModelDelegate?
-    var range = NSRange(location: 0, length: 20)
-    struct Stroe:HandyJSON{
-        var name:String = ""
-        var code:String = ""
-        var area:String = ""
-        var industry:String = ""
-        var follow:Bool = false
-        var market:String = ""
-        var changeTime:String = "\(Date().toString("yyyy-MM-dd"))"
-
-    }
-    var stroes:[Stroe] = []
-    required init() {
-        
-    }
-    func updateStore()  {
+    var dataSouce:[[String:Any]] = []
+    var range:NSRange = _NSRange(location: 0, length: 20)
+    
+    func updateDataSouce(){
+        let sql = sm.select_etfbasic_follow(limmit:range)
         delegate?.view.loading()
-        AF.af_select(sm.select_stockbasic_follow(limmit:range)) { result in
+        AF.af_select(sql) { result in
             self.delegate?.view.loadingDismiss()
             switch result{
             case .success(let value):
-                guard let datas = [Stroe].deserialize(from: value) else {
-                    return
+                if self.range.location==1 {
+                    self.dataSouce = value
                 }
-                var list:[Stroe] = []
-                for item in datas {
-                    if let d = item{
-                        list.append(d)
-                    }
-                }
-                if self.range.location == 1 {
-                    self.stroes = list
-                }else{
-                    self.stroes += list
+                else{
+                    self.dataSouce += value
                 }
                 self.delegate?.updateUI()
-                
             case .failure(let err):
                 self.delegate?.view.error(err.localizedDescription)
             }
         }
-      
     }
     
     func follow(row:Int)  {
-        let store = stroes[row]
+        let store = dataSouce[row]
         if let user = Global.share.user{
-            let sql = sm.insterStockfollow(code: store.code, userId: user.userId)
+            let sql = sm.insteretffollow(code: store["code"].string(), userId: user.userId)
             AF.af_update(sql) { result in
                 switch result{
                 case .success(_):
-                    self.stroes[row].follow = true
                     self.delegate?.updateUI()
                 case .failure(let err):
                     self.delegate?.view.error(err.localizedDescription)
@@ -81,25 +54,20 @@ class StockBasicListModel: HandyJSON {
     }
 }
 
-class StockBasicListVC: BaseViewController {
+class ETFBaseListVC: BaseViewController {
 
-    lazy var pageData: StockBasicListModel = {
-        let pageData = StockBasicListModel()
+    @IBOutlet weak var tableView: UITableView!
+   
+    lazy var pageData: ETFBaseListModel = {
+        let pageData = ETFBaseListModel()
         pageData.delegate = self
         return pageData
     }()
-    
-    @IBOutlet weak var tableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "股票列表"
+        
         configTableview()
-        pageData.updateStore()
-       
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        pageData.updateDataSouce()
 
     }
     override func updateUI() {
@@ -107,36 +75,40 @@ class StockBasicListVC: BaseViewController {
         tableView.mj_header?.endRefreshing()
         tableView.reloadData()
     }
+
 }
-extension StockBasicListVC:UITableViewDelegate,UITableViewDataSource{
+
+extension ETFBaseListVC:UITableViewDelegate,UITableViewDataSource{
     
     func configTableview()  {
 
         tableView.estimatedRowHeight = 60
-        tableView.register(UINib(nibName: "StockBasicListCell", bundle: nil), forCellReuseIdentifier: "StockBasicListCell")
+        tableView.register(UINib(nibName: "ETFBaseListTableviewCell", bundle: nil), forCellReuseIdentifier: "ETFBaseListTableviewCell")
         tableView.mj_header = MJRefreshGifHeader(refreshingBlock: {
             self.pageData.range.location = 1
-            self.pageData.updateStore()
+            self.pageData.updateDataSouce()
         })
         tableView.mj_footer = MJRefreshAutoFooter(refreshingBlock: {
        
             self.pageData.range.location += 1
-            self.pageData.updateStore()
+            self.pageData.updateDataSouce()
         })
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pageData.stroes.count
+        return pageData.dataSouce.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StockBasicListCell", for: indexPath) as! StockBasicListCell
-        cell.celldata = pageData.stroes[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ETFBaseListTableviewCell", for: indexPath) as! ETFBaseListTableviewCell
+        cell.celldata = pageData.dataSouce[indexPath.row]
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
-        
+       let vc = ETFDetaiViewController()
+        vc.code = pageData.dataSouce[indexPath.row]["code"].string()
+        vc.name = pageData.dataSouce[indexPath.row]["name"].string()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     
@@ -145,7 +117,7 @@ extension StockBasicListVC:UITableViewDelegate,UITableViewDataSource{
 
         let archiveAction = UIContextualAction(style: .normal, title: "关注") { [self] (action, view, finished) in
             pageData.follow(row: indexPath.row)
-            pageData.stroes[indexPath.row].follow = true
+            pageData.dataSouce[indexPath.row]["follow"] = true
             tableView.reloadRow(at: indexPath, with: .automatic)
             
             finished(true)
@@ -157,4 +129,3 @@ extension StockBasicListVC:UITableViewDelegate,UITableViewDataSource{
     
     
 }
-

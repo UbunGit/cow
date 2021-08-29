@@ -22,6 +22,16 @@
 		8410012126C10D2700C64E53 /* StockBasicListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8410011F26C10D2700C64E53 /* StockBasicListVC.xib */; };
 		8410013626C11D8700C64E53 /* StockBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410013526C11D8700C64E53 /* StockBasic.swift */; };
 		8410013B26C11FF900C64E53 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410013A26C11FF900C64E53 /* Config.swift */; };
+		841A95A526DA2AC800EFA126 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A95A326DA2AC800EFA126 /* loginViewController.swift */; };
+		841A95A626DA2AC800EFA126 /* loginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841A95A426DA2AC800EFA126 /* loginViewController.xib */; };
+		841A95A826DA2E3E00EFA126 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A95A726DA2E3E00EFA126 /* Global.swift */; };
+		841A95AA26DA30B800EFA126 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A95A926DA30B800EFA126 /* user.swift */; };
+		841A95AD26DA78C600EFA126 /* ETFDetaiModen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A95AC26DA78C600EFA126 /* ETFDetaiModen.swift */; };
+		841A95B026DA80C600EFA126 /* ETFKirogiSignalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A95AE26DA80C500EFA126 /* ETFKirogiSignalCell.swift */; };
+		841A95B126DA80C600EFA126 /* ETFKirogiSignalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841A95AF26DA80C600EFA126 /* ETFKirogiSignalCell.xib */; };
+		841A95B426DA830200EFA126 /* ChartStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A95B326DA830100EFA126 /* ChartStyle.swift */; };
+		841A95B726DA8B6100EFA126 /* ETFDetaiSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A95B526DA8B6100EFA126 /* ETFDetaiSettingVC.swift */; };
+		841A95B826DA8B6100EFA126 /* ETFDetaiSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841A95B626DA8B6100EFA126 /* ETFDetaiSettingVC.xib */; };
 		842C3E9026D6353C00F012DD /* OSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C3E8F26D6353C00F012DD /* OSS.swift */; };
 		842C3E9226D6585200F012DD /* kirogi+stockbasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C3E9126D6585200F012DD /* kirogi+stockbasic.swift */; };
 		842C3E9426D65D2100F012DD /* kirogi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C3E9326D65D2100F012DD /* kirogi.swift */; };
@@ -75,6 +85,13 @@
 		84D8DD8126D39EB40074E9A4 /* RecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D8DD7F26D39EB40074E9A4 /* RecommendCell.xib */; };
 		84D8DD8326D3A7D50074E9A4 /* follow+stockbasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DD8226D3A7D50074E9A4 /* follow+stockbasic.swift */; };
 		84D8DD8526D3AD7A0074E9A4 /* follow+stockbasic+stockma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DD8426D3AD7A0074E9A4 /* follow+stockbasic+stockma.swift */; };
+		84F736AC26DB7405008D28C1 /* ETFBaseListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F736AA26DB7405008D28C1 /* ETFBaseListVC.swift */; };
+		84F736AD26DB7405008D28C1 /* ETFBaseListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F736AB26DB7405008D28C1 /* ETFBaseListVC.xib */; };
+		84F736AF26DB7592008D28C1 /* etf_follow+basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F736AE26DB7592008D28C1 /* etf_follow+basic.swift */; };
+		84F736B226DB773A008D28C1 /* ETFBaseListTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F736B026DB773A008D28C1 /* ETFBaseListTableviewCell.swift */; };
+		84F736B326DB773A008D28C1 /* ETFBaseListTableviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F736B126DB773A008D28C1 /* ETFBaseListTableviewCell.xib */; };
+		84F736B626DB7E77008D28C1 /* FollowListSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F736B426DB7E77008D28C1 /* FollowListSettingVC.swift */; };
+		84F736B726DB7E77008D28C1 /* FollowListSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F736B526DB7E77008D28C1 /* FollowListSettingVC.xib */; };
 		B361F4813D5409C336DE9241 /* Pods_Cow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F60CF171DAB942E8AD2C091 /* Pods_Cow.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +124,16 @@
 		8410011F26C10D2700C64E53 /* StockBasicListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockBasicListVC.xib; sourceTree = "<group>"; };
 		8410013526C11D8700C64E53 /* StockBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBasic.swift; sourceTree = "<group>"; };
 		8410013A26C11FF900C64E53 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		841A95A326DA2AC800EFA126 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		841A95A426DA2AC800EFA126 /* loginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
+		841A95A726DA2E3E00EFA126 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		841A95A926DA30B800EFA126 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		841A95AC26DA78C600EFA126 /* ETFDetaiModen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFDetaiModen.swift; sourceTree = "<group>"; };
+		841A95AE26DA80C500EFA126 /* ETFKirogiSignalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFKirogiSignalCell.swift; sourceTree = "<group>"; };
+		841A95AF26DA80C600EFA126 /* ETFKirogiSignalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ETFKirogiSignalCell.xib; sourceTree = "<group>"; };
+		841A95B326DA830100EFA126 /* ChartStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartStyle.swift; sourceTree = "<group>"; };
+		841A95B526DA8B6100EFA126 /* ETFDetaiSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFDetaiSettingVC.swift; sourceTree = "<group>"; };
+		841A95B626DA8B6100EFA126 /* ETFDetaiSettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ETFDetaiSettingVC.xib; sourceTree = "<group>"; };
 		842C3E8F26D6353C00F012DD /* OSS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSS.swift; sourceTree = "<group>"; };
 		842C3E9126D6585200F012DD /* kirogi+stockbasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "kirogi+stockbasic.swift"; sourceTree = "<group>"; };
 		842C3E9326D65D2100F012DD /* kirogi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kirogi.swift; sourceTree = "<group>"; };
@@ -164,6 +191,13 @@
 		84D8DD7F26D39EB40074E9A4 /* RecommendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendCell.xib; sourceTree = "<group>"; };
 		84D8DD8226D3A7D50074E9A4 /* follow+stockbasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "follow+stockbasic.swift"; sourceTree = "<group>"; };
 		84D8DD8426D3AD7A0074E9A4 /* follow+stockbasic+stockma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "follow+stockbasic+stockma.swift"; sourceTree = "<group>"; };
+		84F736AA26DB7405008D28C1 /* ETFBaseListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFBaseListVC.swift; sourceTree = "<group>"; };
+		84F736AB26DB7405008D28C1 /* ETFBaseListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ETFBaseListVC.xib; sourceTree = "<group>"; };
+		84F736AE26DB7592008D28C1 /* etf_follow+basic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "etf_follow+basic.swift"; sourceTree = "<group>"; };
+		84F736B026DB773A008D28C1 /* ETFBaseListTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFBaseListTableviewCell.swift; sourceTree = "<group>"; };
+		84F736B126DB773A008D28C1 /* ETFBaseListTableviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ETFBaseListTableviewCell.xib; sourceTree = "<group>"; };
+		84F736B426DB7E77008D28C1 /* FollowListSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowListSettingVC.swift; sourceTree = "<group>"; };
+		84F736B526DB7E77008D28C1 /* FollowListSettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowListSettingVC.xib; sourceTree = "<group>"; };
 		8944AC9A803FD0C9983B9A34 /* Pods-CowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CowTests.debug.xcconfig"; path = "Target Support Files/Pods-CowTests/Pods-CowTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B2C7744FD96C6DA2CA9753D2 /* Pods_CowTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CowTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7410E06C8E6185BA9732D2 /* Pods-Cow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cow.debug.xcconfig"; path = "Target Support Files/Pods-Cow/Pods-Cow.debug.xcconfig"; sourceTree = "<group>"; };
@@ -203,9 +237,14 @@
 		8405463D26D8BFC1007E7F0F /* ETF */ = {
 			isa = PBXGroup;
 			children = (
-				8405463E26D8C10D007E7F0F /* View */,
+				841A95B526DA8B6100EFA126 /* ETFDetaiSettingVC.swift */,
+				841A95B626DA8B6100EFA126 /* ETFDetaiSettingVC.xib */,
 				8405463926D8BE48007E7F0F /* ETFDetaiViewController.swift */,
 				8405463A26D8BE48007E7F0F /* ETFDetaiViewController.xib */,
+				84F736AA26DB7405008D28C1 /* ETFBaseListVC.swift */,
+				84F736AB26DB7405008D28C1 /* ETFBaseListVC.xib */,
+				841A95AB26DA78BA00EFA126 /* moden */,
+				8405463E26D8C10D007E7F0F /* View */,
 			);
 			path = ETF;
 			sourceTree = "<group>";
@@ -215,6 +254,10 @@
 			children = (
 				8405463F26D8C206007E7F0F /* ETFDetaiKlineCell.swift */,
 				8405464026D8C206007E7F0F /* ETFDetaiKlineCell.xib */,
+				841A95AE26DA80C500EFA126 /* ETFKirogiSignalCell.swift */,
+				841A95AF26DA80C600EFA126 /* ETFKirogiSignalCell.xib */,
+				84F736B026DB773A008D28C1 /* ETFBaseListTableviewCell.swift */,
+				84F736B126DB773A008D28C1 /* ETFBaseListTableviewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -256,8 +299,34 @@
 			isa = PBXGroup;
 			children = (
 				8410013A26C11FF900C64E53 /* Config.swift */,
+				841A95A726DA2E3E00EFA126 /* Global.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		841A95A226DA2A7F00EFA126 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				841A95A326DA2AC800EFA126 /* loginViewController.swift */,
+				841A95A426DA2AC800EFA126 /* loginViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		841A95AB26DA78BA00EFA126 /* moden */ = {
+			isa = PBXGroup;
+			children = (
+				841A95AC26DA78C600EFA126 /* ETFDetaiModen.swift */,
+			);
+			path = moden;
+			sourceTree = "<group>";
+		};
+		841A95B226DA82F100EFA126 /* chart */ = {
+			isa = PBXGroup;
+			children = (
+				841A95B326DA830100EFA126 /* ChartStyle.swift */,
+			);
+			path = chart;
 			sourceTree = "<group>";
 		};
 		844D5AD026BA604300AC08AF = {
@@ -283,6 +352,7 @@
 		844D5ADB26BA604300AC08AF /* Cow */ = {
 			isa = PBXGroup;
 			children = (
+				841A95B226DA82F100EFA126 /* chart */,
 				84D8DD8626D47C900074E9A4 /* OSS */,
 				8400CD3B26CFAF0700C6DE3F /* Cerebro */,
 				8410013926C11FE900C64E53 /* Config */,
@@ -314,6 +384,7 @@
 		844D5AF126BA6C5600AC08AF /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				841A95A226DA2A7F00EFA126 /* Login */,
 				8405463D26D8BFC1007E7F0F /* ETF */,
 				84D8DD7826D39B060074E9A4 /* Recommend */,
 				8492CBEE26C3D606004048EF /* Flow */,
@@ -405,6 +476,8 @@
 				8492CBEF26C3D641004048EF /* FollowModel.swift */,
 				8492CBF126C4BACD004048EF /* FollowListViewController.swift */,
 				8492CBF226C4BACD004048EF /* FollowListViewController.xib */,
+				84F736B426DB7E77008D28C1 /* FollowListSettingVC.swift */,
+				84F736B526DB7E77008D28C1 /* FollowListSettingVC.xib */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -434,10 +507,12 @@
 				84D8DD7426D380FC0074E9A4 /* stockdaily.swift */,
 				84D8DD7626D3811D0074E9A4 /* stockma.swift */,
 				84D8DD8226D3A7D50074E9A4 /* follow+stockbasic.swift */,
+				84F736AE26DB7592008D28C1 /* etf_follow+basic.swift */,
 				84D8DD8426D3AD7A0074E9A4 /* follow+stockbasic+stockma.swift */,
 				842C3E9126D6585200F012DD /* kirogi+stockbasic.swift */,
 				842C3E9326D65D2100F012DD /* kirogi.swift */,
 				8405464326D8C58E007E7F0F /* etfdaily+kirogietf.swift */,
+				841A95A926DA30B800EFA126 /* user.swift */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -577,13 +652,16 @@
 				845E45B226CBB988002E77C3 /* SQLTableInfoVC.xib in Resources */,
 				845E45D126CD1877002E77C3 /* SoreSimpleView.xib in Resources */,
 				8410012126C10D2700C64E53 /* StockBasicListVC.xib in Resources */,
+				84F736AD26DB7405008D28C1 /* ETFBaseListVC.xib in Resources */,
 				844D5AE926BA604400AC08AF /* LaunchScreen.storyboard in Resources */,
+				841A95A626DA2AC800EFA126 /* loginViewController.xib in Resources */,
 				84463B9526CF7BFF00F2262B /* KlineNavBarView.xib in Resources */,
 				8492CBF426C4BACD004048EF /* FollowListViewController.xib in Resources */,
 				849D787926C287F5003DFE5F /* StockBasicListCell.xib in Resources */,
 				846B4CB926C0F82D00EB5BA7 /* SettingVC.xib in Resources */,
 				845E45A926CBA94E002E77C3 /* SQLTableListVC.xib in Resources */,
 				846B4CBE26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib in Resources */,
+				841A95B826DA8B6100EFA126 /* ETFDetaiSettingVC.xib in Resources */,
 				8405464226D8C206007E7F0F /* ETFDetaiKlineCell.xib in Resources */,
 				844D5B0926BA955600AC08AF /* HomeBandas.xib in Resources */,
 				84D8DD7C26D39E660074E9A4 /* RecommendVC.xib in Resources */,
@@ -591,10 +669,13 @@
 				846B4CC826C104E400EB5BA7 /* CollectionViewGridCell.xib in Resources */,
 				844D5AE626BA604400AC08AF /* Assets.xcassets in Resources */,
 				844D5AE426BA604300AC08AF /* Main.storyboard in Resources */,
+				84F736B326DB773A008D28C1 /* ETFBaseListTableviewCell.xib in Resources */,
+				841A95B126DA80C600EFA126 /* ETFKirogiSignalCell.xib in Resources */,
 				845E45CF26CCFEC5002E77C3 /* KLineViewController.xib in Resources */,
 				844D5AFC26BA6EBC00AC08AF /* HomeViewController.xib in Resources */,
 				84D8DD8126D39EB40074E9A4 /* RecommendCell.xib in Resources */,
 				844D5B0D26BA9F1500AC08AF /* HomeBandasCell.xib in Resources */,
+				84F736B726DB7E77008D28C1 /* FollowListSettingVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,22 +777,31 @@
 				842C3E9226D6585200F012DD /* kirogi+stockbasic.swift in Sources */,
 				8492CC0926C4D256004048EF /* SqlliteManage.swift in Sources */,
 				8405464426D8C58E007E7F0F /* etfdaily+kirogietf.swift in Sources */,
+				841A95B726DA8B6100EFA126 /* ETFDetaiSettingVC.swift in Sources */,
 				845E45B126CBB988002E77C3 /* SQLTableInfoVC.swift in Sources */,
 				8492CBEC26C3CC6B004048EF /* WebViewController.swift in Sources */,
 				8492CBF326C4BACD004048EF /* FollowListViewController.swift in Sources */,
+				841A95B426DA830200EFA126 /* ChartStyle.swift in Sources */,
+				841A95B026DA80C600EFA126 /* ETFKirogiSignalCell.swift in Sources */,
 				845E45A826CBA94E002E77C3 /* SQLTableListVC.swift in Sources */,
 				844D5AFB26BA6EBC00AC08AF /* HomeViewController.swift in Sources */,
+				841A95A826DA2E3E00EFA126 /* Global.swift in Sources */,
 				8405463B26D8BE48007E7F0F /* ETFDetaiViewController.swift in Sources */,
 				845E45AB26CBABF1002E77C3 /* SqliteTable.swift in Sources */,
 				8405464126D8C206007E7F0F /* ETFDetaiKlineCell.swift in Sources */,
 				846B4CB826C0F82D00EB5BA7 /* SettingVC.swift in Sources */,
+				841A95A526DA2AC800EFA126 /* loginViewController.swift in Sources */,
 				842C3E9026D6353C00F012DD /* OSS.swift in Sources */,
 				846B4CC726C104A100EB5BA7 /* CollectionViewGridCell.swift in Sources */,
+				84F736AF26DB7592008D28C1 /* etf_follow+basic.swift in Sources */,
 				845E45AD26CBB81F002E77C3 /* SqliteSelect.swift in Sources */,
 				84D8DD7B26D39E660074E9A4 /* RecommendVC.swift in Sources */,
+				84F736B226DB773A008D28C1 /* ETFBaseListTableviewCell.swift in Sources */,
 				842C3E9426D65D2100F012DD /* kirogi.swift in Sources */,
 				8400CD4326CFB85700C6DE3F /* lib.swift in Sources */,
+				841A95AA26DA30B800EFA126 /* user.swift in Sources */,
 				84D8DD7326D380390074E9A4 /* stockdaily+stockma.swift in Sources */,
+				841A95AD26DA78C600EFA126 /* ETFDetaiModen.swift in Sources */,
 				844D5B0C26BA9F1500AC08AF /* HomeBandasCell.swift in Sources */,
 				84D8DD7526D380FC0074E9A4 /* stockdaily.swift in Sources */,
 				8410012026C10D2700C64E53 /* StockBasicListVC.swift in Sources */,
@@ -732,7 +822,9 @@
 				84D8DD8526D3AD7A0074E9A4 /* follow+stockbasic+stockma.swift in Sources */,
 				8410013B26C11FF900C64E53 /* Config.swift in Sources */,
 				8400CD3F26CFAF0700C6DE3F /* Kirogi.swift in Sources */,
+				84F736B626DB7E77008D28C1 /* FollowListSettingVC.swift in Sources */,
 				8492CBF026C3D641004048EF /* FollowModel.swift in Sources */,
+				84F736AC26DB7405008D28C1 /* ETFBaseListVC.swift in Sources */,
 				845E45CE26CCFEC5002E77C3 /* KLineViewController.swift in Sources */,
 				844D5B0326BA803400AC08AF /* HomeBandas.swift in Sources */,
 				84D8DD8326D3A7D50074E9A4 /* follow+stockbasic.swift in Sources */,
@@ -903,14 +995,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HQTXMU76N3;
+				DEVELOPMENT_TEAM = QPSW766MZ5;
 				INFOPLIST_FILE = Cow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = UG.Cow;
+				PRODUCT_BUNDLE_IDENTIFIER = UG.Cow.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Cow/Cow-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -927,14 +1019,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HQTXMU76N3;
+				DEVELOPMENT_TEAM = QPSW766MZ5;
 				INFOPLIST_FILE = Cow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = UG.Cow;
+				PRODUCT_BUNDLE_IDENTIFIER = UG.Cow.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Cow/Cow-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

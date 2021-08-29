@@ -9,9 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecommendVC" customModule="Cow" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ETFBaseListVC" customModule="Cow" customModuleProvider="target">
             <connections>
-                <outlet property="tableview" destination="GPs-X7-m14" id="Iqq-ez-art"/>
+                <outlet property="tableView" destination="IDf-0j-IJG" id="I6p-P9-amY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,27 +20,24 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GPs-X7-m14">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IDf-0j-IJG">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                    <viewLayoutGuide key="contentLayoutGuide" id="STb-eW-Z7j"/>
-                    <viewLayoutGuide key="frameLayoutGuide" id="QrY-AA-ouh"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="U6b-xc-0Fy"/>
-                        <outlet property="delegate" destination="-1" id="uQy-uj-zrB"/>
+                        <outlet property="dataSource" destination="-1" id="bEl-yB-yLs"/>
+                        <outlet property="delegate" destination="-1" id="7Go-k9-gf8"/>
                     </connections>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GPs-X7-m14" secondAttribute="trailing" id="3CS-Br-4iI"/>
-                <constraint firstItem="GPs-X7-m14" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="BEU-30-FKW"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="GPs-X7-m14" secondAttribute="bottom" id="RWI-i0-0rV"/>
-                <constraint firstItem="GPs-X7-m14" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="lgk-w5-diO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="IDf-0j-IJG" secondAttribute="bottom" id="5RQ-hj-jE0"/>
+                <constraint firstItem="IDf-0j-IJG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="9qc-H1-rFx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IDf-0j-IJG" secondAttribute="trailing" id="Ffg-Gf-hO8"/>
+                <constraint firstItem="IDf-0j-IJG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xdI-WJ-YCP"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="82"/>
+            <point key="canvasLocation" x="94" y="30"/>
         </view>
     </objects>
     <resources>

@@ -11,7 +11,7 @@ import Magicbox
 
 
 
-class KLineViewController: CViewController {
+class KLineViewController: BaseViewController {
     @objc var code:String = ""
     @objc var name:String = ""
     

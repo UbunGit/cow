@@ -9,6 +9,7 @@ import UIKit
 import YYKit
 protocol RecommendCellDelegate{
     func codeclick(code:String,name:String, celldata:SchemeProtocol)
+    func reloadHeight()
 }
 
 class RecommendCell: UITableViewCell {
@@ -22,6 +23,7 @@ class RecommendCell: UITableViewCell {
     
     @IBOutlet weak var recommentCodeLab: YYLabel!
     @IBOutlet weak var datelab: UILabel!
+    @IBOutlet weak var moreBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
@@ -29,11 +31,15 @@ class RecommendCell: UITableViewCell {
         recommentCodeLab.isUserInteractionEnabled = true
     }
 
+    @IBAction func moreBtnClick(_ sender: Any) {
+        delegate?.reloadHeight()
+    }
     func updateUI() {
-        
+        self.moreBtn.isHidden = true
         guard let obj = celldata else {
             return
         }
+        
         datelab.text = obj.date
         self.loading()
         obj.recommend(didchange: { result in
@@ -43,7 +49,7 @@ class RecommendCell: UITableViewCell {
                 let t = NSMutableAttributedString(string:str )
                 t.font = .systemFont(ofSize: 14)
                 t.setTextHighlight(_NSRange(location: 0, length: str.count),
-                                   color:.red ,
+                                   color:.white ,
                                    backgroundColor: UIColor(named: "AccentColor"))
                 { view, attstr, range, recet in
                     
@@ -56,8 +62,14 @@ class RecommendCell: UITableViewCell {
             }
             muatt.lineSpacing = 4
             self.recommentCodeLab.attributedText = muatt
-      
             self.loadingDismiss()
+            
+            let h = (muatt.size().width/(self.recommentCodeLab.frame.size.width - 30)) * (muatt.size().height+4)
+            
+            if h > self.celldata!.cellheight{
+                self.celldata?.cellheight = h+20
+                self.moreBtn.isHidden = false
+            }
         })
 
     }

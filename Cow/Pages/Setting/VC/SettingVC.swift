@@ -25,9 +25,8 @@ class SettingVC: BaseViewController {
                 name: "ETF列表",
                 icon: "🐱",
                 handle: {
-                    var oss = OSS()
-                    oss.savefile = "\(KDocumnetPath)/sqlite/sqlite.db"
-                    oss.downloadSql(url: "https://ubungit.oss-cn-shenzhen.aliyuncs.com/sqlite.db")
+                    
+                    self.mb_push("Cow.ETFBaseListVC", params: [:])
                 }
             ),
             DataHandleModel.init(

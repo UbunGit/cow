@@ -29,7 +29,7 @@ class StockBasicListCell: UITableViewCell {
         }
         nameLab.text = tdata.name
         codeLab.text = tdata.code
-        flowImageView.isHidden = !tdata.isfollow
+        flowImageView.isHidden = !tdata.follow
         
         
     }

@@ -38,20 +38,28 @@ public extension Optional{
         }
         return value1
     }
-     
-}
-
-
-
-public extension Optional{
     func string() -> String {
         guard let str = self else {
             return ""
         }
         return "\(str)"
     }
+    func int(_ defual:Int=0) -> Int {
+        guard let value = self else {
+            return defual
+        }
+        guard let value1 = Int("\(value)") else {
+            return defual
+        }
+        return value1
+    }
  
     func price(_ formatter:String="%0.2f") -> String {
         return String(format: formatter, self.double())
     }
+     
 }
+
+
+
+

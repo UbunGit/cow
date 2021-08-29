@@ -8,6 +8,7 @@
 import Foundation
 
 extension SqlliteManage{
+    
     func select_follow_stockbasic_stockma( fitter:String = "",
                            orderby:[String] = [],
                            limmit:NSRange? = nil,
@@ -35,7 +36,7 @@ extension SqlliteManage{
         if limmit != nil{
             sql.append("""
             
-            LIMIT \(limmit!.length) OFFSET \(limmit!.location)
+            LIMIT \(limmit!.length) OFFSET \(limmit!.location*limmit!.length)
             """)
         }
         print(sql)
