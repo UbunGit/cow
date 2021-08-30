@@ -38,7 +38,7 @@ class ETFDetaiViewController: BaseViewController, ETFDetaiModenDelegate {
         return newItem
     }()
     @objc func settingDoit(){
-        let setvc = ETFDetaiSettingVC()
+        let setvc = KirogiSettingVC()
         setvc.setdata = detaiData
         self.present(setvc, animated: true, completion: nil)
     }

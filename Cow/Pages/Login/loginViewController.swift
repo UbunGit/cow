@@ -28,8 +28,8 @@ class loginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userTF.text = "test"
-        passwdTF.text = "123456"
+        userTF.text = "ubungit"
+        passwdTF.text = "ubungit123"
     }
     
     @IBAction func changType(_ sender: Any) {

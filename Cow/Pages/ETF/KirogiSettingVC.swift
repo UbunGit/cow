@@ -7,21 +7,20 @@
 
 import UIKit
 
-class ETFDetaiSettingVC: BaseViewController {
+class KirogiSettingVC: BaseViewController {
     
-    var setdata:ETFDetaiModen?{
-        didSet{
-            reloadUI()
-        }
-    }
+    var setdata:ETFDetaiModen?
+    @IBOutlet weak var speedStackView: UIStackView!
+    @IBOutlet weak var datePicker: UIDatePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
+        reloadUI()
     }
     func reloadUI() {
         guard let sdata = setdata else {
             return
         }
-        for aview in view.subviews {
+        for aview in speedStackView.subviews {
             if let btn = aview as? UIButton{
                 btn.isSelected = (sdata.speed == btn.tag)
             }

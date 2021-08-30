@@ -30,8 +30,8 @@
 		841A95B026DA80C600EFA126 /* ETFKirogiSignalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A95AE26DA80C500EFA126 /* ETFKirogiSignalCell.swift */; };
 		841A95B126DA80C600EFA126 /* ETFKirogiSignalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841A95AF26DA80C600EFA126 /* ETFKirogiSignalCell.xib */; };
 		841A95B426DA830200EFA126 /* ChartStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A95B326DA830100EFA126 /* ChartStyle.swift */; };
-		841A95B726DA8B6100EFA126 /* ETFDetaiSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A95B526DA8B6100EFA126 /* ETFDetaiSettingVC.swift */; };
-		841A95B826DA8B6100EFA126 /* ETFDetaiSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841A95B626DA8B6100EFA126 /* ETFDetaiSettingVC.xib */; };
+		841A95B726DA8B6100EFA126 /* KirogiSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A95B526DA8B6100EFA126 /* KirogiSettingVC.swift */; };
+		841A95B826DA8B6100EFA126 /* KirogiSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841A95B626DA8B6100EFA126 /* KirogiSettingVC.xib */; };
 		842C3E9026D6353C00F012DD /* OSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C3E8F26D6353C00F012DD /* OSS.swift */; };
 		842C3E9226D6585200F012DD /* kirogi+stockbasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C3E9126D6585200F012DD /* kirogi+stockbasic.swift */; };
 		842C3E9426D65D2100F012DD /* kirogi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C3E9326D65D2100F012DD /* kirogi.swift */; };
@@ -134,8 +134,8 @@
 		841A95AE26DA80C500EFA126 /* ETFKirogiSignalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFKirogiSignalCell.swift; sourceTree = "<group>"; };
 		841A95AF26DA80C600EFA126 /* ETFKirogiSignalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ETFKirogiSignalCell.xib; sourceTree = "<group>"; };
 		841A95B326DA830100EFA126 /* ChartStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartStyle.swift; sourceTree = "<group>"; };
-		841A95B526DA8B6100EFA126 /* ETFDetaiSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFDetaiSettingVC.swift; sourceTree = "<group>"; };
-		841A95B626DA8B6100EFA126 /* ETFDetaiSettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ETFDetaiSettingVC.xib; sourceTree = "<group>"; };
+		841A95B526DA8B6100EFA126 /* KirogiSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KirogiSettingVC.swift; sourceTree = "<group>"; };
+		841A95B626DA8B6100EFA126 /* KirogiSettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KirogiSettingVC.xib; sourceTree = "<group>"; };
 		842C3E8F26D6353C00F012DD /* OSS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSS.swift; sourceTree = "<group>"; };
 		842C3E9126D6585200F012DD /* kirogi+stockbasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "kirogi+stockbasic.swift"; sourceTree = "<group>"; };
 		842C3E9326D65D2100F012DD /* kirogi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kirogi.swift; sourceTree = "<group>"; };
@@ -241,8 +241,8 @@
 		8405463D26D8BFC1007E7F0F /* ETF */ = {
 			isa = PBXGroup;
 			children = (
-				841A95B526DA8B6100EFA126 /* ETFDetaiSettingVC.swift */,
-				841A95B626DA8B6100EFA126 /* ETFDetaiSettingVC.xib */,
+				841A95B526DA8B6100EFA126 /* KirogiSettingVC.swift */,
+				841A95B626DA8B6100EFA126 /* KirogiSettingVC.xib */,
 				8405463926D8BE48007E7F0F /* ETFDetaiViewController.swift */,
 				8405463A26D8BE48007E7F0F /* ETFDetaiViewController.xib */,
 				84F736AA26DB7405008D28C1 /* ETFBaseListVC.swift */,
@@ -667,7 +667,7 @@
 				846B4CB926C0F82D00EB5BA7 /* SettingVC.xib in Resources */,
 				845E45A926CBA94E002E77C3 /* SQLTableListVC.xib in Resources */,
 				846B4CBE26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib in Resources */,
-				841A95B826DA8B6100EFA126 /* ETFDetaiSettingVC.xib in Resources */,
+				841A95B826DA8B6100EFA126 /* KirogiSettingVC.xib in Resources */,
 				8405464226D8C206007E7F0F /* ETFDetaiKlineCell.xib in Resources */,
 				844D5B0926BA955600AC08AF /* HomeBandas.xib in Resources */,
 				84D8DD7C26D39E660074E9A4 /* RecommendVC.xib in Resources */,
@@ -784,7 +784,7 @@
 				842C3E9226D6585200F012DD /* kirogi+stockbasic.swift in Sources */,
 				8492CC0926C4D256004048EF /* SqlliteManage.swift in Sources */,
 				8405464426D8C58E007E7F0F /* etfdaily+kirogietf.swift in Sources */,
-				841A95B726DA8B6100EFA126 /* ETFDetaiSettingVC.swift in Sources */,
+				841A95B726DA8B6100EFA126 /* KirogiSettingVC.swift in Sources */,
 				845E45B126CBB988002E77C3 /* SQLTableInfoVC.swift in Sources */,
 				8492CBEC26C3CC6B004048EF /* WebViewController.swift in Sources */,
 				8492CBF326C4BACD004048EF /* FollowListViewController.swift in Sources */,
@@ -1003,7 +1003,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QPSW766MZ5;
+				DEVELOPMENT_TEAM = HQTXMU76N3;
 				INFOPLIST_FILE = Cow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1027,7 +1027,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QPSW766MZ5;
+				DEVELOPMENT_TEAM = HQTXMU76N3;
 				INFOPLIST_FILE = Cow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
