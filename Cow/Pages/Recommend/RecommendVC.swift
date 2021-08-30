@@ -96,6 +96,13 @@ extension RecommendVC:UITableViewDelegate,UITableViewDataSource{
         cell.delegate = self
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = dataSouce.count-indexPath.section-1
+        let celldata = dataSouce[row]
+        let vc = ETFRecommendDetaiVC()
+        vc.pageData.scheme = celldata
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 extension RecommendVC:RecommendCellDelegate{
     func codeclick(code: String,name:String, celldata: SchemeProtocol) {

@@ -75,6 +75,8 @@
 		8492CC0D26C4FBE6004048EF /* SqlliteManageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CC0C26C4FBE6004048EF /* SqlliteManageTest.swift */; };
 		849D787826C287F5003DFE5F /* StockBasicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D787626C287F5003DFE5F /* StockBasicListCell.swift */; };
 		849D787926C287F5003DFE5F /* StockBasicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849D787726C287F5003DFE5F /* StockBasicListCell.xib */; };
+		84B25E1726DC984E00284679 /* ETFRecommendDetaiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B25E1526DC984E00284679 /* ETFRecommendDetaiVC.swift */; };
+		84B25E1826DC984E00284679 /* ETFRecommendDetaiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B25E1626DC984E00284679 /* ETFRecommendDetaiVC.xib */; };
 		84D8DD7026D37D990074E9A4 /* SqliteInster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DD6F26D37D990074E9A4 /* SqliteInster.swift */; };
 		84D8DD7326D380390074E9A4 /* stockdaily+stockma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DD7226D380390074E9A4 /* stockdaily+stockma.swift */; };
 		84D8DD7526D380FC0074E9A4 /* stockdaily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DD7426D380FC0074E9A4 /* stockdaily.swift */; };
@@ -181,6 +183,8 @@
 		8492CC0C26C4FBE6004048EF /* SqlliteManageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqlliteManageTest.swift; sourceTree = "<group>"; };
 		849D787626C287F5003DFE5F /* StockBasicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBasicListCell.swift; sourceTree = "<group>"; };
 		849D787726C287F5003DFE5F /* StockBasicListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockBasicListCell.xib; sourceTree = "<group>"; };
+		84B25E1526DC984E00284679 /* ETFRecommendDetaiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFRecommendDetaiVC.swift; sourceTree = "<group>"; };
+		84B25E1626DC984E00284679 /* ETFRecommendDetaiVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ETFRecommendDetaiVC.xib; sourceTree = "<group>"; };
 		84D8DD6F26D37D990074E9A4 /* SqliteInster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteInster.swift; sourceTree = "<group>"; };
 		84D8DD7226D380390074E9A4 /* stockdaily+stockma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "stockdaily+stockma.swift"; sourceTree = "<group>"; };
 		84D8DD7426D380FC0074E9A4 /* stockdaily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stockdaily.swift; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 				8405463A26D8BE48007E7F0F /* ETFDetaiViewController.xib */,
 				84F736AA26DB7405008D28C1 /* ETFBaseListVC.swift */,
 				84F736AB26DB7405008D28C1 /* ETFBaseListVC.xib */,
+				84B25E1526DC984E00284679 /* ETFRecommendDetaiVC.swift */,
+				84B25E1626DC984E00284679 /* ETFRecommendDetaiVC.xib */,
 				841A95AB26DA78BA00EFA126 /* moden */,
 				8405463E26D8C10D007E7F0F /* View */,
 			);
@@ -666,6 +672,7 @@
 				844D5B0926BA955600AC08AF /* HomeBandas.xib in Resources */,
 				84D8DD7C26D39E660074E9A4 /* RecommendVC.xib in Resources */,
 				8405463C26D8BE48007E7F0F /* ETFDetaiViewController.xib in Resources */,
+				84B25E1826DC984E00284679 /* ETFRecommendDetaiVC.xib in Resources */,
 				846B4CC826C104E400EB5BA7 /* CollectionViewGridCell.xib in Resources */,
 				844D5AE626BA604400AC08AF /* Assets.xcassets in Resources */,
 				844D5AE426BA604300AC08AF /* Main.storyboard in Resources */,
@@ -793,6 +800,7 @@
 				841A95A526DA2AC800EFA126 /* loginViewController.swift in Sources */,
 				842C3E9026D6353C00F012DD /* OSS.swift in Sources */,
 				846B4CC726C104A100EB5BA7 /* CollectionViewGridCell.swift in Sources */,
+				84B25E1726DC984E00284679 /* ETFRecommendDetaiVC.swift in Sources */,
 				84F736AF26DB7592008D28C1 /* etf_follow+basic.swift in Sources */,
 				845E45AD26CBB81F002E77C3 /* SqliteSelect.swift in Sources */,
 				84D8DD7B26D39E660074E9A4 /* RecommendVC.swift in Sources */,

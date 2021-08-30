@@ -14,26 +14,30 @@ import Alamofire
 class Kirogi:SchemeProtocol{
 
     var type:String = "etf"
+    var speed:Int = 5
+
     override init() {
         super.init()
+        self.name = "Kirogi"
+        self.signal = 0.98
     }
     var cachedata:[[String:Any]]? = nil
 
-    
     override func recommend(_ data:String? = nil ,didchange:@escaping ([[String:Any]])->()) {
         
         if let cadata = cachedata {
             didchange(cadata)
+            return
         }
         let url = "\(baseurl)/select"
         let speed = 5
         let param = ["sql":"""
-                            select t1.code, t2.name from kirogi\(type) as t1
-                            LEFT JOIN \(type)basic as t2
-                            ON t1.code = t2.code
-                            where t1.date='\(date)' AND t1.speed\(speed) != 'nan'
-                            ORDER BY t1.speed\(speed)  DESC
-                            LIMIT 10 OFFSET 0
+            select t1.code,t1.sort,t1.count,t1.signal, t2.name
+            from kirogi_\(type)_signal_\(speed) as t1
+            LEFT JOIN \(type)basic as t2
+            ON t1.code = t2.code
+            where t1.date='\(date)' and t1.signal>=\(signal)
+            ORDER BY t1.signal  DESC
             """]
         
         AF.request(url, method: .post, parameters: param,encoder:JSONParameterEncoder.default)

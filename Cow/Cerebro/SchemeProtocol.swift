@@ -11,6 +11,9 @@ import Foundation
 // 方案
 class SchemeProtocol{
     
+    var name:String = "方案名称"
+    var signal:Float = 0.98
+    
     var date:String = Date().toString("yyyyMMdd")
     
     var datas:[[String:Any]] = []
