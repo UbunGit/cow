@@ -70,6 +70,8 @@ extension ETFRecommendDetaiVC:UITableViewDelegate,UITableViewDataSource{
     func configTableview()  {
 
         tableView.estimatedRowHeight = 60
+//        tableView.separatorStyle = .none
+        
         tableView.register(UINib(nibName: "ETFBaseListTableviewCell", bundle: nil), forCellReuseIdentifier: "ETFBaseListTableviewCell")
      
         
@@ -80,6 +82,7 @@ extension ETFRecommendDetaiVC:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ETFBaseListTableviewCell", for: indexPath) as! ETFBaseListTableviewCell
+        cell.selectionStyle = .none
         cell.celldata = pageData.dataSouce[indexPath.row]
         return cell
     }

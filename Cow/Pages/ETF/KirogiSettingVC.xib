@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KirogiSettingVC" customModule="Cow" customModuleProvider="target">
             <connections>
                 <outlet property="datePicker" destination="fu7-Pi-MQY" id="B7c-q8-YUx"/>
+                <outlet property="signalTitleLab" destination="sBw-70-W7t" id="Fsn-NX-98j"/>
                 <outlet property="speedStackView" destination="yQo-vR-Rak" id="ysi-KA-cFM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -176,6 +177,9 @@
                         </label>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.97999999999999998" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="YbQ-n7-gca">
                             <rect key="frame" x="148" y="0.0" width="252" height="45"/>
+                            <connections>
+                                <action selector="signalValueChange:" destination="-1" eventType="valueChanged" id="L4T-ss-Hwg"/>
+                            </connections>
                         </slider>
                     </subviews>
                     <constraints>
@@ -219,20 +223,50 @@
                         </view>
                     </subviews>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pq-Ae-N0B">
+                    <rect key="frame" x="251" y="653.5" width="106" height="19"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="设为默认配置" image="circle" catalog="system"/>
+                    <state key="selected" image="smallcircle.fill.circle.fill" catalog="system"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MaA-Zx-1qh">
+                    <rect key="frame" x="57" y="694.5" width="300" height="40"/>
+                    <color key="backgroundColor" name="Commit"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="VFZ-1C-3TM"/>
+                        <constraint firstAttribute="width" constant="300" id="ZUX-Cl-wgK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="确  认">
+                        <color key="titleColor" name="Text 1"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="mb_radius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="commitClick:" destination="-1" eventType="touchUpInside" id="5Wk-2q-yfy"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="secondaryLabelColor"/>
             <constraints>
+                <constraint firstItem="MaA-Zx-1qh" firstAttribute="top" secondItem="4pq-Ae-N0B" secondAttribute="bottom" constant="22" id="2TC-mC-ehR"/>
                 <constraint firstItem="XAz-LT-tM0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="981-5k-tjH"/>
                 <constraint firstItem="oBC-qC-F1a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="9gq-EA-dEh"/>
                 <constraint firstItem="XAz-LT-tM0" firstAttribute="top" secondItem="FbV-N7-fLT" secondAttribute="bottom" constant="20" id="IfH-ug-9sQ"/>
                 <constraint firstItem="FbV-N7-fLT" firstAttribute="top" secondItem="yQo-vR-Rak" secondAttribute="bottom" constant="8" id="PQH-IP-pQr"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XAz-LT-tM0" secondAttribute="trailing" constant="8" id="Phd-lt-PoG"/>
                 <constraint firstItem="oBC-qC-F1a" firstAttribute="top" secondItem="XAz-LT-tM0" secondAttribute="bottom" id="R4E-tq-mPa"/>
+                <constraint firstItem="MaA-Zx-1qh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="SUk-cn-Wra"/>
+                <constraint firstItem="4pq-Ae-N0B" firstAttribute="trailing" secondItem="MaA-Zx-1qh" secondAttribute="trailing" id="WMG-nN-ej0"/>
                 <constraint firstItem="yQo-vR-Rak" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="YY3-Xd-zcf"/>
                 <constraint firstItem="YbQ-n7-gca" firstAttribute="leading" secondItem="20Y-xv-ssj" secondAttribute="leading" id="afC-Ab-o1F"/>
                 <constraint firstItem="sxu-5F-xf8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="eZR-8W-h9A"/>
                 <constraint firstAttribute="trailing" secondItem="oBC-qC-F1a" secondAttribute="trailing" constant="8" id="erT-jk-wJW"/>
+                <constraint firstItem="MaA-Zx-1qh" firstAttribute="top" secondItem="sxu-5F-xf8" secondAttribute="bottom" constant="90" id="hYF-YP-k5W"/>
                 <constraint firstItem="yQo-vR-Rak" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="izN-oE-E40"/>
                 <constraint firstItem="sxu-5F-xf8" firstAttribute="top" secondItem="XAz-LT-tM0" secondAttribute="bottom" constant="20" id="pIr-p2-J87"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sxu-5F-xf8" secondAttribute="trailing" constant="8" id="pVt-iu-M9u"/>
@@ -245,8 +279,13 @@
     </objects>
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="circle" catalog="system" width="128" height="121"/>
+        <image name="smallcircle.fill.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="Background 5">
             <color red="0.10196078431372549" green="0.12941176470588237" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Commit">
+            <color red="0.38400000333786011" green="0.20399998128414154" blue="0.83500003814697266" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Secondary">
             <color red="1" green="0.32156862745098042" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

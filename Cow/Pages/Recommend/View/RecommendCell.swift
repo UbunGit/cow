@@ -24,6 +24,8 @@ class RecommendCell: UITableViewCell {
     @IBOutlet weak var recommentCodeLab: YYLabel!
     @IBOutlet weak var datelab: UILabel!
     @IBOutlet weak var moreBtn: UIButton!
+    
+    @IBOutlet weak var siginLab: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
@@ -39,7 +41,7 @@ class RecommendCell: UITableViewCell {
         guard let obj = celldata else {
             return
         }
-        
+        siginLab.text = .init(format: "信号量:%0.2f" , obj.signal)
         datelab.text = obj.date
         self.loading()
         obj.recommend(didchange: { result in

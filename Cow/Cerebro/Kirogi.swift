@@ -16,10 +16,19 @@ class Kirogi:SchemeProtocol{
     var type:String = "etf"
     var speed:Int = 5
 
+
     override init() {
         super.init()
         self.name = "Kirogi"
-        self.signal = 0.98
+        if UserDefaults.standard.float(forKey: "kirogi.signal")>0 {
+            self.signal = UserDefaults.standard.float(forKey: "kirogi.signal")
+            
+        }
+        if UserDefaults.standard.float(forKey: "kirogi.speed")>0 {
+            self.speed = UserDefaults.standard.integer(forKey: "kirogi.speed")
+        }
+        
+    
     }
     var cachedata:[[String:Any]]? = nil
 
@@ -36,7 +45,8 @@ class Kirogi:SchemeProtocol{
             from kirogi_\(type)_signal_\(speed) as t1
             LEFT JOIN \(type)basic as t2
             ON t1.code = t2.code
-            where t1.date='\(date)' and t1.signal>=\(signal)
+            LEFT JOIN \(type)daily as t3 ON t1.code=t3.code and t3.date='\(date)'
+            where t1.date='\(date)' and t1.signal>=\(signal) and t3.vol>100000000
             ORDER BY t1.signal  DESC
             """]
         

@@ -85,13 +85,13 @@ class ETFDetaiKlineCell: UICollectionViewCell {
         
         nowPriceLab.text = vdata["close"].price()
         difLab.text = (vdata["close"].double()-vdata["open"].double()).price()
-        difvLab.text = ((vdata["close"].double()-vdata["open"].double())/vdata["open"].double()).price("%0.2f%%")
+        difvLab.text = (((vdata["close"].double()-vdata["open"].double())/vdata["open"].double())*100) .price("%0.2f%%")
         
         highLab.text = vdata["high"].price()
         openLab.text = vdata["open"].price()
         lowLab.text = vdata["low"].price()
         closeLab.text = vdata["close"].price()
-        volLab.text = vdata["vol"].price()
+        volLab.text = vdata["vol"].wanStr()
         amountLab.text = vdata["amount"].price()
         dateLab.text = vdata["date"].string().toDate("yyyyMMdd")?.toString("yyyy/MM/dd")
         let bgcolor:UIColor = (vdata["close"].double()-vdata["open"].double())>0 ? .systemRed : .systemGreen

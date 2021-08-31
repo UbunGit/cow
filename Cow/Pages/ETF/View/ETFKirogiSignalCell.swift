@@ -46,7 +46,7 @@ class ETFKirogiSignalCell: UICollectionViewCell {
         setstyle(set: set)
         list.append(set)
         
-        str = "sort"
+        str = "speed"
         let entrys1 = datas.enumerated().map{ ChartDataEntry(x: Double($0), y: $1[str].double())}
         let set1 =  LineChartDataSet( entries: entrys1)
         set1.axisDependency = .right
