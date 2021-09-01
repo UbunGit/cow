@@ -41,7 +41,7 @@ class ETFKirogiSignalCell: UICollectionViewCell {
         let entrys = datas.enumerated().map{ ChartDataEntry(x: Double($0), y: $1[str].double())}
         let set =  LineChartDataSet( entries: entrys)
         set.axisDependency = .left
-        set.label = str
+        set.label = cdata.scheme?.param
         set.colors = [.red]
         setstyle(set: set)
         list.append(set)
@@ -60,7 +60,7 @@ class ETFKirogiSignalCell: UICollectionViewCell {
     }
     
     func updateUI()  {
-       
+        
         chartView.data = LineChartData(dataSets: signallineSets)
     }
     

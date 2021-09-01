@@ -11,11 +11,30 @@
 import Foundation
 import Magicbox
 import Alamofire
-class Kirogi:SchemeProtocol{
+class Kirogi:Scheme{
 
+    
     var type:String = "etf"
-    var speed:Int = 5
-
+    
+    private var _speed:Int = 5{
+        didSet{
+            cachedata = nil
+        }
+    }
+    var speed:Int{
+        set{
+            if _speed == newValue{
+                return
+            }else{
+                _speed = newValue
+            }
+        }
+        get{
+            return _speed
+        }
+    }
+    
+    
 
     override init() {
         super.init()
@@ -27,10 +46,26 @@ class Kirogi:SchemeProtocol{
         if UserDefaults.standard.float(forKey: "kirogi.speed")>0 {
             self.speed = UserDefaults.standard.integer(forKey: "kirogi.speed")
         }
+      
         
     
     }
-    var cachedata:[[String:Any]]? = nil
+    
+    override var param:String{
+        return "天数\(speed)/信号量\(signal)"
+    }
+    // 数据存储表
+    override var tableName:String?{
+        
+        return "kirogi_etf_signal_\(speed)"
+    }
+    
+    override func setting()  {
+        let setvc = KirogiSettingVC()
+        setvc.kirogi = self
+        KWindow??.rootViewController?.present(setvc, animated: true, completion: nil)
+    }
+ 
 
     override func recommend(_ data:String? = nil ,didchange:@escaping ([[String:Any]])->()) {
         
@@ -39,7 +74,7 @@ class Kirogi:SchemeProtocol{
             return
         }
         let url = "\(baseurl)/select"
-        let speed = 5
+     
         let param = ["sql":"""
             select t1.code,t1.sort,t1.count,t1.signal, t2.name
             from kirogi_\(type)_signal_\(speed) as t1

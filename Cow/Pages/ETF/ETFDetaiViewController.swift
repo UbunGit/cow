@@ -8,9 +8,13 @@
 import UIKit
 
 class ETFDetaiViewController: BaseViewController, ETFDetaiModenDelegate {
+    
     @objc var code:String = ""
     @objc var name:String = ""
+    var scheme = Scheme()
+    
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var detaiData = ETFDetaiModen()
    
     lazy var naveView:KlineNavBarView = {
@@ -21,11 +25,12 @@ class ETFDetaiViewController: BaseViewController, ETFDetaiModenDelegate {
     lazy var newbutton: UIButton = {
         let button = UIButton()
         button.mb_radius = 18
-        button.setTitleColor(UIColor(named: "Background 5"), for: .normal)
+        button.setTitleColor(UIColor(named: "Text 5"), for: .normal)
         button.mb_borderColor = UIColor(named: "Background 3")
         button.mb_borderWidth = 1
+        button.titleLabel?.font = .systemFont(ofSize: 12)
         button.titleEdgeInsets = .init(top: 4, left: 8, bottom: 4, right: 8)
-        button.setTitle("🔔", for: .normal)
+        button.setTitle("设置", for: .normal)
         button.addTarget(self, action: #selector(settingDoit), for: .touchUpInside)
         return button
     }()
@@ -38,9 +43,7 @@ class ETFDetaiViewController: BaseViewController, ETFDetaiModenDelegate {
         return newItem
     }()
     @objc func settingDoit(){
-        let setvc = KirogiSettingVC()
-        setvc.setdata = detaiData
-        self.present(setvc, animated: true, completion: nil)
+        scheme.setting()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,9 +54,16 @@ class ETFDetaiViewController: BaseViewController, ETFDetaiModenDelegate {
         configCollectionView()
         detaiData.delegate = self
         detaiData.code = code
+        detaiData.scheme = scheme
+        detaiData.updateochl()
+     
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        detaiData.updateochl()
     }
     override func updateUI() {
-        newbutton.setTitle("\(detaiData.speed)", for: .normal)
+   
         collectionView.reloadData()
     }
 

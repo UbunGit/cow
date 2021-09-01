@@ -11,7 +11,7 @@ class RecommendVC: UIViewController {
     
     @IBOutlet weak var tableview: UITableView!
     var page = NSRange(location: 0, length: 1)
-    var dataSouce:[SchemeProtocol] = []
+    var dataSouce:[Scheme] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,9 +105,12 @@ extension RecommendVC:UITableViewDelegate,UITableViewDataSource{
     }
 }
 extension RecommendVC:RecommendCellDelegate{
-    func codeclick(code: String,name:String, celldata: SchemeProtocol) {
-        
-        self.mb_push("Cow.ETFDetaiViewController", params:["code":code,"name":name] )
+    func codeclick(code: String,name:String, celldata: Scheme) {
+        let vc = ETFDetaiViewController()
+        vc.scheme = celldata
+        vc.code = code
+        vc.name = name
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     func reloadHeight() {
         tableview.reloadData()

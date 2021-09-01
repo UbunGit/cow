@@ -8,13 +8,13 @@
 import UIKit
 import YYKit
 protocol RecommendCellDelegate{
-    func codeclick(code:String,name:String, celldata:SchemeProtocol)
+    func codeclick(code:String,name:String, celldata:Scheme)
     func reloadHeight()
 }
 
 class RecommendCell: UITableViewCell {
     var delegate:RecommendCellDelegate? = nil
-    var celldata:SchemeProtocol?{
+    var celldata:Scheme?{
         didSet{
             updateUI()
         }

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3FBF569FA57EA29049EC978F /* Pods_CowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C7744FD96C6DA2CA9753D2 /* Pods_CowTests.framework */; };
 		8400CD3F26CFAF0700C6DE3F /* Kirogi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400CD3C26CFAF0700C6DE3F /* Kirogi.swift */; };
-		8400CD4026CFAF0700C6DE3F /* SchemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400CD3D26CFAF0700C6DE3F /* SchemeProtocol.swift */; };
+		8400CD4026CFAF0700C6DE3F /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400CD3D26CFAF0700C6DE3F /* Scheme.swift */; };
 		8400CD4126CFAF0700C6DE3F /* Cerebro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400CD3E26CFAF0700C6DE3F /* Cerebro.swift */; };
 		8400CD4326CFB85700C6DE3F /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400CD4226CFB85700C6DE3F /* lib.swift */; };
 		8405463B26D8BE48007E7F0F /* ETFDetaiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405463926D8BE48007E7F0F /* ETFDetaiViewController.swift */; };
@@ -112,7 +112,7 @@
 		5F60CF171DAB942E8AD2C091 /* Pods_Cow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74237E86FA104E2E54D663EC /* Pods-CowTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CowTests.release.xcconfig"; path = "Target Support Files/Pods-CowTests/Pods-CowTests.release.xcconfig"; sourceTree = "<group>"; };
 		8400CD3C26CFAF0700C6DE3F /* Kirogi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kirogi.swift; sourceTree = "<group>"; };
-		8400CD3D26CFAF0700C6DE3F /* SchemeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemeProtocol.swift; sourceTree = "<group>"; };
+		8400CD3D26CFAF0700C6DE3F /* Scheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheme.swift; sourceTree = "<group>"; };
 		8400CD3E26CFAF0700C6DE3F /* Cerebro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cerebro.swift; sourceTree = "<group>"; };
 		8400CD4226CFB85700C6DE3F /* lib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lib.swift; sourceTree = "<group>"; };
 		8405463526D8AF13007E7F0F /* Cow-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cow-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				8400CD3C26CFAF0700C6DE3F /* Kirogi.swift */,
-				8400CD3D26CFAF0700C6DE3F /* SchemeProtocol.swift */,
+				8400CD3D26CFAF0700C6DE3F /* Scheme.swift */,
 				8400CD3E26CFAF0700C6DE3F /* Cerebro.swift */,
 				8400CD4226CFB85700C6DE3F /* lib.swift */,
 			);
@@ -815,7 +815,7 @@
 				8410012026C10D2700C64E53 /* StockBasicListVC.swift in Sources */,
 				8410011C26C106EA00C64E53 /* DataHandleModel.swift in Sources */,
 				8400CD4126CFAF0700C6DE3F /* Cerebro.swift in Sources */,
-				8400CD4026CFAF0700C6DE3F /* SchemeProtocol.swift in Sources */,
+				8400CD4026CFAF0700C6DE3F /* Scheme.swift in Sources */,
 				844D5AE126BA604300AC08AF /* ViewController.swift in Sources */,
 				844D5AF426BA6C8000AC08AF /* BaseViewController.swift in Sources */,
 				84D8DD7026D37D990074E9A4 /* SqliteInster.swift in Sources */,

@@ -14,7 +14,7 @@ class ETFRecommendDetaiModel {
             delegate?.updateUI()
         }
     }
-    var scheme:SchemeProtocol? = nil
+    var scheme:Scheme? = nil
     
     func updateData()  {
         scheme?.recommend(didchange: { result in
