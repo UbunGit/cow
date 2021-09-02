@@ -87,9 +87,13 @@ extension ETFRecommendDetaiVC:UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       let vc = ETFDetaiViewController()
+        guard let scheme =  pageData.scheme else {
+            return
+        }
+        let vc = ETFDetaiViewController()
         vc.code = pageData.dataSouce[indexPath.row]["code"].string()
         vc.name = pageData.dataSouce[indexPath.row]["name"].string()
+        vc.scheme = scheme
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

@@ -65,6 +65,12 @@
 		846B4CBE26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B4CBC26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib */; };
 		846B4CC726C104A100EB5BA7 /* CollectionViewGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B4CC626C104A100EB5BA7 /* CollectionViewGridCell.swift */; };
 		846B4CC826C104E400EB5BA7 /* CollectionViewGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B4CC426C1044B00EB5BA7 /* CollectionViewGridCell.xib */; };
+		8483CEE126E08D0E009F7A7D /* TransactionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CEDF26E08D0E009F7A7D /* TransactionListViewController.swift */; };
+		8483CEE226E08D0E009F7A7D /* TransactionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483CEE026E08D0E009F7A7D /* TransactionListViewController.xib */; };
+		8483CEE526E08D90009F7A7D /* TransactionListTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CEE426E08D90009F7A7D /* TransactionListTableHeader.swift */; };
+		8483CEE726E08D9A009F7A7D /* TransactionListTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483CEE626E08D9A009F7A7D /* TransactionListTableHeader.xib */; };
+		8483CEEA26E08F96009F7A7D /* TransactionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CEE826E08F96009F7A7D /* TransactionListCell.swift */; };
+		8483CEEB26E08F96009F7A7D /* TransactionListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483CEE926E08F96009F7A7D /* TransactionListCell.xib */; };
 		8492CBEC26C3CC6B004048EF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CBEA26C3CC6B004048EF /* WebViewController.swift */; };
 		8492CBF026C3D641004048EF /* FollowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CBEF26C3D641004048EF /* FollowModel.swift */; };
 		8492CBF326C4BACD004048EF /* FollowListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CBF126C4BACD004048EF /* FollowListViewController.swift */; };
@@ -171,6 +177,12 @@
 		846B4CBC26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		846B4CC426C1044B00EB5BA7 /* CollectionViewGridCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewGridCell.xib; sourceTree = "<group>"; };
 		846B4CC626C104A100EB5BA7 /* CollectionViewGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewGridCell.swift; sourceTree = "<group>"; };
+		8483CEDF26E08D0E009F7A7D /* TransactionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListViewController.swift; sourceTree = "<group>"; };
+		8483CEE026E08D0E009F7A7D /* TransactionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionListViewController.xib; sourceTree = "<group>"; };
+		8483CEE426E08D90009F7A7D /* TransactionListTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListTableHeader.swift; sourceTree = "<group>"; };
+		8483CEE626E08D9A009F7A7D /* TransactionListTableHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionListTableHeader.xib; sourceTree = "<group>"; };
+		8483CEE826E08F96009F7A7D /* TransactionListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListCell.swift; sourceTree = "<group>"; };
+		8483CEE926E08F96009F7A7D /* TransactionListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionListCell.xib; sourceTree = "<group>"; };
 		8492CBEA26C3CC6B004048EF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		8492CBEF26C3D641004048EF /* FollowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowModel.swift; sourceTree = "<group>"; };
 		8492CBF126C4BACD004048EF /* FollowListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowListViewController.swift; sourceTree = "<group>"; };
@@ -390,6 +402,7 @@
 		844D5AF126BA6C5600AC08AF /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				8483CEDE26E08CD5009F7A7D /* Transaction */,
 				841A95A226DA2A7F00EFA126 /* Login */,
 				8405463D26D8BFC1007E7F0F /* ETF */,
 				84D8DD7826D39B060074E9A4 /* Recommend */,
@@ -465,6 +478,27 @@
 				846B4CC426C1044B00EB5BA7 /* CollectionViewGridCell.xib */,
 			);
 			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		8483CEDE26E08CD5009F7A7D /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				8483CEE326E08D45009F7A7D /* view */,
+				8483CEDF26E08D0E009F7A7D /* TransactionListViewController.swift */,
+				8483CEE026E08D0E009F7A7D /* TransactionListViewController.xib */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
+		8483CEE326E08D45009F7A7D /* view */ = {
+			isa = PBXGroup;
+			children = (
+				8483CEE426E08D90009F7A7D /* TransactionListTableHeader.swift */,
+				8483CEE626E08D9A009F7A7D /* TransactionListTableHeader.xib */,
+				8483CEE826E08F96009F7A7D /* TransactionListCell.swift */,
+				8483CEE926E08F96009F7A7D /* TransactionListCell.xib */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		8492CBE926C3CC48004048EF /* WebView */ = {
@@ -664,15 +698,18 @@
 				84463B9526CF7BFF00F2262B /* KlineNavBarView.xib in Resources */,
 				8492CBF426C4BACD004048EF /* FollowListViewController.xib in Resources */,
 				849D787926C287F5003DFE5F /* StockBasicListCell.xib in Resources */,
+				8483CEE226E08D0E009F7A7D /* TransactionListViewController.xib in Resources */,
 				846B4CB926C0F82D00EB5BA7 /* SettingVC.xib in Resources */,
 				845E45A926CBA94E002E77C3 /* SQLTableListVC.xib in Resources */,
 				846B4CBE26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib in Resources */,
 				841A95B826DA8B6100EFA126 /* KirogiSettingVC.xib in Resources */,
 				8405464226D8C206007E7F0F /* ETFDetaiKlineCell.xib in Resources */,
 				844D5B0926BA955600AC08AF /* HomeBandas.xib in Resources */,
+				8483CEE726E08D9A009F7A7D /* TransactionListTableHeader.xib in Resources */,
 				84D8DD7C26D39E660074E9A4 /* RecommendVC.xib in Resources */,
 				8405463C26D8BE48007E7F0F /* ETFDetaiViewController.xib in Resources */,
 				84B25E1826DC984E00284679 /* ETFRecommendDetaiVC.xib in Resources */,
+				8483CEEB26E08F96009F7A7D /* TransactionListCell.xib in Resources */,
 				846B4CC826C104E400EB5BA7 /* CollectionViewGridCell.xib in Resources */,
 				844D5AE626BA604400AC08AF /* Assets.xcassets in Resources */,
 				844D5AE426BA604300AC08AF /* Main.storyboard in Resources */,
@@ -788,6 +825,7 @@
 				845E45B126CBB988002E77C3 /* SQLTableInfoVC.swift in Sources */,
 				8492CBEC26C3CC6B004048EF /* WebViewController.swift in Sources */,
 				8492CBF326C4BACD004048EF /* FollowListViewController.swift in Sources */,
+				8483CEE126E08D0E009F7A7D /* TransactionListViewController.swift in Sources */,
 				841A95B426DA830200EFA126 /* ChartStyle.swift in Sources */,
 				841A95B026DA80C600EFA126 /* ETFKirogiSignalCell.swift in Sources */,
 				845E45A826CBA94E002E77C3 /* SQLTableListVC.swift in Sources */,
@@ -818,6 +856,7 @@
 				8400CD4026CFAF0700C6DE3F /* Scheme.swift in Sources */,
 				844D5AE126BA604300AC08AF /* ViewController.swift in Sources */,
 				844D5AF426BA6C8000AC08AF /* BaseViewController.swift in Sources */,
+				8483CEEA26E08F96009F7A7D /* TransactionListCell.swift in Sources */,
 				84D8DD7026D37D990074E9A4 /* SqliteInster.swift in Sources */,
 				84D8DD8026D39EB40074E9A4 /* RecommendCell.swift in Sources */,
 				846B4CBD26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.swift in Sources */,
@@ -834,6 +873,7 @@
 				8492CBF026C3D641004048EF /* FollowModel.swift in Sources */,
 				84F736AC26DB7405008D28C1 /* ETFBaseListVC.swift in Sources */,
 				845E45CE26CCFEC5002E77C3 /* KLineViewController.swift in Sources */,
+				8483CEE526E08D90009F7A7D /* TransactionListTableHeader.swift in Sources */,
 				844D5B0326BA803400AC08AF /* HomeBandas.swift in Sources */,
 				84D8DD8326D3A7D50074E9A4 /* follow+stockbasic.swift in Sources */,
 			);
