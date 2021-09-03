@@ -40,6 +40,9 @@
                         <color key="titleShadowColor" name="AccentColor"/>
                         <imageReference key="image" image="rectangle.grid.2x2.fill" catalog="system" symbolScale="large"/>
                     </state>
+                    <connections>
+                        <action selector="addTransaction:" destination="-1" eventType="touchUpInside" id="Ozm-c3-Xdb"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

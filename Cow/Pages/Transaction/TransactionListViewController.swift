@@ -19,7 +19,10 @@ class TransactionListViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func addTransaction(_ sender: Any) {
+        self.present(TransactionEdit(), animated: true, completion: nil)
+    }
+    
 
 }
 

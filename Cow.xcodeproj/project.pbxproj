@@ -71,6 +71,8 @@
 		8483CEE726E08D9A009F7A7D /* TransactionListTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483CEE626E08D9A009F7A7D /* TransactionListTableHeader.xib */; };
 		8483CEEA26E08F96009F7A7D /* TransactionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CEE826E08F96009F7A7D /* TransactionListCell.swift */; };
 		8483CEEB26E08F96009F7A7D /* TransactionListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483CEE926E08F96009F7A7D /* TransactionListCell.xib */; };
+		8483CF0026E21E0F009F7A7D /* TransactionEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CEFE26E21E0F009F7A7D /* TransactionEdit.swift */; };
+		8483CF0126E21E0F009F7A7D /* TransactionEdit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483CEFF26E21E0F009F7A7D /* TransactionEdit.xib */; };
 		8492CBEC26C3CC6B004048EF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CBEA26C3CC6B004048EF /* WebViewController.swift */; };
 		8492CBF026C3D641004048EF /* FollowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CBEF26C3D641004048EF /* FollowModel.swift */; };
 		8492CBF326C4BACD004048EF /* FollowListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CBF126C4BACD004048EF /* FollowListViewController.swift */; };
@@ -183,6 +185,8 @@
 		8483CEE626E08D9A009F7A7D /* TransactionListTableHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionListTableHeader.xib; sourceTree = "<group>"; };
 		8483CEE826E08F96009F7A7D /* TransactionListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListCell.swift; sourceTree = "<group>"; };
 		8483CEE926E08F96009F7A7D /* TransactionListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionListCell.xib; sourceTree = "<group>"; };
+		8483CEFE26E21E0F009F7A7D /* TransactionEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEdit.swift; sourceTree = "<group>"; };
+		8483CEFF26E21E0F009F7A7D /* TransactionEdit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionEdit.xib; sourceTree = "<group>"; };
 		8492CBEA26C3CC6B004048EF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		8492CBEF26C3D641004048EF /* FollowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowModel.swift; sourceTree = "<group>"; };
 		8492CBF126C4BACD004048EF /* FollowListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowListViewController.swift; sourceTree = "<group>"; };
@@ -486,6 +490,8 @@
 				8483CEE326E08D45009F7A7D /* view */,
 				8483CEDF26E08D0E009F7A7D /* TransactionListViewController.swift */,
 				8483CEE026E08D0E009F7A7D /* TransactionListViewController.xib */,
+				8483CEFE26E21E0F009F7A7D /* TransactionEdit.swift */,
+				8483CEFF26E21E0F009F7A7D /* TransactionEdit.xib */,
 			);
 			path = Transaction;
 			sourceTree = "<group>";
@@ -705,6 +711,7 @@
 				841A95B826DA8B6100EFA126 /* KirogiSettingVC.xib in Resources */,
 				8405464226D8C206007E7F0F /* ETFDetaiKlineCell.xib in Resources */,
 				844D5B0926BA955600AC08AF /* HomeBandas.xib in Resources */,
+				8483CF0126E21E0F009F7A7D /* TransactionEdit.xib in Resources */,
 				8483CEE726E08D9A009F7A7D /* TransactionListTableHeader.xib in Resources */,
 				84D8DD7C26D39E660074E9A4 /* RecommendVC.xib in Resources */,
 				8405463C26D8BE48007E7F0F /* ETFDetaiViewController.xib in Resources */,
@@ -858,6 +865,7 @@
 				844D5AF426BA6C8000AC08AF /* BaseViewController.swift in Sources */,
 				8483CEEA26E08F96009F7A7D /* TransactionListCell.swift in Sources */,
 				84D8DD7026D37D990074E9A4 /* SqliteInster.swift in Sources */,
+				8483CF0026E21E0F009F7A7D /* TransactionEdit.swift in Sources */,
 				84D8DD8026D39EB40074E9A4 /* RecommendCell.swift in Sources */,
 				846B4CBD26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.swift in Sources */,
 				849D787826C287F5003DFE5F /* StockBasicListCell.swift in Sources */,
