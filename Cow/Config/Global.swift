@@ -18,6 +18,7 @@ class Global {
         var userId:Int
     }
     private var _user:User? = nil
+    
     var user:User?{
         get{
             if let tuser = _user  {
@@ -38,7 +39,6 @@ class Global {
             
         }
     }
-    
     
     static let `share` = Global()
     private init(){}
@@ -79,5 +79,15 @@ extension Global{
         }
     }
 }
+
+extension UIViewController{
+    func needLogin()  {
+        if Global.share.user == nil{
+            self.present(loginViewController(), animated: true, completion: nil)
+        }
+
+    }
+}
+
 
 

@@ -84,7 +84,7 @@ extension SQLTableListVC:UITableViewDelegate,UITableViewDataSource{
         let archiveAction = UIContextualAction(style: .normal, title: "删除表") { [self] (action, view, finished) in
             do{
                 if let name = tables[indexPath.row]["name"] as? String {
-                    try sm.droptable(tablename: name)
+                    try sm.dropaftercreatetable(tablename: name)
                     self.updatetables()
                 }else{
                     view.error("表名为空")

@@ -7,6 +7,7 @@
 
 import UIKit
 import Magicbox
+import Alamofire
 
 struct TransactionEditModel {
     var id = 0
@@ -90,6 +91,60 @@ class TransactionEdit: BaseViewController {
             self.editData.type = type
             
         }
+    }
+    @IBAction func commitClick(_ sender: Any) {
+        guard let user = Global.share.user else {
+            needLogin()
+            return
+        }
+        var sql = ""
+        if editData.id > 0 {
+            sql = """
+                UPDATE  rel_transaction SET
+                userid = \(user.userId),
+                code = '\(editData.code)',
+                bcount = \(editData.bcount),
+                type =\(editData.type),
+                bdate = '\(editData.bdate)',
+                bprice = \(editData.bprice),
+                bfree =  \(editData.bfree),
+                sdate = '\(editData.sdate)',
+                sprice = \(editData.sprice),
+                sfree =\(editData.sfree),
+                plan='\(editData.plan)',
+                remarks = '\(editData.remarks)')
+                """
+        }else{
+            sql = ("""
+                INSERT INTO rel_transaction
+                (userid,code,bcount,type,bdate,bprice,bfree,sdate,sprice,sfree,plan,remarks)
+                VALUES (
+                \(user.userId),
+                '\(editData.code)',
+                \(editData.bcount),
+                \(editData.type),
+                '\(editData.bdate)',
+                \(editData.bprice),
+                \(editData.bfree),
+                '\(editData.sdate)',
+                \(editData.sprice),
+                \(editData.sfree),
+                '\(editData.plan)',
+                '\(editData.remarks)')
+                """)
+        }
+        view.loading()
+        AF.af_update(sql) { result in
+            self.view.loadingDismiss()
+            switch result{
+            case .success(_):
+                self.view.success("成功")
+            case .failure(let error):
+            self.view.error(error.localizedDescription)
+            }
+        }
+        
+        
     }
     
 }

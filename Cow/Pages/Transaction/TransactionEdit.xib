@@ -34,13 +34,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibi-Ys-QIt">
-                    <rect key="frame" x="8" y="76" width="398" height="104"/>
+                    <rect key="frame" x="8" y="76" width="398" height="88"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="dby-rq-rNE">
-                            <rect key="frame" x="8" y="8" width="382" height="40"/>
+                            <rect key="frame" x="8" y="8" width="382" height="32"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmn-Qb-jlk">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="32"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="PnU-hk-qIm"/>
                                     </constraints>
@@ -49,7 +49,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="40" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJg-qx-SP1">
-                                    <rect key="frame" x="82" y="0.0" width="300" height="40"/>
+                                    <rect key="frame" x="82" y="0.0" width="300" height="32"/>
                                     <state key="normal" title="选择股票类型">
                                         <color key="titleColor" name="AccentColor"/>
                                     </state>
@@ -60,14 +60,14 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="Xne-S9-MFW"/>
+                                <constraint firstAttribute="height" constant="32" id="Xne-S9-MFW"/>
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="26J-bA-6sN">
-                            <rect key="frame" x="8" y="56" width="382" height="40"/>
+                            <rect key="frame" x="8" y="48" width="382" height="32"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="代码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOl-Ul-Yls">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="32"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="l96-mK-8NK"/>
                                     </constraints>
@@ -76,12 +76,12 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="260" placeholderIntrinsicHeight="44" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入/选择股票 “SZ.00011”" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2PQ-JZ-fFl">
-                                    <rect key="frame" x="82" y="0.0" width="260" height="40"/>
+                                    <rect key="frame" x="82" y="0.0" width="260" height="32"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84q-bf-QDo">
-                                    <rect key="frame" x="344" y="0.0" width="38" height="40"/>
+                                    <rect key="frame" x="344" y="0.0" width="38" height="32"/>
                                     <color key="tintColor" name="AccentColor"/>
                                 </button>
                             </subviews>
@@ -106,13 +106,13 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wyj-t3-73y">
-                    <rect key="frame" x="8" y="188" width="398" height="202"/>
+                    <rect key="frame" x="8" y="172" width="398" height="169"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="7Za-wc-9KJ">
-                            <rect key="frame" x="8" y="8" width="382" height="40"/>
+                            <rect key="frame" x="8" y="8" width="382" height="32"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="买入时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gS-vu-V97">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="32"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="ZuY-0E-XSA"/>
                                     </constraints>
@@ -121,20 +121,20 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="tkP-aZ-thL">
-                                    <rect key="frame" x="82" y="0.0" width="300" height="40"/>
+                                    <rect key="frame" x="82" y="0.0" width="300" height="32"/>
                                     <locale key="locale" localeIdentifier="zh"/>
                                 </datePicker>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="qtB-re-DFi"/>
+                                <constraint firstAttribute="height" constant="32" id="qtB-re-DFi"/>
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Wzp-Eo-0JE">
-                            <rect key="frame" x="8" y="56" width="382" height="40"/>
+                            <rect key="frame" x="8" y="48" width="382" height="32"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="买入价格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtk-te-cgB" userLabel="买入数量">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="32"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="Re8-CY-6E2"/>
                                     </constraints>
@@ -143,7 +143,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="44" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="买入价格 “1.23”" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Axb-Qe-HJ7" userLabel="买入数量  “100”">
-                                    <rect key="frame" x="82" y="0.0" width="300" height="40"/>
+                                    <rect key="frame" x="82" y="0.0" width="300" height="32"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
@@ -151,10 +151,10 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="xTe-Pr-jdu">
-                            <rect key="frame" x="8" y="104" width="382" height="44"/>
+                            <rect key="frame" x="8" y="88" width="382" height="35"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="买入价格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5YT-zg-CR4">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="35"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="bIU-L3-Lvu"/>
                                     </constraints>
@@ -163,7 +163,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="44" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="买入价格 “1.23”" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3H-RW-bAC">
-                                    <rect key="frame" x="82" y="0.0" width="300" height="44"/>
+                                    <rect key="frame" x="82" y="0.0" width="300" height="35"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
@@ -171,10 +171,10 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="y2X-y3-UbQ">
-                            <rect key="frame" x="8" y="154" width="382" height="40"/>
+                            <rect key="frame" x="8" y="129" width="382" height="32"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="买入手续费" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quC-Qh-QRd">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="32"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="1dC-8x-1fq"/>
                                     </constraints>
@@ -183,7 +183,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="44" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="买入手续费 “1.203”" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zro-xN-00S">
-                                    <rect key="frame" x="82" y="0.0" width="300" height="40"/>
+                                    <rect key="frame" x="82" y="0.0" width="300" height="32"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
@@ -217,13 +217,13 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgA-dD-BBR">
-                    <rect key="frame" x="8" y="398" width="398" height="204"/>
+                    <rect key="frame" x="8" y="349" width="398" height="188"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="IpK-fq-2u0">
-                            <rect key="frame" x="8" y="8" width="382" height="40"/>
+                            <rect key="frame" x="8" y="8" width="382" height="36"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="卖出时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PS-vA-ljT">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="36"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="8TJ-dD-h2n"/>
                                     </constraints>
@@ -231,22 +231,22 @@
                                     <color key="textColor" name="Text 5"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="lYc-c2-E4d">
-                                    <rect key="frame" x="82" y="0.0" width="300" height="40"/>
+                                <datePicker contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="lYc-c2-E4d">
+                                    <rect key="frame" x="82" y="0.0" width="300" height="36"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <locale key="locale" localeIdentifier="zh"/>
                                 </datePicker>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="MNF-gL-y86"/>
+                                <constraint firstAttribute="height" constant="36" id="MNF-gL-y86"/>
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Lla-Tq-wiB">
-                            <rect key="frame" x="8" y="56" width="382" height="44"/>
+                            <rect key="frame" x="8" y="52" width="382" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="卖出数量、" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8E7-0C-nYN" userLabel="卖出数量">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="jLN-7S-vfc"/>
                                     </constraints>
@@ -255,7 +255,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="44" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="卖出数量 “100”" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bY8-Af-S0G" userLabel="卖出数量 “100”">
-                                    <rect key="frame" x="82" y="0.0" width="300" height="44"/>
+                                    <rect key="frame" x="82" y="0.0" width="300" height="40"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
@@ -263,10 +263,10 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="e8q-B5-1XT">
-                            <rect key="frame" x="8" y="108" width="382" height="40"/>
+                            <rect key="frame" x="8" y="100" width="382" height="36"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="卖出价格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2m9-OC-gy1">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="36"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="vcz-Sv-ORv"/>
                                     </constraints>
@@ -275,7 +275,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="44" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="卖出价格 “1.23”" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="51o-Af-IFy">
-                                    <rect key="frame" x="82" y="0.0" width="300" height="40"/>
+                                    <rect key="frame" x="82" y="0.0" width="300" height="36"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
@@ -283,10 +283,10 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="aDc-4q-UeV">
-                            <rect key="frame" x="8" y="156" width="382" height="40"/>
+                            <rect key="frame" x="8" y="144" width="382" height="36"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="卖出手续费" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIa-OG-cbx">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="36"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="eji-xc-6Kc"/>
                                     </constraints>
@@ -295,7 +295,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="44" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="卖出手续费 “1.23”" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y2C-3k-RBS">
-                                    <rect key="frame" x="82" y="0.0" width="300" height="40"/>
+                                    <rect key="frame" x="82" y="0.0" width="300" height="36"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
@@ -329,13 +329,13 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="srZ-Vc-Ds0">
-                    <rect key="frame" x="8" y="610" width="398" height="152"/>
+                    <rect key="frame" x="8" y="545" width="398" height="128"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bYk-SO-3SX">
-                            <rect key="frame" x="8" y="8" width="382" height="40"/>
+                            <rect key="frame" x="8" y="8" width="382" height="32"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="目标价格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0T2-tj-t7X">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="32"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="BUj-m0-EPL"/>
                                     </constraints>
@@ -344,21 +344,21 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="44" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="目标价格" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eft-N5-aMY">
-                                    <rect key="frame" x="82" y="0.0" width="300" height="40"/>
+                                    <rect key="frame" x="82" y="0.0" width="300" height="32"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="gTc-5E-h2Z"/>
+                                <constraint firstAttribute="height" constant="32" id="gTc-5E-h2Z"/>
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="8T0-6a-dBw">
-                            <rect key="frame" x="8" y="56" width="382" height="40"/>
+                            <rect key="frame" x="8" y="48" width="382" height="32"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="策略类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbI-nw-lek">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="32"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="vgq-nR-X4X"/>
                                     </constraints>
@@ -367,7 +367,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="44" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="策略名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N9U-dG-mTd">
-                                    <rect key="frame" x="82" y="0.0" width="300" height="40"/>
+                                    <rect key="frame" x="82" y="0.0" width="300" height="32"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
@@ -375,10 +375,10 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="9Hb-qZ-76i">
-                            <rect key="frame" x="8" y="104" width="382" height="40"/>
+                            <rect key="frame" x="8" y="88" width="382" height="32"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="备注" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GE6-7N-HEa">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="32"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="0hQ-xt-Btr"/>
                                     </constraints>
@@ -387,7 +387,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="44" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="备注信息" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ADO-Bc-MJP">
-                                    <rect key="frame" x="82" y="0.0" width="300" height="40"/>
+                                    <rect key="frame" x="82" y="0.0" width="300" height="32"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
@@ -432,6 +432,9 @@
                             <real key="value" value="8"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="commitClick:" destination="-1" eventType="touchUpInside" id="JJX-da-hi7"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

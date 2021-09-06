@@ -75,6 +75,7 @@
 		8483CEEB26E08F96009F7A7D /* TransactionListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483CEE926E08F96009F7A7D /* TransactionListCell.xib */; };
 		8483CF0026E21E0F009F7A7D /* TransactionEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CEFE26E21E0F009F7A7D /* TransactionEdit.swift */; };
 		8483CF0126E21E0F009F7A7D /* TransactionEdit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483CEFF26E21E0F009F7A7D /* TransactionEdit.xib */; };
+		8483CFC426E6371A009F7A7D /* tables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CFC326E6371A009F7A7D /* tables.swift */; };
 		8492CBEC26C3CC6B004048EF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CBEA26C3CC6B004048EF /* WebViewController.swift */; };
 		8492CBF026C3D641004048EF /* FollowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CBEF26C3D641004048EF /* FollowModel.swift */; };
 		8492CBF326C4BACD004048EF /* FollowListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CBF126C4BACD004048EF /* FollowListViewController.swift */; };
@@ -191,6 +192,7 @@
 		8483CEE926E08F96009F7A7D /* TransactionListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionListCell.xib; sourceTree = "<group>"; };
 		8483CEFE26E21E0F009F7A7D /* TransactionEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEdit.swift; sourceTree = "<group>"; };
 		8483CEFF26E21E0F009F7A7D /* TransactionEdit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionEdit.xib; sourceTree = "<group>"; };
+		8483CFC326E6371A009F7A7D /* tables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tables.swift; sourceTree = "<group>"; };
 		8492CBEA26C3CC6B004048EF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		8492CBEF26C3D641004048EF /* FollowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowModel.swift; sourceTree = "<group>"; };
 		8492CBF126C4BACD004048EF /* FollowListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowListViewController.swift; sourceTree = "<group>"; };
@@ -573,6 +575,7 @@
 				842C3E9326D65D2100F012DD /* kirogi.swift */,
 				8405464326D8C58E007E7F0F /* etfdaily+kirogietf.swift */,
 				841A95A926DA30B800EFA126 /* user.swift */,
+				8483CFC326E6371A009F7A7D /* tables.swift */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -853,6 +856,7 @@
 				841A95B026DA80C600EFA126 /* ETFKirogiSignalCell.swift in Sources */,
 				845E45A826CBA94E002E77C3 /* SQLTableListVC.swift in Sources */,
 				844D5AFB26BA6EBC00AC08AF /* HomeViewController.swift in Sources */,
+				8483CFC426E6371A009F7A7D /* tables.swift in Sources */,
 				841A95A826DA2E3E00EFA126 /* Global.swift in Sources */,
 				8405463B26D8BE48007E7F0F /* ETFDetaiViewController.swift in Sources */,
 				845E45AB26CBABF1002E77C3 /* SqliteTable.swift in Sources */,
@@ -1066,8 +1070,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QPSW766MZ5;
+				DEVELOPMENT_TEAM = HQTXMU76N3;
 				INFOPLIST_FILE = Cow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1076,6 +1081,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = UG.Cow.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Cow/Cow-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1090,8 +1096,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QPSW766MZ5;
+				DEVELOPMENT_TEAM = HQTXMU76N3;
 				INFOPLIST_FILE = Cow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1100,6 +1107,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = UG.Cow.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Cow/Cow-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -34,7 +34,7 @@ class SQLTableInfoVC: UIViewController {
                     createSql.text = sql
                 }
         let url = "\(baseurl)/select"
-        let param = ["sql":sm.lastsql(table: tablename)]
+        let param = ["sql":sm.lastsql(table: tablename,isasc:true)]
         AF.request(url, method: .post, parameters: param, encoder: JSONParameterEncoder.default)
             .responseModel([[String:Any]].self) { result in
                 

@@ -8,6 +8,7 @@
 import Foundation
 import HandyJSON
 import Magicbox
+import Alamofire
 
 extension SqlliteManage{
     
@@ -26,12 +27,29 @@ extension SqlliteManage{
     /**
      删除表
      */
-    public  func droptable( tablename:String) throws {
-        guard let tdb = db else {
-            throw BaseError(code: -2, msg: "db 初始化错误")
+    public  func dropaftercreatetable( tablename:String) throws {
+      
+        let sql = "drop table if exists \(tablename) "
+        AF.af_update(sql) { result in
+            switch result{
+            case .success(_):
+                UIView.success("表删除成功")
+                guard let create = sm.sql_createTable(tablename) else {
+                    UIView.success("创建表sql为空")
+                    return
+                }
+                AF.af_update(create) { result in
+                    switch result{
+                    case .success(_):
+                        UIView.success("创建表成功")
+                    case .failure(let err):
+                        UIView.error(err.localizedDescription)
+                    }
+                }
+            case .failure(let err):
+                UIView.error(err.localizedDescription)
+            }
         }
-        let exeStr = "drop table if exists \(tablename) "
-        try tdb.execute(exeStr)
         
     }
     
