@@ -12,6 +12,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransactionEdit" customModule="Cow" customModuleProvider="target">
             <connections>
+                <outlet property="bcountTF" destination="Axb-Qe-HJ7" id="xzd-rt-l6Z"/>
+                <outlet property="bdateDP" destination="tkP-aZ-thL" id="RKF-Xl-1ie"/>
+                <outlet property="bfreeTF" destination="Zro-xN-00S" id="HDu-U1-hNQ"/>
+                <outlet property="bpriceTF" destination="w3H-RW-bAC" id="7OA-9B-tno"/>
+                <outlet property="codeTF" destination="2PQ-JZ-fFl" id="p8n-uh-nch"/>
+                <outlet property="planTF" destination="N9U-dG-mTd" id="VBu-Lx-pU4"/>
+                <outlet property="remarkTF" destination="ADO-Bc-MJP" id="pkJ-se-ah7"/>
+                <outlet property="scountTF" destination="bY8-Af-S0G" id="73Z-dp-gIv"/>
+                <outlet property="sdateDP" destination="lYc-c2-E4d" id="mUP-D8-U26"/>
+                <outlet property="sfreeTF" destination="y2C-3k-RBS" id="YaS-DR-Cdg"/>
+                <outlet property="spriceTF" destination="51o-Af-IFy" id="0Fi-WE-Rhu"/>
+                <outlet property="targetTF" destination="eft-N5-aMY" id="CYc-vb-L6B"/>
+                <outlet property="typeBtn" destination="jJg-qx-SP1" id="y2g-fh-hNR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -93,7 +106,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wyj-t3-73y">
-                    <rect key="frame" x="8" y="188" width="398" height="152"/>
+                    <rect key="frame" x="8" y="188" width="398" height="202"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="7Za-wc-9KJ">
                             <rect key="frame" x="8" y="8" width="382" height="40"/>
@@ -120,7 +133,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Wzp-Eo-0JE">
                             <rect key="frame" x="8" y="56" width="382" height="40"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="买入价格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtk-te-cgB">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="买入价格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtk-te-cgB" userLabel="买入数量">
                                     <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="Re8-CY-6E2"/>
@@ -129,7 +142,7 @@
                                     <color key="textColor" name="Text 5"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="44" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="买入价格 “1.23”" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Axb-Qe-HJ7">
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="44" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="买入价格 “1.23”" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Axb-Qe-HJ7" userLabel="买入数量  “100”">
                                     <rect key="frame" x="82" y="0.0" width="300" height="40"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -137,8 +150,28 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="xTe-Pr-jdu">
+                            <rect key="frame" x="8" y="104" width="382" height="44"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="买入价格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5YT-zg-CR4">
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="80" id="bIU-L3-Lvu"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" name="Text 5"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="44" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="买入价格 “1.23”" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3H-RW-bAC">
+                                    <rect key="frame" x="82" y="0.0" width="300" height="44"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="y2X-y3-UbQ">
-                            <rect key="frame" x="8" y="104" width="382" height="40"/>
+                            <rect key="frame" x="8" y="154" width="382" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="买入手续费" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quC-Qh-QRd">
                                     <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
@@ -160,16 +193,20 @@
                     </subviews>
                     <color key="backgroundColor" name="Background 1"/>
                     <constraints>
+                        <constraint firstItem="xTe-Pr-jdu" firstAttribute="leading" secondItem="7Za-wc-9KJ" secondAttribute="leading" id="5DP-qu-2Xr"/>
                         <constraint firstAttribute="bottom" secondItem="y2X-y3-UbQ" secondAttribute="bottom" constant="8" id="Aen-Ap-JnK"/>
+                        <constraint firstItem="y2X-y3-UbQ" firstAttribute="top" secondItem="xTe-Pr-jdu" secondAttribute="bottom" constant="6" id="JSi-fg-1hI"/>
                         <constraint firstItem="Wzp-Eo-0JE" firstAttribute="top" secondItem="7Za-wc-9KJ" secondAttribute="bottom" constant="8" id="O4m-fh-xTk"/>
                         <constraint firstAttribute="trailing" secondItem="7Za-wc-9KJ" secondAttribute="trailing" constant="8" id="Q0l-22-DDu"/>
+                        <constraint firstItem="xTe-Pr-jdu" firstAttribute="trailing" secondItem="7Za-wc-9KJ" secondAttribute="trailing" id="Wws-YW-sCD"/>
+                        <constraint firstItem="xTe-Pr-jdu" firstAttribute="height" secondItem="7Za-wc-9KJ" secondAttribute="height" multiplier="1.1" id="acj-S0-q0l"/>
                         <constraint firstItem="Wzp-Eo-0JE" firstAttribute="leading" secondItem="7Za-wc-9KJ" secondAttribute="leading" id="awb-gS-ifk"/>
                         <constraint firstItem="Wzp-Eo-0JE" firstAttribute="trailing" secondItem="7Za-wc-9KJ" secondAttribute="trailing" id="eWN-ru-bru"/>
                         <constraint firstAttribute="trailing" secondItem="y2X-y3-UbQ" secondAttribute="trailing" constant="8" id="hIx-lx-6Sn"/>
-                        <constraint firstItem="y2X-y3-UbQ" firstAttribute="top" secondItem="Wzp-Eo-0JE" secondAttribute="bottom" constant="8" id="o5M-Mr-ubO"/>
                         <constraint firstItem="7Za-wc-9KJ" firstAttribute="top" secondItem="wyj-t3-73y" secondAttribute="top" constant="8" id="pyf-BS-Vjn"/>
                         <constraint firstItem="y2X-y3-UbQ" firstAttribute="height" secondItem="7Za-wc-9KJ" secondAttribute="height" id="u6D-vT-DPT"/>
                         <constraint firstItem="Wzp-Eo-0JE" firstAttribute="height" secondItem="7Za-wc-9KJ" secondAttribute="height" id="uKM-RG-my1"/>
+                        <constraint firstItem="xTe-Pr-jdu" firstAttribute="top" secondItem="Wzp-Eo-0JE" secondAttribute="bottom" constant="8" id="uPl-H7-uck"/>
                         <constraint firstItem="7Za-wc-9KJ" firstAttribute="leading" secondItem="wyj-t3-73y" secondAttribute="leading" constant="8" id="wfF-jL-h0f"/>
                         <constraint firstItem="y2X-y3-UbQ" firstAttribute="leading" secondItem="wyj-t3-73y" secondAttribute="leading" constant="8" id="xqo-GC-pbU"/>
                     </constraints>
@@ -180,7 +217,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgA-dD-BBR">
-                    <rect key="frame" x="8" y="348" width="398" height="152"/>
+                    <rect key="frame" x="8" y="398" width="398" height="204"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="IpK-fq-2u0">
                             <rect key="frame" x="8" y="8" width="382" height="40"/>
@@ -205,8 +242,28 @@
                                 <constraint firstAttribute="height" constant="40" id="MNF-gL-y86"/>
                             </constraints>
                         </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Lla-Tq-wiB">
+                            <rect key="frame" x="8" y="56" width="382" height="44"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="卖出数量、" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8E7-0C-nYN" userLabel="卖出数量">
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="80" id="jLN-7S-vfc"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" name="Text 5"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="44" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="卖出数量 “100”" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bY8-Af-S0G" userLabel="卖出数量 “100”">
+                                    <rect key="frame" x="82" y="0.0" width="300" height="44"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="e8q-B5-1XT">
-                            <rect key="frame" x="8" y="56" width="382" height="40"/>
+                            <rect key="frame" x="8" y="108" width="382" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="卖出价格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2m9-OC-gy1">
                                     <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
@@ -226,7 +283,7 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="aDc-4q-UeV">
-                            <rect key="frame" x="8" y="104" width="382" height="40"/>
+                            <rect key="frame" x="8" y="156" width="382" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="卖出手续费" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIa-OG-cbx">
                                     <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
@@ -248,7 +305,12 @@
                     </subviews>
                     <color key="backgroundColor" name="Background 1"/>
                     <constraints>
+                        <constraint firstItem="e8q-B5-1XT" firstAttribute="top" secondItem="Lla-Tq-wiB" secondAttribute="bottom" constant="8" id="2Mm-Rw-BzG"/>
+                        <constraint firstItem="Lla-Tq-wiB" firstAttribute="top" secondItem="IpK-fq-2u0" secondAttribute="bottom" constant="8" id="5g2-YT-Kn3"/>
+                        <constraint firstItem="Lla-Tq-wiB" firstAttribute="height" secondItem="IpK-fq-2u0" secondAttribute="height" multiplier="1.1" id="Ajs-fK-Sgq"/>
                         <constraint firstItem="e8q-B5-1XT" firstAttribute="height" secondItem="IpK-fq-2u0" secondAttribute="height" id="JIY-F0-Ssp"/>
+                        <constraint firstItem="Lla-Tq-wiB" firstAttribute="leading" secondItem="IpK-fq-2u0" secondAttribute="leading" id="N3U-dT-JKe"/>
+                        <constraint firstItem="Lla-Tq-wiB" firstAttribute="trailing" secondItem="IpK-fq-2u0" secondAttribute="trailing" id="PaN-70-ULL"/>
                         <constraint firstItem="e8q-B5-1XT" firstAttribute="leading" secondItem="IpK-fq-2u0" secondAttribute="leading" id="Rwr-gE-qXk"/>
                         <constraint firstAttribute="bottom" secondItem="aDc-4q-UeV" secondAttribute="bottom" constant="8" id="W2t-Bh-NKb"/>
                         <constraint firstItem="aDc-4q-UeV" firstAttribute="top" secondItem="e8q-B5-1XT" secondAttribute="bottom" constant="8" id="YJG-45-4bS"/>
@@ -259,7 +321,6 @@
                         <constraint firstAttribute="trailing" secondItem="IpK-fq-2u0" secondAttribute="trailing" constant="8" id="qZG-Gj-Wh5"/>
                         <constraint firstItem="IpK-fq-2u0" firstAttribute="top" secondItem="vgA-dD-BBR" secondAttribute="top" constant="8" id="rcO-bi-3De"/>
                         <constraint firstItem="aDc-4q-UeV" firstAttribute="leading" secondItem="vgA-dD-BBR" secondAttribute="leading" constant="8" id="x8d-Aj-KYK"/>
-                        <constraint firstItem="e8q-B5-1XT" firstAttribute="top" secondItem="IpK-fq-2u0" secondAttribute="bottom" constant="8" id="yLt-LG-g42"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="mb_radius">
@@ -268,7 +329,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="srZ-Vc-Ds0">
-                    <rect key="frame" x="8" y="508" width="398" height="152"/>
+                    <rect key="frame" x="8" y="610" width="398" height="152"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bYk-SO-3SX">
                             <rect key="frame" x="8" y="8" width="382" height="40"/>
@@ -393,13 +454,6 @@
             </constraints>
             <point key="canvasLocation" x="12" y="55"/>
         </view>
-        <view contentMode="scaleToFill" id="9Cw-AE-hsY">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <viewLayoutGuide key="safeArea" id="yfq-Lw-whv"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="-367" y="-589"/>
-        </view>
     </objects>
     <resources>
         <namedColor name="AccentColor">
@@ -414,9 +468,6 @@
         <namedColor name="Text 5">
             <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

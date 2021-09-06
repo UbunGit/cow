@@ -1,8 +1,8 @@
 # Uncomment the next line to define a global platform for your project
 #source 'https://github.com/CocoaPods/Specs.git'
-source 'https://github.com/aliyun/aliyun-specs.git'
+#source 'https://github.com/aliyun/aliyun-specs.git'
 
- platform :ios, '11.0'
+ platform :ios, '9.0'
 
 
 def common
@@ -56,6 +56,7 @@ post_install do |installer|
     target.build_configurations.each do |config|
       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] ='11.0',
       config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
 #      config.build_settings["ONLY_ACTIVE_ARCH"] = "NO"
     end
   end

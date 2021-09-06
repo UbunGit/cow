@@ -6,23 +6,96 @@
 //
 
 import UIKit
+import Magicbox
 
-class TransactionEdit: UIViewController {
+struct TransactionEditModel {
+    var id = 0
+    var userId = 0
+    var code = ""
+    var type = 0 // 股票类型 1->股票 2->ETF
+    var bdate = "" // 买入时间
+    var bprice = 0.0 // 买入价格
+    var bcount = 0 //买入数量
+    var bfree = 0.0 // 买入手续费
+    var sdate = "" // 卖出时间
+    var sprice = 0.0 // 卖出价格
+    var scount = 0 //卖出数量
+    var sfree = 0.0 // 卖出手续费
+    var target = 0.0 // 目标价格
+    var plan = "" // 策略
+    var remarks = "" // 备注
+    
+    // get
+    var typeStr:String{
+        switch type {
+        case 1:
+            return "股票"
+        case 2:
+            return "ETF"
+        default:
+            return "选择股票类型"
+        }
+    }
+}
 
+class TransactionEdit: BaseViewController {
+
+    @IBOutlet weak var typeBtn: UIButton!
+    @IBOutlet weak var codeTF: UITextField!
+    
+    @IBOutlet weak var bdateDP: UIDatePicker!
+    
+    @IBOutlet weak var bpriceTF: UITextField!
+    @IBOutlet weak var bcountTF: UITextField!
+    
+    @IBOutlet weak var bfreeTF: UITextField!
+    
+    @IBOutlet weak var sfreeTF: UITextField!
+    
+    @IBOutlet weak var spriceTF: UITextField!
+    @IBOutlet weak var scountTF: UITextField!
+    @IBOutlet weak var sdateDP: UIDatePicker!
+    
+    @IBOutlet weak var targetTF: UITextField!
+    
+    @IBOutlet weak var planTF: UITextField!
+    
+    @IBOutlet weak var remarkTF: UITextField!
+    
+    var editData = TransactionEditModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    override func updateUI() {
+        typeBtn.setTitle(editData.typeStr, for: .normal)
+        codeTF.text = editData.code
+        
+        bdateDP.setDate(editData.bdate.toDate()!, animated: true)
+        bcountTF.text = editData.bcount.string()
+        bpriceTF.text = editData.bprice.price()
+        bfreeTF.text = editData.bfree.price()
+        
+        sdateDP.setDate(editData.sdate.toDate()!, animated: true)
+        scountTF.text = editData.scount.string()
+        spriceTF.text = editData.sprice.price()
+        sfreeTF.text = editData.sfree.price()
+        
+        targetTF.text = editData.target.price()
+        planTF.text = editData.plan
+        remarkTF.text = editData.remarks
+    }
+    
     @IBAction func selectType(_ sender: Any) {
         selectsoockType { type in
+            self.editData.type = type
             
         }
     }
     
 }
 extension UIViewController{
-    func selectsoockType(_ typeAction:@escaping ((Int?) -> Void)){
+    
+    func selectsoockType(_ typeAction:@escaping ((Int) -> Void)){
         let alert = UIAlertController(title: "选择股票类型", message: nil, preferredStyle: .actionSheet)
         let action1 =  UIAlertAction(title: "股票", style: .default) { action in
             typeAction(1)

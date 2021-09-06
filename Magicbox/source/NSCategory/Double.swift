@@ -36,6 +36,10 @@ public extension Int {
     func double() -> Double{
         Double(self)
     }
+    func string() -> String {
+       
+        return "\(self)"
+    }
 }
 public extension Optional{
     

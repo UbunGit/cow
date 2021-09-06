@@ -10,7 +10,7 @@ class TransactionList {
     var dataSouce:[[String:Any]] = []
 }
 
-class TransactionListViewController: UIViewController {
+class TransactionListViewController: BaseViewController {
     var pageData = TransactionList()
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {

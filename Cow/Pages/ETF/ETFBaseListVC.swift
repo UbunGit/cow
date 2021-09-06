@@ -57,6 +57,11 @@ class ETFBaseListModel {
 class ETFBaseListVC: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    lazy var tableHeadView:ETFBaseListSearchView = {
+        let header = ETFBaseListSearchView()
+        return header
+    }()
    
     lazy var pageData: ETFBaseListModel = {
         let pageData = ETFBaseListModel()
@@ -83,6 +88,7 @@ extension ETFBaseListVC:UITableViewDelegate,UITableViewDataSource{
     func configTableview()  {
 
         tableView.estimatedRowHeight = 60
+        tableView.tableHeaderView = tableHeadView
         tableView.register(UINib(nibName: "ETFBaseListTableviewCell", bundle: nil), forCellReuseIdentifier: "ETFBaseListTableviewCell")
         tableView.mj_header = MJRefreshGifHeader(refreshingBlock: {
             self.pageData.range.location = 1

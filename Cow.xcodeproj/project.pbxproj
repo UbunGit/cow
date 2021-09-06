@@ -65,6 +65,8 @@
 		846B4CBE26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B4CBC26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib */; };
 		846B4CC726C104A100EB5BA7 /* CollectionViewGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B4CC626C104A100EB5BA7 /* CollectionViewGridCell.swift */; };
 		846B4CC826C104E400EB5BA7 /* CollectionViewGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B4CC426C1044B00EB5BA7 /* CollectionViewGridCell.xib */; };
+		84712B5026E45775008E55D6 /* ETFBaseListSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84712B4F26E45775008E55D6 /* ETFBaseListSearchView.swift */; };
+		84712B5226E45781008E55D6 /* ETFBaseListSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84712B5126E45781008E55D6 /* ETFBaseListSearchView.xib */; };
 		8483CEE126E08D0E009F7A7D /* TransactionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CEDF26E08D0E009F7A7D /* TransactionListViewController.swift */; };
 		8483CEE226E08D0E009F7A7D /* TransactionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8483CEE026E08D0E009F7A7D /* TransactionListViewController.xib */; };
 		8483CEE526E08D90009F7A7D /* TransactionListTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483CEE426E08D90009F7A7D /* TransactionListTableHeader.swift */; };
@@ -179,6 +181,8 @@
 		846B4CBC26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		846B4CC426C1044B00EB5BA7 /* CollectionViewGridCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewGridCell.xib; sourceTree = "<group>"; };
 		846B4CC626C104A100EB5BA7 /* CollectionViewGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewGridCell.swift; sourceTree = "<group>"; };
+		84712B4F26E45775008E55D6 /* ETFBaseListSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFBaseListSearchView.swift; sourceTree = "<group>"; };
+		84712B5126E45781008E55D6 /* ETFBaseListSearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ETFBaseListSearchView.xib; sourceTree = "<group>"; };
 		8483CEDF26E08D0E009F7A7D /* TransactionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListViewController.swift; sourceTree = "<group>"; };
 		8483CEE026E08D0E009F7A7D /* TransactionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionListViewController.xib; sourceTree = "<group>"; };
 		8483CEE426E08D90009F7A7D /* TransactionListTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListTableHeader.swift; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 		8405463D26D8BFC1007E7F0F /* ETF */ = {
 			isa = PBXGroup;
 			children = (
+				84712B4E26E45734008E55D6 /* New Group */,
 				841A95B526DA8B6100EFA126 /* KirogiSettingVC.swift */,
 				841A95B626DA8B6100EFA126 /* KirogiSettingVC.xib */,
 				8405463926D8BE48007E7F0F /* ETFDetaiViewController.swift */,
@@ -280,6 +285,8 @@
 				841A95AF26DA80C600EFA126 /* ETFKirogiSignalCell.xib */,
 				84F736B026DB773A008D28C1 /* ETFBaseListTableviewCell.swift */,
 				84F736B126DB773A008D28C1 /* ETFBaseListTableviewCell.xib */,
+				84712B4F26E45775008E55D6 /* ETFBaseListSearchView.swift */,
+				84712B5126E45781008E55D6 /* ETFBaseListSearchView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -482,6 +489,13 @@
 				846B4CC426C1044B00EB5BA7 /* CollectionViewGridCell.xib */,
 			);
 			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		84712B4E26E45734008E55D6 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		8483CEDE26E08CD5009F7A7D /* Transaction */ = {
@@ -716,6 +730,7 @@
 				84D8DD7C26D39E660074E9A4 /* RecommendVC.xib in Resources */,
 				8405463C26D8BE48007E7F0F /* ETFDetaiViewController.xib in Resources */,
 				84B25E1826DC984E00284679 /* ETFRecommendDetaiVC.xib in Resources */,
+				84712B5226E45781008E55D6 /* ETFBaseListSearchView.xib in Resources */,
 				8483CEEB26E08F96009F7A7D /* TransactionListCell.xib in Resources */,
 				846B4CC826C104E400EB5BA7 /* CollectionViewGridCell.xib in Resources */,
 				844D5AE626BA604400AC08AF /* Assets.xcassets in Resources */,
@@ -826,6 +841,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				842C3E9226D6585200F012DD /* kirogi+stockbasic.swift in Sources */,
+				84712B5026E45775008E55D6 /* ETFBaseListSearchView.swift in Sources */,
 				8492CC0926C4D256004048EF /* SqlliteManage.swift in Sources */,
 				8405464426D8C58E007E7F0F /* etfdaily+kirogietf.swift in Sources */,
 				841A95B726DA8B6100EFA126 /* KirogiSettingVC.swift in Sources */,
@@ -1051,7 +1067,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HQTXMU76N3;
+				DEVELOPMENT_TEAM = QPSW766MZ5;
 				INFOPLIST_FILE = Cow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1075,7 +1091,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HQTXMU76N3;
+				DEVELOPMENT_TEAM = QPSW766MZ5;
 				INFOPLIST_FILE = Cow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
