@@ -163,7 +163,7 @@
                                     <constraint firstItem="I4A-nY-hqe" firstAttribute="centerX" secondItem="qtp-Z7-jL0" secondAttribute="centerX" id="tmo-2e-xaA"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMn-aT-Q0P" customClass="ChartMarkerView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMn-aT-Q0P" customClass="BarChartView" customModule="Charts">
                                 <rect key="frame" x="120" y="0.0" width="184" height="155"/>
                                 <color key="backgroundColor" name="defual_.3"/>
                             </view>
@@ -199,6 +199,12 @@
                 </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="chareView" destination="MMn-aT-Q0P" id="PB8-79-UGl"/>
+                <outlet property="codeLab" destination="eeE-dl-seG" id="sCi-Fb-h7c"/>
+                <outlet property="nameLab" destination="6RP-ci-jig" id="Ly4-R4-EDG"/>
+                <outlet property="storeCountLab" destination="cbN-pf-rW0" id="8hd-UD-MPp"/>
+            </connections>
             <point key="canvasLocation" x="5.7971014492753632" y="118.19196428571428"/>
         </tableViewCell>
     </objects>

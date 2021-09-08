@@ -9,35 +9,7 @@ import UIKit
 import Magicbox
 import Alamofire
 
-struct TransactionEditModel {
-    var id = 0
-    var userId = 0
-    var code = ""
-    var type = 0 // 股票类型 1->股票 2->ETF
-    var bdate = "" // 买入时间
-    var bprice = 0.0 // 买入价格
-    var bcount = 0 //买入数量
-    var bfree = 0.0 // 买入手续费
-    var sdate = "" // 卖出时间
-    var sprice = 0.0 // 卖出价格
-    var scount = 0 //卖出数量
-    var sfree = 0.0 // 卖出手续费
-    var target = 0.0 // 目标价格
-    var plan = "" // 策略
-    var remarks = "" // 备注
-    
-    // get
-    var typeStr:String{
-        switch type {
-        case 1:
-            return "股票"
-        case 2:
-            return "ETF"
-        default:
-            return "选择股票类型"
-        }
-    }
-}
+
 
 class TransactionEdit: BaseViewController {
 
@@ -97,6 +69,11 @@ class TransactionEdit: BaseViewController {
             needLogin()
             return
         }
+        editData.code = codeTF.text.string()
+        editData.bcount = bcountTF.text.int()
+        editData.bprice = bpriceTF.text.double()
+        editData.bfree = bfreeTF.text.double()
+        editData.bdate = bdateDP.date.toString("yyyyMMdd")
         var sql = ""
         if editData.id > 0 {
             sql = """

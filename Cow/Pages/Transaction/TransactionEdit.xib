@@ -133,7 +133,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Wzp-Eo-0JE">
                             <rect key="frame" x="8" y="48" width="382" height="32"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="买入价格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtk-te-cgB" userLabel="买入数量">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="买入数量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtk-te-cgB" userLabel="买入数量">
                                     <rect key="frame" x="0.0" y="0.0" width="80" height="32"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="Re8-CY-6E2"/>
