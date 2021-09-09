@@ -26,10 +26,14 @@ class TransactionListCell: UITableViewCell {
         }
         chareView.cowBarLineChartViewBaseStyle()
         chareView.scaleXEnabled = false
+        chareView.dragXEnabled = true
         chareView.scaleYEnabled = false
-        chareView.xAxis.labelCount = 20
+        chareView.xAxis.labelCount = data.datas.count
+        chareView.xAxis.labelFont = .systemFont(ofSize: 6)
+        chareView.xAxis.labelRotationAngle = -30
         chareView.rightAxis.enabled = false
         chareView.leftAxis.labelPosition = .outsideChart
+        
         
 //        //是否有图例。默认true
 //        chareView.legend.enabled = true
