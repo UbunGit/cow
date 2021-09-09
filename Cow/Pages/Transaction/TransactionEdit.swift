@@ -26,7 +26,6 @@ class TransactionEdit: BaseViewController {
     @IBOutlet weak var sfreeTF: UITextField!
     
     @IBOutlet weak var spriceTF: UITextField!
-    @IBOutlet weak var scountTF: UITextField!
     @IBOutlet weak var sdateDP: UIDatePicker!
     
     @IBOutlet weak var targetTF: UITextField!
@@ -49,7 +48,6 @@ class TransactionEdit: BaseViewController {
         bfreeTF.text = editData.bfree.price()
         
         sdateDP.setDate(editData.sdate.toDate()!, animated: true)
-        scountTF.text = editData.scount.string()
         spriceTF.text = editData.sprice.price()
         sfreeTF.text = editData.sfree.price()
         
@@ -74,6 +72,7 @@ class TransactionEdit: BaseViewController {
         editData.bprice = bpriceTF.text.double()
         editData.bfree = bfreeTF.text.double()
         editData.bdate = bdateDP.date.toString("yyyyMMdd")
+        editData.target = targetTF.text.double()
         var sql = ""
         if editData.id > 0 {
             sql = """
@@ -88,13 +87,14 @@ class TransactionEdit: BaseViewController {
                 sdate = '\(editData.sdate)',
                 sprice = \(editData.sprice),
                 sfree =\(editData.sfree),
+                target = \(editData.target),
                 plan='\(editData.plan)',
                 remarks = '\(editData.remarks)')
                 """
         }else{
             sql = ("""
                 INSERT INTO rel_transaction
-                (userid,code,bcount,type,bdate,bprice,bfree,sdate,sprice,sfree,plan,remarks)
+                (userid,code,bcount,type,bdate,bprice,bfree,sdate,sprice,sfree,target,plan,remarks)
                 VALUES (
                 \(user.userId),
                 '\(editData.code)',
@@ -106,6 +106,7 @@ class TransactionEdit: BaseViewController {
                 '\(editData.sdate)',
                 \(editData.sprice),
                 \(editData.sfree),
+                \(editData.target),
                 '\(editData.plan)',
                 '\(editData.remarks)')
                 """)

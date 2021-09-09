@@ -21,6 +21,7 @@ let creatdTabledic =
                             "sdate"    TEXT,
                             "sprice"    NUMERIC,
                             "sfree"    NUMERIC,
+                            "target" NUMERIC,
                             "plan"    TEXT,
                             "remarks"  TEXT,
                             PRIMARY KEY("id" AUTOINCREMENT)

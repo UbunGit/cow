@@ -21,6 +21,7 @@ extension BarLineChartViewBase{
         
         // 边框
         borderLineWidth = 0.5;
+        borderColor = UIColor(named: "Background 2") ?? .lightGray
         drawBordersEnabled = true
         setScaleMinima(1, scaleY: 1)
         doubleTapToZoomEnabled = false

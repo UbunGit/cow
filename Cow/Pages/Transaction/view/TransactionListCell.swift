@@ -24,10 +24,35 @@ class TransactionListCell: UITableViewCell {
         guard let data = celldata else {
             return
         }
+        chareView.cowBarLineChartViewBaseStyle()
+        chareView.scaleXEnabled = false
+        chareView.scaleYEnabled = false
+        chareView.xAxis.labelCount = 20
+        chareView.rightAxis.enabled = false
+        chareView.leftAxis.labelPosition = .outsideChart
+        
+//        //是否有图例。默认true
+//        chareView.legend.enabled = true
+//        chareView.legend.formSize = 20
+//        chareView.legend.font = .systemFont(ofSize: 30)
+//        chareView.legend.textColor = .red
+        chareView.legend.horizontalAlignment = .left
+        chareView.legend.drawInside = false
+//        chareView.legend.orientation = .vertical
+//        //换行
+//        chareView.legend.wordWrapEnabled = true
+//        //比例
+//        chareView.legend.maxSizePercent = 0.95
+    
+     
         nameLab.text = data.name
         codeLab.text = data.code
         storeCountLab.text = data.storeCount.string()
         chareView.data = barset()
+        let xaxis = chareView.xAxis
+        xaxis.valueFormatter = IndexAxisValueFormatter.init(
+            values:data.datas.map { $0["bdate"].string().toDate("yyyyMMdd")?.toString("MM-dd") ?? "0" }
+        )
     }
     
     func barset() -> BarChartData?  {
@@ -36,11 +61,24 @@ class TransactionListCell: UITableViewCell {
         }
         
         
-        let barsets =  data.datas.enumerated().map { (index,item) -> BarChartDataEntry in
+        let bpriceSets =  data.datas.enumerated().map { (index,item) -> BarChartDataEntry in
              BarChartDataEntry(x:index.double() , y: item["bprice"].double())
+//            BarChartDataEntry(x:index.double() , y: item["bprice"].double())
+           
         }
-        let set = BarChartDataSet(entries: barsets)
-        return BarChartData(dataSets: [set])
+        let bpriceSet = BarChartDataSet(entries: bpriceSets,label: "买入价")
+        bpriceSet.colors = [.yellow]
+        
+        let targetSets =  data.datas.enumerated().map { (index,item) -> BarChartDataEntry in
+             BarChartDataEntry(x:index.double() , y: item["target"].double())
+        }
+        let targetSet = BarChartDataSet(entries: targetSets, label: "目标价")
+        targetSet.colors = [.red]
+     
+        let bdata = BarChartData(dataSets: [bpriceSet,targetSet])
+        bdata.barWidth = 0.17
+        bdata.groupBars(fromX: -0.5, groupSpace: 0.4, barSpace: 0.03)
+        return bdata
     }
     
     

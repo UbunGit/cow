@@ -51,8 +51,9 @@ class Transaction {
         
         
         let sql = """
-            SELECT  id,bdate,bprice,bfree,bcount,sdate,sprice,sfree,plan,remarks from rel_transaction
+            SELECT  id,bdate,bprice,bfree,bcount,sdate,sprice,sfree,target,plan,remarks from rel_transaction
             WHERE code = "\(code)"
+            ORDER BY bdate
             """
         
         AF.af_select(sql) { [self] result in
