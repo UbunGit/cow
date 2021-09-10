@@ -54,7 +54,7 @@ class Transaction {
   
     // 最低收益
     var lowdata:[String:Any] {
-        guard let low = datas.min(by: { $0["bprice"].double()<=$1["bprice"].double() }) else {
+        guard let low = datas.min(by: { $0["bprice"].double()>=$1["bprice"].double() }) else {
             return [:]
         }
         return low
@@ -63,7 +63,7 @@ class Transaction {
 
     // 最高收益
     var hightData:[String:Any] {
-        guard let hight = datas.max(by: { $0["bprice"].double()<=$1["bprice"].double() }) else {
+        guard let hight = datas.max(by: { $0["bprice"].double()>=$1["bprice"].double() }) else {
             return [:]
         }
         return hight
