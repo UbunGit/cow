@@ -99,7 +99,11 @@ extension TransactionDefVC:UITableViewDelegate,UITableViewDataSource{
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        180
+        if indexPath.section == 0 {
+            return 180
+        }else{
+            return 120
+        }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {

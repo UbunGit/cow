@@ -46,9 +46,10 @@ class TransactionDefCell: UITableViewCell {
         countLab.text = cellData["bcount"].string()
         bdateLab.text = cellData["bdate"].string()
         if price != 0 {
-            yaidLab.text = (price - (cellData["bprice"].double() )/price).percentStr()
-            esLab.text = (price - (cellData["bprice"].double() ) * cellData["bcount"].double()).price()
-            if price > cellData["bprice"].double() {
+            let cha = price - cellData["bprice"].double()
+            yaidLab.text = (cha/price).percentStr()
+            esLab.text = (cha * cellData["bcount"].double()).price()
+            if cha > 0 {
                 chartView.backgroundColor = .red.alpha(0.1)
             }else{
                 chartView.backgroundColor = .green.alpha(0.1)
