@@ -59,7 +59,7 @@ class ETFKirogiSignalCell: UICollectionViewCell {
         
     }
     
-    func updateUI()  {
+    override func updateUI()  {
         
         chartView.data = LineChartData(dataSets: signallineSets)
     }

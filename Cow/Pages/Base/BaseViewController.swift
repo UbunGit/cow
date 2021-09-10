@@ -23,7 +23,5 @@ class BaseViewController: UIViewController,BasetModelDelegate {
         navigationController?.popViewController(animated: true)
     }
     
-    func updateUI(){
-        
-    }
+  
 }

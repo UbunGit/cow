@@ -137,7 +137,7 @@ extension KLineViewController{
         }
         let xaxis = chartView.xAxis
         xaxis.valueFormatter = IndexAxisValueFormatter.init(
-            values:datas.map { $0["date"].string().toDate("yyyyMMdd")?.toString("yyyy-MM-dd") ?? "0" }
+            values:datas.map { $0["date"].string().toDate("yyyyMMdd").toString("yyyy-MM-dd") }
         )
         
         let set = CandleChartDataSet(entries: yVals1)

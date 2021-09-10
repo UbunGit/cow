@@ -36,7 +36,7 @@ class RecommendCell: UITableViewCell {
     @IBAction func moreBtnClick(_ sender: Any) {
         delegate?.reloadHeight()
     }
-    func updateUI() {
+    override func updateUI() {
         self.moreBtn.isHidden = true
         guard let obj = celldata else {
             return

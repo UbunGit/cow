@@ -21,11 +21,14 @@ extension Date{
 
 extension String{
     
-    public func toDate(_ formatter:String = "yyyy-MM-dd HH:mm:ss") -> Date?{
+    public func toDate(_ formatter:String = "yyyy-MM-dd HH:mm:ss") -> Date{
         
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = formatter
-        let date = dateformatter.date(from: self)
+        guard let date = dateformatter.date(from: self) else {
+            return Date()
+        }
+        
         return date
     }
 }

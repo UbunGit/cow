@@ -23,7 +23,7 @@ class StockBasicListCell: UITableViewCell {
         // Initialization code
     }
 
-    func updateUI()  {
+    override func updateUI()  {
         guard let tdata = celldata else {
             return
         }

@@ -19,7 +19,7 @@ class SQLTableInfoVC: UIViewController {
         updateUI()
 
     }
-    func updateUI()  {
+    override func updateUI()  {
         guard let tablename = tableInfo["name"] as? String else {
             return
         }

@@ -33,7 +33,7 @@ class SoreSimpleView: UIView {
 
    
     
-    func updateUI()  {
+    override func updateUI()  {
         guard let vdata  = data else {
             return
         }
@@ -48,7 +48,7 @@ class SoreSimpleView: UIView {
         closeLab.text = vdata["close"].price()
         volLab.text = vdata["vol"].price()
         amiuntLab.text = vdata["amount"].price()
-        dateLab.text = vdata["date"].string().toDate("yyyyMMdd")?.toString("yyyy/MM/dd")
+        dateLab.text = vdata["date"].string().toDate("yyyyMMdd").toString("yyyy/MM/dd")
         let bgcolor:UIColor = (vdata["close"].double()-vdata["open"].double())>0 ? .systemRed : .systemGreen
         backgroundColor = bgcolor
     }

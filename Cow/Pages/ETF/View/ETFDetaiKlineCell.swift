@@ -93,12 +93,12 @@ class ETFDetaiKlineCell: UICollectionViewCell {
         closeLab.text = vdata["close"].price()
         volLab.text = vdata["vol"].wanStr()
         amountLab.text = vdata["amount"].price()
-        dateLab.text = vdata["date"].string().toDate("yyyyMMdd")?.toString("yyyy/MM/dd")
+        dateLab.text = vdata["date"].string().toDate("yyyyMMdd").toString("yyyy/MM/dd")
         let bgcolor:UIColor = (vdata["close"].double()-vdata["open"].double())>0 ? .systemRed : .systemGreen
         topView.backgroundColor = bgcolor
     }
     
-    func updateUI()  {
+    override func updateUI()  {
         reloadChartView()
         updateTopView()
        
@@ -136,7 +136,7 @@ extension ETFDetaiKlineCell{
         }
         let xaxis = chartView.xAxis
         xaxis.valueFormatter = IndexAxisValueFormatter.init(
-            values:datas.map { $0["date"].string().toDate("yyyyMMdd")?.toString("yyyy-MM-dd") ?? "0" }
+            values:datas.map { $0["date"].string().toDate("yyyyMMdd").toString("yyyy-MM-dd") }
         )
         
         let set = CandleChartDataSet(entries: yVals1)

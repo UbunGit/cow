@@ -27,7 +27,7 @@ class ETFBaseListTableviewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func updateUI()  {
+   override func updateUI()  {
         guard let tdata = celldata else {
             return
         }

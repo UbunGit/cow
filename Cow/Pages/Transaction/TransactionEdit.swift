@@ -13,6 +13,7 @@ import Alamofire
 
 class TransactionEdit: BaseViewController {
 
+    @IBOutlet weak var scrollerView: UIScrollView!
     @IBOutlet weak var typeBtn: UIButton!
     @IBOutlet weak var codeTF: UITextField!
     
@@ -29,31 +30,31 @@ class TransactionEdit: BaseViewController {
     @IBOutlet weak var sdateDP: UIDatePicker!
     
     @IBOutlet weak var targetTF: UITextField!
-    
     @IBOutlet weak var planTF: UITextField!
-    
     @IBOutlet weak var remarkTF: UITextField!
     
     var editData = TransactionEditModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+     
+        updateUI()
     }
     override func updateUI() {
         typeBtn.setTitle(editData.typeStr, for: .normal)
         codeTF.text = editData.code
-        
-        bdateDP.setDate(editData.bdate.toDate()!, animated: true)
+        bdateDP.setDate(editData.bdate.toDate("yyyyMMdd"), animated: true)
         bcountTF.text = editData.bcount.string()
         bpriceTF.text = editData.bprice.price()
         bfreeTF.text = editData.bfree.price()
         
-        sdateDP.setDate(editData.sdate.toDate()!, animated: true)
+        sdateDP.setDate(editData.sdate.string().toDate(), animated: true)
         spriceTF.text = editData.sprice.price()
         sfreeTF.text = editData.sfree.price()
         
         targetTF.text = editData.target.price()
         planTF.text = editData.plan
         remarkTF.text = editData.remarks
+        
     }
     
     @IBAction func selectType(_ sender: Any) {
@@ -62,17 +63,44 @@ class TransactionEdit: BaseViewController {
             
         }
     }
+    @IBAction func closeBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func deleteClick(_ sender: UIButton) {
+        let sql = "DELETE FROM rel_transaction WHERE id =  \(editData.id) "
+        AF.af_update(sql) { result in
+            self.view.loadingDismiss()
+            switch result{
+            case .success(_):
+                self.view.success("删除成功")
+                self.dismiss(animated: true, completion: nil)
+                
+            case .failure(let error):
+            self.error(error)
+            }
+        }
+    }
     @IBAction func commitClick(_ sender: Any) {
         guard let user = Global.share.user else {
             needLogin()
             return
         }
+        
         editData.code = codeTF.text.string()
+        editData.bdate = bdateDP.date.toString("yyyyMMdd")
         editData.bcount = bcountTF.text.int()
         editData.bprice = bpriceTF.text.double()
         editData.bfree = bfreeTF.text.double()
-        editData.bdate = bdateDP.date.toString("yyyyMMdd")
+        
+        editData.sprice = spriceTF.text.double()
+        if editData.sprice>0 {
+            editData.sdate = sdateDP.date.toString("yyyyMMdd")
+            editData.sfree = sfreeTF.text.double()
+        }
+
         editData.target = targetTF.text.double()
+        editData.remarks = remarkTF.text.string()
+        editData.plan = planTF.text.string()
         var sql = ""
         if editData.id > 0 {
             sql = """
@@ -84,12 +112,13 @@ class TransactionEdit: BaseViewController {
                 bdate = '\(editData.bdate)',
                 bprice = \(editData.bprice),
                 bfree =  \(editData.bfree),
-                sdate = '\(editData.sdate)',
+                sdate = '\(editData.sdate.string())',
                 sprice = \(editData.sprice),
                 sfree =\(editData.sfree),
                 target = \(editData.target),
                 plan='\(editData.plan)',
-                remarks = '\(editData.remarks)')
+                remarks = '\(editData.remarks)'
+                where id=\(editData.id)
                 """
         }else{
             sql = ("""
@@ -103,7 +132,7 @@ class TransactionEdit: BaseViewController {
                 '\(editData.bdate)',
                 \(editData.bprice),
                 \(editData.bfree),
-                '\(editData.sdate)',
+                '\(editData.sdate.string())',
                 \(editData.sprice),
                 \(editData.sfree),
                 \(editData.target),
@@ -117,6 +146,8 @@ class TransactionEdit: BaseViewController {
             switch result{
             case .success(_):
                 self.view.success("成功")
+                self.dismiss(animated: true, completion: nil)
+                
             case .failure(let error):
             self.view.error(error.localizedDescription)
             }

@@ -141,10 +141,12 @@ extension Session{
     func af_select(_ sql:String, callback:@escaping (Result<[[String:Any]], Error>)  ->  ())  {
         let url = "\(baseurl)/select"
         let param = ["sql":sql]
+        print("🐶："+sql)
         self.request(url, method: .post, parameters: param, encoder: JSONParameterEncoder.default)
             .responseModel([[String:Any]].self, callback: callback)
     }
     func af_update(_ sql:String, callback:@escaping (Result<[String:Any], Error>)  ->  ())  {
+        print("🐒："+sql)
         let url = "\(baseurl)/update"
         let param = ["sql":sql]
         self.request(url, method: .post, parameters: param, encoder: JSONParameterEncoder.default)

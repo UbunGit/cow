@@ -10,6 +10,11 @@ public extension Double {
     func double() -> Double{
         Double(self)
     }
+    // 百分比
+    func percentStr(_ formatter:String="%0.2f") -> String{
+        
+        return String(format: formatter, (self*100))+"%"
+    }
     
     func price(_ formatter:String="%0.3f") -> String {
         return String(format: formatter, self)
@@ -26,6 +31,11 @@ public extension Double {
     }
     
     
+}
+public extension String{
+    func double(_ def:Double = 0) -> Double{
+        Double(self) ?? def
+    }
 }
 public extension Float {
     func double() -> Double{
