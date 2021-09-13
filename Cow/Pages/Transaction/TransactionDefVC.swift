@@ -9,7 +9,7 @@ import UIKit
 import MJRefresh
 import Alamofire
 import YYKit
-class TransactionDefVC: UIViewController {
+class TransactionDefVC: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var data:Transaction = Transaction()
@@ -52,6 +52,7 @@ class TransactionDefVC: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "持仓详细"
         data.delegate = self
         navigationItem.rightBarButtonItems = [mineItem,addItem]
         configTableview()
@@ -70,7 +71,6 @@ class TransactionDefVC: UIViewController {
         refresh.beginrefresh()
         data.loadeDef()
         data.updatePrice()
-      
     }
     
     
@@ -80,6 +80,8 @@ extension TransactionDefVC:UITableViewDelegate,UITableViewDataSource{
     func configTableview()  {
         
         tableView.estimatedRowHeight = 120
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
         tableView.register(UINib(nibName: "TransactionListCell", bundle: nil), forCellReuseIdentifier: "TransactionListCell")
         tableView.register(UINib(nibName: "TransactionDefCell", bundle: nil), forCellReuseIdentifier: "TransactionDefCell")
         
@@ -122,6 +124,9 @@ extension TransactionDefVC:UITableViewDelegate,UITableViewDataSource{
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section==0 {
+            return
+        }
         guard  let moden = TransactionEditModel.deserialize(from: data.datas[indexPath.row] as [String:Any]) else {
             view.error("数据转换失败")
             return

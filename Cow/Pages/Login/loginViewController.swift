@@ -28,8 +28,8 @@ class loginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userTF.text = "ubungit"
-        passwdTF.text = "ubungit123"
+        userTF.text = "test"
+        passwdTF.text = "test"
     }
     
     @IBAction func changType(_ sender: Any) {
@@ -47,11 +47,11 @@ class loginViewController: BaseViewController {
             view.error("请输入用户名")
             return
         }
-        if user.count<6{
+        if user.count<3{
             view.error("用户名不能少于6个字符")
             return
         }
-        if paswd.count<6{
+        if paswd.count<3{
             view.error("密码不能少于6个字符")
             return
         }

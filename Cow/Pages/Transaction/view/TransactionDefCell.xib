@@ -23,7 +23,7 @@
                         <rect key="frame" x="8" y="8" width="304" height="171"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Odo-yj-HKx">
-                                <rect key="frame" x="12" y="55" width="88" height="61"/>
+                                <rect key="frame" x="20" y="20" width="88" height="61"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="vso-Za-AbB">
                                         <rect key="frame" x="0.0" y="0.0" width="88" height="17"/>
@@ -81,8 +81,8 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemRedColor"/>
                         <constraints>
-                            <constraint firstItem="Odo-yj-HKx" firstAttribute="leading" secondItem="KXM-5c-OPa" secondAttribute="leading" constant="12" id="XPw-dJ-Mbz"/>
-                            <constraint firstItem="Odo-yj-HKx" firstAttribute="centerY" secondItem="KXM-5c-OPa" secondAttribute="centerY" id="qfx-4t-F1M"/>
+                            <constraint firstItem="Odo-yj-HKx" firstAttribute="leading" secondItem="KXM-5c-OPa" secondAttribute="leading" constant="20" id="XPw-dJ-Mbz"/>
+                            <constraint firstItem="Odo-yj-HKx" firstAttribute="top" secondItem="KXM-5c-OPa" secondAttribute="top" constant="20" id="sVh-8t-1E3"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="mb_radius">

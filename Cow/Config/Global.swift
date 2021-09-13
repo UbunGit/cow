@@ -36,6 +36,10 @@ class Global {
             return nil
         }
         set{
+            if newValue == nil {
+                UserDefaults.standard.removeObject(forKey: "global.user")
+            }
+            _user = newValue
             
         }
     }
@@ -71,7 +75,9 @@ extension Global{
                     back(BaseError(code: -1, msg: "用户无注册或密码错误"))
                     return
                 }
+                Global.share.user = nil
                 UserDefaults.standard.setValue(tuset, forKey: "global.user")
+                UserDefaults.standard.synchronize()
                 back(nil)
             case .failure(let error):
                 back(error)
@@ -82,10 +88,9 @@ extension Global{
 
 extension UIViewController{
     func needLogin()  {
-        if Global.share.user == nil{
-            self.present(loginViewController(), animated: true, completion: nil)
-        }
-
+        let loginvc = loginViewController()
+        loginvc.modalPresentationStyle = .fullScreen
+        self.present(loginvc, animated: true, completion: nil)
     }
 }
 

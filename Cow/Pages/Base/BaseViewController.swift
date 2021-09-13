@@ -14,6 +14,7 @@ protocol BasetModelDelegate:BaseViewController{
 class BaseViewController: UIViewController,BasetModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor(named: "Background 3")
         if (navigationController?.children.count ?? 0 > 1) {
             navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(leftBackAction))
             navigationItem.hidesBackButton = true;

@@ -11,6 +11,7 @@
 import Foundation
 import Magicbox
 import Alamofire
+
 class Kirogi:Scheme{
 
     
@@ -46,9 +47,6 @@ class Kirogi:Scheme{
         if UserDefaults.standard.float(forKey: "kirogi.speed")>0 {
             self.speed = UserDefaults.standard.integer(forKey: "kirogi.speed")
         }
-      
-        
-    
     }
     
     override var param:String{
@@ -67,7 +65,7 @@ class Kirogi:Scheme{
     }
  
 
-    override func recommend(_ data:String? = nil ,didchange:@escaping ([[String:Any]])->()) {
+    override func recommend(didchange:@escaping ([[String:Any]])->()) {
         
         if let cadata = cachedata {
             didchange(cadata)

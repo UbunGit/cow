@@ -46,7 +46,7 @@
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zgK-ya-OD6" secondAttribute="bottom" id="CUh-QS-eSZ"/>
                 <constraint firstItem="zgK-ya-OD6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="UTZ-DR-Xde"/>

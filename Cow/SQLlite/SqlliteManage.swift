@@ -9,6 +9,7 @@ import Foundation
 import Magicbox
 import SQLite
 import HandyJSON
+
 public extension DispatchQueue{
     private static var _onceTracker = [String]()
     
@@ -76,12 +77,7 @@ extension SqlliteManage{
         }
         return (result == 1)
     }
-    
 
-    
-  
-    
- 
 }
 
 

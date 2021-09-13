@@ -6,7 +6,7 @@
 //
 
 import Foundation
-public extension UIButton{
+public extension UIView{
    
     func beginrefresh() {
         let refresh = CABasicAnimation(keyPath: "transform.rotation.z")

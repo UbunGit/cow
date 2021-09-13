@@ -26,6 +26,10 @@ class TransactionListCell: UITableViewCell {
     }()
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
+        chareView.borderColor = .black.alpha(0.1)
+        chareView.xAxis.axisLineColor = .black.alpha(0.1)
+        chareView.leftAxis.axisLineColor = .black.alpha(0.1)
         chareView.leftAxis.addLimitLine(limitLine)
         chareView.scaleXEnabled = true
         chareView.dragXEnabled = true
@@ -80,14 +84,14 @@ class TransactionListCell: UITableViewCell {
             let low = data.lowdata
             let value = low["bprice"].double()
             let bcount = low["bcount"].int()
-            let yi = (value-data.price)/data.price
-            lowyieldLab.text = yi.percentStr()
-            lowEarningsLab.text = ((value-data.price)*bcount.double()).price()
-            
+            let yi = data.price-value
+            lowyieldLab.text = (yi/data.price).percentStr()
+            lowEarningsLab.text = (yi*bcount.double()).price()
+            // 最高收益
             let hight = data.hightData
             let hvalue = hight["bprice"].double()
             let hbcount = hight["bcount"].int()
-            let h = hvalue-data.price
+            let h = data.price-hvalue
             hightYieldLab.text = (h/data.price).percentStr()
             hightEarningsLab.text = (h*hbcount.double()).price()
             let red = data.datas.reduce(0) {

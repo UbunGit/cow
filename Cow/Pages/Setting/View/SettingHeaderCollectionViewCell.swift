@@ -9,9 +9,13 @@ import UIKit
 
 class SettingHeaderCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var nameLab: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+    }
+    override func updateUI() {
+        nameLab.text = Global.share.user?.userName
     }
 
 }

@@ -22,7 +22,7 @@ class TransactionDefCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+        self.selectionStyle = .none
         chartView.gridBackgroundColor = .red
         chartView.leftAxis.enabled = false
         chartView.leftAxis.gridColor = .clear
@@ -63,17 +63,19 @@ class TransactionDefCell: UITableViewCell {
     func barset() -> BarChartData?  {
         
         let set0 = BarChartDataSet(entries: [BarChartDataEntry(x:0 , y: cellData["bprice"].double())], label: "成本\(cellData["bprice"].price())")
-        set0.colors = [.yellow.alpha(0.1)]
-        set0.highlightColor = .red.alpha(0.1)
+        set0.colors = [.yellow.alpha(0.3)]
+        set0.highlightColor = .red.alpha(0.3)
+        
         let set1 = BarChartDataSet(entries: [BarChartDataEntry(x:1 , y: cellData["target"].double())], label: "目标\(cellData["target"].price())")
-        set1.colors = [.red.alpha(0.1)]
-        set1.highlightColor = .red.alpha(0.1)
+        set1.colors = [.red.alpha(0.3)]
+        set1.highlightColor = .red.alpha(0.3)
+        
         let set2 = BarChartDataSet(entries: [BarChartDataEntry(x:2 , y: price)], label: "现价\(price.price())")
-        set2.colors = [.orange.alpha(0.1)]
-        set2.highlightColor = .orange.alpha(0.1)
+        set2.colors = [.orange.alpha(0.3)]
+        set2.highlightColor = .orange.alpha(0.3)
 
-        let bdata = BarChartData(dataSets: [set2,set1,set0])
-        bdata.barWidth = 1
+        let bdata = BarChartData(dataSets: [set1,set2,set0])
+        bdata.barWidth = 0.9
         bdata.groupBars(fromX: -0.5, groupSpace: 0.4, barSpace: 0.03)
         return bdata
     }

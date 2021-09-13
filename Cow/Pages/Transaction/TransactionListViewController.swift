@@ -124,6 +124,10 @@ class TransactionListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableview()
+  
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadData()
     }
 
@@ -136,7 +140,10 @@ class TransactionListViewController: BaseViewController {
     }
     
     func loadData()  {
-        
+        if Global.share.user == nil{
+            needLogin()
+            return
+        }
         let sql = """
             SELECT t1.code,t2.name FROM (SELECT code from rel_transaction  GROUP BY code) t1
             LEFT JOIN etfbasic t2 ON t1.code=t2.code
@@ -168,6 +175,8 @@ extension TransactionListViewController:UITableViewDelegate,UITableViewDataSourc
     func configTableview()  {
 
         tableView.estimatedRowHeight = 120
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
         tableView.register(UINib(nibName: "TransactionListCell", bundle: nil), forCellReuseIdentifier: "TransactionListCell")
         tableView.mj_header = MJRefreshGifHeader(refreshingBlock: {
             self.loadData()
@@ -186,7 +195,8 @@ extension TransactionListViewController:UITableViewDelegate,UITableViewDataSourc
         cell.celldata = dataSouce[indexPath.row]
         cell.celldata?.delegate = cell
         cell.celldata?.loadeDef()
-        cell.updateUI()
+        cell.celldata?.updatePrice()
+     
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

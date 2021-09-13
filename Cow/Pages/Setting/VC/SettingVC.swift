@@ -70,6 +70,10 @@ class SettingVC: BaseViewController {
         
         configCollectionView()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+    }
 }
 
 extension SettingVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
@@ -106,6 +110,7 @@ extension SettingVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SettingHeaderCollectionViewCell", for: indexPath)
+            cell.updateUI()
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewGridCell", for: indexPath) as! CollectionViewGridCell
@@ -153,6 +158,7 @@ extension SettingVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
+            needLogin()
             return 
         case 1:
             downGrids[indexPath.row].handle()
