@@ -96,7 +96,12 @@ class Transaction {
     }
     
     func updatePrice()  {
-        let url = "http://hq.sinajs.cn/list=\(code)"
+        var tcode = code
+        let arr = tcode.split(separator: ".")
+        if arr.count == 2 {
+            tcode = String(arr[1]+arr[0])
+        }
+        let url = "http://hq.sinajs.cn/list=\(tcode.lowercased())"
         AF.request(url)
             .responseString { result in
                 DispatchQueue.main.async { [weak self] in
@@ -146,7 +151,7 @@ class TransactionListViewController: BaseViewController {
         }
         let sql = """
             SELECT t1.code,t2.name FROM (SELECT code from rel_transaction  GROUP BY code) t1
-            LEFT JOIN etfbasic t2 ON t1.code=t2.code
+            LEFT JOIN (select code, name from stockbasic union all select code,name from etfbasic) t2 ON t1.code=t2.code
             """
         view.loading()
         AF.af_select(sql) { result in

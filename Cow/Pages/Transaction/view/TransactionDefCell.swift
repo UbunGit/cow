@@ -32,7 +32,7 @@ class TransactionDefCell: UITableViewCell {
         chartView.scaleXEnabled = false
         chartView.dragXEnabled = false
         chartView.scaleYEnabled = false
-      
+        chartView.leftAxis.axisMinimum = 0
         chartView.borderColor = .clear
 //        chartView.legend.horizontalAlignment = .right
         chartView.legend.verticalAlignment = .bottom
@@ -63,16 +63,18 @@ class TransactionDefCell: UITableViewCell {
     func barset() -> BarChartData?  {
         
         let set0 = BarChartDataSet(entries: [BarChartDataEntry(x:0 , y: cellData["bprice"].double())], label: "成本\(cellData["bprice"].price())")
-        set0.colors = [.yellow.alpha(0.3)]
-        set0.highlightColor = .red.alpha(0.3)
+        set0.colors = [.red.alpha(0.1)]
+        
+        let set2 = BarChartDataSet(entries: [BarChartDataEntry(x:2 , y: price)], label: "现价\(price.price())")
+        set2.colors = [.red.alpha(0.2)]
+
         
         let set1 = BarChartDataSet(entries: [BarChartDataEntry(x:1 , y: cellData["target"].double())], label: "目标\(cellData["target"].price())")
         set1.colors = [.red.alpha(0.3)]
-        set1.highlightColor = .red.alpha(0.3)
+
         
-        let set2 = BarChartDataSet(entries: [BarChartDataEntry(x:2 , y: price)], label: "现价\(price.price())")
-        set2.colors = [.orange.alpha(0.3)]
-        set2.highlightColor = .orange.alpha(0.3)
+       
+
 
         let bdata = BarChartData(dataSets: [set1,set2,set0])
         bdata.barWidth = 0.9

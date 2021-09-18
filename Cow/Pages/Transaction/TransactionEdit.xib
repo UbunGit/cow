@@ -86,6 +86,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84q-bf-QDo">
                                             <rect key="frame" x="342" y="0.0" width="0.0" height="32"/>
                                             <color key="tintColor" name="AccentColor"/>
+                                            <connections>
+                                                <action selector="selectCode:" destination="-1" eventType="touchUpInside" id="y3Y-wb-a9T"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

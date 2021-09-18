@@ -55,7 +55,7 @@ class ETFBaseListModel {
 }
 
 class ETFBaseListVC: BaseViewController {
-
+    var selectClosure:(([String:Any])->())?
     @IBOutlet weak var tableView: UITableView!
     
     lazy var tableHeadView:ETFBaseListSearchView = {
@@ -111,6 +111,12 @@ extension ETFBaseListVC:UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let select = selectClosure {
+            self.dismiss(animated: true) {
+                select(self.pageData.dataSouce[indexPath.row])
+            }
+            return
+        }
        let vc = ETFDetaiViewController()
         vc.code = pageData.dataSouce[indexPath.row]["code"].string()
         vc.name = pageData.dataSouce[indexPath.row]["name"].string()

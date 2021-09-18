@@ -1,21 +1,19 @@
 //
-//  Config.swift
-//  Cow
+//  NewWork.swift
+//  PlayGround
 //
-//  Created by admin on 2021/8/9.
+//  Created by admin on 2021/9/13.
 //
 
 import Foundation
 import Alamofire
-import Magicbox
-import YYKit
 import HandyJSON
 
 var baseurl:String{
     UserDefaults.standard.string(forKey: "baseurl") ?? "http://47.107.38.1"
 }
 
-typealias ResultClosure<T> = (Result<T, APIError>)  ->  ()
+//typealias ResultClosure<T> = (Result<T, Error>)  ->  ()
 
 extension DataRequest{
     
@@ -28,7 +26,7 @@ extension DataRequest{
     
     func debugLog(_ json:AFDataResponse<Any>) {
         #if DEBUG
-        
+
         guard let request = performedRequests.last ?? lastRequest,
               let url = request.url,
               let method = request.httpMethod,
@@ -37,7 +35,7 @@ extension DataRequest{
             return debugPrint("DM No request created yet.")
         }
         var body = ""
-        
+
         if let instream:String = String(data: try! Data.init(reading: request.httpBodyStream), encoding: .utf8){
             body = instream.removingPercentEncoding ?? "--"
             body = body.split(separator: "&").map{$0}.joined(separator: "\n\t")
@@ -47,9 +45,9 @@ extension DataRequest{
         let state  =  response.map { "\(requestDescription) (\($0.statusCode))" } ?? requestDescription
         let result = json.description
         let icon = (response?.statusCode == 200) ? "🧘‍♂️" : " 🧱"
-     
+
         print(
-           
+
             """
             *****************\(icon)******************
             url:\(state)
@@ -61,11 +59,11 @@ extension DataRequest{
         )
 
         #endif
-        
+
     }
     
 
-    open func responseModel<T>(_ type: T.Type, callback:@escaping (Result<T, Error>)  ->  ()) {
+    open func responseModel<T>(_ type: T.Type, callback:@escaping (Result<T,Error>)  ->  ()) {
         
         self.responseJSON { (response) in
             self.debugLog(response)
@@ -74,20 +72,20 @@ extension DataRequest{
                 
                 
                 guard  let apidata = APIData<T>.deserialize(from: value as? [String:Any]) else{
-                    callback(.failure(APIError(code: -1, msg: "json error")))
+                    callback(.failure(BaseError(code: -1, msg: "json error")))
                     return
                 }
                 
                 if apidata.code == 0 {
                     callback(.success(apidata.data!))
                 }else{
-                    callback(.failure(APIError(code: apidata.code, msg: apidata.message )))
+                    callback(.failure(BaseError(code: apidata.code, msg: apidata.message )))
                 }
                 
                 
             case .failure(let error):
                 print("🐬 \(error)")
-                callback(.failure(APIError(code: -200, msg: "http error")))
+                callback(.failure(BaseError(code: -200, msg: "http error")))
                 
             }
         }
@@ -101,6 +99,7 @@ extension JSONDecoder{
         let jsonData = try JSONSerialization.data(withJSONObject: any, options: [])
         return try JSONDecoder().decode(type, from: jsonData)
     }
+    
 }
 
 extension Data {
@@ -137,8 +136,9 @@ extension Data {
 }
 
 
-extension Session{
-    func af_select(_ sql:String, callback:@escaping (Result<[[String:Any]], Error>)  ->  ())  {
+extension Session {
+    
+    func af_select(_ sql:String, callback:@escaping (Result<[[String:Any]],Error>)  ->  ())  {
         let url = "\(baseurl)/select"
         let param = ["sql":sql]
         print("🐶："+sql)
@@ -153,3 +153,4 @@ extension Session{
             .responseModel([String:Any].self, callback: callback)
     }
 }
+

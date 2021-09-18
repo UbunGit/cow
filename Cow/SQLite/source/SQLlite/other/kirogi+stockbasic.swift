@@ -15,10 +15,10 @@ extension SqlliteManage{
         var tdate = Date()
         var sdate = ""
         if type == "stock"{
-            tdate = date.toDate("yyyyMMdd")
+            tdate = date.date("yyyyMMdd")
             sdate = tdate.toString("yyyyMMdd")
         }else{
-            tdate = date.toDate("yyyy-MM-dd")
+            tdate = date.date("yyyy-MM-dd")
             sdate = tdate.toString("yyyy-MM-dd")
         }
         let sql = """

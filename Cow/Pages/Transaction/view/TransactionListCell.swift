@@ -34,14 +34,14 @@ class TransactionListCell: UITableViewCell {
         chareView.scaleXEnabled = true
         chareView.dragXEnabled = true
         chareView.scaleYEnabled = false
+       
       
         chareView.xAxis.labelFont = .systemFont(ofSize: 6)
         chareView.xAxis.labelRotationAngle = -30
         chareView.rightAxis.enabled = false
         chareView.leftAxis.labelPosition = .outsideChart
         chareView.leftAxis.axisMinimum = 0
-        chareView.legend.horizontalAlignment = .left
-        chareView.legend.drawInside = false
+     
     }
    
     @IBOutlet weak var chareView: BarChartView!
@@ -56,6 +56,7 @@ class TransactionListCell: UITableViewCell {
     @IBOutlet weak var hightYieldLab: UILabel!
     @IBOutlet weak var hightEarningsLab: UILabel!
     @IBOutlet weak var ballanceLab: UILabel!
+    
     override func updateUI()  {
         guard let data = celldata else {
             return
@@ -70,14 +71,16 @@ class TransactionListCell: UITableViewCell {
         chareView.data = barset()
         let xaxis = chareView.xAxis
         xaxis.valueFormatter = IndexAxisValueFormatter.init(
-            values:data.datas.map { $0["bdate"].string().toDate("yyyyMMdd").toString("MM-dd") }
+            values:data.datas.map { $0["bdate"].string().date("yyyyMMdd").toString("MM-dd") }
         )
         
         limitLine.limit = data.price
         limitLine.label = "当前价\n\(data.price)"
         nowpriceLab.text = "当前价:\(data.price)"
         chareView.animate(yAxisDuration: 0.35)
-        
+        chareView.legend.verticalAlignment = .bottom
+        chareView.legend.horizontalAlignment = .left
+        chareView.legend.drawInside = false
       
         if data.price != 0 {
             // 最低收益

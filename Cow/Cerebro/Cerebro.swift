@@ -38,11 +38,8 @@ public class Cerebro {
         if datas.count <= 0 {
             throw BaseError(code: -1, msg: "没有可回测的数据")
         }
-        var testData = datas
-        testData.sort{ $0[date].string()>$1[date].string() }
-        for item in testData {
-            
-        }
+       
+    
         
     }
     

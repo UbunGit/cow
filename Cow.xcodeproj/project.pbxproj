@@ -21,7 +21,6 @@
 		8410012026C10D2700C64E53 /* StockBasicListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410011E26C10D2700C64E53 /* StockBasicListVC.swift */; };
 		8410012126C10D2700C64E53 /* StockBasicListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8410011F26C10D2700C64E53 /* StockBasicListVC.xib */; };
 		8410013626C11D8700C64E53 /* StockBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410013526C11D8700C64E53 /* StockBasic.swift */; };
-		8410013B26C11FF900C64E53 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410013A26C11FF900C64E53 /* Config.swift */; };
 		841A95A526DA2AC800EFA126 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A95A326DA2AC800EFA126 /* loginViewController.swift */; };
 		841A95A626DA2AC800EFA126 /* loginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841A95A426DA2AC800EFA126 /* loginViewController.xib */; };
 		841A95A826DA2E3E00EFA126 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A95A726DA2E3E00EFA126 /* Global.swift */; };
@@ -91,6 +90,14 @@
 		84B443ED26EB324B00768F60 /* TransactionDefCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B443EB26EB324A00768F60 /* TransactionDefCell.swift */; };
 		84B443EE26EB324B00768F60 /* TransactionDefCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B443EC26EB324A00768F60 /* TransactionDefCell.xib */; };
 		84B443F026EB588100768F60 /* UpdateAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B443EF26EB588100768F60 /* UpdateAble.swift */; };
+		84BACCCF26F5D2D8004EEE9A /* NewWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BACCC926F5D2D8004EEE9A /* NewWork.swift */; };
+		84BACCD026F5D2D8004EEE9A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BACCCC26F5D2D8004EEE9A /* Extension.swift */; };
+		84BACCD126F5D2D8004EEE9A /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BACCCD26F5D2D8004EEE9A /* BaseError.swift */; };
+		84BACCD326F5D3ED004EEE9A /* Koinu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BACCD226F5D3ED004EEE9A /* Koinu.swift */; };
+		84BACCD726F5D597004EEE9A /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BACCD626F5D596004EEE9A /* Log.swift */; };
+		84BACCDB26F5D665004EEE9A /* MBPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BACCDA26F5D665004EEE9A /* MBPath.swift */; };
+		84BACCDE26F5D774004EEE9A /* KoinuSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BACCDC26F5D774004EEE9A /* KoinuSettingVC.swift */; };
+		84BACCDF26F5D774004EEE9A /* KoinuSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BACCDD26F5D774004EEE9A /* KoinuSettingVC.xib */; };
 		84D8DD7026D37D990074E9A4 /* SqliteInster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DD6F26D37D990074E9A4 /* SqliteInster.swift */; };
 		84D8DD7326D380390074E9A4 /* stockdaily+stockma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DD7226D380390074E9A4 /* stockdaily+stockma.swift */; };
 		84D8DD7526D380FC0074E9A4 /* stockdaily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8DD7426D380FC0074E9A4 /* stockdaily.swift */; };
@@ -141,7 +148,6 @@
 		8410011E26C10D2700C64E53 /* StockBasicListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBasicListVC.swift; sourceTree = "<group>"; };
 		8410011F26C10D2700C64E53 /* StockBasicListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockBasicListVC.xib; sourceTree = "<group>"; };
 		8410013526C11D8700C64E53 /* StockBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBasic.swift; sourceTree = "<group>"; };
-		8410013A26C11FF900C64E53 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		841A95A326DA2AC800EFA126 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		841A95A426DA2AC800EFA126 /* loginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
 		841A95A726DA2E3E00EFA126 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
@@ -215,6 +221,14 @@
 		84B443EB26EB324A00768F60 /* TransactionDefCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDefCell.swift; sourceTree = "<group>"; };
 		84B443EC26EB324A00768F60 /* TransactionDefCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionDefCell.xib; sourceTree = "<group>"; };
 		84B443EF26EB588100768F60 /* UpdateAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAble.swift; sourceTree = "<group>"; };
+		84BACCC926F5D2D8004EEE9A /* NewWork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewWork.swift; sourceTree = "<group>"; };
+		84BACCCC26F5D2D8004EEE9A /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		84BACCCD26F5D2D8004EEE9A /* BaseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
+		84BACCD226F5D3ED004EEE9A /* Koinu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Koinu.swift; sourceTree = "<group>"; };
+		84BACCD626F5D596004EEE9A /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Log.swift; path = ../../../../../Log.swift; sourceTree = "<group>"; };
+		84BACCDA26F5D665004EEE9A /* MBPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBPath.swift; sourceTree = "<group>"; };
+		84BACCDC26F5D774004EEE9A /* KoinuSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoinuSettingVC.swift; sourceTree = "<group>"; };
+		84BACCDD26F5D774004EEE9A /* KoinuSettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoinuSettingVC.xib; sourceTree = "<group>"; };
 		84D8DD6F26D37D990074E9A4 /* SqliteInster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteInster.swift; sourceTree = "<group>"; };
 		84D8DD7226D380390074E9A4 /* stockdaily+stockma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "stockdaily+stockma.swift"; sourceTree = "<group>"; };
 		84D8DD7426D380FC0074E9A4 /* stockdaily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stockdaily.swift; sourceTree = "<group>"; };
@@ -262,6 +276,7 @@
 		8400CD3B26CFAF0700C6DE3F /* Cerebro */ = {
 			isa = PBXGroup;
 			children = (
+				84BACCD426F5D3F9004EEE9A /* Koinu */,
 				8400CD3C26CFAF0700C6DE3F /* Kirogi.swift */,
 				8400CD3D26CFAF0700C6DE3F /* Scheme.swift */,
 				8400CD3E26CFAF0700C6DE3F /* Cerebro.swift */,
@@ -339,7 +354,7 @@
 		8410013926C11FE900C64E53 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				8410013A26C11FF900C64E53 /* Config.swift */,
+				84BACCDA26F5D665004EEE9A /* MBPath.swift */,
 				841A95A726DA2E3E00EFA126 /* Global.swift */,
 			);
 			path = Config;
@@ -393,11 +408,13 @@
 		844D5ADB26BA604300AC08AF /* Cow */ = {
 			isa = PBXGroup;
 			children = (
+				84BACCC426F5D2D7004EEE9A /* SQLite */,
+				84BACCD526F5D588004EEE9A /* log */,
+				84BACCC326F5D2BD004EEE9A /* magbox */,
 				841A95B226DA82F100EFA126 /* chart */,
 				84D8DD8626D47C900074E9A4 /* OSS */,
 				8400CD3B26CFAF0700C6DE3F /* Cerebro */,
 				8410013926C11FE900C64E53 /* Config */,
-				8410012626C1119C00C64E53 /* SQLlite */,
 				844D5AF126BA6C5600AC08AF /* Pages */,
 				844D5ADC26BA604300AC08AF /* AppDelegate.swift */,
 				844D5AE026BA604300AC08AF /* ViewController.swift */,
@@ -577,6 +594,82 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		84BACCC326F5D2BD004EEE9A /* magbox */ = {
+			isa = PBXGroup;
+			children = (
+				84BACCC726F5D2D8004EEE9A /* Network */,
+				84BACCCA26F5D2D8004EEE9A /* NSCategory */,
+			);
+			path = magbox;
+			sourceTree = "<group>";
+		};
+		84BACCC426F5D2D7004EEE9A /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				84BACCC526F5D2D7004EEE9A /* source */,
+			);
+			path = SQLite;
+			sourceTree = "<group>";
+		};
+		84BACCC526F5D2D7004EEE9A /* source */ = {
+			isa = PBXGroup;
+			children = (
+				8410012626C1119C00C64E53 /* SQLlite */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		84BACCC726F5D2D8004EEE9A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				84BACCC826F5D2D8004EEE9A /* source */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		84BACCC826F5D2D8004EEE9A /* source */ = {
+			isa = PBXGroup;
+			children = (
+				84BACCC926F5D2D8004EEE9A /* NewWork.swift */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		84BACCCA26F5D2D8004EEE9A /* NSCategory */ = {
+			isa = PBXGroup;
+			children = (
+				84BACCCB26F5D2D8004EEE9A /* source */,
+			);
+			path = NSCategory;
+			sourceTree = "<group>";
+		};
+		84BACCCB26F5D2D8004EEE9A /* source */ = {
+			isa = PBXGroup;
+			children = (
+				84BACCCC26F5D2D8004EEE9A /* Extension.swift */,
+				84BACCCD26F5D2D8004EEE9A /* BaseError.swift */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		84BACCD426F5D3F9004EEE9A /* Koinu */ = {
+			isa = PBXGroup;
+			children = (
+				84BACCD226F5D3ED004EEE9A /* Koinu.swift */,
+				84BACCDC26F5D774004EEE9A /* KoinuSettingVC.swift */,
+				84BACCDD26F5D774004EEE9A /* KoinuSettingVC.xib */,
+			);
+			path = Koinu;
+			sourceTree = "<group>";
+		};
+		84BACCD526F5D588004EEE9A /* log */ = {
+			isa = PBXGroup;
+			children = (
+				84BACCD626F5D596004EEE9A /* Log.swift */,
+			);
+			path = log;
+			sourceTree = "<group>";
+		};
 		84D8DD7126D380130074E9A4 /* other */ = {
 			isa = PBXGroup;
 			children = (
@@ -727,6 +820,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84BACCDF26F5D774004EEE9A /* KoinuSettingVC.xib in Resources */,
 				845E45B226CBB988002E77C3 /* SQLTableInfoVC.xib in Resources */,
 				845E45D126CD1877002E77C3 /* SoreSimpleView.xib in Resources */,
 				8410012126C10D2700C64E53 /* StockBasicListVC.xib in Resources */,
@@ -861,8 +955,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				842C3E9226D6585200F012DD /* kirogi+stockbasic.swift in Sources */,
+				84BACCD326F5D3ED004EEE9A /* Koinu.swift in Sources */,
 				84712B5026E45775008E55D6 /* ETFBaseListSearchView.swift in Sources */,
 				84B443F026EB588100768F60 /* UpdateAble.swift in Sources */,
+				84BACCD026F5D2D8004EEE9A /* Extension.swift in Sources */,
+				84BACCCF26F5D2D8004EEE9A /* NewWork.swift in Sources */,
 				8492CC0926C4D256004048EF /* SqlliteManage.swift in Sources */,
 				8405464426D8C58E007E7F0F /* etfdaily+kirogietf.swift in Sources */,
 				841A95B726DA8B6100EFA126 /* KirogiSettingVC.swift in Sources */,
@@ -884,6 +981,7 @@
 				841A95A526DA2AC800EFA126 /* loginViewController.swift in Sources */,
 				842C3E9026D6353C00F012DD /* OSS.swift in Sources */,
 				846B4CC726C104A100EB5BA7 /* CollectionViewGridCell.swift in Sources */,
+				84BACCDB26F5D665004EEE9A /* MBPath.swift in Sources */,
 				84B25E1726DC984E00284679 /* ETFRecommendDetaiVC.swift in Sources */,
 				84F736AF26DB7592008D28C1 /* etf_follow+basic.swift in Sources */,
 				845E45AD26CBB81F002E77C3 /* SqliteSelect.swift in Sources */,
@@ -899,6 +997,7 @@
 				84D8DD7526D380FC0074E9A4 /* stockdaily.swift in Sources */,
 				8410012026C10D2700C64E53 /* StockBasicListVC.swift in Sources */,
 				8410011C26C106EA00C64E53 /* DataHandleModel.swift in Sources */,
+				84BACCD726F5D597004EEE9A /* Log.swift in Sources */,
 				8400CD4126CFAF0700C6DE3F /* Cerebro.swift in Sources */,
 				8400CD4026CFAF0700C6DE3F /* Scheme.swift in Sources */,
 				844D5AE126BA604300AC08AF /* ViewController.swift in Sources */,
@@ -908,14 +1007,15 @@
 				8483CF0026E21E0F009F7A7D /* TransactionEdit.swift in Sources */,
 				84D8DD8026D39EB40074E9A4 /* RecommendCell.swift in Sources */,
 				846B4CBD26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.swift in Sources */,
+				84BACCD126F5D2D8004EEE9A /* BaseError.swift in Sources */,
 				849D787826C287F5003DFE5F /* StockBasicListCell.swift in Sources */,
 				84463B9326CF7BEC00F2262B /* KlineNavBarView.swift in Sources */,
 				84D8DD7726D3811D0074E9A4 /* stockma.swift in Sources */,
 				845E45D326CD188C002E77C3 /* SoreSimpleView.swift in Sources */,
+				84BACCDE26F5D774004EEE9A /* KoinuSettingVC.swift in Sources */,
 				8410013626C11D8700C64E53 /* StockBasic.swift in Sources */,
 				844D5ADD26BA604300AC08AF /* AppDelegate.swift in Sources */,
 				84D8DD8526D3AD7A0074E9A4 /* follow+stockbasic+stockma.swift in Sources */,
-				8410013B26C11FF900C64E53 /* Config.swift in Sources */,
 				8400CD3F26CFAF0700C6DE3F /* Kirogi.swift in Sources */,
 				84F736B626DB7E77008D28C1 /* FollowListSettingVC.swift in Sources */,
 				8492CBF026C3D641004048EF /* FollowModel.swift in Sources */,
@@ -1092,7 +1192,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QPSW766MZ5;
+				DEVELOPMENT_TEAM = HQTXMU76N3;
 				INFOPLIST_FILE = Cow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1118,7 +1218,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QPSW766MZ5;
+				DEVELOPMENT_TEAM = HQTXMU76N3;
 				INFOPLIST_FILE = Cow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1140,7 +1240,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HQTXMU76N3;
+				DEVELOPMENT_TEAM = QPSW766MZ5;
 				INFOPLIST_FILE = CowTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1161,7 +1261,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HQTXMU76N3;
+				DEVELOPMENT_TEAM = QPSW766MZ5;
 				INFOPLIST_FILE = CowTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

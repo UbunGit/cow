@@ -1,11 +1,12 @@
 //
-//  Double.swift
-//  Magicbox
+//  Extension.swift
+//  PlayGround
 //
-//  Created by admin on 2021/8/20.
+//  Created by admin on 2021/9/13.
 //
 
 import Foundation
+
 public extension Double {
     func double() -> Double{
         Double(self)
@@ -32,16 +33,29 @@ public extension Double {
     
     
 }
+
 public extension String{
     func double(_ def:Double = 0) -> Double{
         Double(self) ?? def
     }
+    func date(_ formatter:String = "yyyy-MM-dd HH:mm:ss") -> Date{
+        
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = formatter
+        guard let date = dateformatter.date(from: self) else {
+            return Date()
+        }
+        
+        return date
+    }
 }
+
 public extension Float {
     func double() -> Double{
         Double(self)
     }
 }
+
 public extension Int {
     func double() -> Double{
         Double(self)
@@ -51,6 +65,7 @@ public extension Int {
         return "\(self)"
     }
 }
+
 public extension Optional{
     
     func double(_ defual:Double = 0) -> Double {
@@ -94,6 +109,18 @@ public extension Optional{
     }
      
 }
+
+extension Date{
+    
+   public func toString(_ format:String="yyyy-MM-dd HH:mm:ss") -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale.init(identifier: "zh_CN")
+        formatter.dateFormat = format
+        let date = formatter.string(from: self)
+        return date
+    }
+}
+
 
 
 

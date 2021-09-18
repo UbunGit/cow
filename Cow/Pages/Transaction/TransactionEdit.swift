@@ -42,12 +42,12 @@ class TransactionEdit: BaseViewController {
     override func updateUI() {
         typeBtn.setTitle(editData.typeStr, for: .normal)
         codeTF.text = editData.code
-        bdateDP.setDate(editData.bdate.toDate("yyyyMMdd"), animated: true)
+        bdateDP.setDate(editData.bdate.date("yyyyMMdd"), animated: true)
         bcountTF.text = editData.bcount.string()
         bpriceTF.text = editData.bprice.price()
         bfreeTF.text = editData.bfree.price()
         
-        sdateDP.setDate(editData.sdate.string().toDate(), animated: true)
+        sdateDP.setDate(editData.sdate.string().date(), animated: true)
         spriceTF.text = editData.sprice.price()
         sfreeTF.text = editData.sfree.price()
         
@@ -60,8 +60,29 @@ class TransactionEdit: BaseViewController {
     @IBAction func selectType(_ sender: Any) {
         selectsoockType { type in
             self.editData.type = type
-            
+            self.typeBtn.setTitle(self.editData.typeStr, for: .normal)
         }
+    }
+    @IBAction func selectCode(_ sender: Any) {
+        if self.editData.type == 1 {
+            let vc = StockBasicListVC()
+            vc.selectClosure = ({ item in
+                self.editData.code = item.code
+                self.codeTF.text = self.editData.code
+            })
+            self.present(vc, animated: true, completion: nil)
+        }
+        if self.editData.type == 2 {
+            let vc = ETFBaseListVC()
+            vc.selectClosure = ({ item in
+                self.editData.code = item["code"].string()
+                self.codeTF.text = self.editData.code
+            })
+            self.present(vc, animated: true, completion: nil)
+        }
+
+
+
     }
     @IBAction func closeBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

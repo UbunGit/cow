@@ -41,6 +41,14 @@ class ViewController: UITabBarController,UITabBarControllerDelegate
         let nav1 = BaseNavigationController.init(rootViewController: vc1)
         return nav1
     }()
+    lazy var nav5: UINavigationController = {
+        let vc1 = KoinuSettingVC()
+        vc1.title = "设置"
+        vc1.tabBarItem.image = UIImage(systemName: "light.min")
+        let nav1 = BaseNavigationController.init(rootViewController: vc1)
+        return nav1
+    }()
+    
     
     override func loadView() {
         super .loadView()
@@ -55,7 +63,7 @@ class ViewController: UITabBarController,UITabBarControllerDelegate
   
     func configUI() {
         self.delegate = self;
-        self.viewControllers = [nav1,nav2,nav3,nav4];
+        self.viewControllers = [nav1,nav2,nav3,nav5,nav4];
 
     }
 

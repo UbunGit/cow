@@ -83,6 +83,7 @@ class StockBasicListModel: HandyJSON {
 
 class StockBasicListVC: BaseViewController {
 
+    var selectClosure:((StockBasicListModel.Stroe)->())?
     lazy var pageData: StockBasicListModel = {
         let pageData = StockBasicListModel()
         pageData.delegate = self
@@ -135,7 +136,12 @@ extension StockBasicListVC:UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        if let select = selectClosure {
+            
+            self.dismiss(animated: true) {
+                select(self.pageData.stroes[indexPath.row])
+            }
+        }
         
     }
 
