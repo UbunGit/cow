@@ -83,6 +83,14 @@
 		8492CC0726C4C260004048EF /* FollowModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CC0626C4C260004048EF /* FollowModelTest.swift */; };
 		8492CC0926C4D256004048EF /* SqlliteManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CC0826C4D256004048EF /* SqlliteManage.swift */; };
 		8492CC0D26C4FBE6004048EF /* SqlliteManageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CC0C26C4FBE6004048EF /* SqlliteManageTest.swift */; };
+		849A0AEB26F796DE001387CF /* KoinuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A0AE926F796DE001387CF /* KoinuListViewController.swift */; };
+		849A0AEC26F796DE001387CF /* KoinuListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849A0AEA26F796DE001387CF /* KoinuListViewController.xib */; };
+		849A0AF026F79774001387CF /* KoinuListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A0AEE26F79774001387CF /* KoinuListCell.swift */; };
+		849A0AF126F79774001387CF /* KoinuListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849A0AEF26F79774001387CF /* KoinuListCell.xib */; };
+		849A0AF426F9A050001387CF /* KoinudefViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A0AF226F9A050001387CF /* KoinudefViewController.swift */; };
+		849A0AF526F9A050001387CF /* KoinudefViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849A0AF326F9A050001387CF /* KoinudefViewController.xib */; };
+		849A0AF826F9A261001387CF /* KoinuHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A0AF626F9A261001387CF /* KoinuHistoryCell.swift */; };
+		849A0AF926F9A261001387CF /* KoinuHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849A0AF726F9A261001387CF /* KoinuHistoryCell.xib */; };
 		849D787826C287F5003DFE5F /* StockBasicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D787626C287F5003DFE5F /* StockBasicListCell.swift */; };
 		849D787926C287F5003DFE5F /* StockBasicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849D787726C287F5003DFE5F /* StockBasicListCell.xib */; };
 		84B25E1726DC984E00284679 /* ETFRecommendDetaiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B25E1526DC984E00284679 /* ETFRecommendDetaiVC.swift */; };
@@ -94,7 +102,6 @@
 		84BACCD026F5D2D8004EEE9A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BACCCC26F5D2D8004EEE9A /* Extension.swift */; };
 		84BACCD126F5D2D8004EEE9A /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BACCCD26F5D2D8004EEE9A /* BaseError.swift */; };
 		84BACCD326F5D3ED004EEE9A /* Koinu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BACCD226F5D3ED004EEE9A /* Koinu.swift */; };
-		84BACCD726F5D597004EEE9A /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BACCD626F5D596004EEE9A /* Log.swift */; };
 		84BACCDB26F5D665004EEE9A /* MBPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BACCDA26F5D665004EEE9A /* MBPath.swift */; };
 		84BACCDE26F5D774004EEE9A /* KoinuSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BACCDC26F5D774004EEE9A /* KoinuSettingVC.swift */; };
 		84BACCDF26F5D774004EEE9A /* KoinuSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BACCDD26F5D774004EEE9A /* KoinuSettingVC.xib */; };
@@ -214,6 +221,14 @@
 		8492CC0626C4C260004048EF /* FollowModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowModelTest.swift; sourceTree = "<group>"; };
 		8492CC0826C4D256004048EF /* SqlliteManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqlliteManage.swift; sourceTree = "<group>"; };
 		8492CC0C26C4FBE6004048EF /* SqlliteManageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqlliteManageTest.swift; sourceTree = "<group>"; };
+		849A0AE926F796DE001387CF /* KoinuListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoinuListViewController.swift; sourceTree = "<group>"; };
+		849A0AEA26F796DE001387CF /* KoinuListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoinuListViewController.xib; sourceTree = "<group>"; };
+		849A0AEE26F79774001387CF /* KoinuListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoinuListCell.swift; sourceTree = "<group>"; };
+		849A0AEF26F79774001387CF /* KoinuListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoinuListCell.xib; sourceTree = "<group>"; };
+		849A0AF226F9A050001387CF /* KoinudefViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoinudefViewController.swift; sourceTree = "<group>"; };
+		849A0AF326F9A050001387CF /* KoinudefViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoinudefViewController.xib; sourceTree = "<group>"; };
+		849A0AF626F9A261001387CF /* KoinuHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoinuHistoryCell.swift; sourceTree = "<group>"; };
+		849A0AF726F9A261001387CF /* KoinuHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoinuHistoryCell.xib; sourceTree = "<group>"; };
 		849D787626C287F5003DFE5F /* StockBasicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBasicListCell.swift; sourceTree = "<group>"; };
 		849D787726C287F5003DFE5F /* StockBasicListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockBasicListCell.xib; sourceTree = "<group>"; };
 		84B25E1526DC984E00284679 /* ETFRecommendDetaiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFRecommendDetaiVC.swift; sourceTree = "<group>"; };
@@ -225,7 +240,6 @@
 		84BACCCC26F5D2D8004EEE9A /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		84BACCCD26F5D2D8004EEE9A /* BaseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
 		84BACCD226F5D3ED004EEE9A /* Koinu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Koinu.swift; sourceTree = "<group>"; };
-		84BACCD626F5D596004EEE9A /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Log.swift; path = ../../../../../Log.swift; sourceTree = "<group>"; };
 		84BACCDA26F5D665004EEE9A /* MBPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBPath.swift; sourceTree = "<group>"; };
 		84BACCDC26F5D774004EEE9A /* KoinuSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoinuSettingVC.swift; sourceTree = "<group>"; };
 		84BACCDD26F5D774004EEE9A /* KoinuSettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoinuSettingVC.xib; sourceTree = "<group>"; };
@@ -409,7 +423,6 @@
 			isa = PBXGroup;
 			children = (
 				84BACCC426F5D2D7004EEE9A /* SQLite */,
-				84BACCD526F5D588004EEE9A /* log */,
 				84BACCC326F5D2BD004EEE9A /* magbox */,
 				841A95B226DA82F100EFA126 /* chart */,
 				84D8DD8626D47C900074E9A4 /* OSS */,
@@ -594,6 +607,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		849A0AED26F79751001387CF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				849A0AEE26F79774001387CF /* KoinuListCell.swift */,
+				849A0AEF26F79774001387CF /* KoinuListCell.xib */,
+				849A0AF626F9A261001387CF /* KoinuHistoryCell.swift */,
+				849A0AF726F9A261001387CF /* KoinuHistoryCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		84BACCC326F5D2BD004EEE9A /* magbox */ = {
 			isa = PBXGroup;
 			children = (
@@ -655,19 +679,16 @@
 		84BACCD426F5D3F9004EEE9A /* Koinu */ = {
 			isa = PBXGroup;
 			children = (
+				849A0AED26F79751001387CF /* Cells */,
 				84BACCD226F5D3ED004EEE9A /* Koinu.swift */,
+				849A0AE926F796DE001387CF /* KoinuListViewController.swift */,
+				849A0AEA26F796DE001387CF /* KoinuListViewController.xib */,
 				84BACCDC26F5D774004EEE9A /* KoinuSettingVC.swift */,
+				849A0AF226F9A050001387CF /* KoinudefViewController.swift */,
+				849A0AF326F9A050001387CF /* KoinudefViewController.xib */,
 				84BACCDD26F5D774004EEE9A /* KoinuSettingVC.xib */,
 			);
 			path = Koinu;
-			sourceTree = "<group>";
-		};
-		84BACCD526F5D588004EEE9A /* log */ = {
-			isa = PBXGroup;
-			children = (
-				84BACCD626F5D596004EEE9A /* Log.swift */,
-			);
-			path = log;
 			sourceTree = "<group>";
 		};
 		84D8DD7126D380130074E9A4 /* other */ = {
@@ -828,10 +849,12 @@
 				844D5AE926BA604400AC08AF /* LaunchScreen.storyboard in Resources */,
 				841A95A626DA2AC800EFA126 /* loginViewController.xib in Resources */,
 				84463B9526CF7BFF00F2262B /* KlineNavBarView.xib in Resources */,
+				849A0AF526F9A050001387CF /* KoinudefViewController.xib in Resources */,
 				8492CBF426C4BACD004048EF /* FollowListViewController.xib in Resources */,
 				849D787926C287F5003DFE5F /* StockBasicListCell.xib in Resources */,
 				8483CEE226E08D0E009F7A7D /* TransactionListViewController.xib in Resources */,
 				846B4CB926C0F82D00EB5BA7 /* SettingVC.xib in Resources */,
+				849A0AF926F9A261001387CF /* KoinuHistoryCell.xib in Resources */,
 				845E45A926CBA94E002E77C3 /* SQLTableListVC.xib in Resources */,
 				846B4CBE26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib in Resources */,
 				841A95B826DA8B6100EFA126 /* KirogiSettingVC.xib in Resources */,
@@ -847,6 +870,8 @@
 				8483CEEB26E08F96009F7A7D /* TransactionListCell.xib in Resources */,
 				846B4CC826C104E400EB5BA7 /* CollectionViewGridCell.xib in Resources */,
 				844D5AE626BA604400AC08AF /* Assets.xcassets in Resources */,
+				849A0AEC26F796DE001387CF /* KoinuListViewController.xib in Resources */,
+				849A0AF126F79774001387CF /* KoinuListCell.xib in Resources */,
 				844D5AE426BA604300AC08AF /* Main.storyboard in Resources */,
 				84F736B326DB773A008D28C1 /* ETFBaseListTableviewCell.xib in Resources */,
 				841A95B126DA80C600EFA126 /* ETFKirogiSignalCell.xib in Resources */,
@@ -955,6 +980,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				842C3E9226D6585200F012DD /* kirogi+stockbasic.swift in Sources */,
+				849A0AF026F79774001387CF /* KoinuListCell.swift in Sources */,
 				84BACCD326F5D3ED004EEE9A /* Koinu.swift in Sources */,
 				84712B5026E45775008E55D6 /* ETFBaseListSearchView.swift in Sources */,
 				84B443F026EB588100768F60 /* UpdateAble.swift in Sources */,
@@ -990,6 +1016,7 @@
 				842C3E9426D65D2100F012DD /* kirogi.swift in Sources */,
 				8400CD4326CFB85700C6DE3F /* lib.swift in Sources */,
 				84E7F25826EB2D7100F3F61C /* TransactionDefVC.swift in Sources */,
+				849A0AF826F9A261001387CF /* KoinuHistoryCell.swift in Sources */,
 				841A95AA26DA30B800EFA126 /* user.swift in Sources */,
 				84D8DD7326D380390074E9A4 /* stockdaily+stockma.swift in Sources */,
 				841A95AD26DA78C600EFA126 /* ETFDetaiModen.swift in Sources */,
@@ -997,11 +1024,11 @@
 				84D8DD7526D380FC0074E9A4 /* stockdaily.swift in Sources */,
 				8410012026C10D2700C64E53 /* StockBasicListVC.swift in Sources */,
 				8410011C26C106EA00C64E53 /* DataHandleModel.swift in Sources */,
-				84BACCD726F5D597004EEE9A /* Log.swift in Sources */,
 				8400CD4126CFAF0700C6DE3F /* Cerebro.swift in Sources */,
 				8400CD4026CFAF0700C6DE3F /* Scheme.swift in Sources */,
 				844D5AE126BA604300AC08AF /* ViewController.swift in Sources */,
 				844D5AF426BA6C8000AC08AF /* BaseViewController.swift in Sources */,
+				849A0AEB26F796DE001387CF /* KoinuListViewController.swift in Sources */,
 				8483CEEA26E08F96009F7A7D /* TransactionListCell.swift in Sources */,
 				84D8DD7026D37D990074E9A4 /* SqliteInster.swift in Sources */,
 				8483CF0026E21E0F009F7A7D /* TransactionEdit.swift in Sources */,
@@ -1012,6 +1039,7 @@
 				84463B9326CF7BEC00F2262B /* KlineNavBarView.swift in Sources */,
 				84D8DD7726D3811D0074E9A4 /* stockma.swift in Sources */,
 				845E45D326CD188C002E77C3 /* SoreSimpleView.swift in Sources */,
+				849A0AF426F9A050001387CF /* KoinudefViewController.swift in Sources */,
 				84BACCDE26F5D774004EEE9A /* KoinuSettingVC.swift in Sources */,
 				8410013626C11D8700C64E53 /* StockBasic.swift in Sources */,
 				844D5ADD26BA604300AC08AF /* AppDelegate.swift in Sources */,
@@ -1192,7 +1220,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HQTXMU76N3;
+				DEVELOPMENT_TEAM = QPSW766MZ5;
 				INFOPLIST_FILE = Cow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1218,7 +1246,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HQTXMU76N3;
+				DEVELOPMENT_TEAM = QPSW766MZ5;
 				INFOPLIST_FILE = Cow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

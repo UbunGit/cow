@@ -150,7 +150,9 @@ class TransactionListViewController: BaseViewController {
             return
         }
         let sql = """
-            SELECT t1.code,t2.name FROM (SELECT code from rel_transaction  GROUP BY code) t1
+            SELECT t1.code,t2.name
+            FROM (SELECT code from rel_transaction where userid=\(Global.share.user!.userId) GROUP BY code ) t1
+            
             LEFT JOIN (select code, name from stockbasic union all select code,name from etfbasic) t2 ON t1.code=t2.code
             """
         view.loading()
