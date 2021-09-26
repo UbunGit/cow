@@ -26,9 +26,9 @@ class KoinudefViewController: UIViewController {
         button.mb_borderWidth = 1
         button.titleEdgeInsets = .init(top: 4, left: 8, bottom: 4, right: 8)
         button.addBlock(for: .touchUpInside) { _ in
-            let vc = KoinuSettingVC()
-            vc.schemeId = self.schemeId
-            self.navigationController?.pushViewController(vc, animated: true)
+//            let vc = KoinuSettingVC()
+//            vc.schemeId = self.schemeId
+//            self.navigationController?.pushViewController(vc, animated: true)
         }
         return button
     }()

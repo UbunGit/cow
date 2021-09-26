@@ -9,12 +9,28 @@ import UIKit
 import MJRefresh
 import Alamofire
 
-class KoinuListViewController: UIViewController {
+class SchemeTemplateListVC: UIViewController {
     var dataSouce:[[String:Any]] = []
     @IBOutlet weak var tableView: UITableView!
+    lazy var refresh: UIButton = {
+        let button = UIButton.init(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        button.setImage(.init(systemName: "plus"), for: .normal)
+        button.addBlock(for: .touchUpInside) { _ in
+            
+        }
+        return button
+    }()
+    
+    // 添加
+    lazy var mineItem: UIBarButtonItem = {
+        let mineItem = UIBarButtonItem.init(customView: refresh)
+        return mineItem
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableview()
+        navigationItem.rightBarButtonItems = [mineItem]
         loadData()
     }
     override func updateUI() {
@@ -23,7 +39,7 @@ class KoinuListViewController: UIViewController {
     }
 
 }
-extension KoinuListViewController:UITableViewDelegate,UITableViewDataSource{
+extension SchemeTemplateListVC:UITableViewDelegate,UITableViewDataSource{
     
     func configTableview()  {
 
@@ -50,17 +66,16 @@ extension KoinuListViewController:UITableViewDelegate,UITableViewDataSource{
      
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = KoinudefViewController()
         vc.schemeId  = dataSouce[indexPath.row]["id"].int()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
-    
-    
 }
 
-extension KoinuListViewController{
+extension SchemeTemplateListVC{
    func loadData(){
     let sql = """
         select * from scheme

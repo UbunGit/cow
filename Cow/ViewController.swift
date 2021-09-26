@@ -42,7 +42,7 @@ class ViewController: UITabBarController,UITabBarControllerDelegate
         return nav1
     }()
     lazy var nav5: UINavigationController = {
-        let vc1 = KoinuListViewController()
+        let vc1 = SchemeTemplateListVC()
         vc1.title = "设置"
         vc1.tabBarItem.image = UIImage(systemName: "light.min")
         let nav1 = BaseNavigationController.init(rootViewController: vc1)
