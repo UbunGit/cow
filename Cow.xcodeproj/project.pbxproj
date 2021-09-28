@@ -78,9 +78,6 @@
 		848E99A5270086D200868654 /* sql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E99A4270086D200868654 /* sql.swift */; };
 		848E99A827008B5700868654 /* SchemeTemplateEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E99A627008B5700868654 /* SchemeTemplateEditVC.swift */; };
 		848E99A927008B5700868654 /* SchemeTemplateEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848E99A727008B5700868654 /* SchemeTemplateEditVC.xib */; };
-		848E99AC27008C2000868654 /* InputNumberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848E99AB27008C2000868654 /* InputNumberView.xib */; };
-		848E99AE27008D9100868654 /* InputNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E99AD27008D9000868654 /* InputNumberView.swift */; };
-		848E99B127008E3F00868654 /* InputNumberTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E99B027008E3F00868654 /* InputNumberTableCell.swift */; };
 		848E99B42700902000868654 /* InputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E99B32700902000868654 /* InputModel.swift */; };
 		8492CBEC26C3CC6B004048EF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CBEA26C3CC6B004048EF /* WebViewController.swift */; };
 		8492CBF026C3D641004048EF /* FollowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492CBEF26C3D641004048EF /* FollowModel.swift */; };
@@ -100,6 +97,10 @@
 		849A0AF926F9A261001387CF /* KoinuHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849A0AF726F9A261001387CF /* KoinuHistoryCell.xib */; };
 		849D787826C287F5003DFE5F /* StockBasicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D787626C287F5003DFE5F /* StockBasicListCell.swift */; };
 		849D787926C287F5003DFE5F /* StockBasicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849D787726C287F5003DFE5F /* StockBasicListCell.xib */; };
+		849E9B582702C9BF00864C2A /* FormTextInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E9B562702C9BF00864C2A /* FormTextInputCell.swift */; };
+		849E9B592702C9BF00864C2A /* FormTextInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849E9B572702C9BF00864C2A /* FormTextInputCell.xib */; };
+		849E9B5C2702DAB200864C2A /* PlanFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E9B5A2702DAB200864C2A /* PlanFormViewController.swift */; };
+		849E9B5D2702DAB200864C2A /* PlanFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849E9B5B2702DAB200864C2A /* PlanFormViewController.xib */; };
 		84B25E1726DC984E00284679 /* ETFRecommendDetaiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B25E1526DC984E00284679 /* ETFRecommendDetaiVC.swift */; };
 		84B25E1826DC984E00284679 /* ETFRecommendDetaiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B25E1626DC984E00284679 /* ETFRecommendDetaiVC.xib */; };
 		84B443ED26EB324B00768F60 /* TransactionDefCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B443EB26EB324A00768F60 /* TransactionDefCell.swift */; };
@@ -219,9 +220,6 @@
 		848E99A4270086D200868654 /* sql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sql.swift; sourceTree = "<group>"; };
 		848E99A627008B5700868654 /* SchemeTemplateEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeTemplateEditVC.swift; sourceTree = "<group>"; };
 		848E99A727008B5700868654 /* SchemeTemplateEditVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchemeTemplateEditVC.xib; sourceTree = "<group>"; };
-		848E99AB27008C2000868654 /* InputNumberView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputNumberView.xib; sourceTree = "<group>"; };
-		848E99AD27008D9000868654 /* InputNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberView.swift; sourceTree = "<group>"; };
-		848E99B027008E3F00868654 /* InputNumberTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberTableCell.swift; sourceTree = "<group>"; };
 		848E99B32700902000868654 /* InputModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputModel.swift; sourceTree = "<group>"; };
 		8492CBEA26C3CC6B004048EF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		8492CBEF26C3D641004048EF /* FollowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowModel.swift; sourceTree = "<group>"; };
@@ -243,6 +241,10 @@
 		849A0AF726F9A261001387CF /* KoinuHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoinuHistoryCell.xib; sourceTree = "<group>"; };
 		849D787626C287F5003DFE5F /* StockBasicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBasicListCell.swift; sourceTree = "<group>"; };
 		849D787726C287F5003DFE5F /* StockBasicListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockBasicListCell.xib; sourceTree = "<group>"; };
+		849E9B562702C9BF00864C2A /* FormTextInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextInputCell.swift; sourceTree = "<group>"; };
+		849E9B572702C9BF00864C2A /* FormTextInputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormTextInputCell.xib; sourceTree = "<group>"; };
+		849E9B5A2702DAB200864C2A /* PlanFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanFormViewController.swift; sourceTree = "<group>"; };
+		849E9B5B2702DAB200864C2A /* PlanFormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanFormViewController.xib; sourceTree = "<group>"; };
 		84B25E1526DC984E00284679 /* ETFRecommendDetaiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFRecommendDetaiVC.swift; sourceTree = "<group>"; };
 		84B25E1626DC984E00284679 /* ETFRecommendDetaiVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ETFRecommendDetaiVC.xib; sourceTree = "<group>"; };
 		84B443EB26EB324A00768F60 /* TransactionDefCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDefCell.swift; sourceTree = "<group>"; };
@@ -583,8 +585,8 @@
 			children = (
 				848E99B22700900200868654 /* InputModel */,
 				848E99AF27008E0B00868654 /* TableViewCell */,
-				848E99AB27008C2000868654 /* InputNumberView.xib */,
-				848E99AD27008D9000868654 /* InputNumberView.swift */,
+				849E9B5A2702DAB200864C2A /* PlanFormViewController.swift */,
+				849E9B5B2702DAB200864C2A /* PlanFormViewController.xib */,
 			);
 			path = InputView;
 			sourceTree = "<group>";
@@ -592,7 +594,8 @@
 		848E99AF27008E0B00868654 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				848E99B027008E3F00868654 /* InputNumberTableCell.swift */,
+				849E9B562702C9BF00864C2A /* FormTextInputCell.swift */,
+				849E9B572702C9BF00864C2A /* FormTextInputCell.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -889,7 +892,6 @@
 				841A95A626DA2AC800EFA126 /* loginViewController.xib in Resources */,
 				84463B9526CF7BFF00F2262B /* KlineNavBarView.xib in Resources */,
 				849A0AF526F9A050001387CF /* KoinudefViewController.xib in Resources */,
-				848E99AC27008C2000868654 /* InputNumberView.xib in Resources */,
 				8492CBF426C4BACD004048EF /* FollowListViewController.xib in Resources */,
 				849D787926C287F5003DFE5F /* StockBasicListCell.xib in Resources */,
 				8483CEE226E08D0E009F7A7D /* TransactionListViewController.xib in Resources */,
@@ -902,9 +904,11 @@
 				844D5B0926BA955600AC08AF /* HomeBandas.xib in Resources */,
 				8483CF0126E21E0F009F7A7D /* TransactionEdit.xib in Resources */,
 				84E7F25926EB2D7100F3F61C /* TransactionDefVC.xib in Resources */,
+				849E9B5D2702DAB200864C2A /* PlanFormViewController.xib in Resources */,
 				8483CEE726E08D9A009F7A7D /* TransactionListTableHeader.xib in Resources */,
 				84D8DD7C26D39E660074E9A4 /* RecommendVC.xib in Resources */,
 				8405463C26D8BE48007E7F0F /* ETFDetaiViewController.xib in Resources */,
+				849E9B592702C9BF00864C2A /* FormTextInputCell.xib in Resources */,
 				84B25E1826DC984E00284679 /* ETFRecommendDetaiVC.xib in Resources */,
 				84712B5226E45781008E55D6 /* ETFBaseListSearchView.xib in Resources */,
 				8483CEEB26E08F96009F7A7D /* TransactionListCell.xib in Resources */,
@@ -1023,6 +1027,7 @@
 				849A0AF026F79774001387CF /* KoinuListCell.swift in Sources */,
 				84BACCD326F5D3ED004EEE9A /* Koinu.swift in Sources */,
 				84712B5026E45775008E55D6 /* ETFBaseListSearchView.swift in Sources */,
+				849E9B5C2702DAB200864C2A /* PlanFormViewController.swift in Sources */,
 				848E99A5270086D200868654 /* sql.swift in Sources */,
 				84B443F026EB588100768F60 /* UpdateAble.swift in Sources */,
 				84BACCD026F5D2D8004EEE9A /* Extension.swift in Sources */,
@@ -1042,6 +1047,7 @@
 				841A95A826DA2E3E00EFA126 /* Global.swift in Sources */,
 				8405463B26D8BE48007E7F0F /* ETFDetaiViewController.swift in Sources */,
 				845E45AB26CBABF1002E77C3 /* SqliteTable.swift in Sources */,
+				849E9B582702C9BF00864C2A /* FormTextInputCell.swift in Sources */,
 				848E99A827008B5700868654 /* SchemeTemplateEditVC.swift in Sources */,
 				84B443ED26EB324B00768F60 /* TransactionDefCell.swift in Sources */,
 				8405464126D8C206007E7F0F /* ETFDetaiKlineCell.swift in Sources */,
@@ -1069,14 +1075,12 @@
 				8400CD4126CFAF0700C6DE3F /* Cerebro.swift in Sources */,
 				8400CD4026CFAF0700C6DE3F /* Scheme.swift in Sources */,
 				844D5AE126BA604300AC08AF /* ViewController.swift in Sources */,
-				848E99B127008E3F00868654 /* InputNumberTableCell.swift in Sources */,
 				844D5AF426BA6C8000AC08AF /* BaseViewController.swift in Sources */,
 				849A0AEB26F796DE001387CF /* SchemeTemplateListVC.swift in Sources */,
 				8483CEEA26E08F96009F7A7D /* TransactionListCell.swift in Sources */,
 				84D8DD7026D37D990074E9A4 /* SqliteInster.swift in Sources */,
 				8483CF0026E21E0F009F7A7D /* TransactionEdit.swift in Sources */,
 				84D8DD8026D39EB40074E9A4 /* RecommendCell.swift in Sources */,
-				848E99AE27008D9100868654 /* InputNumberView.swift in Sources */,
 				846B4CBD26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.swift in Sources */,
 				848E99B42700902000868654 /* InputModel.swift in Sources */,
 				84BACCD126F5D2D8004EEE9A /* BaseError.swift in Sources */,

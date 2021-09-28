@@ -7,28 +7,23 @@
 
 import Foundation
 import UIKit
+import MapKit
 
-class InputModel<T>{
-   
-    var title:String = ""
+
+
+class BaseInputCell:UITableViewCell{
+    
     var key:String = ""
-    var value:T? = nil
-    
-    var _valueView:UIView?
-    var valueCell:UITableViewCell = UITableViewCell()
-
-}
-
-extension InputModel where T == Int{
-    
-    var valueCell: InputNumberTableCell{
-        if _valueView == nil{
-            _valueView = InputNumberTableCell.initWithNib()
-        }
-        return _valueView as! InputNumberTableCell
+    var valueView: UIView? = nil
+    func setValue(_ value: Any?) {
+        
+    }
+    func value() -> Any?{
+        return nil
     }
     
-    var identifier:String{
-        "InputNumberView"
-    }
 }
+
+
+
+
