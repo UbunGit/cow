@@ -16,7 +16,7 @@ class SchemeTemplateListVC: UIViewController {
         let button = UIButton.init(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
         button.setImage(.init(systemName: "plus"), for: .normal)
         button.addBlock(for: .touchUpInside) { _ in
-            let vc = PlanFormViewController()
+            let vc = SchemeTemplateEditVC()
             self.present(vc, animated: true, completion: nil)
         }
         return button

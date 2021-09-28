@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SchemeTemplateEditVC" customModule="Cow" customModuleProvider="target">
             <connections>
+                <outlet property="CommitBtn" destination="NqE-B2-rEw" id="tdZ-WW-FQK"/>
+                <outlet property="tableView" destination="Yad-SV-byc" id="Zrr-2V-GAP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,12 +21,55 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Yad-SV-byc">
+                    <rect key="frame" x="0.0" y="44" width="414" height="736"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="fII-ci-aoQ"/>
+                        <outlet property="delegate" destination="-1" id="ocl-uW-EH3"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqE-B2-rEw">
+                    <rect key="frame" x="57" y="800" width="300" height="42"/>
+                    <color key="backgroundColor" name="AccentColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="G8q-7Q-RwB"/>
+                        <constraint firstAttribute="width" constant="300" id="jxB-ZR-UWN"/>
+                    </constraints>
+                    <state key="normal" title="保 存">
+                        <color key="titleColor" name="Text 1"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="mb_radius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="commitBtnClick:" destination="-1" eventType="touchUpInside" id="Cm6-oF-UoF"/>
+                    </connections>
+                </button>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="-200" y="-18"/>
+            <constraints>
+                <constraint firstItem="Yad-SV-byc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="14s-eb-ppX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Yad-SV-byc" secondAttribute="trailing" id="6pC-sU-0el"/>
+                <constraint firstItem="NqE-B2-rEw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Elf-aD-Hme"/>
+                <constraint firstItem="NqE-B2-rEw" firstAttribute="top" secondItem="Yad-SV-byc" secondAttribute="bottom" constant="20" id="O9a-jo-kKA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="NqE-B2-rEw" secondAttribute="bottom" constant="20" id="bLu-JF-ZT1"/>
+                <constraint firstItem="Yad-SV-byc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="p4u-SG-t78"/>
+            </constraints>
+            <point key="canvasLocation" x="247.82608695652175" y="-111.16071428571428"/>
         </view>
     </objects>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.38431376218795776" green="0.20392158627510071" blue="0.83529412746429443" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text 1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Magicbox
 
 class FormTextInputCell: BaseInputCell {
    
@@ -17,7 +18,7 @@ class FormTextInputCell: BaseInputCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        textTF.lim
+      
         selectionStyle = .none
     }
     override func setValue(_ value: Any?) {
@@ -32,42 +33,6 @@ class FormTextInputCell: BaseInputCell {
     
 }
 
-extension UITextField{
-    private struct AssociatedKey {
 
-        static var identifier: String = "maximumLimit"
-        static var isAddNotif: String = "isAddNotif"
 
-    }
-    var maximumLimit:Int{
-        set{
-            objc_setAssociatedObject(self, &AssociatedKey.identifier, newValue, .OBJC_ASSOCIATION_ASSIGN)
-        }
-        get{
-            guard let limit = objc_getAssociatedObject(self, &AssociatedKey.identifier) as? Int else{
-                return 100
-            }
-            return limit
-            
-        }
-    }
-    
-    var isAddNotif:Bool{
-        set{
-            objc_setAssociatedObject(self, &AssociatedKey.isAddNotif, newValue, .OBJC_ASSOCIATION_ASSIGN)
-        }
-        get{
-            guard let isAddNotif = objc_getAssociatedObject(self, &AssociatedKey.isAddNotif) as? Int else{
-                return false
-            }
-            return isAddNotif
-            
-        }
-    }
-    func addMotif(){
-        if isAddNotif == false{
-            
-        }
-    }
-    
-}
+
