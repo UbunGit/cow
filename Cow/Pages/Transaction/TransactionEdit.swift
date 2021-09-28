@@ -197,6 +197,21 @@ extension UIViewController{
         present(alert, animated: true, completion: nil)
 
     }
+    
+    func commit(title:String = "你确定要这么做吗？" ,message:String?, typeAction:@escaping ((Int) -> Void)){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action1 =  UIAlertAction(title: "确 定", style: .default) { action in
+            typeAction(1)
+        }
+        
+        let action =  UIAlertAction(title: "取消", style: .cancel) { action in
+            
+        }
+        alert.addAction(action1)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+
+    }
 }
 
 

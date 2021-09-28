@@ -66,4 +66,33 @@ public extension SqlliteManage{
         print(sql)
         _ = try db?.execute(sql)
     }
+    
+    func sql_update(table:String, data:[String:Any], key:String="id") -> String?{
+        var sql = ""
+        if  data[key] == nil{
+            let xdata = data
+            let keys = xdata.keys
+            let valueStr = keys.map { "'\(xdata[$0].string())'" }.joined(separator: ",")
+            sql = """
+            INSERT INTO "\(table)" (\(keys.map{ $0}.joined(separator: ",")))
+            values (\(valueStr));
+            """
+        }else{
+            var xdata = data
+            xdata.removeValue(forKey: key)
+            let keys = xdata.keys
+            let updatestr = keys.map{ "\($0)='\(xdata[$0].string())'" }.joined(separator: ",")
+   
+            sql = """
+            UPDATE  "\(table)" SET \(updatestr)
+            where \(key)='\(data[key].string())'
+            """
+        }
+        if sql.count>0{
+            return sql
+        }else{
+            return nil
+        }
+        
+    }
 }

@@ -9,7 +9,7 @@ import UIKit
 import MJRefresh
 import Alamofire
 
-class SchemeTemplateListVC: UIViewController {
+class SchemeTemplateListVC: BaseViewController {
     var dataSouce:[[String:Any]] = []
     @IBOutlet weak var tableView: UITableView!
     lazy var refresh: UIButton = {
@@ -17,7 +17,7 @@ class SchemeTemplateListVC: UIViewController {
         button.setImage(.init(systemName: "plus"), for: .normal)
         button.addBlock(for: .touchUpInside) { _ in
             let vc = SchemeTemplateEditVC()
-            self.present(vc, animated: true, completion: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         return button
     }()
@@ -30,8 +30,13 @@ class SchemeTemplateListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "策略模版"
         configTableview()
         navigationItem.rightBarButtonItems = [mineItem]
+       
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadData()
     }
     override func updateUI() {
@@ -69,29 +74,29 @@ extension SchemeTemplateListVC:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = KoinudefViewController()
-        vc.schemeId  = dataSouce[indexPath.row]["id"].int()
+        let vc = SchemeTemplateEditVC()
+        vc.param  = dataSouce[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }
 
 extension SchemeTemplateListVC{
-   func loadData(){
-    let sql = """
-        select * from scheme
+    func loadData(){
+        let sql = """
+        select * from scheme_template
         """
-    view.loading()
-    AF.af_select(sql) { result in
-        self.view.loadingDismiss()
-        switch result{
-        case.success(let value):
-            self.dataSouce = value
-        case .failure(let err):
-            self.view.error(err)
+        view.loading()
+        AF.af_select(sql) { result in
+            self.view.loadingDismiss()
+            switch result{
+            case.success(let value):
+                self.dataSouce = value
+            case .failure(let err):
+                self.view.error(err)
+            }
+            self.updateUI()
         }
-        self.updateUI()
-    }
     }
 }
 

@@ -98,6 +98,37 @@ let creatdTabledic =
             """
               
         ],
+        [
+            "name":"scheme_template_param",
+            "create":
+             """
+               CREATE TABLE "scheme_template_param" ( -- 方案代码
+                   "id"    INTEGER NOT NULL UNIQUE,
+                   "template"    INTEGER, -- 参数id
+                   "name"    TEXT NOT NULL, -- 参数名
+                   "key"    TEXT NOT NULL, -- 参数key
+                   "defual"    TEXT NOT NULL, -- 默认值
+                   "type"    TEXT NOT NULL, -- 类型
+                   "des"    TEXT NOT NULL, -- 参数描述
+                   PRIMARY KEY("id" AUTOINCREMENT)
+               );
+            """
+              
+        ],
+        [
+            "name":"scheme_template_param",
+            "create":
+             """
+               CREATE TABLE "recommend_etf" ( -- ETF每日推荐
+                   "id"    INTEGER NOT NULL UNIQUE,d
+                   "scheme_id"    INTEGER, -- 方案id
+                   "date"    TEXT NOT NULL, -- 推荐时间
+                   "code"    TEXT NOT NULL, -- 推荐代码
+                   PRIMARY KEY("id" AUTOINCREMENT)
+               );
+            """
+              
+        ],
        
        
       

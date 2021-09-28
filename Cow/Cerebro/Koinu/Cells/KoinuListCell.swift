@@ -23,7 +23,7 @@ class KoinuListCell:UITableViewCell {
            return
         }
         nameLab.text = data["name"].string()
-        desLab.text = data["remarks"].string()
+        desLab.text = data["des"].string()
     }
 
 }

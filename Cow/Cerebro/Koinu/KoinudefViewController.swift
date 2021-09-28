@@ -8,7 +8,7 @@
 import UIKit
 import MJRefresh
 
-class KoinudefViewController: UIViewController {
+class KoinudefViewController: BaseViewController {
     var schemeId:Int? = nil
     var dataSouce:[Any] = []
     @IBOutlet weak var tableView: UITableView!

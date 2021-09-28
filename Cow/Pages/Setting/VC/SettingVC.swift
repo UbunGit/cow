@@ -50,6 +50,7 @@ class SettingVC: BaseViewController {
                     
                 }
             )
+           
         ]
         return grids
     }()
@@ -60,6 +61,13 @@ class SettingVC: BaseViewController {
                 icon: "🦊",
                 handle: {
                     self.mb_push("Cow.SQLTableListVC", params: [:])
+                }
+            ),
+            DataHandleModel.init(
+                name: "策略模版",
+                icon: "🐻",
+                handle: {
+                    self.mb_push("Cow.SchemeTemplateListVC", params: [:])
                 }
             )
         ]
