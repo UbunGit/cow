@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        DoraemonManager.shareInstance().install(withPid: "db4146378948b4a04e74c1172ce45590")
+        configDor()
         window = UIWindow()
         window?.rootViewController = ViewController()
         window?.makeKeyAndVisible()

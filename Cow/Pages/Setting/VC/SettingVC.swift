@@ -69,10 +69,12 @@ class SettingVC: BaseViewController {
                 handle: {
                     self.mb_push("Cow.SchemeTemplateListVC", params: [:])
                 }
-            )
+            ),
+           
         ]
         return grids
     }()
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         

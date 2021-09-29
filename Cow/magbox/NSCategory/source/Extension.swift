@@ -11,6 +11,9 @@ public extension Double {
     func double() -> Double{
         Double(self)
     }
+    func string(_ formatter:String="%0.2f") -> String {
+        String(format: formatter, self)
+    }
     // 百分比
     func percentStr(_ formatter:String="%0.2f") -> String{
         
@@ -38,6 +41,9 @@ public extension String{
     func double(_ def:Double = 0) -> Double{
         Double(self) ?? def
     }
+    func int(_ def:Int = 0) -> Int{
+        Int(self) ?? def
+    }
     func date(_ formatter:String = "yyyy-MM-dd HH:mm:ss") -> Date{
         
         let dateformatter = DateFormatter()
@@ -54,12 +60,22 @@ public extension Float {
     func double() -> Double{
         Double(self)
     }
+    
+     func string(_ formatter:String="%0.2f") -> String {
+         return String(format: formatter, self)
+     }
 }
 
 public extension Int {
     func double() -> Double{
         Double(self)
     }
+    
+    func float() -> Float{
+        Float(self)
+    }
+    
+   
     func string() -> String {
        
         return "\(self)"
@@ -77,9 +93,25 @@ public extension Optional{
         }
         return value1
     }
-    func string() -> String {
+    func tableStr(_ defual:String="") -> String {
+        guard let value = self else {
+            return defual
+        }
+        if let val = value as? Int{
+           return val.string()
+        }else if let val = value as? Double{
+            return val.string("%0.3f")
+        }else if let val = value as? Float{
+            return val.string("%0.3f")
+        }
+        else{
+            return "\(value)"
+        }
+    }
+    
+    func string(_ defual:String="") -> String {
         guard let str = self else {
-            return ""
+            return defual
         }
         return "\(str)"
     }
@@ -109,6 +141,8 @@ public extension Optional{
     }
      
 }
+
+
 
 extension Date{
     

@@ -10,22 +10,32 @@ import Alamofire
 class SQLTableInfoVC: UIViewController {
 
     @objc var tableInfo:[String:Any] = [:]
+    var tableName:String!
+    
     @IBOutlet weak var createSql: UILabel!
     @IBOutlet weak var countLab: UILabel!
     @IBOutlet weak var lastDataLab: UILabel!
     @IBOutlet weak var infoLab: UILabel!
+    
+    lazy var dataView:SqlTableView = {
+        let table = SqlTableView()
+        table.tableName = tableName
+        return table
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "简介"
+        view.addSubview(dataView)
         updateUI()
 
     }
     override func updateUI()  {
+        dataView.loadData()
         guard let tablename = tableInfo["name"] as? String else {
             return
         }
-  
-       
-      
+
         view.loading()
         var lastdata:[[String:Any]] = []
         let group =  DispatchGroup.init()
@@ -88,5 +98,14 @@ class SQLTableInfoVC: UIViewController {
     }
 
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        dataView.snp.makeConstraints { make in
+            make.top.equalTo(8)
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+            make.height.equalTo(450)
+        }
+    }
 
 }

@@ -103,8 +103,10 @@ extension SQLTableListVC:UITableViewDelegate,UITableViewDataSource{
       
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        self.mb_push("Cow.SQLTableInfoVC", params:["tableInfo":tables[indexPath.row]])
+        let vc = TableInfoPageViewController()
+        vc.tableName = tables[indexPath.row]["name"].string()
+        self.navigationController?.pushViewController(vc, animated: true)
+//        self.mb_push("Cow.SQLTableInfoVC", params:["tableInfo":tables[indexPath.row]])
     }
     
     // 右侧按钮自定义
