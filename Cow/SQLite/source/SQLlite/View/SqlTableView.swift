@@ -106,6 +106,7 @@ class SqlTableView: UIView {
     var page:NSRange = NSRange(location: 0, length: 10)
     var sort:String? = nil
     var desc:Bool = false
+    var allPage = 0
     
     var keys =  ["1","2","3","4","5","6","7","8"]
     var dataSource:[[String:Any]] = [["1":"ee"],["2":"ee"],["3":"ee"]]
@@ -130,6 +131,41 @@ class SqlTableView: UIView {
         
         return tf
     }()
+    lazy var pageView:TablePageView = {
+        let view = TablePageView.initWithNib()
+        view.leftBtn.addBlock(for: .touchUpInside) { _ in
+            if self.page.location==0{
+                self.error("已经第一页了")
+                return
+            }
+            self.page.location = (self.page.location-1) >= 0 ? self.page.location-1 : 0
+            self.loadData()
+        }
+        view.rightBtn.addBlock(for: .touchUpInside) { _ in
+            if self.page.location==self.allPage{
+                self.error("已经最后一页了")
+                return
+            }
+            self.page.location = (self.page.location+1) >= self.allPage ? self.allPage : self.page.location+1
+            self.loadData()
+            
+        }
+        view.pageNoTF.addBlock(for: .editingDidEndOnExit) { sender in
+            if let tf = sender as? UITextField{
+                self.page.location = tf.text.int()
+                self.loadData()
+            }
+            
+        }
+        view.pageNoTF.addBlock(for: .editingDidEnd) { sender in
+            if let tf = sender as? UITextField{
+                self.page.location = tf.text.int()
+                self.loadData()
+            }
+            
+        }
+        return view
+    }()
     
     lazy var titleTable : UITableView = {
         
@@ -141,11 +177,7 @@ class SqlTableView: UIView {
     }()
     
     lazy var valueHeader : StackHeaderView = {
-        
-  
         let view = StackHeaderView()
-        
-       
         view.backgroundColor = .white
         view.delegate = self
         return view
@@ -172,12 +204,15 @@ class SqlTableView: UIView {
         addSubview(whereTF)
         addSubview(titleTable)
         addSubview(valueScrollView)
+        addSubview(pageView)
         valueScrollView.addSubview(valueTableView) 
     }
     
     override func updateUI()
     {
         valueHeader.datas = keys
+        pageView.allPageCountLab.text = (self.allPage+1).string()
+        pageView.pageNoTF.text = (page.location+1).string()
         valueHeader.reloadUI()
         titleTable.reloadData()
         valueTableView.reloadData()
@@ -198,13 +233,13 @@ class SqlTableView: UIView {
         titleTable.snp.makeConstraints { make in
             make.top.equalTo(44)
             make.left.equalTo(0)
-            make.bottom.equalTo(0)
-            make.width.equalTo(50)
+            make.bottom.equalTo(-40)
+            make.width.equalTo(80)
         }
         valueScrollView.snp.makeConstraints { make in
             make.top.equalTo(44)
             make.left.equalTo(titleTable.snp.right)
-            make.bottom.equalTo(0)
+            make.bottom.equalTo(-40)
             make.right.equalTo(0)
         }
         valueTableView.snp.makeConstraints { make in
@@ -214,6 +249,12 @@ class SqlTableView: UIView {
             make.width.equalTo(keys.count*80)
             make.height.equalTo(titleTable)
             valueScrollView.contentSize = valueTableView.bounds.size
+        }
+        pageView.snp.makeConstraints { make in
+            make.top.equalTo(titleTable.snp.bottom)
+            make.left.equalToSuperview()
+            make.bottom.equalTo(0)
+            make.right.equalToSuperview()
         }
     }
    
@@ -254,7 +295,7 @@ extension SqlTableView:UITableViewDelegate,UITableViewDataSource,UIScrollViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == titleTable{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            cell.textLabel?.text = indexPath.row.string()
+            cell.textLabel?.text = ((page.location*page.length)+indexPath.row).string()
             cell.textLabel?.font = .systemFont(ofSize: 12)
             if indexPath.row%2==0{
                 cell.backgroundColor = .lightGray.alpha(0.2)
@@ -382,7 +423,10 @@ extension SqlTableView{
             sql.append(" order by \(sort.string()) \(desc ? "ASC" : "DESC")")
         }
         sql.append(" LIMIT \(page.length) OFFSET \(page.location*page.length) ")
+        
         loading()
+        let group = DispatchGroup()
+        group.enter()
         AF.af_select(sql) { result in
             
             switch result{
@@ -400,9 +444,44 @@ extension SqlTableView{
             case .failure(let err):
                 self.error(err)
             }
-            self.loadingDismiss()
+            group.leave()
             
+        }
+        
+        group.enter()
+        loadcount(group: group)
+        group.notify(queue: .main) {
+            self.loadingDismiss()
             self.updateUI()
+        }
+    }
+    
+    func loadcount(group:DispatchGroup){
+        saveCacheConfig()
+        var sql = """
+        select count(*) as count from \(tableName.string())
+        """
+        if  whereTF.text?.count ?? 0>0{
+            var wherestr:String = whereTF.text!
+            wherestr = wherestr.replacingOccurrences(of: "“", with: "'")
+            wherestr = wherestr.replacingOccurrences(of: "‘", with: "'")
+            sql.append(" where \(wherestr)")
+        }
+        if sort != nil{
+            sql.append(" order by \(sort.string()) \(desc ? "ASC" : "DESC")")
+        }
+       
+        AF.af_select(sql) { result in
+            
+            switch result{
+            case .success(let value):
+                if let first = value.first{
+                    self.allPage = first["count"].int()/self.page.length
+                }
+            case .failure(_ ):
+                self.error("总页码请求失败")
+            }
+            group.leave()
         }
     }
 }
