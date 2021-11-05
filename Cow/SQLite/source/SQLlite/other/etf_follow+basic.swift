@@ -12,8 +12,15 @@ extension SqlliteManage{
     func select_etfbasic_follow(
         orderby:[String] = ["t2.follow","t1.name"],
         limmit:NSRange = NSRange(location: 0, length: 10),
-        asc:Bool = true
+        asc:Bool = true,
+        keyword:String? = nil
     ) -> String{
+        var whereStr = ""
+        if keyword?.count ?? 0>0{
+            let key = keyword.string()
+            whereStr = " where t1.name like '%\(key)%' or t1.code like '%\(key)%' "
+        }
+      
         var t2 = "etffollow"
         if let userid = Global.share.user?.userId{
             t2 = " (select * from etffollow e where e.userId=\(userid)) "
@@ -23,6 +30,7 @@ extension SqlliteManage{
                 t2.status,t2.follow,t2.id
                 FROM  etfbasic t1
                 LEFT JOIN \(t2) t2 ON t1.code=t2.code
+                \(whereStr)
                 ORDER BY \(orderby.joined(separator: ",")) \(asc ? "ASC" : "DESC" )
                 LIMIT \(limmit.length) OFFSET \(limmit.location*limmit.length)
                 """

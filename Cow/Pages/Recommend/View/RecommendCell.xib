@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rrl-od-kaQ">
-                        <rect key="frame" x="0.0" y="0.0" width="120" height="233"/>
+                        <rect key="frame" x="8" y="4" width="120" height="225"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="r6R-wA-9Pc">
-                                <rect key="frame" x="24.5" y="73" width="71" height="87"/>
+                                <rect key="frame" x="24.5" y="69" width="71" height="87"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kirogi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEA-NY-IHK">
                                         <rect key="frame" x="0.0" y="0.0" width="71" height="31.5"/>
@@ -50,12 +50,20 @@
                             <constraint firstItem="r6R-wA-9Pc" firstAttribute="centerY" secondItem="Rrl-od-kaQ" secondAttribute="centerY" id="Oke-Q5-Qfb"/>
                             <constraint firstAttribute="width" constant="120" id="w4p-kj-2cM"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="mb_tlRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="mb_blRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGO-V2-FLS" customClass="YYLabel">
-                        <rect key="frame" x="120" y="0.0" width="410" height="233"/>
+                        <rect key="frame" x="128" y="4" width="394" height="225"/>
                         <subviews>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkw-yc-Z8n">
-                                <rect key="frame" x="364" y="187" width="44" height="44"/>
+                                <rect key="frame" x="346" y="177" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Dtq-h9-m2r"/>
                                     <constraint firstAttribute="width" constant="44" id="ER4-DT-ULu"/>
@@ -70,9 +78,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="defual_.3"/>
+                        <color key="tintColor" name="Text 4"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="gkw-yc-Z8n" secondAttribute="bottom" constant="2" id="Jdy-b7-dD1"/>
-                            <constraint firstAttribute="trailing" secondItem="gkw-yc-Z8n" secondAttribute="trailing" constant="2" id="sDl-8c-g2o"/>
+                            <constraint firstAttribute="bottom" secondItem="gkw-yc-Z8n" secondAttribute="bottom" constant="4" id="Jdy-b7-dD1"/>
+                            <constraint firstAttribute="trailing" secondItem="gkw-yc-Z8n" secondAttribute="trailing" constant="4" id="sDl-8c-g2o"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="numberOfLines">
@@ -93,28 +102,32 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="insetTop_">
                                 <real key="value" value="8"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="mb_trRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="mb_brRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" name="Text 4"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="44444"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <color key="backgroundColor" name="Background 1"/>
                 <constraints>
-                    <constraint firstItem="cGO-V2-FLS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="0JR-aX-z2i"/>
-                    <constraint firstAttribute="trailing" secondItem="cGO-V2-FLS" secondAttribute="trailing" id="6UY-IA-bvk"/>
-                    <constraint firstItem="Rrl-od-kaQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="DY1-Tf-9z6"/>
-                    <constraint firstItem="Rrl-od-kaQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="cms-E8-YV1"/>
-                    <constraint firstAttribute="bottom" secondItem="Rrl-od-kaQ" secondAttribute="bottom" id="ffn-yM-GUJ"/>
-                    <constraint firstAttribute="bottom" secondItem="cGO-V2-FLS" secondAttribute="bottom" id="gXI-e7-MQu"/>
+                    <constraint firstItem="cGO-V2-FLS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="0JR-aX-z2i"/>
+                    <constraint firstAttribute="trailing" secondItem="cGO-V2-FLS" secondAttribute="trailing" constant="8" id="6UY-IA-bvk"/>
+                    <constraint firstItem="Rrl-od-kaQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="DY1-Tf-9z6"/>
+                    <constraint firstItem="Rrl-od-kaQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="cms-E8-YV1"/>
+                    <constraint firstAttribute="bottom" secondItem="Rrl-od-kaQ" secondAttribute="bottom" constant="4" id="ffn-yM-GUJ"/>
+                    <constraint firstAttribute="bottom" secondItem="cGO-V2-FLS" secondAttribute="bottom" constant="4" id="gXI-e7-MQu"/>
                     <constraint firstItem="cGO-V2-FLS" firstAttribute="leading" secondItem="Rrl-od-kaQ" secondAttribute="trailing" id="qnp-zX-R5t"/>
                 </constraints>
                 <userDefinedRuntimeAttributes>
-                    <userDefinedRuntimeAttribute type="number" keyPath="mb_radius">
-                        <real key="value" value="8"/>
-                    </userDefinedRuntimeAttribute>
                     <userDefinedRuntimeAttribute type="color" keyPath="mb_borderColor">
-                        <color key="value" name="AccentColor"/>
-                    </userDefinedRuntimeAttribute>
-                    <userDefinedRuntimeAttribute type="number" keyPath="mb_borderWidth">
-                        <real key="value" value="1"/>
+                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </userDefinedRuntimeAttribute>
                 </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
@@ -133,11 +146,6 @@
             <point key="canvasLocation" x="207.24637681159422" y="60.602678571428569"/>
         </tableViewCell>
     </objects>
-    <designables>
-        <designable name="cGO-V2-FLS">
-            <size key="intrinsicContentSize" width="8" height="8"/>
-        </designable>
-    </designables>
     <resources>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <namedColor name="AccentColor">
@@ -148,6 +156,9 @@
         </namedColor>
         <namedColor name="Text 1">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text 4">
+            <color red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="defual_.3">
             <color red="0.38400000333786011" green="0.20399999618530273" blue="0.83499997854232788" alpha="0.30000001192092896" colorSpace="custom" customColorSpace="sRGB"/>

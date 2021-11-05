@@ -15,7 +15,7 @@ struct  TransactionEditModel:HandyJSON {
     var userId = 0
     var code = ""
     var type = 1 // 股票类型 1->股票 2->ETF
-    var bdate = "" // 买入时间
+    var bdate:String? // 买入时间
     var bprice = 0.0 // 买入价格
     var bcount = 0 //买入数量
     var bfree = 0.0 // 买入手续费
@@ -52,6 +52,14 @@ class Transaction {
     var storeCount:Int = 0
     
   
+    
+    // 最低成本
+    var lowcost:[String:Any] {
+        guard let low = datas.min(by: { $0["bprice"].double()<=$1["bprice"].double() }) else {
+            return [:]
+        }
+        return low
+    }
     // 最低收益
     var lowdata:[String:Any] {
         guard let low = datas.min(by: { $0["bprice"].double()>=$1["bprice"].double() }) else {
@@ -69,12 +77,20 @@ class Transaction {
         return hight
     }
     
-    func loadeDef()  {
-        
+    func loadeDef(type:Int=1)  {
+        var whereStr = """
+                    WHERE code = "\(code)" and userid=\(Global.share.user!.userId)
+                    """
+        // 持仓中
+        if type == 1{
+            whereStr.append(" and sprice<=0")
+        }else if type == 2{
+            whereStr.append(" and sprice>0")
+        }
         
         let sql = """
             SELECT  id,code, bdate,bprice,bfree,bcount,sdate,sprice,sfree,target,plan,remarks from rel_transaction
-            WHERE code = "\(code)" and userid=\(Global.share.user!.userId)
+            \(whereStr)
             ORDER BY bdate
             """
         
@@ -195,14 +211,16 @@ extension TransactionListViewController:UITableViewDelegate,UITableViewDataSourc
 
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        180
+        120
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionListCell", for: indexPath) as! TransactionListCell
         cell.celldata = dataSouce[indexPath.row]
+        
         cell.celldata?.delegate = cell
         cell.celldata?.loadeDef()
         cell.celldata?.updatePrice()
+    
      
         return cell
     }

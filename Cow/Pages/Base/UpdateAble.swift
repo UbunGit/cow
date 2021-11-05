@@ -14,6 +14,7 @@ protocol UpdateAble {
     func error(_ msg:Error)
 }
 extension UIView:UpdateAble{
+    
     @objc func updateUI() {
 
     }

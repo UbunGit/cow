@@ -95,22 +95,22 @@ class SchemeTemplateEditVC: BaseViewController {
         
     }
     func loadtemplateParams(){
-        guard let templateId = param?["id"] else{
+        guard let templateId:Int = param?["id"].int()  else{
             tableView.reloadData()
             return
         }
-        let sql = """
-        select * from scheme_template_param where template = \(templateId)
-        """
-        AF.af_select(sql) { result in
-            switch result{
-            case .success(let value):
-                self.templateParams = value
-            case .failure(let err):
-                self.view.error(err)
+       
+        AF.scheme_template_param_list(templateId)
+            .responseModel([[String:Any]].self) { result in
+                
+                switch result{
+                case .success(let value):
+                    self.templateParams = value
+                case .failure(let err):
+                    self.view.error(err)
+                }
+                self.tableView.reloadData()
             }
-            self.tableView.reloadData()
-        }
     }
 
     @IBAction func commitBtnClick(_ sender: Any) {

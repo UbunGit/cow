@@ -112,7 +112,7 @@ class SchemeTemplateParamEditVC: BaseViewController {
             dic["id"] = data
         }
         if let template = param?["template"] {
-            dic["template"] = template
+            dic["template_id"] = template
         }
         
         
@@ -122,7 +122,8 @@ class SchemeTemplateParamEditVC: BaseViewController {
                 self.view.loadingDismiss()
                 switch result{
                 case.success(_):
-                    self.dismiss(animated: true, completion: nil)
+                    UIView.success("保存成功")
+                    self.navigationController?.popViewController(animated: true)
                 case .failure(let err):
                     self.view.error(err)
                 }

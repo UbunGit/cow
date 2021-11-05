@@ -77,3 +77,17 @@ public extension UITextField{
     }
     
 }
+
+public class UGTextField:UITextField{
+    
+    public var offset:Float = 8 // 文字偏移
+    
+    public override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.insetBy(dx: CGFloat(offset), dy: 0)
+    }
+
+    // 输入后文本的位置，向右缩进10
+    public override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.insetBy(dx: CGFloat(offset), dy: 0)
+    }
+}

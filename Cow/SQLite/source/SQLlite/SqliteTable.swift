@@ -23,6 +23,20 @@ extension SqlliteManage{
        
        return datas
     }
+    func isExistsTable(_ name:String) -> Bool{
+        do{
+            let sql = """
+            SELECT * FROM sqlite_master
+            WHERE type="table" and name='\(name)'
+            """
+            guard let datas = try db?.prepare(sql).to_dict() else {
+                return false
+            }
+            return datas.count==1
+        }catch{
+            return false
+        }
+    }
     
     /**
      删除表
@@ -51,6 +65,19 @@ extension SqlliteManage{
             }
         }
         
+    }
+    
+    func createTable(_ name:String)-> Bool{
+        do{
+            guard let create = sm.sql_createTable(name) else {
+               
+                return false
+            }
+            _ = try db?.prepare(create)
+            return true
+        }catch{
+            return false
+        }
     }
     
 }

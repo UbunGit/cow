@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SchemeDesRecommendCell" customModule="Cow" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="395" height="195"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="395" height="195"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="v0n-vA-Oha">
+                        <rect key="frame" x="8" y="89" width="379" height="17"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="浦发银行" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGY-jg-pN2">
+                                <rect key="frame" x="0.0" y="0.0" width="95" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Cx-eg-QkH">
+                                <rect key="frame" x="95" y="0.0" width="94.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="买入" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgB-os-KZF">
+                                <rect key="frame" x="189.5" y="2.5" width="95" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="浦发银行" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Doy-hK-TFG">
+                                <rect key="frame" x="284.5" y="0.0" width="94.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAG-SD-bxq">
+                        <rect key="frame" x="0.0" y="77.5" width="2" height="40"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="QRA-Qx-jUG"/>
+                            <constraint firstAttribute="width" constant="2" id="UK9-c6-okF"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="v0n-vA-Oha" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="1hs-O8-1VQ"/>
+                <constraint firstItem="TAG-SD-bxq" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="JSk-k4-HTF"/>
+                <constraint firstItem="v0n-vA-Oha" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="LG7-0Z-OtK"/>
+                <constraint firstItem="TAG-SD-bxq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="P0X-lb-TCy"/>
+                <constraint firstAttribute="trailing" secondItem="v0n-vA-Oha" secondAttribute="trailing" constant="8" id="TTF-Sd-eDU"/>
+            </constraints>
+            <size key="customSize" width="395" height="195"/>
+            <connections>
+                <outlet property="codeLab" destination="Doy-hK-TFG" id="MuR-zv-bcI"/>
+                <outlet property="dirLab" destination="pgB-os-KZF" id="Q3a-lx-HPz"/>
+                <outlet property="nameLab" destination="bGY-jg-pN2" id="WCC-Ic-0Pg"/>
+                <outlet property="priceLab" destination="8Cx-eg-QkH" id="0g1-Jh-53e"/>
+            </connections>
+            <point key="canvasLocation" x="207.97101449275365" y="132.25446428571428"/>
+        </collectionViewCell>
+    </objects>
+</document>

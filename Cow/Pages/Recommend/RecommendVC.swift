@@ -84,9 +84,7 @@ extension RecommendVC:UITableViewDelegate,UITableViewDataSource{
         let row = dataSouce.count-indexPath.section-1
         return dataSouce[row].cellheight
     }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
-    }
+  
     
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

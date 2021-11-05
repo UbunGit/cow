@@ -83,20 +83,19 @@ extension SchemeTemplateListVC:UITableViewDelegate,UITableViewDataSource{
 
 extension SchemeTemplateListVC{
     func loadData(){
-        let sql = """
-        select * from scheme_template
-        """
         view.loading()
-        AF.af_select(sql) { result in
-            self.view.loadingDismiss()
-            switch result{
-            case.success(let value):
-                self.dataSouce = value
-            case .failure(let err):
-                self.view.error(err)
+        AF.scheme_template_list()
+            .responseModel([[String:Any]].self) { result in
+                self.view.loadingDismiss()
+                switch result{
+                case.success(let value):
+                    self.dataSouce = value
+                case .failure(let err):
+                    self.view.error(err)
+                }
+                self.updateUI()
             }
-            self.updateUI()
-        }
+        
     }
 }
 

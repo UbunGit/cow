@@ -129,6 +129,25 @@ let creatdTabledic =
             """
               
         ],
+        [
+            "name":"loc_ochl",
+            "create":
+             """
+               CREATE TABLE "loc_ochl" ( -- 本地ochl
+                       "date"    TEXT,
+                       "code"    TEXT,
+                       "open"    NUMERIC,
+                       "close"    NUMERIC,
+                       "high"    NUMERIC,
+                       "low"    NUMERIC,
+                       "vol"    NUMERIC,
+                       PRIMARY KEY("code","date")
+               );
+            """
+              
+        ],
+        
+        
        
        
       

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UITabBarController,UITabBarControllerDelegate
+class HomeTabViewController: UITabBarController,UITabBarControllerDelegate
 {
 
     lazy var nav1: BaseNavigationController = {
@@ -34,17 +34,17 @@ class ViewController: UITabBarController,UITabBarControllerDelegate
         return nav1
     }()
     
-    lazy var nav4: UINavigationController = {
+    lazy var nav4: BaseNavigationController = {
         let vc1 = SettingVC()
         vc1.title = "测试"
         vc1.tabBarItem.image = UIImage(systemName: "light.min")
         let nav1 = BaseNavigationController.init(rootViewController: vc1)
         return nav1
     }()
-    lazy var nav5: UINavigationController = {
-        let vc1 = SchemeTemplateListVC()
-        vc1.title = "设置"
-        vc1.tabBarItem.image = UIImage(systemName: "light.min")
+    lazy var nav5: BaseNavigationController = {
+        let vc1 = SchemeListViewController()
+        vc1.title = "策略"
+        vc1.tabBarItem.image = UIImage(systemName: "brain")
         let nav1 = BaseNavigationController.init(rootViewController: vc1)
         return nav1
     }()
@@ -73,6 +73,18 @@ class ViewController: UITabBarController,UITabBarControllerDelegate
 class BaseNavigationController: UINavigationController {
     override func viewDidLoad() {
         navigationBar.isTranslucent = false
+        if #available(iOS 15, *) {
+            let app = UINavigationBarAppearance.init()
+            app.configureWithOpaqueBackground()  // 重置背景和阴影颜色
+            app.titleTextAttributes = [
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18),
+                NSAttributedString.Key.foregroundColor: UIColor.cw_text6
+            ]
+            app.backgroundColor = UIColor.white  // 设置导航栏背景色
+    
+            navigationBar.scrollEdgeAppearance = app  // 带scroll滑动的页面
+            navigationBar.standardAppearance = app // 常规页面
+        }
         super.viewDidLoad()
     }
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {

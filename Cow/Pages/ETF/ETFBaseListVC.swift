@@ -8,19 +8,21 @@
 import UIKit
 import MJRefresh
 import Alamofire
+import Magicbox
 class ETFBaseListModel {
+    var keyword:String? = nil
     var delegate:BasetModelDelegate?
     var dataSouce:[[String:Any]] = []
     var range:NSRange = _NSRange(location: 0, length: 20)
     
     func updateDataSouce(){
-        let sql = sm.select_etfbasic_follow(limmit:range)
-        delegate?.view.loading()
+        let sql = sm.select_etfbasic_follow(limmit:range,keyword: keyword)
+//        delegate?.view.loading()
         AF.af_select(sql) { result in
-            self.delegate?.view.loadingDismiss()
+//            self.delegate?.view.loadingDismiss()
             switch result{
             case .success(let value):
-                if self.range.location==1 {
+                if self.range.location==0 {
                     self.dataSouce = value
                 }
                 else{
@@ -58,8 +60,17 @@ class ETFBaseListVC: BaseViewController {
     var selectClosure:(([String:Any])->())?
     @IBOutlet weak var tableView: UITableView!
     
-    lazy var tableHeadView:ETFBaseListSearchView = {
-        let header = ETFBaseListSearchView()
+    lazy var tableHeadView:BaseTableSearchHeaderView = {
+        let header = BaseTableSearchHeaderView.initWithNib()
+        header.frame = .init(x: 0, y: 0, width: KWidth, height: 160)
+        header.inputTF.setBlockFor(.editingChanged) { textField in
+            guard let tf = textField as? UITextField else{
+                return
+            }
+            self.pageData.range.location = 0
+            self.pageData.keyword = tf.text
+            self.pageData.updateDataSouce()
+        }
         return header
     }()
    
@@ -86,12 +97,11 @@ class ETFBaseListVC: BaseViewController {
 extension ETFBaseListVC:UITableViewDelegate,UITableViewDataSource{
     
     func configTableview()  {
-
-        tableView.estimatedRowHeight = 60
+        
         tableView.tableHeaderView = tableHeadView
         tableView.register(UINib(nibName: "ETFBaseListTableviewCell", bundle: nil), forCellReuseIdentifier: "ETFBaseListTableviewCell")
         tableView.mj_header = MJRefreshGifHeader(refreshingBlock: {
-            self.pageData.range.location = 1
+            self.pageData.range.location = 0
             self.pageData.updateDataSouce()
         })
         tableView.mj_footer = MJRefreshAutoFooter(refreshingBlock: {
@@ -138,6 +148,12 @@ extension ETFBaseListVC:UITableViewDelegate,UITableViewDataSource{
         
         return UISwipeActionsConfiguration(actions: [ archiveAction])
     }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        return tableHeadView
+//    }
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 44
+//    }
     
     
 }

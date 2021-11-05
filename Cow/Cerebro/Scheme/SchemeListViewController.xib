@@ -9,9 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IPURLConfigVC" customModule="Cow" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SchemeListViewController" customModule="Cow" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="9TF-wY-FJm" id="GaC-VC-c25"/>
+                <outlet property="tableView" destination="Vkx-mr-XUc" id="S5k-GW-F67"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,29 +20,29 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9TF-wY-FJm">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Vkx-mr-XUc">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="vwu-4s-s7f"/>
-                        <outlet property="delegate" destination="-1" id="GcP-Xe-ENr"/>
-                    </connections>
+                    <color key="sectionIndexBackgroundColor" systemColor="tintColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="9TF-wY-FJm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="CE5-nh-OO4"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="9TF-wY-FJm" secondAttribute="bottom" id="LMH-Ag-HSI"/>
-                <constraint firstItem="9TF-wY-FJm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="PTO-Zj-mfk"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9TF-wY-FJm" secondAttribute="trailing" id="yx4-rS-ksu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Vkx-mr-XUc" secondAttribute="bottom" id="E6S-K7-CpP"/>
+                <constraint firstItem="Vkx-mr-XUc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="RE2-kU-n6y"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vkx-mr-XUc" secondAttribute="trailing" id="VdB-im-UD3"/>
+                <constraint firstItem="Vkx-mr-XUc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nLa-vs-nhE"/>
             </constraints>
-            <point key="canvasLocation" x="133" y="90"/>
+            <point key="canvasLocation" x="139" y="86"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

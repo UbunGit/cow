@@ -7,14 +7,39 @@
 
 import UIKit
 
-class TransactionListTableHeader: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+class TransactionListTableHeader: UIControl {
+    var value:Int = 1{
+        didSet{
+            self.sendActions(for: .valueChanged)
+        }
     }
-    */
-
+    
+    @IBAction func valueChange(_ sender: Any) {
+       
+        guard let btn = sender as? UIButton else{
+            return
+        }
+        if btn.tag == value{
+            return
+        }
+        if let obtn = viewWithTag(value) as? UIButton{
+            obtn.isSelected = false
+            obtn.mb_borderColor = .clear
+        
+        }
+        value = btn.tag
+        btn.isSelected = true
+        btn.mb_borderColor = .theme
+  
+    }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        if let obtn = viewWithTag(value) as? UIButton{
+            obtn.isSelected = true
+            obtn.mb_borderColor = .theme
+       
+        }
+      
+    }
 }
+

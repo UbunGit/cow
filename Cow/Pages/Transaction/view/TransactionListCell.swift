@@ -53,6 +53,7 @@ class TransactionListCell: UITableViewCell {
     @IBOutlet weak var lowyieldLab: UILabel! //
     @IBOutlet weak var lowEarningsLab: UILabel!
     
+    @IBOutlet weak var remarkImg: UIImageView! // 买卖提醒
     @IBOutlet weak var hightYieldLab: UILabel!
     @IBOutlet weak var hightEarningsLab: UILabel!
     @IBOutlet weak var ballanceLab: UILabel!
@@ -78,8 +79,8 @@ class TransactionListCell: UITableViewCell {
         limitLine.label = "当前价\n\(data.price)"
         nowpriceLab.text = "当前价:\(data.price)"
         chareView.animate(yAxisDuration: 0.35)
-        chareView.legend.verticalAlignment = .bottom
-        chareView.legend.horizontalAlignment = .left
+        chareView.legend.verticalAlignment = .top
+        chareView.legend.horizontalAlignment = .right
         chareView.legend.drawInside = false
       
         if data.price != 0 {
@@ -89,17 +90,36 @@ class TransactionListCell: UITableViewCell {
             let bcount = low["bcount"].int()
             let yi = data.price-value
             lowyieldLab.text = (yi/data.price).percentStr()
-            lowEarningsLab.text = (yi*bcount.double()).price()
+            lowEarningsLab.text = (yi*bcount.double()).price("%0.1f")
+            
+            
+            
             // 最高收益
             let hight = data.hightData
             let hvalue = hight["bprice"].double()
             let hbcount = hight["bcount"].int()
             let h = data.price-hvalue
-            hightYieldLab.text = (h/data.price).percentStr()
-            hightEarningsLab.text = (h*hbcount.double()).price()
+            let hi = h/data.price
+            hightYieldLab.text = hi.percentStr()
+            hightEarningsLab.text = (h*hbcount.double()).price("%0.1f")
             let red = data.datas.reduce(0) {
                 $0 + $1["bcount"].double() * $1["bprice"].double()
             }
+            
+            // 最低成本收益率
+      
+            let lowcost = data.lowcost
+            let lowcostprice = lowcost["bprice"].double()
+            let lowcosttarget = lowcost["target"].double()
+            let lowx = lowcostprice/data.price
+            remarkImg.tintColor = .white
+            if lowcosttarget<=data.price{
+                remarkImg.tintColor = .red
+            }
+            if lowx <= 0.9{
+                remarkImg.tintColor = .blue
+            }
+            
             
             ballanceLab.text = red.price()
          
@@ -122,8 +142,17 @@ class TransactionListCell: UITableViewCell {
         
         
         let bpriceSets =  data.datas.enumerated().map { (index,item) -> BarChartDataEntry in
-             BarChartDataEntry(x:index.double() , y: item["bprice"].double())
+            let bprice = item["bprice"].double()
+         
+            if bprice>data.price{
+                return BarChartDataEntry(x:index.double() , y: item["bprice"].double(), icon: .init(named: "hand.thumbsdown.fill"))
+            }else{
+                return BarChartDataEntry(x:index.double() , y: item["bprice"].double(), icon: .init(named: "hand.thumbsup.fill"))
+            }
+             
+ 
         }
+       
         let bpriceSet = BarChartDataSet(entries: bpriceSets,label: "买入价")
         bpriceSet.colors = [.yellow.alpha(0.5)]
         

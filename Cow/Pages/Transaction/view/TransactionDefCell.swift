@@ -45,17 +45,31 @@ class TransactionDefCell: UITableViewCell {
         chartView.data = barset()
         countLab.text = cellData["bcount"].string()
         bdateLab.text = cellData["bdate"].string()
-        if price != 0 {
-            let cha = price - cellData["bprice"].double()
-            yaidLab.text = (cha/price).percentStr()
+        let sellprice = cellData["sprice"].double()
+        
+        // 已卖出
+        if sellprice>0{
+            let cha = sellprice - cellData["bprice"].double()
+            yaidLab.text = (cha/sellprice).percentStr()
             esLab.text = (cha * cellData["bcount"].double()).price()
             if cha > 0 {
                 chartView.backgroundColor = .red.alpha(0.1)
             }else{
                 chartView.backgroundColor = .green.alpha(0.1)
             }
-           
+        }else{
+            if price != 0 {
+                let cha = price - cellData["bprice"].double()
+                yaidLab.text = (cha/price).percentStr()
+                esLab.text = (cha * cellData["bcount"].double()).price()
+                if cha > 0 {
+                    chartView.backgroundColor = .red.alpha(0.1)
+                }else{
+                    chartView.backgroundColor = .green.alpha(0.1)
+                }
+            }
         }
+       
         
         
     }
@@ -64,9 +78,16 @@ class TransactionDefCell: UITableViewCell {
         
         let set0 = BarChartDataSet(entries: [BarChartDataEntry(x:0 , y: cellData["bprice"].double())], label: "成本\(cellData["bprice"].price())")
         set0.colors = [.red.alpha(0.1)]
+        let sellprice = cellData["sprice"].double()
+        var set2:BarChartDataSet
+        if sellprice>0{
+            set2 = BarChartDataSet(entries: [BarChartDataEntry(x:2 , y: sellprice)], label: "卖出价\(sellprice.price())")
+            set2.colors = [.red.alpha(0.2)]
+        }else{
+            set2 = BarChartDataSet(entries: [BarChartDataEntry(x:2 , y: price)], label: "现价\(price.price())")
+            set2.colors = [.red.alpha(0.2)]
+        }
         
-        let set2 = BarChartDataSet(entries: [BarChartDataEntry(x:2 , y: price)], label: "现价\(price.price())")
-        set2.colors = [.red.alpha(0.2)]
 
         
         let set1 = BarChartDataSet(entries: [BarChartDataEntry(x:1 , y: cellData["target"].double())], label: "目标\(cellData["target"].price())")

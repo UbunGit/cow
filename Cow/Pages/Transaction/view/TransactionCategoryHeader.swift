@@ -1,13 +1,13 @@
 //
-//  ETFBaseListSearchView.swift
+//  TransactionCategoryHeader.swift
 //  Cow
 //
-//  Created by admin on 2021/9/5.
+//  Created by admin on 2021/11/2.
 //
 
 import UIKit
 
-class ETFBaseListSearchView: UIView {
+class TransactionCategoryHeader: UITableViewHeaderFooterView {
 
     /*
     // Only override draw() if you perform custom drawing.

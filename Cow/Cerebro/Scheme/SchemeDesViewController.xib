@@ -9,9 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IPURLConfigVC" customModule="Cow" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SchemeDesViewController" customModule="Cow" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="9TF-wY-FJm" id="GaC-VC-c25"/>
+                <outlet property="collectionView" destination="kKO-bf-bSA" id="mr6-GG-I38"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,24 +20,30 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9TF-wY-FJm">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="kKO-bf-bSA">
+                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="yRk-gQ-BR8">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="vwu-4s-s7f"/>
-                        <outlet property="delegate" destination="-1" id="GcP-Xe-ENr"/>
+                        <outlet property="dataSource" destination="-1" id="q0p-KH-hAU"/>
+                        <outlet property="delegate" destination="-1" id="br3-AT-x2W"/>
                     </connections>
-                </tableView>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="9TF-wY-FJm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="CE5-nh-OO4"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="9TF-wY-FJm" secondAttribute="bottom" id="LMH-Ag-HSI"/>
-                <constraint firstItem="9TF-wY-FJm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="PTO-Zj-mfk"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9TF-wY-FJm" secondAttribute="trailing" id="yx4-rS-ksu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="kKO-bf-bSA" secondAttribute="bottom" id="Lte-DT-mSh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kKO-bf-bSA" secondAttribute="trailing" id="PSr-Op-AT8"/>
+                <constraint firstItem="kKO-bf-bSA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="eBr-VD-U9D"/>
+                <constraint firstItem="kKO-bf-bSA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="44" id="x1C-mW-brC"/>
             </constraints>
-            <point key="canvasLocation" x="133" y="90"/>
+            <point key="canvasLocation" x="139" y="86"/>
         </view>
     </objects>
     <resources>

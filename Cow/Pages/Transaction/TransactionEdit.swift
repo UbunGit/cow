@@ -29,7 +29,7 @@ class TransactionEdit: BaseViewController {
     @IBOutlet weak var spriceTF: UITextField!
     @IBOutlet weak var sdateDP: UIDatePicker!
     
-    @IBOutlet weak var targetTF: UITextField!
+    @IBOutlet weak var targetTF: AutoInputView!
     @IBOutlet weak var planTF: UITextField!
     @IBOutlet weak var remarkTF: UITextField!
     
@@ -38,11 +38,18 @@ class TransactionEdit: BaseViewController {
         super.viewDidLoad()
      
         updateUI()
+        targetTF.x5Btn.setBlockFor(.touchUpInside){ _ in
+            self.targetTF.text = (self.bpriceTF.text.double()*1.05).price()
+        }
+        targetTF.x10Btn.setBlockFor(.touchUpInside) { _ in
+            self.targetTF.text = (self.bpriceTF.text.double()*1.10).price()
+        }
+       
     }
     override func updateUI() {
         typeBtn.setTitle(editData.typeStr, for: .normal)
         codeTF.text = editData.code
-        bdateDP.setDate(editData.bdate.date("yyyyMMdd"), animated: true)
+        bdateDP.setDate(editData.bdate.string().date(), animated: true)
         bcountTF.text = editData.bcount.string()
         bpriceTF.text = editData.bprice.price()
         bfreeTF.text = editData.bfree.price()
@@ -130,7 +137,7 @@ class TransactionEdit: BaseViewController {
                 code = '\(editData.code)',
                 bcount = \(editData.bcount),
                 type =\(editData.type),
-                bdate = '\(editData.bdate)',
+                bdate = '\(editData.bdate.string())',
                 bprice = \(editData.bprice),
                 bfree =  \(editData.bfree),
                 sdate = '\(editData.sdate.string())',
@@ -150,7 +157,7 @@ class TransactionEdit: BaseViewController {
                 '\(editData.code)',
                 \(editData.bcount),
                 \(editData.type),
-                '\(editData.bdate)',
+                '\(editData.bdate.string())',
                 \(editData.bprice),
                 \(editData.bfree),
                 '\(editData.sdate.string())',
@@ -214,4 +221,37 @@ extension UIViewController{
     }
 }
 
+
+class AutoInputView:UITextField{
+    public lazy var x5Btn:UIButton = {
+        let btn = UIButton.init(frame: .init(x: 0, y: 0, width: 44, height: 32))
+        btn.setTitle("x5", for: .normal)
+        btn.mb_radius = 4
+        btn.mb_borderWidth = 0.5
+        btn.mb_borderColor = .theme
+        btn.setTitleColor(.theme, for: .normal)
+        return btn
+    }()
+    public lazy var x10Btn:UIButton = {
+        let btn = UIButton.init(frame: .init(x: 46, y: 0, width: 44, height: 32))
+        btn.mb_borderWidth = 0.5
+        btn.mb_radius = 4
+        btn.mb_borderColor = .theme
+        btn.setTitle("x10", for: .normal)
+        btn.setTitleColor(.theme, for: .normal)
+        return btn
+    }()
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        let rvview = UIView.init(frame: .init(x: 0, y: 0, width: 90, height: 32))
+        rightView = rvview
+        rightViewMode = .always
+        rightView?.addSubview(x5Btn)
+        rightView?.addSubview(x10Btn)
+    
+     
+    }
+    
+}
 

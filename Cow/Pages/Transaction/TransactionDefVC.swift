@@ -12,6 +12,7 @@ import YYKit
 class TransactionDefVC: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
     var data:Transaction = Transaction()
     
     
@@ -27,6 +28,7 @@ class TransactionDefVC: BaseViewController {
         
         return button
     }()
+    
     lazy var refresh: UIButton = {
         let button = UIButton.init(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
         button.setImage(.init(systemName: "arrow.clockwise"), for: .normal)
@@ -69,9 +71,17 @@ class TransactionDefVC: BaseViewController {
     }
     func reloadData()  {
         refresh.beginrefresh()
-        data.loadeDef()
+        data.loadeDef(type: tableCategoryHeader.value)
         data.updatePrice()
     }
+    
+    lazy var tableCategoryHeader:TransactionListTableHeader = {
+        let header = TransactionListTableHeader.initWithNib()
+        header.addBlock(for: .valueChanged) { _ in
+            self.reloadData()
+        }
+        return header
+    }()
     
     
     
@@ -84,12 +94,14 @@ extension TransactionDefVC:UITableViewDelegate,UITableViewDataSource{
         tableView.backgroundColor = .clear
         tableView.register(UINib(nibName: "TransactionListCell", bundle: nil), forCellReuseIdentifier: "TransactionListCell")
         tableView.register(UINib(nibName: "TransactionDefCell", bundle: nil), forCellReuseIdentifier: "TransactionDefCell")
+
         
         tableView.mj_header = MJRefreshGifHeader(refreshingBlock: {
             self.reloadData()
         })
         
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -136,5 +148,16 @@ extension TransactionDefVC:UITableViewDelegate,UITableViewDataSource{
         vc.editData = moden
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section{
+        case 1:
+            return 44
+        default:
+            return 0
+        }
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return tableCategoryHeader
     }
 }

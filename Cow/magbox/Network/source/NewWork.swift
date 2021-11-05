@@ -10,7 +10,13 @@ import Alamofire
 import HandyJSON
 
 var baseurl:String{
-    UserDefaults.standard.string(forKey: "baseurl") ?? "http://47.107.38.1"
+    get{
+        UserDefaults.standard.string(forKey: "baseurl") ?? "http://47.107.38.1"
+    }
+    set{
+        UserDefaults.standard.set(newValue, forKey: "baseurl")
+    }
+    
 }
 
 //typealias ResultClosure<T> = (Result<T, Error>)  ->  ()
@@ -21,12 +27,12 @@ extension DataRequest{
         var code:Int = -1
         var message:String = ""
         var data:T?
-      
+        
     }
     
     func debugLog(_ json:AFDataResponse<Any>) {
-        #if DEBUG
-
+#if DEBUG
+        
         guard let request = performedRequests.last ?? lastRequest,
               let url = request.url,
               let method = request.httpMethod,
@@ -35,19 +41,19 @@ extension DataRequest{
             return debugPrint("DM No request created yet.")
         }
         var body = ""
-
+        
         if let instream:String = String(data: try! Data.init(reading: request.httpBodyStream), encoding: .utf8){
             body = instream.removingPercentEncoding ?? "--"
             body = body.split(separator: "&").map{$0}.joined(separator: "\n\t")
         }
-
+        
         let requestDescription = "\(method) \(url.absoluteString)"
         let state  =  response.map { "\(requestDescription) (\($0.statusCode))" } ?? requestDescription
         let result = json.description
         let icon = (response?.statusCode == 200) ? "🧘‍♂️" : " 🧱"
-
+        
         print(
-
+            
             """
             *****************\(icon)******************
             url:\(state)
@@ -57,12 +63,12 @@ extension DataRequest{
             ******************************************
             """
         )
-
-        #endif
-
+        
+#endif
+        
     }
     
-
+    
     open func responseModel<T>(_ type: T.Type, callback:@escaping (Result<T,Error>)  ->  ()) {
         
         self.responseJSON { (response) in
@@ -106,7 +112,7 @@ extension Data {
     
     init(reading input: InputStream?) throws {
         
-      
+        
         self.init()
         guard let stream = input else {
             return
@@ -115,7 +121,7 @@ extension Data {
         defer {
             stream.close()
         }
-
+        
         let bufferSize = 1024
         let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: bufferSize)
         defer {
@@ -142,15 +148,58 @@ extension Session {
         let url = "\(baseurl)/select"
         let param = ["sql":sql]
         print("🐶："+sql)
-        self.request(url, method: .post, parameters: param, encoder: JSONParameterEncoder.default)
+        self.request(url, method: .post,
+                     parameters: param,
+                     encoder: JSONParameterEncoder.default,
+                     requestModifier: { urlRequest in
+            urlRequest.timeoutInterval = 15
+        }
+        )
             .responseModel([[String:Any]].self, callback: callback)
     }
+    
     func af_update(_ sql:String, callback:@escaping (Result<[String:Any], Error>)  ->  ())  {
         print("🐒："+sql)
         let url = "\(baseurl)/update"
         let param = ["sql":sql]
-        self.request(url, method: .post, parameters: param, encoder: JSONParameterEncoder.default)
+        self.request(url,
+                     method: .post,
+                     parameters: param,
+                     encoder: JSONParameterEncoder.default,
+                     requestModifier: { urlRequest in
+            urlRequest.timeoutInterval = 15
+        }
+        )
             .responseModel([String:Any].self, callback: callback)
+    }
+    
+    func select(_ sql:String) -> DataRequest  {
+        let url = "\(baseurl)/select"
+        let param = ["sql":sql]
+        print("🐶："+sql)
+        return self.request(url, method: .post,
+                            parameters: param,
+                            encoder: JSONParameterEncoder.default,
+                            requestModifier: { urlRequest in
+            urlRequest.timeoutInterval = 15
+        }
+        )
+        
+    }
+    
+    func update(_ sql:String) -> DataRequest  {
+        print("🐒："+sql)
+        let url = "\(baseurl)/update"
+        let param = ["sql":sql]
+        return  self.request(url,
+                             method: .post,
+                             parameters: param,
+                             encoder: JSONParameterEncoder.default,
+                             requestModifier: { urlRequest in
+            urlRequest.timeoutInterval = 15
+        }
+        )
+        
     }
 }
 

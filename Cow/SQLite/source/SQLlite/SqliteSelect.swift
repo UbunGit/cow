@@ -11,6 +11,19 @@ import Magicbox
 
 extension SqlliteManage{
     
+    func select(_ sql:String)  -> [[String:Any]]{
+        do{
+            guard let datas = try db?.prepare(sql).to_dict() else {
+                return []
+            }
+            return datas
+            
+        }catch {
+            print("error:\(error)")
+            return []
+        }
+    }
+    
     func info(table:String)throws -> [[String:Any]]{
         let sql = """
             PRAGMA table_info(\(table));
@@ -52,17 +65,7 @@ extension SqlliteManage{
               orderby:[String] = [],
               isasc:Bool = false)throws -> [String:Any]? {
         
-        var sql = """
-            SELECT * FROM  \(table)
-            """
-        if orderby.count>0 {
-            sql.append("""
-            ORDER BY \(orderby.joined(separator: ",")) \(isasc ? "ASC" : "" )
-            """)
-            sql.append("""
-            LIMIT 1 OFFSET 0
-            """)
-        }
+        let sql = self.lastsql(table: table,orderby:orderby, isasc:isasc)
         guard let datas = try db?.prepare(sql).to_dict() else {
             return [:]
         }
