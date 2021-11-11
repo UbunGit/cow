@@ -12,19 +12,35 @@ class SchemeDesViewController: BaseViewController {
     var schemeId:Int = 0
     
     @IBOutlet weak var collectionView: UICollectionView!
+    // 推荐列表
     lazy var recommendData: SchemeDesRecommendData = {
         let data = SchemeDesRecommendData()
+        data.loadData()
         data.valueChange = {
             self.collectionView.reloadData()
+//            self.collectionView.reloadItems(at: [.init(row: 0, section: 0)])
         }
-        data.loadData()
+        
         return data
     }()
+    // 股票池
     lazy var schemePoolData: SchemeDesPool = {
         let data = SchemeDesPool()
         data.valueChange = {
             self.collectionView.reloadData()
+//            self.collectionView.reloadItems(at: [.init(row: 0, section: 5)])
         }
+        data.loadData()
+        return data
+    }()
+    // 回测曲线
+    lazy var yieldCurve:SchemeYieldCurve = {
+        let data = SchemeYieldCurve()
+        data.valueChange = {
+            self.collectionView.reloadData()
+//            self.collectionView.reloadItems(at: [.init(row: 0, section: 1)])
+        }
+        
         data.loadData()
         return data
     }()
@@ -49,6 +65,7 @@ class SchemeDesViewController: BaseViewController {
         collectionView.register(CollectionHeaderCell.self, forCellWithReuseIdentifier: "CollectionHeaderCell")
         collectionView.register(UINib(nibName: "SchemeDesRecommendCell", bundle: nil), forCellWithReuseIdentifier: "SchemeDesRecommendCell")
         collectionView.register(UINib(nibName: "SchemeDesPoolCell", bundle: nil), forCellWithReuseIdentifier: "SchemeDesPoolCell")
+        collectionView.register(UINib(nibName: "SchemeYieldCurveCell", bundle: nil), forCellWithReuseIdentifier: "SchemeYieldCurveCell")
         
         collectionView.register(UINib(nibName: "SchemeDesRecommendHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SchemeDesRecommendHeader")
         collectionView.register(UINib(nibName: "HTCollectionBaseHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HTCollectionBaseHeaderView")
@@ -81,6 +98,8 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
         switch section{
         case 0:
             return recommendData.datas.count
+        case 1:
+            return 1
         case 5:
             return schemePoolData.datas.count
         default:
@@ -95,6 +114,12 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SchemeDesRecommendCell", for: indexPath) as!  SchemeDesRecommendCell
             cell.celldata = recommendData.datas[indexPath.row]
             return cell
+        case 1:
+        
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SchemeYieldCurveCell", for: indexPath) as!  SchemeYieldCurveCell
+            cell.celldata = yieldCurve
+            return cell
+            
         case 5:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SchemeDesPoolCell", for: indexPath) as!  SchemeDesPoolCell
             cell.celldata = schemePoolData.datas[indexPath.row]
@@ -117,6 +142,8 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
         switch indexPath.section{
         case 0:
             return .init(width: collectionView.width, height: 44)
+        case 1:
+            return .init(width: collectionView.width, height: 300)
         case 5:
             return .init(width: (collectionView.width/2)-16, height: 62)
         default:
@@ -128,6 +155,8 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
         switch section{
         case 0:
             return .init(width: collectionView.width, height: 84)
+        case 1:
+            return .init(width: collectionView.width, height: 44)
         case 5:
             return .init(width: collectionView.width, height: 44)
         default:
@@ -140,6 +169,11 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
             switch indexPath.section{
             case 0: //今日推荐
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SchemeDesRecommendHeader", for: indexPath)
+                return header
+            case 1: //回测曲线
+                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HTCollectionBaseHeaderView", for: indexPath) as! HTCollectionBaseHeaderView
+                header.titleLab.text = "回测曲线"
+                
                 return header
             case 5: //选股池
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HTCollectionBaseHeaderView", for: indexPath) as! HTCollectionBaseHeaderView

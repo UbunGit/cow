@@ -13,12 +13,14 @@ extension SqlliteManage{
     
     func select(_ sql:String)  -> [[String:Any]]{
         do{
+            
             guard let datas = try db?.prepare(sql).to_dict() else {
                 return []
             }
             return datas
             
         }catch {
+            print("err sql:\(sql)")
             print("error:\(error)")
             return []
         }

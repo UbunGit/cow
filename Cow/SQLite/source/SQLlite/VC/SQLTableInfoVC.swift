@@ -8,9 +8,11 @@
 import UIKit
 import Alamofire
 class SQLTableInfoVC: UIViewController {
-
+ 
     @objc var tableInfo:[String:Any] = [:]
+   
     var tableName:String!
+    var rootIN = 0 //表来源 0->服务器 1->本地
     
     @IBOutlet weak var createSql: UILabel!
     @IBOutlet weak var countLab: UILabel!
@@ -18,7 +20,9 @@ class SQLTableInfoVC: UIViewController {
     @IBOutlet weak var infoLab: UILabel!
     
     lazy var dataView:SqlTableView = {
+        
         let table = SqlTableView()
+        table.rootIn = rootIN
         table.tableName = tableName
         return table
     }()
@@ -81,20 +85,6 @@ class SQLTableInfoVC: UIViewController {
             self.countLab.text = "数据量：\(countdata.description)"
         }
         
-//
-//        do {
-//
-//            let count = try sm.count(table: tablename)
-//            countLab.text = "数据量：\(count)"
-//            let lastdata = try sm.last(table: tablename)
-//            lastDataLab.text = lastdata?.description
-//
-//            let tableinfo = try sm.info(table: tablename)
-//            infoLab.text = tableinfo.map({ $0.description
-//            }).joined(separator: "\n")
-//        } catch  {
-//            view.error(error.localizedDescription)
-//        }
     }
 
 
@@ -108,4 +98,30 @@ class SQLTableInfoVC: UIViewController {
         }
     }
 
+}
+
+class SQLLocalTableInfoVC:SQLTableInfoVC{
+    
+    override func updateUI()  {
+        dataView.loadData()
+        guard let tablename = tableInfo["name"] as? String else {
+            return
+        }
+
+    
+ 
+        if let sql = tableInfo["sql"] as? String {
+                    createSql.text = sql
+                }
+        
+        let lastqsl = sm.lastsql(table: tablename,isasc:true)
+        let lastdata = sm.select(lastqsl)
+        let countsql = sm.countsql(table: tablename)
+        let countdata = sm.select(countsql)
+        self.lastDataLab.text = lastdata.description
+        self.countLab.text = "数据量：\(countdata.description)"
+       
+        
+    }
+    
 }

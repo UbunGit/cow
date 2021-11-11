@@ -102,6 +102,7 @@ class SqlTableValueCell:UITableViewCell{
 class SqlTableView: UIView {
     
     var tableName:String!
+    var rootIn = 0 // 0 服务器 1 本的
     
     var page:NSRange = NSRange(location: 0, length: 10)
     var sort:String? = nil
@@ -364,12 +365,7 @@ extension SqlTableView:StackHeaderViewDelegate{
     
     
 }
-extension SqlTableView:UITextFieldDelegate{
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        loadData()
-//    }
-}
+
 
 extension SqlTableView{
     
@@ -423,6 +419,34 @@ extension SqlTableView{
             sql.append(" order by \(sort.string()) \(desc ? "ASC" : "DESC")")
         }
         sql.append(" LIMIT \(page.length) OFFSET \(page.location*page.length) ")
+        if rootIn==0{
+            serverLoadData(sql)
+        }else{
+            localLoadData(sql)
+        }
+     
+    }
+    func localLoadData(_ sql:String){
+        self.dataSource = sm.select(sql)
+        if let first = self.dataSource .first{
+            let fkeys = first.keys
+            self.keys = self.keys.filter { fkeys.contains($0) }
+            fkeys.forEach {
+                if self.keys.contains($0) == false{
+                    self.keys.append($0)
+                }
+            }
+        }
+        let countsql = countSql()
+        if let first = sm.select(countsql).first{
+            self.allPage = first["count"].int()/self.page.length
+        }
+        self.updateUI()
+       
+    }
+    
+    func serverLoadData(_ sql:String){
+      
         
         loading()
         let group = DispatchGroup()
@@ -455,9 +479,7 @@ extension SqlTableView{
             self.updateUI()
         }
     }
-    
-    func loadcount(group:DispatchGroup){
-        saveCacheConfig()
+    func countSql()->String{
         var sql = """
         select count(*) as count from \(tableName.string())
         """
@@ -470,6 +492,11 @@ extension SqlTableView{
         if sort != nil{
             sql.append(" order by \(sort.string()) \(desc ? "ASC" : "DESC")")
         }
+        return sql
+    }
+    func loadcount(group:DispatchGroup){
+        saveCacheConfig()
+        let sql = countSql()
        
         AF.af_select(sql) { result in
             

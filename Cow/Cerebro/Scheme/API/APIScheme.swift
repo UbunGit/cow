@@ -98,9 +98,10 @@ extension Session {
     func dailydata(_ code:String,type:Int,begin:String?=nil,end:String?=nil) -> DataRequest{
         var sql = ""
         if type == 0{
-            sql = " SELECT * FROM etfdaily "
-        }else if type == 1{
             sql = " SELECT * FROM stockdaily "
+        }else if type == 1{
+            sql = " SELECT * FROM etfdaily "
+            
         }
         var wherestr = " where code='\(code)' "
         if let be = begin,
@@ -113,6 +114,7 @@ extension Session {
         }else if let en = end{
             wherestr.append(" AND date<'\(en)' ")
         }
+        sql.append(wherestr)
         return AF.select(sql)
     }
     

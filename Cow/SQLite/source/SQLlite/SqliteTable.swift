@@ -73,7 +73,7 @@ extension SqlliteManage{
                
                 return false
             }
-            _ = try db?.prepare(create)
+            _ = try db?.execute(create)
             return true
         }catch{
             return false

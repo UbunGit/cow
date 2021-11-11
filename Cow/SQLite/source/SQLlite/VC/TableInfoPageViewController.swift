@@ -10,6 +10,7 @@ import Magicbox
 
 class TableInfoPageViewController: BaseViewController {
 
+    var rootIN = 0 //表来源 0->服务器 1->本地
     var tableName:String!
     lazy var scrollerView: UIScrollView = {
         let scroller = UIScrollView()
@@ -26,8 +27,9 @@ class TableInfoPageViewController: BaseViewController {
     }()
     
     lazy var viewControllers: [UIViewController] = {
-        let infovc = SQLTableInfoVC()
+        let infovc = (rootIN==0) ? SQLTableInfoVC() : SQLLocalTableInfoVC()
         infovc.tableName = tableName
+        infovc.rootIN = rootIN
         let vcs = [
             infovc,
             BaseViewController(),

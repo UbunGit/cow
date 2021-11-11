@@ -120,6 +120,7 @@
 		849E9B592702C9BF00864C2A /* FormTextInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849E9B572702C9BF00864C2A /* FormTextInputCell.xib */; };
 		849E9B5C2702DAB200864C2A /* SchemeTemplateEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E9B5A2702DAB200864C2A /* SchemeTemplateEditVC.swift */; };
 		849E9B5D2702DAB200864C2A /* SchemeTemplateEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849E9B5B2702DAB200864C2A /* SchemeTemplateEditVC.xib */; };
+		84A51D4E273D0E1D0009684B /* Style_LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A51D4D273D0E1D0009684B /* Style_LineChartView.swift */; };
 		84B25E1726DC984E00284679 /* ETFRecommendDetaiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B25E1526DC984E00284679 /* ETFRecommendDetaiVC.swift */; };
 		84B25E1826DC984E00284679 /* ETFRecommendDetaiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B25E1626DC984E00284679 /* ETFRecommendDetaiVC.xib */; };
 		84B443ED26EB324B00768F60 /* TransactionDefCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B443EB26EB324A00768F60 /* TransactionDefCell.swift */; };
@@ -301,6 +302,7 @@
 		849E9B572702C9BF00864C2A /* FormTextInputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormTextInputCell.xib; sourceTree = "<group>"; };
 		849E9B5A2702DAB200864C2A /* SchemeTemplateEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeTemplateEditVC.swift; sourceTree = "<group>"; };
 		849E9B5B2702DAB200864C2A /* SchemeTemplateEditVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchemeTemplateEditVC.xib; sourceTree = "<group>"; };
+		84A51D4D273D0E1D0009684B /* Style_LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style_LineChartView.swift; sourceTree = "<group>"; };
 		84B25E1526DC984E00284679 /* ETFRecommendDetaiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFRecommendDetaiVC.swift; sourceTree = "<group>"; };
 		84B25E1626DC984E00284679 /* ETFRecommendDetaiVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ETFRecommendDetaiVC.xib; sourceTree = "<group>"; };
 		84B443EB26EB324A00768F60 /* TransactionDefCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDefCell.swift; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 		841A95B226DA82F100EFA126 /* chart */ = {
 			isa = PBXGroup;
 			children = (
+				84A51D4D273D0E1D0009684B /* Style_LineChartView.swift */,
 				841A95B326DA830100EFA126 /* ChartStyle.swift */,
 			);
 			path = chart;
@@ -1284,6 +1287,7 @@
 				84BACCD126F5D2D8004EEE9A /* BaseError.swift in Sources */,
 				849D787826C287F5003DFE5F /* StockBasicListCell.swift in Sources */,
 				843555CE2734C57D00B05956 /* SchemeDesRecommendCell.swift in Sources */,
+				84A51D4E273D0E1D0009684B /* Style_LineChartView.swift in Sources */,
 				84463B9326CF7BEC00F2262B /* KlineNavBarView.swift in Sources */,
 				84D8DD7726D3811D0074E9A4 /* stockma.swift in Sources */,
 				845E45D326CD188C002E77C3 /* SoreSimpleView.swift in Sources */,
@@ -1472,14 +1476,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HQTXMU76N3;
+				DEVELOPMENT_TEAM = QPSW766MZ5;
 				INFOPLIST_FILE = Cow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.GZDGSCMALLIOSAPP000.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cow.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Cow/Cow-Bridging-Header.h";
@@ -1498,14 +1502,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HQTXMU76N3;
+				DEVELOPMENT_TEAM = QPSW766MZ5;
 				INFOPLIST_FILE = Cow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.GZDGSCMALLIOSAPP000.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cow.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Cow/Cow-Bridging-Header.h";

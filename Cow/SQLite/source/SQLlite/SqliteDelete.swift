@@ -17,4 +17,17 @@ public extension SqlliteManage{
         """
         return sql
     }
+    
+    func delete(_ sql:String)  -> Bool{
+        do{
+            
+            try db?.execute(sql)
+            return true
+            
+        }catch {
+            print("err sql:\(sql)")
+            print("error:\(error)")
+            return false
+        }
+    }
 }

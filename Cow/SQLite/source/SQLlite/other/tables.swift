@@ -146,6 +146,24 @@ let creatdTabledic =
             """
               
         ],
+        [
+            "name":"back_trade",
+            "create":
+                """
+                    CREATE TABLE IF NOT EXISTS "back_trade" ( -- 回测记录
+                        "id"    INTEGER NOT NULL UNIQUE,
+                        "scheme_id"    INTEGER NOT NULL, -- 方案id
+                        "date" TEXT NOT NULL, -- 时间
+                        "type"    TEXT NOT NULL, -- 类型 0 股票 1 etf
+                        "code"    TEXT NOT NULL, -- 代码code
+                        "price"    NUMERIC NOT NULL, -- 价格
+                        "dir"    INTEGER NOT NULL, -- 买卖方向 0 买入 1卖出
+                        "count"    INTEGER NOT NULL, -- 数量
+                        "sid"    INTEGER , -- 对冲ID 买入对应卖出订单 卖出对应买入订单
+                        PRIMARY KEY("id" AUTOINCREMENT)
+                    );
+                    """
+        ]
         
         
        
