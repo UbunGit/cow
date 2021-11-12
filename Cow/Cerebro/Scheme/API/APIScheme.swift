@@ -118,6 +118,11 @@ extension Session {
         return AF.select(sql)
     }
     
+    func back_trade(schemeId:Int)-> DataRequest{
+        let sql = " select * FROM back_trade where scheme_id = '\(schemeId)' "
+        return AF.select(sql)
+    }
+    
 }
 
 

@@ -11,12 +11,17 @@ import Alamofire
 class SchemeDesRecommendData{
     
     var valueChange:(()->())? = nil
-    var datas:[[String:Any]] = []
+    var selectDate:String = NSDate.now.toString("yyyyMMdd")
+    var datas:[[String:Any]] = []{
+        didSet{
+            
+        }
+    }
     var state:Int = 0 // 0初始化 1成功 2架载中 3失败
     var error:Any? = nil //错误描述
     func loadData(){
        
-        let req =  AF.scheme_rec(id: 1, date: "20200810")
+        let req =  AF.scheme_rec(id: 1, date: selectDate)
         req.responseModel([[String:Any]].self) { resule in
             switch resule{
             case .success(let value):
@@ -56,11 +61,7 @@ class SchemeDesRecommendData{
 
 class SchemeDesRecommendCell: UICollectionViewCell {
     
-    var celldata:[String:Any]? = nil{
-        didSet{
-            updateUI()
-        }
-    }
+   
     @IBOutlet weak var nameLab: UILabel!
     @IBOutlet weak var priceLab: UILabel!
     @IBOutlet weak var dirLab: UILabel!
@@ -68,19 +69,8 @@ class SchemeDesRecommendCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    override func updateUI() {
-        guard let data = celldata else{
-            return
-        }
-        let dir = (data["dir"].int()==0) ? "买入" : "卖出"
-        let code = data["code"].string()
-        let name = data["name"].string()
-        let price = data["price"].price()
-        nameLab.text = name
-        codeLab.text = code
-        priceLab.text = price
-        dirLab.text = dir
-    }
+   
+   
    
 
 }

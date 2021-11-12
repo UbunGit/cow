@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR">
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="SchemeDesRecommendHeader" customModule="Cow" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
@@ -63,12 +63,19 @@
                         <constraint firstAttribute="height" constant="0.5" id="Fbt-2c-oW0"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2h-uy-eUs">
+                    <rect key="frame" x="312" y="20.5" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" name="Text 4"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="JWd-C5-Ebl" secondAttribute="trailing" constant="8" id="2rX-lF-WjM"/>
                 <constraint firstAttribute="trailing" secondItem="DeP-cl-Nj1" secondAttribute="trailing" constant="8" id="38U-np-cjM"/>
                 <constraint firstItem="fc8-dn-fMy" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="8" id="HpX-47-Nbg"/>
+                <constraint firstItem="f2h-uy-eUs" firstAttribute="centerY" secondItem="ELA-Xw-KvI" secondAttribute="centerY" id="Jir-AB-VFE"/>
                 <constraint firstAttribute="bottom" secondItem="DeP-cl-Nj1" secondAttribute="bottom" constant="8" id="KWi-h6-hr9"/>
                 <constraint firstAttribute="trailing" secondItem="fc8-dn-fMy" secondAttribute="trailing" constant="8" id="On9-bc-NqM"/>
                 <constraint firstItem="DeP-cl-Nj1" firstAttribute="top" secondItem="JWd-C5-Ebl" secondAttribute="bottom" constant="8" id="YWc-QM-grf"/>
@@ -76,6 +83,7 @@
                 <constraint firstItem="ELA-Xw-KvI" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="8" id="bm5-Ya-gE7"/>
                 <constraint firstItem="JWd-C5-Ebl" firstAttribute="top" secondItem="ELA-Xw-KvI" secondAttribute="bottom" constant="12" id="duf-2g-Evu"/>
                 <constraint firstItem="DeP-cl-Nj1" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="8" id="ktm-42-N9d"/>
+                <constraint firstAttribute="trailing" secondItem="f2h-uy-eUs" secondAttribute="trailing" constant="8" id="vOs-mC-rtL"/>
                 <constraint firstAttribute="bottom" secondItem="fc8-dn-fMy" secondAttribute="bottom" id="wXr-hY-36e"/>
                 <constraint firstItem="JWd-C5-Ebl" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="8" id="zci-ys-Fgw"/>
             </constraints>
@@ -87,6 +95,10 @@
                     <real key="value" value="8"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="moreLab" destination="f2h-uy-eUs" id="XZT-9j-6oZ"/>
+                <outlet property="titleLab" destination="ELA-Xw-KvI" id="VGa-RX-OT3"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="39.508928571428569"/>
         </collectionReusableView>
     </objects>

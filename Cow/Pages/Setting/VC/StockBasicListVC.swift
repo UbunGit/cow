@@ -16,6 +16,7 @@ class StockBasicListModel: HandyJSON {
     
     var delegate:BasetModelDelegate?
     var range = NSRange(location: 0, length: 20)
+    var keyword:String? = nil
     struct Stroe:HandyJSON{
         var name:String = ""
         var code:String = ""
@@ -31,9 +32,9 @@ class StockBasicListModel: HandyJSON {
         
     }
     func updateStore()  {
-        delegate?.view.loading()
-        AF.af_select(sm.select_stockbasic_follow(limmit:range)) { result in
-            self.delegate?.view.loadingDismiss()
+       
+        AF.af_select(sm.select_stockbasic_follow(keyword:keyword,limmit:range)) { result in
+          
             switch result{
             case .success(let value):
                 guard let datas = [Stroe].deserialize(from: value) else {
@@ -45,7 +46,7 @@ class StockBasicListModel: HandyJSON {
                         list.append(d)
                     }
                 }
-                if self.range.location == 1 {
+                if self.range.location == 0 {
                     self.stroes = list
                 }else{
                     self.stroes += list
@@ -84,10 +85,26 @@ class StockBasicListModel: HandyJSON {
 class StockBasicListVC: BaseViewController {
 
     var selectClosure:((StockBasicListModel.Stroe)->())?
+    
     lazy var pageData: StockBasicListModel = {
         let pageData = StockBasicListModel()
         pageData.delegate = self
         return pageData
+    }()
+    
+    lazy var tableHeadView:BaseTableSearchHeaderView = {
+        let header = BaseTableSearchHeaderView.initWithNib()
+        header.frame = .init(x: 0, y: 0, width: KWidth, height: 44)
+        header.inputTF.setBlockFor(.editingChanged) { textField in
+            guard let tf = textField as? UITextField else{
+                return
+            }
+            self.pageData.range.location = 0
+            self.pageData.keyword = tf.text
+            self.pageData.updateStore()
+        }
+        return header
+   
     }()
     
     @IBOutlet weak var tableView: UITableView!
@@ -112,7 +129,7 @@ class StockBasicListVC: BaseViewController {
 extension StockBasicListVC:UITableViewDelegate,UITableViewDataSource{
     
     func configTableview()  {
-
+        tableView.tableHeaderView = tableHeadView
         tableView.estimatedRowHeight = 60
         tableView.register(UINib(nibName: "StockBasicListCell", bundle: nil), forCellReuseIdentifier: "StockBasicListCell")
         tableView.mj_header = MJRefreshGifHeader(refreshingBlock: {

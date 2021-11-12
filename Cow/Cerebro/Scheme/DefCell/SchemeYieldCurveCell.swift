@@ -84,7 +84,7 @@ class SchemeYieldCurve{
         }
         group.notify(queue: .main) {
             if self.state != 3{
-                self.state = 1
+                self.downback_trace()
             }else{
                 self.message = "数据下载失败"
             }
@@ -93,11 +93,30 @@ class SchemeYieldCurve{
         
     }
     func downback_trace(){
+        self.message = "正在下载交易列表"
         if sm.isExistsTable("back_trade") == false{
             _ = sm.createTable("back_trade")
         }
         let sql = " delete FROM back_trade where scheme_id = '\(schemeId)' "
         _ =  sm.delete(sql)
+        
+        
+        AF.back_trade(schemeId: schemeId)
+            .responseModel([[String:Any]].self) { result in
+                switch result{
+                case .success(let value):
+                    if sm.mutableinster(table: "back_trade", column: ["id","scheme_id","date","type","code","price","dir","count","sid"], datas: value) == true{
+                        self.state = 1
+                    }else{
+                        self.state = 3
+                    }
+                    break
+                case .failure( _ ):
+                    
+                    self.state = 3
+                    break
+                }
+            }
         
     }
     
@@ -114,11 +133,21 @@ extension SchemeYieldCurve{
         return pools.map {
             let code = $0["code"].string()
             let closes = sm.select(" select close,date from loc_ochl where code='\(code)' order by date ")
+            let mindate = sm.select(" select min(date) date  from loc_ochl where code='\(code)' ").first
+            var firstclose:Double = 0
+            if let md = mindate{
+                if let tclose = closePrice(code: code, date: md["date"].string()){
+                    firstclose = tclose
+                }
+             
+            }
             let chartentye = closes.map { item -> ChartDataEntry  in
+               
                 let x = ydates.firstIndex { ydate in
                     item["date"].string() == ydate
                 }.double()
-                let y = item["close"].double()
+                let close = item["close"].double()
+                let y = (close/firstclose)-1
                 return  ChartDataEntry.init(x: x, y: y)
             }
             let set = LineChartDataSet(entries: chartentye, label: "\(code)")
@@ -128,22 +157,88 @@ extension SchemeYieldCurve{
             set.drawFilledEnabled = false
             set.drawValuesEnabled = false
             set.fillColor = .yellow.withAlphaComponent(0.1)
-            set.colors = [UIColor.doraemon_random()]
+            set.colors = [UIColor.doraemon_random().alpha(0.5) ]
             return set
         }
         
     }
-    // 资产趋势
-    func yeidChartDataSet(ydates:[String])->LineChartDataSet{
+    //获取某日股票收盘价
+    func closePrice(code:String,date:String)->Double?{
+        let sql = """
+        SELECT close FROM loc_ochl
+        WHERE date = '\(date)' and code='\(code)'
+        """
+        if let date = sm.select(sql).first{
+            return date["close"].double()
+        }else{
+            return nil
+        }
         
-//        let chartentye = ydates.map { item -> ChartDataEntry  in
-//            let x = ydates.firstIndex { ydate in
-//                item["date"].string() == ydate
-//            }.double()
-//            let y = item["close"].double()
-//            return  ChartDataEntry.init(x: x, y: y)
-//        }
-        return LineChartDataSet()
+    }
+    // 资产趋势
+    func yeidChartDataSet(ydates:[String])->[LineChartDataSet]{
+      
+        // 获取当日资产
+        func yeid(date:String) -> Double{
+            var yied:Double = 0
+            // 获取已卖出的资产
+            var sql = """
+            SELECT sum(pricev) blance from
+            (select (t2.price/t1.price)-1 pricev,t2.date from back_trade t1
+            LEFT JOIN (select * from back_trade WHERE dir =1 and scheme_id='\(schemeId)' ) t2 ON t2.sid=t1.id
+            WHERE t1.dir=0 and t1.sid NOTNULL AND t2.date<='\(date)' and t1.scheme_id='\(schemeId)')
+            """
+            if let blancedic = sm.select(sql).first{
+
+                yied += blancedic["blance"].double()
+            }
+            // 获取未卖出的资产
+            sql = """
+            SELECT * FROM
+                (
+                select t1.date date,t2.date sdate,t1.code code,t1.price price
+                from back_trade t1
+                LEFT JOIN
+                    (
+                    select * from back_trade
+                    WHERE dir =1  and scheme_id='\(schemeId)'
+                    ) t2 ON t2.sid=t1.id
+                WHERE t1.dir=0 and t1.scheme_id='\(schemeId)'
+                ) as t
+            WHERE  t.date<='\(date)'
+            AND (t.sdate>'\(date)' OR t.sdate ISNULL)
+            """
+           
+            let untrades = sm.select(sql)
+            untrades.forEach { item in
+                let code = item["code"].string()
+                let price = item["price"].double()
+                if let close = closePrice(code: code, date: date){
+                    let of = ((close/price) - 1)
+                    yied += of
+       
+                }
+            }
+            return yied
+
+        }
+        
+        let chartentye = ydates.enumerated().map { (index, item) -> ChartDataEntry  in
+            let x = index.double()
+          
+            let y = yeid(date: item)
+            return  ChartDataEntry.init(x: x, y: y)
+        }
+        let yiedset = LineChartDataSet(entries: chartentye, label: "资产")
+        yiedset.mode = .cubicBezier
+        yiedset.lineWidth = 1.5
+        yiedset.label = "资产"
+        yiedset.drawCirclesEnabled = false
+        yiedset.drawFilledEnabled = false
+        yiedset.drawValuesEnabled = false
+        yiedset.fillColor = .yellow.withAlphaComponent(0.1)
+        yiedset.colors = [UIColor.red]
+        return [yiedset]
     }
     
     
@@ -177,8 +272,9 @@ class SchemeYieldCurveCell: UICollectionViewCell {
                 values:ydates.map { $0.date("yyyyMMdd").toString("yyyy-MM-dd") }
             )
             let sets = data.lineChartDataSet(ydates: ydates)
+            let set2 = data.yeidChartDataSet(ydates: ydates)
            
-            chartView.data = LineChartData(dataSets: sets)
+            chartView.data = LineChartData(dataSets: sets+set2)
            
         }else if data.state == 3{
             msgLab.text = celldata?.message

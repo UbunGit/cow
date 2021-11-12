@@ -10,10 +10,17 @@ import Foundation
 extension SqlliteManage{
     // 获取股票列表 有关注 状态
     func select_stockbasic_follow(
+        keyword:String? = nil,
         orderby:[String] = ["follow","name"],
         limmit:NSRange = NSRange(location: 0, length: 10),
         asc:Bool = true
     ) -> String{
+        
+        var whereStr = ""
+        if keyword?.count ?? 0>0{
+            let key = keyword.string()
+            whereStr = " where t1.name like '%\(key)%' or t1.code like '%\(key)%' "
+        }
         var t2 = "stockfollow"
         if let userid = Global.share.user?.userId{
             t2 = " (select * from stockfollow e where e.userId=\(userid)) "
@@ -23,6 +30,7 @@ extension SqlliteManage{
                 t2.status,t2.follow,t2.id
                 FROM  stockbasic t1
                 LEFT JOIN \(t2) t2 ON t1.code=t2.code
+                \(whereStr)
                 ORDER BY \(orderby.joined(separator: ",")) \(asc ? "ASC" : "DESC" )
                 LIMIT \(limmit.length) OFFSET \(limmit.location*limmit.length)
                 """

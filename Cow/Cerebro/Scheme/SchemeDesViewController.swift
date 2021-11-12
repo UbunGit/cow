@@ -10,11 +10,13 @@ import UIKit
 class SchemeDesViewController: BaseViewController {
 
     var schemeId:Int = 0
+    var selectDate = "20201020" //NSDate.now.toString("yyyyMMdd")
     
     @IBOutlet weak var collectionView: UICollectionView!
     // 推荐列表
     lazy var recommendData: SchemeDesRecommendData = {
         let data = SchemeDesRecommendData()
+        data.selectDate = selectDate
         data.loadData()
         data.valueChange = {
             self.collectionView.reloadData()
@@ -44,15 +46,36 @@ class SchemeDesViewController: BaseViewController {
         data.loadData()
         return data
     }()
+    // 今日成交
+    var contractNotes:[[String:Any]] {
+        let sql = """
+        SELECT * FROM back_trade
+        WHERE scheme_id = \(schemeId) AND date='\(selectDate)'
+        """
+        return sm.select(sql)
+    }
+    // 历史成交
+    var historyNotes:[[String:Any]] {
+        let sql = """
+        SELECT * FROM back_trade
+        WHERE scheme_id = \(schemeId) AND date<='\(selectDate)'
+        """
+        return sm.select(sql)
+    }
+    
+  
  
     
     lazy var headrtView:CollectionHeaderView = {
         let view = CollectionHeaderView()
         view.backgroundColor = .red
-        view.dataSource = ["今日推荐","回测曲线","3","3","3","3","3","选股池"]
+        view.dataSource = ["今日推荐","回测曲线","今日成交","历史交易","选股池"]
         view.setBlockFor(.valueChanged) { _ in
             let value = view.value
-            self.collectionView.scrollToItem(at: .init(row: 0, section: value), at: .top, animated: true)
+            let indexpath = IndexPath.init(row: 0, section: value)
+            if let _ = self.collectionView.cellForItem(at: indexpath) {
+                self.collectionView.scrollToItem(at: indexpath, at: .top, animated: true)
+            }
         }
         return view
     }()
@@ -100,10 +123,15 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
             return recommendData.datas.count
         case 1:
             return 1
-        case 5:
+        case 2:
+            return contractNotes.count
+        case 3:
+            return historyNotes.count
+            
+        case 4:
             return schemePoolData.datas.count
         default:
-            return 1
+            return 0
         }
         
     }
@@ -112,15 +140,53 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
         case 0:
         
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SchemeDesRecommendCell", for: indexPath) as!  SchemeDesRecommendCell
-            cell.celldata = recommendData.datas[indexPath.row]
+            let celldata = recommendData.datas[indexPath.row]
+            let dir = (celldata["dir"].int()==0) ? "买入" : "卖出"
+            let code = celldata["code"].string()
+            let name = celldata["name"].string()
+            let price = celldata["price"].price()
+            cell.nameLab.text = name
+            cell.codeLab.text = code
+            cell.priceLab.text = price
+            cell.dirLab.text = dir
             return cell
         case 1:
         
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SchemeYieldCurveCell", for: indexPath) as!  SchemeYieldCurveCell
             cell.celldata = yieldCurve
             return cell
+        case 2:
+        
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SchemeDesRecommendCell", for: indexPath) as!  SchemeDesRecommendCell
+            let celldata = contractNotes[indexPath.row]
+            let dir = (celldata["dir"].int()==0) ? "买入" : "卖出"
+            let code = celldata["code"].string()
+            let name = celldata["name"].string()
+            let price = celldata["price"].price()
+            cell.nameLab.text = name
+            cell.codeLab.text = code
+            cell.priceLab.text = price
+            cell.dirLab.text = dir
+            return cell
+        case 3:
+        
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SchemeDesRecommendCell", for: indexPath) as!  SchemeDesRecommendCell
+            let celldata = historyNotes[indexPath.row]
+            let date = celldata["date"].string()
+            let dir = (celldata["dir"].int()==0) ? "买入\n\(date)" : "卖出\n\(date)"
+            let code = celldata["code"].string()
+            let name = celldata["name"].string()
+            let price = celldata["price"].price()
+            cell.nameLab.text = name
+            cell.codeLab.text = code
+            cell.priceLab.text = price
+            cell.dirLab.text = dir
+            cell.dirLab.textColor = (celldata["dir"].int()==0) ? .red : .green
+            return cell
             
-        case 5:
+      
+            
+        case 4:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SchemeDesPoolCell", for: indexPath) as!  SchemeDesPoolCell
             cell.celldata = schemePoolData.datas[indexPath.row]
             cell.backgroundColor = UIColor.doraemon_random().alpha(0.2)
@@ -144,7 +210,11 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
             return .init(width: collectionView.width, height: 44)
         case 1:
             return .init(width: collectionView.width, height: 300)
-        case 5:
+        case 2:
+            return .init(width: collectionView.width, height: 44)
+        case 3:
+            return .init(width: collectionView.width, height: 44)
+        case 4:
             return .init(width: (collectionView.width/2)-16, height: 62)
         default:
             return .init(width: collectionView.width, height: 220)
@@ -157,7 +227,11 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
             return .init(width: collectionView.width, height: 84)
         case 1:
             return .init(width: collectionView.width, height: 44)
-        case 5:
+        case 2:
+            return .init(width: collectionView.width, height: 84)
+        case 3:
+            return .init(width: collectionView.width, height: 84)
+        case 4:
             return .init(width: collectionView.width, height: 44)
         default:
             return .zero
@@ -168,16 +242,34 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
         if kind == UICollectionView.elementKindSectionHeader{
             switch indexPath.section{
             case 0: //今日推荐
-                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SchemeDesRecommendHeader", for: indexPath)
+                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SchemeDesRecommendHeader", for: indexPath) as! SchemeDesRecommendHeader
+                
+                header.titleLab.text = "今日推荐"
+                header.moreLab.text = selectDate
                 return header
             case 1: //回测曲线
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HTCollectionBaseHeaderView", for: indexPath) as! HTCollectionBaseHeaderView
                 header.titleLab.text = "回测曲线"
                 
                 return header
-            case 5: //选股池
+            case 2: //今日成交
+                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SchemeDesRecommendHeader", for: indexPath) as! SchemeDesRecommendHeader
+                header.titleLab.text = "今日成交"
+                header.moreLab.text = selectDate
+                return header
+            case 3: //历史成交
+                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SchemeDesRecommendHeader", for: indexPath) as! SchemeDesRecommendHeader
+                header.titleLab.text = "历史成交"
+                header.moreLab.text = nil
+                return header
+            case 4: //选股池
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HTCollectionBaseHeaderView", for: indexPath) as! HTCollectionBaseHeaderView
                 header.titleLab.text = "选股池"
+                header.moreBtn.setBlockFor(.touchUpInside) { _ in
+                    let vc = SchemeSettingPoolVC()
+                    vc.schemeId = self.schemeId
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
                 
                 return header
             default:

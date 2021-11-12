@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,27 +12,26 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BaseTableSearchHeaderView" customModule="Cow" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sGl-lM-iFd">
-                    <rect key="frame" x="8" y="9" width="370" height="34"/>
+                    <rect key="frame" x="8" y="63" width="370" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QF0-Qn-Hs6">
-                    <rect key="frame" x="386" y="15" width="20" height="22"/>
+                    <rect key="frame" x="386" y="69" width="20" height="22"/>
                     <color key="tintColor" name="Text 4"/>
                     <state key="normal" image="magnifyingglass" catalog="system"/>
                 </button>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="QF0-Qn-Hs6" firstAttribute="centerY" secondItem="sGl-lM-iFd" secondAttribute="centerY" id="0ja-jK-Emo"/>
                 <constraint firstItem="sGl-lM-iFd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="FGA-bt-UJe"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QF0-Qn-Hs6" secondAttribute="trailing" constant="8" id="cso-Mn-ZWU"/>
-                <constraint firstItem="sGl-lM-iFd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="vVZ-7x-3bo"/>
+                <constraint firstAttribute="trailing" secondItem="QF0-Qn-Hs6" secondAttribute="trailing" constant="8" id="cso-Mn-ZWU"/>
+                <constraint firstItem="sGl-lM-iFd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="vVZ-7x-3bo"/>
                 <constraint firstItem="QF0-Qn-Hs6" firstAttribute="leading" secondItem="sGl-lM-iFd" secondAttribute="trailing" constant="8" id="zNz-oZ-lu7"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

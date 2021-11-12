@@ -59,10 +59,11 @@ class ETFBaseListModel {
 class ETFBaseListVC: BaseViewController {
     var selectClosure:(([String:Any])->())?
     @IBOutlet weak var tableView: UITableView!
+
     
     lazy var tableHeadView:BaseTableSearchHeaderView = {
         let header = BaseTableSearchHeaderView.initWithNib()
-        header.frame = .init(x: 0, y: 0, width: KWidth, height: 160)
+        header.frame = .init(x: 0, y: 0, width: KWidth, height: 44)
         header.inputTF.setBlockFor(.editingChanged) { textField in
             guard let tf = textField as? UITextField else{
                 return
@@ -72,6 +73,7 @@ class ETFBaseListVC: BaseViewController {
             self.pageData.updateDataSouce()
         }
         return header
+   
     }()
    
     lazy var pageData: ETFBaseListModel = {
@@ -80,8 +82,9 @@ class ETFBaseListVC: BaseViewController {
         return pageData
     }()
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
+        title = "ETF列表"
         configTableview()
         pageData.updateDataSouce()
 
@@ -91,6 +94,7 @@ class ETFBaseListVC: BaseViewController {
         tableView.mj_header?.endRefreshing()
         tableView.reloadData()
     }
+  
 
 }
 
@@ -99,6 +103,7 @@ extension ETFBaseListVC:UITableViewDelegate,UITableViewDataSource{
     func configTableview()  {
         
         tableView.tableHeaderView = tableHeadView
+      
         tableView.register(UINib(nibName: "ETFBaseListTableviewCell", bundle: nil), forCellReuseIdentifier: "ETFBaseListTableviewCell")
         tableView.mj_header = MJRefreshGifHeader(refreshingBlock: {
             self.pageData.range.location = 0

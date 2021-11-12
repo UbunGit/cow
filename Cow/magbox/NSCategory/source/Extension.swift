@@ -75,7 +75,6 @@ public extension Int {
         Float(self)
     }
     
-   
     func string() -> String {
        
         return "\(self)"
@@ -115,6 +114,7 @@ public extension Optional{
         }
         return "\(str)"
     }
+    
     func int(_ defual:Int=0) -> Int {
         guard let value = self else {
             return defual
