@@ -6,13 +6,31 @@
 //
 
 import UIKit
-
+import Alamofire
 class SchemeDesViewController: BaseViewController {
 
     var schemeId:Int = 0
     var selectDate = "20201020" //NSDate.now.toString("yyyyMMdd")
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    lazy var refresh: UIButton = {
+        let button = UIButton.init(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        button.setImage(.init(systemName: "plus"), for: .normal)
+        button.setBlockFor(.touchUpInside) {[weak self] _ in
+            AF.scheme_exit(self?.schemeId ?? 0)
+                .responseModel(String.self) { result in
+                    
+                }
+        }
+        return button
+    }()
+    
+    // 添加
+    lazy var refreshItem: UIBarButtonItem = {
+        let mineItem = UIBarButtonItem.init(customView: refresh)
+        return mineItem
+    }()
     // 推荐列表
     lazy var recommendData: SchemeDesRecommendData = {
         let data = SchemeDesRecommendData()
@@ -81,6 +99,7 @@ class SchemeDesViewController: BaseViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItems = [refreshItem]
         makeUI()
     }
     func makeUI(){

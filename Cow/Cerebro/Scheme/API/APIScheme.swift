@@ -118,9 +118,67 @@ extension Session {
         return AF.select(sql)
     }
     
+    // 获取策略交易列表
     func back_trade(schemeId:Int)-> DataRequest{
         let sql = " select * FROM back_trade where scheme_id = '\(schemeId)' "
         return AF.select(sql)
+    }
+    // 给策略添加股票
+    func scheme_addCode(_ scheme_id:Int, item:[String:Any]) -> DataRequest{
+        let url = "\(baseurl)/scheme/update"
+        let sql = """
+        INSERT INTO scheme_codes
+        (code,type,scheme_id) VALUES
+        ('\(item["code"].string())','\(item["type"].string())','\(scheme_id)')
+        """
+        let param = [
+            "id":"\(scheme_id)",
+            "sql":sql
+        ]
+        print("🐶："+sql)
+        return self.request(url, method: .post,
+                            parameters: param,
+                            encoder: JSONParameterEncoder.default,
+                            requestModifier: { urlRequest in
+            urlRequest.timeoutInterval = 15
+        }
+        )
+    }
+    // 删除股票池股票
+    func scheme_deleteCode(_ scheme_id:Int, codeId:Int) -> DataRequest{
+        let url = "\(baseurl)/scheme/update"
+        let sql = """
+        DELETE FROM scheme_codes
+        WHERE id=\(codeId) and scheme_id=\(scheme_id)
+        """
+        let param = [
+            "id":"\(scheme_id)",
+            "sql":sql
+        ]
+        print("🐶："+sql)
+        return self.request(url, method: .post,
+                            parameters: param,
+                            encoder: JSONParameterEncoder.default,
+                            requestModifier: { urlRequest in
+            urlRequest.timeoutInterval = 15
+        }
+        )
+    }
+    // 删除股票池股票
+    func scheme_exit(_ scheme_id:Int) -> DataRequest{
+        let url = "\(baseurl)/scheme/exit"
+      
+        let param = [
+            "id":"\(scheme_id)",
+        ]
+ 
+        return self.request(url, method: .post,
+                            parameters: param,
+                            encoder: JSONParameterEncoder.default,
+                            requestModifier: { urlRequest in
+            urlRequest.timeoutInterval = 15
+        }
+        )
     }
     
 }

@@ -162,16 +162,21 @@ extension Statement{
         
     }
     public func to_dict()->[[String:Any]]{
-        
-         map { row-> [String:Any] in
-            
+        var datas:[[String:Any]] = []
+        forEach { row in
             var item:Dictionary = [String:Any]()
             for (index, name) in self.columnNames.enumerated() {
-                
-                item[name] = row[index] ?? "?"
+                if let value = row[index]{
+                    item[name] = value
+                }
             }
-            return item
+            if item.isEmpty == false{
+                datas.append(item)
+            }
+            
         }
+        return datas
+      
         
     }
 
