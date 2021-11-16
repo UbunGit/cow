@@ -123,6 +123,9 @@
 		84A51D4E273D0E1D0009684B /* Style_LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A51D4D273D0E1D0009684B /* Style_LineChartView.swift */; };
 		84A51D51273E6EF70009684B /* SchemeSettingPoolVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A51D4F273E6EF60009684B /* SchemeSettingPoolVC.swift */; };
 		84A51D52273E6EF70009684B /* SchemeSettingPoolVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A51D50273E6EF60009684B /* SchemeSettingPoolVC.xib */; };
+		84A51D582743B6540009684B /* SelectDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A51D562743B64E0009684B /* SelectDateViewController.swift */; };
+		84A51D592743B6540009684B /* SelectDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A51D572743B64E0009684B /* SelectDateViewController.xib */; };
+		84A51D5B2743C9A40009684B /* UICollectionEmptyFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A51D5A2743C9A40009684B /* UICollectionEmptyFootView.swift */; };
 		84B25E1726DC984E00284679 /* ETFRecommendDetaiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B25E1526DC984E00284679 /* ETFRecommendDetaiVC.swift */; };
 		84B25E1826DC984E00284679 /* ETFRecommendDetaiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B25E1626DC984E00284679 /* ETFRecommendDetaiVC.xib */; };
 		84B443ED26EB324B00768F60 /* TransactionDefCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B443EB26EB324A00768F60 /* TransactionDefCell.swift */; };
@@ -307,6 +310,9 @@
 		84A51D4D273D0E1D0009684B /* Style_LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style_LineChartView.swift; sourceTree = "<group>"; };
 		84A51D4F273E6EF60009684B /* SchemeSettingPoolVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeSettingPoolVC.swift; sourceTree = "<group>"; };
 		84A51D50273E6EF60009684B /* SchemeSettingPoolVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchemeSettingPoolVC.xib; sourceTree = "<group>"; };
+		84A51D562743B64E0009684B /* SelectDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateViewController.swift; sourceTree = "<group>"; };
+		84A51D572743B64E0009684B /* SelectDateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectDateViewController.xib; sourceTree = "<group>"; };
+		84A51D5A2743C9A40009684B /* UICollectionEmptyFootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionEmptyFootView.swift; sourceTree = "<group>"; };
 		84B25E1526DC984E00284679 /* ETFRecommendDetaiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFRecommendDetaiVC.swift; sourceTree = "<group>"; };
 		84B25E1626DC984E00284679 /* ETFRecommendDetaiVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ETFRecommendDetaiVC.xib; sourceTree = "<group>"; };
 		84B443EB26EB324A00768F60 /* TransactionDefCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDefCell.swift; sourceTree = "<group>"; };
@@ -679,6 +685,7 @@
 				843555DB2735052000B05956 /* UICollectionViewHeader */,
 				84712B4F26E45775008E55D6 /* BaseTableSearchHeaderView.swift */,
 				84712B5126E45781008E55D6 /* BaseTableSearchHeaderView.xib */,
+				84A51D5A2743C9A40009684B /* UICollectionEmptyFootView.swift */,
 				843555C92733BAA100B05956 /* CollectionHeaderView.swift */,
 			);
 			path = UICategory;
@@ -806,9 +813,19 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		84A51D552743B61F0009684B /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				84A51D562743B64E0009684B /* SelectDateViewController.swift */,
+				84A51D572743B64E0009684B /* SelectDateViewController.xib */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
 		84BACCC326F5D2BD004EEE9A /* magbox */ = {
 			isa = PBXGroup;
 			children = (
+				84A51D552743B61F0009684B /* Date */,
 				8474457F2731119700F9201B /* UICategory */,
 				848E99AA27008BCD00868654 /* InputView */,
 				84BACCC726F5D2D8004EEE9A /* Network */,
@@ -1090,6 +1107,7 @@
 				8483CF0126E21E0F009F7A7D /* TransactionEdit.xib in Resources */,
 				84E7F25926EB2D7100F3F61C /* TransactionDefVC.xib in Resources */,
 				849E9B5D2702DAB200864C2A /* SchemeTemplateEditVC.xib in Resources */,
+				84A51D592743B6540009684B /* SelectDateViewController.xib in Resources */,
 				84E62FE6270409B5008A14C4 /* IPURLConfigVC.xib in Resources */,
 				8483CEE726E08D9A009F7A7D /* TransactionListTableHeader.xib in Resources */,
 				843555D32734DAD800B05956 /* SchemeDesRecommendHeader.xib in Resources */,
@@ -1242,6 +1260,7 @@
 				845E45A826CBA94E002E77C3 /* SQLTableListVC.swift in Sources */,
 				843555CA2733BAA100B05956 /* CollectionHeaderView.swift in Sources */,
 				844D5AFB26BA6EBC00AC08AF /* HomeViewController.swift in Sources */,
+				84A51D5B2743C9A40009684B /* UICollectionEmptyFootView.swift in Sources */,
 				8483CFC426E6371A009F7A7D /* tables.swift in Sources */,
 				841A95A826DA2E3E00EFA126 /* Global.swift in Sources */,
 				8405463B26D8BE48007E7F0F /* ETFDetaiViewController.swift in Sources */,
@@ -1275,6 +1294,7 @@
 				841A95AA26DA30B800EFA126 /* user.swift in Sources */,
 				843555C72733B99000B05956 /* SchemeDesViewController.swift in Sources */,
 				84D8DD7326D380390074E9A4 /* stockdaily+stockma.swift in Sources */,
+				84A51D582743B6540009684B /* SelectDateViewController.swift in Sources */,
 				841A95AD26DA78C600EFA126 /* ETFDetaiModen.swift in Sources */,
 				844D5B0C26BA9F1500AC08AF /* HomeBandasCell.swift in Sources */,
 				84D8DD7526D380FC0074E9A4 /* stockdaily.swift in Sources */,

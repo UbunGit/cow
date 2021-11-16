@@ -259,28 +259,31 @@ class SchemeYieldCurveCell: UICollectionViewCell {
         
     }
     override func updateUI() {
-        guard let data = celldata else{
-            return
+        DispatchQueue.main.async {
+            guard let data = self.celldata else{
+                return
+            }
+            if data.state == 1{
+                self.msgLab.text = "成功"
+                self.msgLab.alpha = 0.1
+                let codes = data.pools.map{ "'\($0["code"].string())'"}
+                let ydates = sm.select(" select date from loc_ochl where code in (\(codes.joined(separator: ","))) group by date order by date ").map { $0["date"].string()}
+                let xaxis = self.chartView.xAxis
+                xaxis.valueFormatter = IndexAxisValueFormatter.init(
+                    values:ydates.map { $0.date("yyyyMMdd").toString("yyyy-MM-dd") }
+                )
+                let sets = data.lineChartDataSet(ydates: ydates)
+                let set2 = data.yeidChartDataSet(ydates: ydates)
+               
+                self.chartView.data = LineChartData(dataSets: sets+set2)
+               
+            }else if data.state == 3{
+                self.msgLab.text = self.celldata?.message
+            }else if data.state == 2{
+                self.msgLab.text = self.celldata?.message
+            }
         }
-        if data.state == 1{
-            msgLab.text = "成功"
-            msgLab.alpha = 0.1
-            let codes = data.pools.map{ "'\($0["code"].string())'"}
-            let ydates = sm.select(" select date from loc_ochl where code in (\(codes.joined(separator: ","))) group by date order by date ").map { $0["date"].string()}
-            let xaxis = chartView.xAxis
-            xaxis.valueFormatter = IndexAxisValueFormatter.init(
-                values:ydates.map { $0.date("yyyyMMdd").toString("yyyy-MM-dd") }
-            )
-            let sets = data.lineChartDataSet(ydates: ydates)
-            let set2 = data.yeidChartDataSet(ydates: ydates)
-           
-            chartView.data = LineChartData(dataSets: sets+set2)
-           
-        }else if data.state == 3{
-            msgLab.text = celldata?.message
-        }else if data.state == 2{
-            msgLab.text = celldata?.message
-        }
+    
         
     }
 

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectDateViewController" customModule="Cow" customModuleProvider="target">
+            <connections>
+                <outlet property="dataPickView" destination="rsV-rg-VWy" id="2j9-4u-C2p"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylf-g3-plR">
+                    <rect key="frame" x="0.0" y="586" width="414" height="310"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ru7-ZI-11S">
+                            <rect key="frame" x="376" y="8" width="30" height="29"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="确认">
+                                <color key="titleColor" name="Text 4"/>
+                            </state>
+                            <connections>
+                                <action selector="commitAction:" destination="-1" eventType="touchUpInside" id="Vad-9Z-2de"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KR8-Aw-02y">
+                            <rect key="frame" x="8" y="8" width="30" height="29"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="取消">
+                                <color key="titleColor" name="Text 4"/>
+                            </state>
+                            <connections>
+                                <action selector="cancleAction:" destination="-1" eventType="touchUpInside" id="Gn1-bR-DE0"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="Ru7-ZI-11S" firstAttribute="top" secondItem="ylf-g3-plR" secondAttribute="top" constant="8" id="TNK-pA-cTn"/>
+                        <constraint firstItem="KR8-Aw-02y" firstAttribute="leading" secondItem="ylf-g3-plR" secondAttribute="leading" constant="8" id="U9g-L4-KYc"/>
+                        <constraint firstItem="KR8-Aw-02y" firstAttribute="top" secondItem="ylf-g3-plR" secondAttribute="top" constant="8" id="k12-rX-u5C"/>
+                        <constraint firstAttribute="trailing" secondItem="Ru7-ZI-11S" secondAttribute="trailing" constant="8" id="lTR-dW-Bhq"/>
+                    </constraints>
+                </view>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="rsV-rg-VWy">
+                    <rect key="frame" x="0.0" y="646" width="414" height="216"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <locale key="locale" localeIdentifier="zh"/>
+                </datePicker>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ylf-g3-plR" secondAttribute="bottom" id="5yB-55-88u"/>
+                <constraint firstItem="rsV-rg-VWy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NZ3-5q-nlU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ylf-g3-plR" secondAttribute="trailing" id="Uve-hZ-58s"/>
+                <constraint firstItem="ylf-g3-plR" firstAttribute="top" secondItem="rsV-rg-VWy" secondAttribute="top" constant="-60" id="XAw-e0-oY1"/>
+                <constraint firstItem="ylf-g3-plR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Xu2-OJ-Uc0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rsV-rg-VWy" secondAttribute="bottom" id="aQu-qX-RDn"/>
+                <constraint firstItem="rsV-rg-VWy" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="tps-pX-JTX"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="58"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Text 4">
+            <color red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

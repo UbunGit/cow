@@ -34,7 +34,7 @@ class SchemeDesViewController: BaseViewController {
     // 推荐列表
     lazy var recommendData: SchemeDesRecommendData = {
         let data = SchemeDesRecommendData()
-        data.selectDate = selectDate
+        data.schemeId = self.schemeId
         data.loadData()
         data.valueChange = {
             self.collectionView.reloadData()
@@ -111,6 +111,7 @@ class SchemeDesViewController: BaseViewController {
         
         collectionView.register(UINib(nibName: "SchemeDesRecommendHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SchemeDesRecommendHeader")
         collectionView.register(UINib(nibName: "HTCollectionBaseHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HTCollectionBaseHeaderView")
+        collectionView.register(UICollectionEmptyFootView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "UICollectionEmptyFootView")
         
         
         view.addSubview(headrtView)
@@ -264,7 +265,13 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SchemeDesRecommendHeader", for: indexPath) as! SchemeDesRecommendHeader
                 
                 header.titleLab.text = "今日推荐"
-                header.moreLab.text = selectDate
+                header.valueLab.text = recommendData.selectDate
+                header.settingBtn.setBlockFor(.touchUpInside) { _ in
+                    self.selectDate { value in
+                        self.recommendData.selectDate = value.toString("yyyyMMdd")
+                        self.recommendData.loadData()
+                    }
+                }
                 return header
             case 1: //回测曲线
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HTCollectionBaseHeaderView", for: indexPath) as! HTCollectionBaseHeaderView
@@ -274,12 +281,12 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
             case 2: //今日成交
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SchemeDesRecommendHeader", for: indexPath) as! SchemeDesRecommendHeader
                 header.titleLab.text = "今日成交"
-                header.moreLab.text = selectDate
+                header.valueLab.text = selectDate
                 return header
             case 3: //历史成交
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SchemeDesRecommendHeader", for: indexPath) as! SchemeDesRecommendHeader
                 header.titleLab.text = "历史成交"
-                header.moreLab.text = nil
+                header.valueLab.text = nil
                 return header
             case 4: //选股池
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HTCollectionBaseHeaderView", for: indexPath) as! HTCollectionBaseHeaderView
@@ -294,11 +301,32 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
             default:
                 return UICollectionReusableView()
             }
+        }else if kind == UICollectionView.elementKindSectionFooter{
+            switch indexPath.section{
+            case 0: //今日推荐
+                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "UICollectionEmptyFootView", for: indexPath) as! UICollectionEmptyFootView
+                return header
+            
+            default:
+                return UICollectionReusableView()
+            }
         }
         return UICollectionReusableView()
         
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        switch section{
+        case 0:
+            return  recommendData.datas.count<=0 ? .init(width: collectionView.width, height: 44) : .zero
+        
+        default:
+            return .zero
+        }
+    }
+    
+    
   
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let indexpath = collectionView.indexPathForItem(at: scrollView.contentOffset){

@@ -63,17 +63,25 @@
                         <constraint firstAttribute="height" constant="0.5" id="Fbt-2c-oW0"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2h-uy-eUs">
-                    <rect key="frame" x="312" y="20.5" width="0.0" height="0.0"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20200101" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2h-uy-eUs">
+                    <rect key="frame" x="219" y="12" width="64" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" name="Text 4"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUf-p7-W0g">
+                    <rect key="frame" x="291" y="10" width="21" height="21"/>
+                    <color key="tintColor" name="Text 4"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="gearshape" catalog="system"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="JWd-C5-Ebl" secondAttribute="trailing" constant="8" id="2rX-lF-WjM"/>
                 <constraint firstAttribute="trailing" secondItem="DeP-cl-Nj1" secondAttribute="trailing" constant="8" id="38U-np-cjM"/>
+                <constraint firstAttribute="trailing" secondItem="SUf-p7-W0g" secondAttribute="trailing" constant="8" id="5VB-m6-rbX"/>
+                <constraint firstItem="SUf-p7-W0g" firstAttribute="centerY" secondItem="ELA-Xw-KvI" secondAttribute="centerY" id="66y-Ce-H75"/>
                 <constraint firstItem="fc8-dn-fMy" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="8" id="HpX-47-Nbg"/>
                 <constraint firstItem="f2h-uy-eUs" firstAttribute="centerY" secondItem="ELA-Xw-KvI" secondAttribute="centerY" id="Jir-AB-VFE"/>
                 <constraint firstAttribute="bottom" secondItem="DeP-cl-Nj1" secondAttribute="bottom" constant="8" id="KWi-h6-hr9"/>
@@ -83,7 +91,7 @@
                 <constraint firstItem="ELA-Xw-KvI" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="8" id="bm5-Ya-gE7"/>
                 <constraint firstItem="JWd-C5-Ebl" firstAttribute="top" secondItem="ELA-Xw-KvI" secondAttribute="bottom" constant="12" id="duf-2g-Evu"/>
                 <constraint firstItem="DeP-cl-Nj1" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="8" id="ktm-42-N9d"/>
-                <constraint firstAttribute="trailing" secondItem="f2h-uy-eUs" secondAttribute="trailing" constant="8" id="vOs-mC-rtL"/>
+                <constraint firstItem="SUf-p7-W0g" firstAttribute="leading" secondItem="f2h-uy-eUs" secondAttribute="trailing" constant="8" id="mIB-kX-9iK"/>
                 <constraint firstAttribute="bottom" secondItem="fc8-dn-fMy" secondAttribute="bottom" id="wXr-hY-36e"/>
                 <constraint firstItem="JWd-C5-Ebl" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="8" id="zci-ys-Fgw"/>
             </constraints>
@@ -96,13 +104,15 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="moreLab" destination="f2h-uy-eUs" id="XZT-9j-6oZ"/>
+                <outlet property="settingBtn" destination="SUf-p7-W0g" id="UD8-TF-YZE"/>
                 <outlet property="titleLab" destination="ELA-Xw-KvI" id="VGa-RX-OT3"/>
+                <outlet property="valueLab" destination="f2h-uy-eUs" id="5Z7-nb-jCB"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="39.508928571428569"/>
         </collectionReusableView>
     </objects>
     <resources>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
         <namedColor name="Text 2">
             <color red="0.93300002813339233" green="0.93300002813339233" blue="0.93300002813339233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

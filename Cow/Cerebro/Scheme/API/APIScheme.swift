@@ -164,7 +164,7 @@ extension Session {
         }
         )
     }
-    // 删除股票池股票
+    // 回测
     func scheme_exit(_ scheme_id:Int) -> DataRequest{
         let url = "\(baseurl)/scheme/exit"
       
@@ -179,6 +179,22 @@ extension Session {
             urlRequest.timeoutInterval = 15
         }
         )
+    }
+    
+    // 获取最后一个交易日
+    func scheme_lastDate(_ scheme_id:Int)-> DataRequest{
+       let sql = """
+        select max(date) date from
+                (
+                SELECT date,code FROM etfdaily
+                UNION
+                SELECT date,code FROM stockdaily
+                ) t
+        WHERE t.code in (
+        SELECT code FROM scheme_codes WHERE scheme_id =\(scheme_id)
+        )
+        """
+        return AF.select(sql)
     }
     
 }
