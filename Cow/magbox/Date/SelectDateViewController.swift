@@ -32,6 +32,7 @@ class SelectDateViewController: UIViewController {
 
 extension UIViewController{
     func selectDate(
+        selectDate:Date? = nil,
         endBlock:@escaping (_ value:Date)->()
     ){
         
@@ -40,7 +41,12 @@ extension UIViewController{
         datavc.commitBlock = { date in
             endBlock(date)
         }
-        self.present(datavc, animated: true, completion: nil)
+        self.present(datavc, animated: true) {
+            if let date = selectDate{
+                datavc.dataPickView.setDate(date, animated: true)
+            }
+            
+        }
     }
 
 }

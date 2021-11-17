@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylf-g3-plR">
-                    <rect key="frame" x="0.0" y="586" width="414" height="310"/>
+                    <rect key="frame" x="0.0" y="438" width="414" height="458"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ru7-ZI-11S">
                             <rect key="frame" x="376" y="8" width="30" height="29"/>
@@ -55,9 +55,10 @@
                         <constraint firstAttribute="trailing" secondItem="Ru7-ZI-11S" secondAttribute="trailing" constant="8" id="lTR-dW-Bhq"/>
                     </constraints>
                 </view>
-                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="rsV-rg-VWy">
-                    <rect key="frame" x="0.0" y="646" width="414" height="216"/>
+                <datePicker contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="rsV-rg-VWy">
+                    <rect key="frame" x="0.0" y="498" width="414" height="364"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" name="AccentColor"/>
                     <locale key="locale" localeIdentifier="zh"/>
                 </datePicker>
             </subviews>
@@ -76,6 +77,9 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.38431376218795776" green="0.20392158627510071" blue="0.83529412746429443" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Text 4">
             <color red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

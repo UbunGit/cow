@@ -173,6 +173,7 @@
 		84F736B326DB773A008D28C1 /* ETFBaseListTableviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F736B126DB773A008D28C1 /* ETFBaseListTableviewCell.xib */; };
 		84F736B626DB7E77008D28C1 /* FollowListSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F736B426DB7E77008D28C1 /* FollowListSettingVC.swift */; };
 		84F736B726DB7E77008D28C1 /* FollowListSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F736B526DB7E77008D28C1 /* FollowListSettingVC.xib */; };
+		84FB1D232744F78600011946 /* SchemezContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB1D222744F78600011946 /* SchemezContract.swift */; };
 		B361F4813D5409C336DE9241 /* Pods_Cow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F60CF171DAB942E8AD2C091 /* Pods_Cow.framework */; };
 /* End PBXBuildFile section */
 
@@ -360,6 +361,7 @@
 		84F736B126DB773A008D28C1 /* ETFBaseListTableviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ETFBaseListTableviewCell.xib; sourceTree = "<group>"; };
 		84F736B426DB7E77008D28C1 /* FollowListSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowListSettingVC.swift; sourceTree = "<group>"; };
 		84F736B526DB7E77008D28C1 /* FollowListSettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowListSettingVC.xib; sourceTree = "<group>"; };
+		84FB1D222744F78600011946 /* SchemezContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemezContract.swift; sourceTree = "<group>"; };
 		8944AC9A803FD0C9983B9A34 /* Pods-CowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CowTests.debug.xcconfig"; path = "Target Support Files/Pods-CowTests/Pods-CowTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B2C7744FD96C6DA2CA9753D2 /* Pods_CowTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CowTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7410E06C8E6185BA9732D2 /* Pods-Cow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cow.debug.xcconfig"; path = "Target Support Files/Pods-Cow/Pods-Cow.debug.xcconfig"; sourceTree = "<group>"; };
@@ -529,6 +531,7 @@
 				843555D52734FF0800B05956 /* SchemeDesPoolCell.xib */,
 				843555E02735266500B05956 /* SchemeYieldCurveCell.swift */,
 				843555E12735266500B05956 /* SchemeYieldCurveCell.xib */,
+				84FB1D222744F78600011946 /* SchemezContract.swift */,
 			);
 			path = DefCell;
 			sourceTree = "<group>";
@@ -1261,6 +1264,7 @@
 				843555CA2733BAA100B05956 /* CollectionHeaderView.swift in Sources */,
 				844D5AFB26BA6EBC00AC08AF /* HomeViewController.swift in Sources */,
 				84A51D5B2743C9A40009684B /* UICollectionEmptyFootView.swift in Sources */,
+				84FB1D232744F78600011946 /* SchemezContract.swift in Sources */,
 				8483CFC426E6371A009F7A7D /* tables.swift in Sources */,
 				841A95A826DA2E3E00EFA126 /* Global.swift in Sources */,
 				8405463B26D8BE48007E7F0F /* ETFDetaiViewController.swift in Sources */,

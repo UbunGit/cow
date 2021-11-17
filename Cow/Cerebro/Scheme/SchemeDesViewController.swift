@@ -64,14 +64,15 @@ class SchemeDesViewController: BaseViewController {
         data.loadData()
         return data
     }()
-    // 今日成交
-    var contractNotes:[[String:Any]] {
-        let sql = """
-        SELECT * FROM back_trade
-        WHERE scheme_id = \(schemeId) AND date='\(selectDate)'
-        """
-        return sm.select(sql)
-    }
+    lazy var contractNotes:SchemezContract = {
+        let data = SchemezContract()
+        data.valueChange = {
+            self.collectionView.reloadData()
+        }
+        data.loadData()
+        return data
+    }()
+    
     // 历史成交
     var historyNotes:[[String:Any]] {
         let sql = """
@@ -144,7 +145,7 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
         case 1:
             return 1
         case 2:
-            return contractNotes.count
+            return contractNotes.datas.count
         case 3:
             return historyNotes.count
             
@@ -161,10 +162,12 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
         
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SchemeDesRecommendCell", for: indexPath) as!  SchemeDesRecommendCell
             let celldata = recommendData.datas[indexPath.row]
-            let dir = (celldata["dir"].int()==0) ? "买入" : "卖出"
+            let isbuy = (celldata["isgo"]==nil) ? "" : "未成"
+            var dir = (celldata["dir"].int()==0) ? "买入" : "卖出"
             let code = celldata["code"].string()
             let name = celldata["name"].string()
             let price = celldata["price"].price()
+            dir = "\(dir)/\(isbuy)"
             cell.nameLab.text = name
             cell.codeLab.text = code
             cell.priceLab.text = price
@@ -178,7 +181,7 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
         case 2:
         
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SchemeDesRecommendCell", for: indexPath) as!  SchemeDesRecommendCell
-            let celldata = contractNotes[indexPath.row]
+            let celldata = contractNotes.datas[indexPath.row]
             let dir = (celldata["dir"].int()==0) ? "买入" : "卖出"
             let code = celldata["code"].string()
             let name = celldata["name"].string()
@@ -267,7 +270,7 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
                 header.titleLab.text = "今日推荐"
                 header.valueLab.text = recommendData.selectDate
                 header.settingBtn.setBlockFor(.touchUpInside) { _ in
-                    self.selectDate { value in
+                    self.selectDate(selectDate:self.recommendData.selectDate?.date("yyyyMMdd") ) { value in
                         self.recommendData.selectDate = value.toString("yyyyMMdd")
                         self.recommendData.loadData()
                     }
@@ -281,7 +284,13 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
             case 2: //今日成交
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SchemeDesRecommendHeader", for: indexPath) as! SchemeDesRecommendHeader
                 header.titleLab.text = "今日成交"
-                header.valueLab.text = selectDate
+                header.valueLab.text = contractNotes.selectDate
+                header.settingBtn.setBlockFor(.touchUpInside) { _ in
+                    self.selectDate { value in
+                        self.contractNotes.selectDate = value.toString("yyyyMMdd")
+                        self.contractNotes.loadData()
+                    }
+                }
                 return header
             case 3: //历史成交
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SchemeDesRecommendHeader", for: indexPath) as! SchemeDesRecommendHeader
