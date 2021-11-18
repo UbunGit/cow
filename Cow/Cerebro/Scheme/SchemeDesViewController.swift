@@ -37,8 +37,9 @@ class SchemeDesViewController: BaseViewController {
         data.schemeId = self.schemeId
         data.loadData()
         data.valueChange = {
-            self.collectionView.reloadData()
-//            self.collectionView.reloadItems(at: [.init(row: 0, section: 0)])
+            if data.datas.count>0{
+                self.collectionView.reloadItems(at: [.init(row: 0, section: 0)])
+            }
         }
         
         return data
@@ -162,12 +163,12 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
         
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SchemeDesRecommendCell", for: indexPath) as!  SchemeDesRecommendCell
             let celldata = recommendData.datas[indexPath.row]
-            let isbuy = (celldata["isgo"]==nil) ? "" : "未成"
+            let isbuy = (celldata["isgo"]==nil) ? "" : "/未成"
             var dir = (celldata["dir"].int()==0) ? "买入" : "卖出"
             let code = celldata["code"].string()
             let name = celldata["name"].string()
             let price = celldata["price"].price()
-            dir = "\(dir)/\(isbuy)"
+            dir = "\(dir) \(isbuy)"
             cell.nameLab.text = name
             cell.codeLab.text = code
             cell.priceLab.text = price
