@@ -51,7 +51,7 @@ class RecommendCell: UITableViewCell {
                 let t = NSMutableAttributedString(string:str )
                 t.font = .systemFont(ofSize: 14)
                 t.setTextHighlight(_NSRange(location: 0, length: str.count),
-                                   color:.white ,
+                                   color:.cw_bg1 ,
                                    backgroundColor: UIColor(named: "AccentColor"))
                 { view, attstr, range, recet in
                     

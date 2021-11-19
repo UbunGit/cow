@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIColor{
+public extension UIColor{
     static var theme:UIColor = UIColor(named: "AccentColor") ?? .darkGray
     static var cw_bg1:UIColor = UIColor(named: "Background 1") ?? UIColor.white
     static var cw_bg5:UIColor = UIColor(named: "Background 5") ?? UIColor.white
@@ -20,4 +20,6 @@ extension UIColor{
     static var cw_text4:UIColor = UIColor(named: "Text 4") ?? .darkText
     static var cw_text5:UIColor = UIColor(named: "Text 5") ?? .darkText
     static var cw_text6:UIColor = UIColor(named: "Text 6") ?? .darkText
+    
+    static var mb_line:UIColor = UIColor(named: "Text 3") ?? .lightGray
 }

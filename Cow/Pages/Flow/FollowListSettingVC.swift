@@ -21,10 +21,10 @@ class FollowListSettingVC: BaseViewController {
         let btn2 = view.viewWithTag(2)
         if data.type == btn1?.tag{
             btn1?.backgroundColor = .red
-            btn2?.backgroundColor = .white
+            btn2?.backgroundColor = .cw_bg1
         }else{
             btn2?.backgroundColor = .red
-            btn1?.backgroundColor = .white
+            btn1?.backgroundColor = .cw_bg1
         }
         
     }

@@ -76,7 +76,7 @@
                     <state key="normal" image="gearshape" catalog="system"/>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" name="Background 1"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="JWd-C5-Ebl" secondAttribute="trailing" constant="8" id="2rX-lF-WjM"/>
                 <constraint firstAttribute="trailing" secondItem="DeP-cl-Nj1" secondAttribute="trailing" constant="8" id="38U-np-cjM"/>
@@ -113,6 +113,9 @@
     </objects>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
+        <namedColor name="Background 1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="Text 2">
             <color red="0.93300002813339233" green="0.93300002813339233" blue="0.93300002813339233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

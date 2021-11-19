@@ -22,7 +22,7 @@ class TableInfoPageViewController: BaseViewController {
     
     lazy var headerView: StackHeaderView = {
         let headerView = StackHeaderView()
-        headerView.backgroundColor = .white
+        headerView.backgroundColor = .cw_bg1
         return headerView
     }()
     

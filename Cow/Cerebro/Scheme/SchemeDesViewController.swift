@@ -31,57 +31,7 @@ class SchemeDesViewController: BaseViewController {
         let mineItem = UIBarButtonItem.init(customView: refresh)
         return mineItem
     }()
-    // 推荐列表
-    lazy var recommendData: SchemeDesRecommendData = {
-        let data = SchemeDesRecommendData()
-        data.schemeId = self.schemeId
-        data.loadData()
-        data.valueChange = {
-            if data.datas.count>0{
-                self.collectionView.reloadItems(at: [.init(row: 0, section: 0)])
-            }
-        }
-        
-        return data
-    }()
-    // 股票池
-    lazy var schemePoolData: SchemeDesPool = {
-        let data = SchemeDesPool()
-        data.valueChange = {
-            self.collectionView.reloadData()
-//            self.collectionView.reloadItems(at: [.init(row: 0, section: 5)])
-        }
-        data.loadData()
-        return data
-    }()
-    // 回测曲线
-    lazy var yieldCurve:SchemeYieldCurve = {
-        let data = SchemeYieldCurve()
-        data.valueChange = {
-            self.collectionView.reloadData()
-//            self.collectionView.reloadItems(at: [.init(row: 0, section: 1)])
-        }
-        
-        data.loadData()
-        return data
-    }()
-    lazy var contractNotes:SchemezContract = {
-        let data = SchemezContract()
-        data.valueChange = {
-            self.collectionView.reloadData()
-        }
-        data.loadData()
-        return data
-    }()
-    
-    // 历史成交
-    var historyNotes:[[String:Any]] {
-        let sql = """
-        SELECT * FROM back_trade
-        WHERE scheme_id = \(schemeId) AND date<='\(selectDate)'
-        """
-        return sm.select(sql)
-    }
+ 
     
   
  
@@ -93,16 +43,20 @@ class SchemeDesViewController: BaseViewController {
         view.setBlockFor(.valueChanged) { _ in
             let value = view.value
             let indexpath = IndexPath.init(row: 0, section: value)
+            print(value)
             if let _ = self.collectionView.cellForItem(at: indexpath) {
                 self.collectionView.scrollToItem(at: indexpath, at: .top, animated: true)
+                
             }
         }
         return view
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationItem.rightBarButtonItems = [refreshItem]
         makeUI()
+        getLastDate()
     }
     func makeUI(){
         title = "策略评估"
@@ -126,6 +80,92 @@ class SchemeDesViewController: BaseViewController {
             make.right.equalToSuperview()
             make.bottom.equalTo(collectionView.snp.top).offset(-1)
         }
+    }
+    
+    // 推荐列表
+    lazy var recommendData: SchemeDesRecommendData = {
+        let data = SchemeDesRecommendData()
+        data.schemeId = self.schemeId
+        data.loadData()
+        data.valueChange = {
+            self.collectionView.reloadSections(.init(integer: 0))
+        }
+        
+        return data
+    }()
+    // 回测曲线
+    lazy var yieldCurve:SchemeYieldCurve = {
+        let data = SchemeYieldCurve()
+        data.valueChange = {
+            
+            self.collectionView.reloadSections(.init(integer: 1))
+        }
+
+        return data
+    }()
+    // 今日成交单
+    lazy var contractNotes:SchemezContract = {
+        let data = SchemezContract()
+        data.valueChange = {
+            self.collectionView.reloadSections(.init(integer: 2))
+        }
+     
+        return data
+    }()
+    // 历史成交单
+    var historyNotes:[[String:Any]] {
+        let sql = """
+        SELECT * FROM back_trade
+        WHERE scheme_id = \(schemeId) AND date<='\(selectDate)'
+        """
+        return sm.select(sql)
+    }
+    // 股票池
+    lazy var schemePoolData: SchemeDesPool = {
+        let data = SchemeDesPool()
+        data.valueChange = {
+           
+            self.collectionView.reloadSections(.init(integer: 5))
+        }
+
+        return data
+    }()
+ 
+    
+   
+    
+  
+    // 更新全部数据
+    func updateData(){
+        recommendData.selectDate = selectDate
+        recommendData.loadData()
+        
+        schemePoolData.loadData()
+        yieldCurve.loadData()
+        
+        contractNotes.selectDate = selectDate
+        contractNotes.loadData()
+    }
+    func getLastDate(){
+        view.loading()
+        AF.scheme_lastDate(self.schemeId)
+            .responseModel([[String:Any]].self) { result in
+                self.view.loadingDismiss()
+                switch result{
+                case .success(let value):
+                    if let datedic = value.first{
+                        self.selectDate = datedic["date"].string()
+                        self.updateData()
+                    }else{
+                        self.view.error("获取最后交易日失败")
+                    }
+                    
+                    break
+                case .failure(let err):
+                    self.error(err)
+                }
+            }
+        
     }
 
 
@@ -178,6 +218,7 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
         
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SchemeYieldCurveCell", for: indexPath) as!  SchemeYieldCurveCell
             cell.celldata = yieldCurve
+           
             return cell
         case 2:
         
@@ -276,6 +317,14 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
                         self.recommendData.loadData()
                     }
                 }
+                
+                switch recommendData.state{
+                case 2:
+                    header.settingBtn.beginrefresh()
+                default:
+                    header.settingBtn.layer.removeAllAnimations()
+                }
+                
                 return header
             case 1: //回测曲线
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HTCollectionBaseHeaderView", for: indexPath) as! HTCollectionBaseHeaderView
@@ -292,11 +341,13 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
                         self.contractNotes.loadData()
                     }
                 }
+                header.settingBtn.layer.removeAllAnimations()
                 return header
             case 3: //历史成交
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SchemeDesRecommendHeader", for: indexPath) as! SchemeDesRecommendHeader
                 header.titleLab.text = "历史成交"
                 header.valueLab.text = nil
+                header.settingBtn.layer.removeAllAnimations()
                 return header
             case 4: //选股池
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HTCollectionBaseHeaderView", for: indexPath) as! HTCollectionBaseHeaderView

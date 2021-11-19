@@ -112,7 +112,7 @@ class TransactionListCell: UITableViewCell {
             let lowcostprice = lowcost["bprice"].double()
             let lowcosttarget = lowcost["target"].double()
             let lowx = lowcostprice/data.price
-            remarkImg.tintColor = .white
+            remarkImg.tintColor = .cw_bg1
             if lowcosttarget<=data.price{
                 remarkImg.tintColor = .red
             }

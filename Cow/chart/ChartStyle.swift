@@ -21,7 +21,7 @@ extension BarLineChartViewBase{
         
         // 边框
         borderLineWidth = 0.5;
-        borderColor = UIColor(named: "Background 2") ?? .lightGray
+        borderColor = .mb_line
         drawBordersEnabled = true
         setScaleMinima(1, scaleY: 1)
         doubleTapToZoomEnabled = false
@@ -31,7 +31,7 @@ extension BarLineChartViewBase{
         axis.labelPosition = .bottom
         axis.axisLineWidth = 1
         axis.gridLineWidth = 0.5
-        axis.gridColor = .black.withAlphaComponent(0.2)
+        axis.gridColor = .cw_bg5.withAlphaComponent(0.2)
         axis.labelCount = 3
         axis.labelRotationAngle = -1
         
@@ -39,7 +39,7 @@ extension BarLineChartViewBase{
         leftAxis.labelPosition = .insideChart
         leftAxis.axisLineWidth = 1
         leftAxis.gridLineWidth = 0.5
-        leftAxis.gridColor = .black.withAlphaComponent(0.2)
+        leftAxis.gridColor = .cw_bg5.withAlphaComponent(0.2)
         leftAxis.labelCount = 3
         leftAxis.decimals = 3
         
@@ -47,7 +47,7 @@ extension BarLineChartViewBase{
         rightAxis.labelPosition = .insideChart
         rightAxis.axisLineWidth = 1
         rightAxis.gridLineWidth = 0.5
-        rightAxis.gridColor = .black.withAlphaComponent(0.2)
+        rightAxis.gridColor = .cw_bg5.withAlphaComponent(0.2)
         rightAxis.labelCount = 3
         
         

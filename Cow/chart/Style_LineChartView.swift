@@ -10,6 +10,8 @@ import Charts
 
 extension LineChartView{
     func defualStyle()  {
+        //设置间隙
+        setExtraOffsets(left: 4, top: 0, right: 4, bottom: 0)
         // 禁止Y轴的滚动与放大
         scaleYEnabled = false
         dragYEnabled = false
@@ -21,7 +23,7 @@ extension LineChartView{
         
         // 边框
         borderLineWidth = 0.5;
-        borderColor = UIColor(named: "Background 2") ?? .lightGray
+        borderColor = .mb_line
         drawBordersEnabled = true
         setScaleMinima(1, scaleY: 1)
         doubleTapToZoomEnabled = false
@@ -31,7 +33,7 @@ extension LineChartView{
         axis.labelPosition = .bottom
         axis.axisLineWidth = 1
         axis.gridLineWidth = 0.5
-        axis.gridColor = .black.withAlphaComponent(0.2)
+        axis.gridColor = .mb_line
         axis.labelCount = 3
         axis.labelRotationAngle = -1
         
@@ -39,7 +41,7 @@ extension LineChartView{
         leftAxis.labelPosition = .insideChart
         leftAxis.axisLineWidth = 1
         leftAxis.gridLineWidth = 0.5
-        leftAxis.gridColor = .black.withAlphaComponent(0.2)
+        leftAxis.gridColor = .mb_line
         leftAxis.labelCount = 3
         leftAxis.decimals = 3
         
@@ -56,5 +58,10 @@ extension LineChartView{
         legend.xEntrySpace = 4
         legend.yEntrySpace = 4
         legend.yOffset = 10
+        
+        //是否支持marker功能 这里可以自定义一个点击弹窗的marker
+        drawMarkers = true
+    
     }
 }
+

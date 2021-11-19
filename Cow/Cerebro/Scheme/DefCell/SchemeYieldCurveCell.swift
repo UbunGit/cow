@@ -15,7 +15,10 @@ class SchemeYieldCurve{
         didSet{
             if let change = valueChange
             {
-                change()
+                DispatchQueue.main.async {
+                    change()
+                }
+                
             }
         }
     }
@@ -24,7 +27,10 @@ class SchemeYieldCurve{
         didSet{
             if let change = valueChange
             {
-                change()
+                DispatchQueue.main.async {
+                    change()
+                }
+                
             }
         }
     }
@@ -35,23 +41,42 @@ class SchemeYieldCurve{
     
     func loadData(){
         state = 2
-        AF.scheme_pool(schemeId).responseModel([[String:Any]].self) { result in
-            switch result{
-            case .success(let value):
-                self.pools = value
-                self.downochldate()
-            case .failure(let err):
-                self.error = err
-            }
+        let queue = DispatchQueue(label: "eee",qos: .unspecified)
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        queue.async {
             
-          
+            
+            AF.scheme_pool(self.schemeId).responseModel([[String:Any]].self) { result in
+                switch result{
+                case .success(let value):
+                    self.pools = value
+                    
+                case .failure(let err):
+                    self.error = err
+                    
+                }
+                semaphore.signal()
+                
+            }
+            semaphore.wait()
         }
+        
+        
+        
+        queue.async {
+            self.downochldate()
+        }
+        
+        
+        
+        
     }
-   
+    
     func downochldate(){
         let group = DispatchGroup()
         if sm.isExistsTable("loc_ochl") == false{
-           _ = sm.createTable("loc_ochl")
+            _ = sm.createTable("loc_ochl")
         }
         
         
@@ -119,16 +144,15 @@ class SchemeYieldCurve{
             }
         
     }
-    
-   
 }
+
 // 图表相关
 extension SchemeYieldCurve{
     
     // 每只股票收盘价走势
     func lineChartDataSet(ydates:[String])->[LineChartDataSet]{
-       
-      
+        
+        
         
         return pools.map {
             let code = $0["code"].string()
@@ -139,10 +163,10 @@ extension SchemeYieldCurve{
                 if let tclose = closePrice(code: code, date: md["date"].string()){
                     firstclose = tclose
                 }
-             
+                
             }
             let chartentye = closes.map { item -> ChartDataEntry  in
-               
+                
                 let x = ydates.firstIndex { ydate in
                     item["date"].string() == ydate
                 }.double()
@@ -177,7 +201,7 @@ extension SchemeYieldCurve{
     }
     // 资产趋势
     func yeidChartDataSet(ydates:[String])->[LineChartDataSet]{
-      
+        
         // 获取当日资产
         func yeid(date:String) -> Double{
             var yied:Double = 0
@@ -189,7 +213,7 @@ extension SchemeYieldCurve{
             WHERE t1.dir=0 and t1.sid NOTNULL AND t2.date<='\(date)' and t1.scheme_id='\(schemeId)')
             """
             if let blancedic = sm.select(sql).first{
-
+                
                 yied += blancedic["blance"].double()
             }
             // 获取未卖出的资产
@@ -208,7 +232,7 @@ extension SchemeYieldCurve{
             WHERE  t.date<='\(date)'
             AND (t.sdate>'\(date)' OR t.sdate ISNULL)
             """
-           
+            
             let untrades = sm.select(sql)
             untrades.forEach { item in
                 let code = item["code"].string()
@@ -216,16 +240,16 @@ extension SchemeYieldCurve{
                 if let close = closePrice(code: code, date: date){
                     let of = ((close/price) - 1)
                     yied += of
-       
+                    
                 }
             }
             return yied
-
+            
         }
         
         let chartentye = ydates.enumerated().map { (index, item) -> ChartDataEntry  in
             let x = index.double()
-          
+            
             let y = yeid(date: item)
             return  ChartDataEntry.init(x: x, y: y)
         }
@@ -253,9 +277,21 @@ class SchemeYieldCurveCell: UICollectionViewCell {
             updateUI()
         }
     }
+    lazy var makerView:UILabel = {
+        let markview = UILabel()
+        markview.frame = .init(x: 0, y: 0, width: 50, height: 20)
+        markview.font = .systemFont(ofSize: 12)
+        let maker = MarkerView()
+        maker.chartView = chartView;
+        chartView.marker = maker
+        maker.addSubview(markview)
+        return markview
+    }()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         chartView.defualStyle()
+        chartView.delegate = self
         
     }
     override func updateUI() {
@@ -263,28 +299,46 @@ class SchemeYieldCurveCell: UICollectionViewCell {
             guard let data = self.celldata else{
                 return
             }
+            
             if data.state == 1{
+                self.loadingDismiss()
                 self.msgLab.text = "成功"
                 self.msgLab.alpha = 0.1
-                let codes = data.pools.map{ "'\($0["code"].string())'"}
-                let ydates = sm.select(" select date from loc_ochl where code in (\(codes.joined(separator: ","))) group by date order by date ").map { $0["date"].string()}
-                let xaxis = self.chartView.xAxis
-                xaxis.valueFormatter = IndexAxisValueFormatter.init(
-                    values:ydates.map { $0.date("yyyyMMdd").toString("yyyy-MM-dd") }
-                )
-                let sets = data.lineChartDataSet(ydates: ydates)
-                let set2 = data.yeidChartDataSet(ydates: ydates)
-               
-                self.chartView.data = LineChartData(dataSets: sets+set2)
-               
+                let queue  = DispatchQueue.init(label: "crew")
+                queue.async {
+                    let codes = data.pools.map{ "'\($0["code"].string())'"}
+                    let ydates = sm.select(" select date from loc_ochl where code in (\(codes.joined(separator: ","))) group by date order by date ").map { $0["date"].string()}
+                    let xaxis = self.chartView.xAxis
+                    xaxis.valueFormatter = IndexAxisValueFormatter.init(
+                        values:ydates.map { $0.date("yyyyMMdd").toString("yyyy-MM-dd") }
+                    )
+                    let sets = data.lineChartDataSet(ydates: ydates)
+                    let set2 = data.yeidChartDataSet(ydates: ydates)
+                    DispatchQueue.main.async {
+                        self.chartView.data = LineChartData(dataSets: sets+set2)
+                    }
+                   
+                }
+                
+                
             }else if data.state == 3{
+                self.loadingDismiss()
                 self.msgLab.text = self.celldata?.message
             }else if data.state == 2{
                 self.msgLab.text = self.celldata?.message
+                self.loading()
             }
         }
-    
+        
         
     }
+    
+}
 
+extension SchemeYieldCurveCell:ChartViewDelegate{
+    // 选中
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight){
+        self.makerView.text = entry.y.price()
+     
+    }
 }

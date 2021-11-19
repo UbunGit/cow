@@ -78,9 +78,9 @@ class BaseNavigationController: UINavigationController {
             app.configureWithOpaqueBackground()  // 重置背景和阴影颜色
             app.titleTextAttributes = [
                 NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18),
-                NSAttributedString.Key.foregroundColor: UIColor.cw_text6
+                NSAttributedString.Key.foregroundColor: UIColor.cw_text4
             ]
-            app.backgroundColor = UIColor.white  // 设置导航栏背景色
+            app.backgroundColor = .cw_bg1  // 设置导航栏背景色
     
             navigationBar.scrollEdgeAppearance = app  // 带scroll滑动的页面
             navigationBar.standardAppearance = app // 常规页面

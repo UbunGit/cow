@@ -114,12 +114,17 @@ import MBProgressHUD
     func loading(_ msg:String? = nil){
 
         DispatchQueue.main.async {
-            let hud = self.show(text: msg, icon: nil)
+            let mg = msg
+            let hud = self.show(text: mg, icon: nil)
             hud.mode = .indeterminate
+            hud.bezelView.backgroundColor = .clear    //背景颜色
+            hud.backgroundColor = .cw_bg1.withAlphaComponent(0.9)
+            hud.bezelView.transformAnimation()
             hud.tag = 6003
             
         }
     }
+    
     @objc func loadingProgress(progress:Float){
         
         DispatchQueue.main.async {
@@ -195,13 +200,13 @@ private extension UIView{
         if text != nil {
             
             hud.label.text = text;
-            hud.label.textColor = .white
+            hud.label.textColor = .cw_bg1
             hud.label.font = .systemFont(ofSize: 17)
         }
         if icon != nil {
             hud.customView = UIImageView.init(image: UIImage.init(named: icon ?? ""))
         }
-        hud.bezelView.backgroundColor = .black    //背景颜色
+        hud.bezelView.backgroundColor = .cw_bg5    //背景颜色
         hud.mode = .customView;
         hud.removeFromSuperViewOnHide = true;
         return hud
@@ -215,6 +220,7 @@ private extension UIView{
                     guard let hub = aview as? MBProgressHUD  else {
                         return
                     }
+                    hub.layer.removeAllAnimations()
                     hub.hide(animated: false)
                 }
             }
@@ -222,4 +228,8 @@ private extension UIView{
          
         }
     }
+
+        
+   
+   
 }

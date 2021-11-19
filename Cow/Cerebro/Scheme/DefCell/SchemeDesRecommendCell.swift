@@ -24,35 +24,9 @@ class SchemeDesRecommendData{
     
     func loadData(){
         self.state = 2
-        getLastDate()
+        getrecommends()
     }
-    func getLastDate(){
-        if selectDate == nil{
-            AF.scheme_lastDate(self.schemeId)
-                .responseModel([[String:Any]].self) { result in
-                    switch result{
-                    case .success(let value):
-                        if let datedic = value.first{
-                            self.selectDate = datedic["date"].string()
-                            self.getrecommends()
-                        }else{
-                            self.state = 3
-                            self.error = BaseError(code: -1, msg: "为获取到最后交易日期")
-                        }
-                        
-                        break
-                    case .failure(let err):
-                        self.state = 3
-                        self.error = err
-                        break
-                    }
-                }
-            
-        }else{
-            self.getrecommends()
-        }
-      
-    }
+   
     // 获取推荐股票列表
     func getrecommends(){
         guard let date = selectDate else{

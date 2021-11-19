@@ -179,7 +179,7 @@ class SqlTableView: UIView {
     
     lazy var valueHeader : StackHeaderView = {
         let view = StackHeaderView()
-        view.backgroundColor = .white
+        view.backgroundColor = .cw_bg1
         view.delegate = self
         return view
     }()
@@ -285,7 +285,7 @@ extension SqlTableView:UITableViewDelegate,UITableViewDataSource,UIScrollViewDel
             let view = StackHeaderView()
             view.datas = ["序号"]
             view.reloadUI()
-            view.backgroundColor = .white
+            view.backgroundColor = .cw_bg1
             return view
         }else{
            
@@ -301,7 +301,7 @@ extension SqlTableView:UITableViewDelegate,UITableViewDataSource,UIScrollViewDel
             if indexPath.row%2==0{
                 cell.backgroundColor = .lightGray.alpha(0.2)
             }else{
-                cell.backgroundColor = .white
+                cell.backgroundColor = .cw_bg1
             }
             return cell
         }else{
@@ -312,7 +312,7 @@ extension SqlTableView:UITableViewDelegate,UITableViewDataSource,UIScrollViewDel
             if indexPath.row%2==0{
                 cell.backgroundColor = .lightGray.alpha(0.2)
             }else{
-                cell.backgroundColor = .white
+                cell.backgroundColor = .cw_bg1
             }
             return cell
         }

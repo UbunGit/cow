@@ -7,6 +7,7 @@
 
 import UIKit
 import DoraemonKit
+
  @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

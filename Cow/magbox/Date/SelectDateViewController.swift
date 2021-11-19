@@ -13,7 +13,7 @@ class SelectDateViewController: UIViewController {
     @IBOutlet weak var dataPickView: UIDatePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataPickView.backgroundColor = .white
+        dataPickView.backgroundColor = .cw_bg1
         dataPickView.maximumDate = .init()
 
     }
