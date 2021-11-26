@@ -75,6 +75,7 @@ class SchemeDesRecommendData{
 class SchemeDesRecommendCell: UICollectionViewCell {
     
    
+    @IBOutlet weak var remarkView: UIView!
     @IBOutlet weak var nameLab: UILabel!
     @IBOutlet weak var priceLab: UILabel!
     @IBOutlet weak var dirLab: UILabel!

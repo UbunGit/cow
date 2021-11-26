@@ -72,6 +72,7 @@
                 <outlet property="dirLab" destination="pgB-os-KZF" id="Q3a-lx-HPz"/>
                 <outlet property="nameLab" destination="bGY-jg-pN2" id="WCC-Ic-0Pg"/>
                 <outlet property="priceLab" destination="8Cx-eg-QkH" id="0g1-Jh-53e"/>
+                <outlet property="remarkView" destination="TAG-SD-bxq" id="vke-dO-P5o"/>
             </connections>
             <point key="canvasLocation" x="207.97101449275365" y="132.25446428571428"/>
         </collectionViewCell>

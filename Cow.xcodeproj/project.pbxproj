@@ -113,6 +113,14 @@
 		849A0AF526F9A050001387CF /* KoinudefViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849A0AF326F9A050001387CF /* KoinudefViewController.xib */; };
 		849A0AF826F9A261001387CF /* KoinuHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A0AF626F9A261001387CF /* KoinuHistoryCell.swift */; };
 		849A0AF926F9A261001387CF /* KoinuHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849A0AF726F9A261001387CF /* KoinuHistoryCell.xib */; };
+		849B76A2274DE4A100F70289 /* SchemeTimeYieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B76A1274DE4A100F70289 /* SchemeTimeYieldCell.swift */; };
+		849B76A5274E496D00F70289 /* SchemeHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B76A3274E496D00F70289 /* SchemeHistoryCell.swift */; };
+		849B76A6274E496E00F70289 /* SchemeHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849B76A4274E496D00F70289 /* SchemeHistoryCell.xib */; };
+		849B76A9274F204B00F70289 /* SchemeHistoryHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B76A7274F204B00F70289 /* SchemeHistoryHeader.swift */; };
+		849B76AA274F204B00F70289 /* SchemeHistoryHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849B76A8274F204B00F70289 /* SchemeHistoryHeader.xib */; };
+		849B76AC274F38CA00F70289 /* SMScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B76AB274F38CA00F70289 /* SMScheme.swift */; };
+		849B76AF274F3A0B00F70289 /* SchemeBeforehand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B76AE274F3A0B00F70289 /* SchemeBeforehand.swift */; };
+		849B76B1274F3BCC00F70289 /* SchemeStateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B76B0274F3BCC00F70289 /* SchemeStateObject.swift */; };
 		849D787826C287F5003DFE5F /* StockBasicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849D787626C287F5003DFE5F /* StockBasicListCell.swift */; };
 		849D787926C287F5003DFE5F /* StockBasicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849D787726C287F5003DFE5F /* StockBasicListCell.xib */; };
 		849E9B582702C9BF00864C2A /* FormTextInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E9B562702C9BF00864C2A /* FormTextInputCell.swift */; };
@@ -299,6 +307,14 @@
 		849A0AF326F9A050001387CF /* KoinudefViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoinudefViewController.xib; sourceTree = "<group>"; };
 		849A0AF626F9A261001387CF /* KoinuHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoinuHistoryCell.swift; sourceTree = "<group>"; };
 		849A0AF726F9A261001387CF /* KoinuHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoinuHistoryCell.xib; sourceTree = "<group>"; };
+		849B76A1274DE4A100F70289 /* SchemeTimeYieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeTimeYieldCell.swift; sourceTree = "<group>"; };
+		849B76A3274E496D00F70289 /* SchemeHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeHistoryCell.swift; sourceTree = "<group>"; };
+		849B76A4274E496D00F70289 /* SchemeHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchemeHistoryCell.xib; sourceTree = "<group>"; };
+		849B76A7274F204B00F70289 /* SchemeHistoryHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeHistoryHeader.swift; sourceTree = "<group>"; };
+		849B76A8274F204B00F70289 /* SchemeHistoryHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchemeHistoryHeader.xib; sourceTree = "<group>"; };
+		849B76AB274F38CA00F70289 /* SMScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMScheme.swift; sourceTree = "<group>"; };
+		849B76AE274F3A0B00F70289 /* SchemeBeforehand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeBeforehand.swift; sourceTree = "<group>"; };
+		849B76B0274F3BCC00F70289 /* SchemeStateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeStateObject.swift; sourceTree = "<group>"; };
 		849D787626C287F5003DFE5F /* StockBasicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockBasicListCell.swift; sourceTree = "<group>"; };
 		849D787726C287F5003DFE5F /* StockBasicListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockBasicListCell.xib; sourceTree = "<group>"; };
 		849E9B562702C9BF00864C2A /* FormTextInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextInputCell.swift; sourceTree = "<group>"; };
@@ -499,6 +515,7 @@
 			isa = PBXGroup;
 			children = (
 				843555BA27338F8E00B05956 /* APIScheme.swift */,
+				849B76AB274F38CA00F70289 /* SMScheme.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -528,6 +545,11 @@
 				843555E02735266500B05956 /* SchemeYieldCurveCell.swift */,
 				843555E12735266500B05956 /* SchemeYieldCurveCell.xib */,
 				84FB1D222744F78600011946 /* SchemezContract.swift */,
+				849B76A3274E496D00F70289 /* SchemeHistoryCell.swift */,
+				849B76A4274E496D00F70289 /* SchemeHistoryCell.xib */,
+				849B76A7274F204B00F70289 /* SchemeHistoryHeader.swift */,
+				849B76A8274F204B00F70289 /* SchemeHistoryHeader.xib */,
+				849B76A1274DE4A100F70289 /* SchemeTimeYieldCell.swift */,
 			);
 			path = DefCell;
 			sourceTree = "<group>";
@@ -812,6 +834,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		849B76AD274F39CE00F70289 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				849B76AE274F3A0B00F70289 /* SchemeBeforehand.swift */,
+				849B76B0274F3BCC00F70289 /* SchemeStateObject.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		84A51D552743B61F0009684B /* Date */ = {
 			isa = PBXGroup;
 			children = (
@@ -886,6 +917,7 @@
 		84BACCD426F5D3F9004EEE9A /* Scheme */ = {
 			isa = PBXGroup;
 			children = (
+				849B76AD274F39CE00F70289 /* Model */,
 				843555CB2734C53400B05956 /* DefCell */,
 				843555B927338F6800B05956 /* API */,
 				843555BC2733AE4800B05956 /* Template */,
@@ -1086,6 +1118,7 @@
 				8474458427312B3700F9201B /* IPURLConfigCell.xib in Resources */,
 				84E62FF02705B805008A14C4 /* TablePageView.xib in Resources */,
 				845E45D126CD1877002E77C3 /* SoreSimpleView.xib in Resources */,
+				849B76A6274E496E00F70289 /* SchemeHistoryCell.xib in Resources */,
 				8410012126C10D2700C64E53 /* StockBasicListVC.xib in Resources */,
 				843555DE2735052000B05956 /* HTCollectionBaseHeaderView.xib in Resources */,
 				84F736AD26DB7405008D28C1 /* ETFBaseListVC.xib in Resources */,
@@ -1109,6 +1142,7 @@
 				841A95B826DA8B6100EFA126 /* KirogiSettingVC.xib in Resources */,
 				8405464226D8C206007E7F0F /* ETFDetaiKlineCell.xib in Resources */,
 				844D5B0926BA955600AC08AF /* HomeBandas.xib in Resources */,
+				849B76AA274F204B00F70289 /* SchemeHistoryHeader.xib in Resources */,
 				8483CF0126E21E0F009F7A7D /* TransactionEdit.xib in Resources */,
 				84E7F25926EB2D7100F3F61C /* TransactionDefVC.xib in Resources */,
 				849E9B5D2702DAB200864C2A /* SchemeTemplateEditVC.xib in Resources */,
@@ -1244,6 +1278,7 @@
 				84E62FEC270432F9008A14C4 /* TableInfoPageViewController.swift in Sources */,
 				843555C32733B2FC00B05956 /* SchemeListTableCell.swift in Sources */,
 				843555E22735266500B05956 /* SchemeYieldCurveCell.swift in Sources */,
+				849B76AC274F38CA00F70289 /* SMScheme.swift in Sources */,
 				849E9B5C2702DAB200864C2A /* SchemeTemplateEditVC.swift in Sources */,
 				848E99A5270086D200868654 /* sql.swift in Sources */,
 				84B443F026EB588100768F60 /* UpdateAble.swift in Sources */,
@@ -1263,6 +1298,7 @@
 				845E45A826CBA94E002E77C3 /* SQLTableListVC.swift in Sources */,
 				843555CA2733BAA100B05956 /* CollectionHeaderView.swift in Sources */,
 				844D5AFB26BA6EBC00AC08AF /* HomeViewController.swift in Sources */,
+				849B76A2274DE4A100F70289 /* SchemeTimeYieldCell.swift in Sources */,
 				84A51D5B2743C9A40009684B /* UICollectionEmptyFootView.swift in Sources */,
 				84FB1D232744F78600011946 /* SchemezContract.swift in Sources */,
 				8483CFC426E6371A009F7A7D /* tables.swift in Sources */,
@@ -1280,6 +1316,7 @@
 				841A95A526DA2AC800EFA126 /* loginViewController.swift in Sources */,
 				842C3E9026D6353C00F012DD /* OSS.swift in Sources */,
 				846B4CC726C104A100EB5BA7 /* CollectionViewGridCell.swift in Sources */,
+				849B76A5274E496D00F70289 /* SchemeHistoryCell.swift in Sources */,
 				84BACCDB26F5D665004EEE9A /* MBPath.swift in Sources */,
 				84B25E1726DC984E00284679 /* ETFRecommendDetaiVC.swift in Sources */,
 				84F736AF26DB7592008D28C1 /* etf_follow+basic.swift in Sources */,
@@ -1323,6 +1360,7 @@
 				84463B9326CF7BEC00F2262B /* KlineNavBarView.swift in Sources */,
 				84D8DD7726D3811D0074E9A4 /* stockma.swift in Sources */,
 				845E45D326CD188C002E77C3 /* SoreSimpleView.swift in Sources */,
+				849B76AF274F3A0B00F70289 /* SchemeBeforehand.swift in Sources */,
 				849A0AF426F9A050001387CF /* KoinudefViewController.swift in Sources */,
 				8410013626C11D8700C64E53 /* StockBasic.swift in Sources */,
 				84E62FD227031576008A14C4 /* UITableViewAddCell.swift in Sources */,
@@ -1337,9 +1375,11 @@
 				843555BB27338F8E00B05956 /* APIScheme.swift in Sources */,
 				845E45CE26CCFEC5002E77C3 /* KLineViewController.swift in Sources */,
 				8483CEE526E08D90009F7A7D /* TransactionListTableHeader.swift in Sources */,
+				849B76A9274F204B00F70289 /* SchemeHistoryHeader.swift in Sources */,
 				844D5B0326BA803400AC08AF /* HomeBandas.swift in Sources */,
 				84D8DD8326D3A7D50074E9A4 /* follow+stockbasic.swift in Sources */,
 				843555D62734FF0800B05956 /* SchemeDesPoolCell.swift in Sources */,
+				849B76B1274F3BCC00F70289 /* SchemeStateObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

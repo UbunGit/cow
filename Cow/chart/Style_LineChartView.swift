@@ -11,7 +11,7 @@ import Charts
 extension LineChartView{
     func defualStyle()  {
         //设置间隙
-        setExtraOffsets(left: 4, top: 0, right: 4, bottom: 0)
+        setExtraOffsets(left: 0, top: 0, right: 0, bottom: 0)
         // 禁止Y轴的滚动与放大
         scaleYEnabled = false
         dragYEnabled = false
@@ -31,11 +31,11 @@ extension LineChartView{
         
         let axis = xAxis
         axis.labelPosition = .bottom
-        axis.axisLineWidth = 1
+        axis.axisLineWidth = 0.5
         axis.gridLineWidth = 0.5
         axis.gridColor = .mb_line
         axis.labelCount = 3
-        axis.labelRotationAngle = -1
+        axis.labelRotationAngle = 20
         
         let leftAxis = leftAxis
         leftAxis.labelPosition = .insideChart

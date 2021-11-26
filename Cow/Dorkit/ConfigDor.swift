@@ -6,15 +6,20 @@
 //
 
 import Foundation
+#if DEBUG
 import DoraemonKit
+#endif
 extension AppDelegate{
     func configDor(){
+#if DEBUG
         DoraemonManager.shareInstance().install(withPid: "db4146378948b4a04e74c1172ce45590")
         DoraemonManager.shareInstance().addPlugin(withTitle: "IP地址设置", icon: "doraemon_ui", desc: "IP地址设置", pluginName: "IP地址设置", atModule: "自定义") { _ in
             let vc = IPURLConfigVC()
             DoraemonHomeWindow.openPlugin(vc)
             
         }
+#endif
         
     }
 }
+

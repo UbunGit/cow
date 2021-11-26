@@ -8,285 +8,151 @@
 import UIKit
 import Alamofire
 import Charts
-class SchemeYieldCurve{
-    
-    var valueChange:(()->())? = nil
-    var state:Int = 0 {  // 0初始化 1成功 2加载中 3失败
+import AudioToolbox
+class SchemeYieldCurve:SchemeStateObject{
+
+    var datas:[[String:Any]]? = nil{
         didSet{
-            if let change = valueChange
-            {
-                DispatchQueue.main.async {
-                    change()
-                }
-                
-            }
+            datahash = "\(Date())"
         }
     }
     
-    var message:String? = nil{
-        didSet{
-            if let change = valueChange
-            {
-                DispatchQueue.main.async {
-                    change()
-                }
-                
-            }
-        }
-    }
-    var data:[[String:Any]]? = nil
     var pools:[[String:Any]] = []
-    var error:Any? = nil
     var schemeId = 1
+    var begindate:String? = nil
+    var endDate:String? = nil
     
     func loadData(){
-        state = 2
-        let queue = DispatchQueue(label: "eee",qos: .unspecified)
-        let semaphore = DispatchSemaphore(value: 0)
-        
-        queue.async {
-            
-            
-            AF.scheme_pool(self.schemeId).responseModel([[String:Any]].self) { result in
-                switch result{
-                case .success(let value):
-                    self.pools = value
-                    
-                case .failure(let err):
-                    self.error = err
-                    
-                }
-                semaphore.signal()
-                
-            }
-            semaphore.wait()
-        }
-        
-        
-        
-        queue.async {
-            self.downochldate()
-        }
-        
-        
-        
-        
+        datas = []
     }
-    
-    func downochldate(){
-        let group = DispatchGroup()
-        if sm.isExistsTable("loc_ochl") == false{
-            _ = sm.createTable("loc_ochl")
-        }
-        
-        
-        self.message = "正在下载股票数据"
-        pools.forEach { item in
-            group.enter()
-            let code = item["code"].string()
-            let end:String? = nil
-            
-            var begin:String? = nil
-            if let data = sm.select(" select max(date) date from loc_ochl where code='\(code)' ").last{
-                begin = data["date"].string()
-            }
-            AF.dailydata(code, type: item["type"].int(), begin: begin, end: end)
-                .responseModel([[String:Any]].self) { result in
-                    switch result{
-                    case .success(let value):
-                        if sm.mutableinster(table: "loc_ochl", column: ["code","date","open","close","low","high","vol"], datas: value) == false{
-                            
-                        }
-                        break
-                    case .failure( _ ):
-                        
-                        self.state = 3
-                        break
-                    }
-                    group.leave()
-                    
-                }
-        }
-        group.notify(queue: .main) {
-            if self.state != 3{
-                self.downback_trace()
-            }else{
-                self.message = "数据下载失败"
-            }
-            
-        }
-        
-    }
-    func downback_trace(){
-        self.message = "正在下载交易列表"
-        if sm.isExistsTable("back_trade") == false{
-            _ = sm.createTable("back_trade")
-        }
-        let sql = " delete FROM back_trade where scheme_id = '\(schemeId)' "
-        _ =  sm.delete(sql)
-        
-        
-        AF.back_trade(schemeId: schemeId)
-            .responseModel([[String:Any]].self) { result in
-                switch result{
-                case .success(let value):
-                    if sm.mutableinster(table: "back_trade", column: ["id","scheme_id","date","type","code","price","dir","count","sid"], datas: value) == true{
-                        self.state = 1
-                    }else{
-                        self.state = 3
-                    }
-                    break
-                case .failure( _ ):
-                    
-                    self.state = 3
-                    break
-                }
-            }
-        
-    }
+
 }
 
 // 图表相关
 extension SchemeYieldCurve{
     
-    // 每只股票收盘价走势
-    func lineChartDataSet(ydates:[String])->[LineChartDataSet]{
-        
-        
-        
-        return pools.map {
-            let code = $0["code"].string()
-            let closes = sm.select(" select close,date from loc_ochl where code='\(code)' order by date ")
-            let mindate = sm.select(" select min(date) date  from loc_ochl where code='\(code)' ").first
-            var firstclose:Double = 0
-            if let md = mindate{
-                if let tclose = closePrice(code: code, date: md["date"].string()){
-                    firstclose = tclose
-                }
-                
-            }
-            let chartentye = closes.map { item -> ChartDataEntry  in
-                
-                let x = ydates.firstIndex { ydate in
-                    item["date"].string() == ydate
-                }.double()
-                let close = item["close"].double()
-                let y = (close/firstclose)-1
-                return  ChartDataEntry.init(x: x, y: y)
-            }
-            let set = LineChartDataSet(entries: chartentye, label: "\(code)")
-            set.mode = .cubicBezier
-            set.label = code
-            set.drawCirclesEnabled = false
-            set.drawFilledEnabled = false
-            set.drawValuesEnabled = false
-            set.fillColor = .yellow.withAlphaComponent(0.1)
-            set.colors = [UIColor.doraemon_random().alpha(0.5) ]
-            return set
-        }
-        
-    }
-    //获取某日股票收盘价
-    func closePrice(code:String,date:String)->Double?{
-        let sql = """
-        SELECT close FROM loc_ochl
-        WHERE date = '\(date)' and code='\(code)'
-        """
-        if let date = sm.select(sql).first{
-            return date["close"].double()
-        }else{
-            return nil
-        }
-        
-    }
-    // 资产趋势
-    func yeidChartDataSet(ydates:[String])->[LineChartDataSet]{
-        
-        // 获取当日资产
-        func yeid(date:String) -> Double{
-            var yied:Double = 0
-            // 获取已卖出的资产
-            var sql = """
-            SELECT sum(pricev) blance from
-            (select (t2.price/t1.price)-1 pricev,t2.date from back_trade t1
-            LEFT JOIN (select * from back_trade WHERE dir =1 and scheme_id='\(schemeId)' ) t2 ON t2.sid=t1.id
-            WHERE t1.dir=0 and t1.sid NOTNULL AND t2.date<='\(date)' and t1.scheme_id='\(schemeId)')
-            """
-            if let blancedic = sm.select(sql).first{
-                
-                yied += blancedic["blance"].double()
-            }
-            // 获取未卖出的资产
-            sql = """
-            SELECT * FROM
-                (
-                select t1.date date,t2.date sdate,t1.code code,t1.price price
-                from back_trade t1
-                LEFT JOIN
-                    (
-                    select * from back_trade
-                    WHERE dir =1  and scheme_id='\(schemeId)'
-                    ) t2 ON t2.sid=t1.id
-                WHERE t1.dir=0 and t1.scheme_id='\(schemeId)'
-                ) as t
-            WHERE  t.date<='\(date)'
-            AND (t.sdate>'\(date)' OR t.sdate ISNULL)
-            """
-            
-            let untrades = sm.select(sql)
-            untrades.forEach { item in
-                let code = item["code"].string()
-                let price = item["price"].double()
-                if let close = closePrice(code: code, date: date){
-                    let of = ((close/price) - 1)
-                    yied += of
-                    
-                }
-            }
-            return yied
-            
-        }
-        
-        let chartentye = ydates.enumerated().map { (index, item) -> ChartDataEntry  in
+    // 收盘价趋势
+    func closeChartDataSet(_ code:String, ydates:[String])->[ChartDataEntry]{
+        let b = sm.closePrice(code: code, date: begindate.string())
+        return ydates.enumerated().map { (index, item) -> ChartDataEntry  in
             let x = index.double()
-            
-            let y = yeid(date: item)
+            let e = sm.closePrice(code: code, date: item)
+            let y = e-b
             return  ChartDataEntry.init(x: x, y: y)
         }
-        let yiedset = LineChartDataSet(entries: chartentye, label: "资产")
-        yiedset.mode = .cubicBezier
-        yiedset.lineWidth = 1.5
-        yiedset.label = "资产"
-        yiedset.drawCirclesEnabled = false
-        yiedset.drawFilledEnabled = false
-        yiedset.drawValuesEnabled = false
-        yiedset.fillColor = .yellow.withAlphaComponent(0.1)
-        yiedset.colors = [UIColor.red]
-        return [yiedset]
+    }
+    // 资产趋势
+    func yeidChartDataSet(ydates:[String])->[ChartDataEntry]{
+
+        let b = sm.scheme_property(schemeId, date: begindate.string())
+        return ydates.enumerated().map { (index, item) -> ChartDataEntry  in
+            let x = index.double()
+            let e = sm.scheme_property(schemeId, date: item)
+            let y = e-b
+            return  ChartDataEntry.init(x: x, y: y)
+        }
+
     }
     
     
 }
+// header
+class SchemeYieldCurveHeader:UICollectionReusableView{
+   
+    lazy var titleLab:UILabel = {
+        let lable = UILabel()
+        lable.textColor = .cw_text6
+        lable.font = .boldSystemFont(ofSize: 14)
+        lable.text = "标题"
+        return lable
+    }()
+    
+    lazy var settingbtn:UIButton = {
+        let button = UIButton()
+        button.tintColor  = .cw_text4
+        button.setImage(.init(systemName: "arrow.clockwise"), for: .normal)
+        return button
+    }()
+    lazy var beginDatePicker:UIDatePicker = {
+        let begin = UIDatePicker()
+        begin.locale =  Locale(identifier: "zh_CN")
+        begin.datePickerMode = .date
+        return begin
+    }()
+    
+    lazy var endDatePicker:UIDatePicker = {
+        let end = UIDatePicker()
+        end.datePickerMode = .date
+        end.locale =  Locale(identifier: "zh_CN")
+        return end
+    }()
+    override init(frame: CGRect){
+        super.init(frame: frame)
+        addSubview(settingbtn)
+        addSubview(titleLab)
+        addSubview(beginDatePicker)
+        addSubview(endDatePicker)
+        mb_tlRadius = 8
+        mb_trRadius = 8
+        backgroundColor = .cw_bg1
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        titleLab.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(8)
+            make.centerY.equalToSuperview()
+        }
+        settingbtn.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(-8)
+            make.width.equalTo(28)
+            make.centerY.equalToSuperview()
+        }
+        endDatePicker.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.width.equalTo(120)
+            make.right.equalTo(settingbtn.snp.left).offset(-4)
+        }
+        beginDatePicker.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.width.equalTo(120)
+            make.right.equalTo(endDatePicker.snp.left).offset(-4)
+        }
+        
+    }
+}
+
 
 class SchemeYieldCurveCell: UICollectionViewCell {
     
     @IBOutlet weak var chartView: LineChartView!
     @IBOutlet weak var msgLab: UILabel!
+    
+    private var ydates:[String] = []
+    private var closes:[String:Any] = [:]
+    private var yeidsEntry:[ChartDataEntry] = []
+    
+    private var datahash:String? = nil
+    
     var celldata:SchemeYieldCurve? = nil{
         didSet{
             updateUI()
         }
     }
-    lazy var makerView:UILabel = {
-        let markview = UILabel()
-        markview.frame = .init(x: 0, y: 0, width: 50, height: 20)
-        markview.font = .systemFont(ofSize: 12)
-        let maker = MarkerView()
-        maker.chartView = chartView;
-        chartView.marker = maker
-        maker.addSubview(markview)
-        return markview
+    lazy var markView:UILabel = {
+        let lable = UILabel()
+        lable.backgroundColor = .cw_bg5.alpha(0.5)
+        lable.mb_radius = 4
+        lable.numberOfLines = 0
+        lable.font = .systemFont(ofSize: 12)
+        return lable
     }()
+  
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -296,49 +162,120 @@ class SchemeYieldCurveCell: UICollectionViewCell {
     }
     override func updateUI() {
         DispatchQueue.main.async {
+            
             guard let data = self.celldata else{
                 return
             }
-            
-            if data.state == 1{
-                self.loadingDismiss()
-                self.msgLab.text = "成功"
-                self.msgLab.alpha = 0.1
-                let queue  = DispatchQueue.init(label: "crew")
-                queue.async {
-                    let codes = data.pools.map{ "'\($0["code"].string())'"}
-                    let ydates = sm.select(" select date from loc_ochl where code in (\(codes.joined(separator: ","))) group by date order by date ").map { $0["date"].string()}
-                    let xaxis = self.chartView.xAxis
-                    xaxis.valueFormatter = IndexAxisValueFormatter.init(
-                        values:ydates.map { $0.date("yyyyMMdd").toString("yyyy-MM-dd") }
-                    )
-                    let sets = data.lineChartDataSet(ydates: ydates)
-                    let set2 = data.yeidChartDataSet(ydates: ydates)
-                    DispatchQueue.main.async {
-                        self.chartView.data = LineChartData(dataSets: sets+set2)
-                    }
-                   
+            if data.datahash == self.datahash{
+                return
+            }else{
+                self.datahash = data.datahash
+            }
+            if data.error != nil{
+                self.msgLab.text = data.error
+                return
+            }
+           
+        
+            self.msgLab.text = "成功"
+            self.msgLab.alpha = 0.1
+            let queue  = DispatchQueue.init(label: "crew")
+            self.loading()
+            queue.async {
+                let codes = data.pools.map{ "'\($0["code"].string())'"}
+                self.ydates = sm.select(
+                            """
+                            select date from loc_ochl
+                            where code in (\(codes.joined(separator: ",")))
+                            and date>='\(data.begindate.string())' and date<='\(data.endDate.string())'
+                            group by date
+                            order by date
+                            """).map { $0["date"].string()}
+                let xaxis = self.chartView.xAxis
+                xaxis.valueFormatter = IndexAxisValueFormatter.init(
+                    values:self.ydates.map { $0.date("yyyyMMdd").toString("yyyy-MM-dd") }
+                )
+                
+                data.pools.forEach {
+                    let code = $0["code"].string()
+                    
+                    let chartentye = data.closeChartDataSet(code, ydates: self.ydates)
+                    self.closes[code] = chartentye
                 }
                 
+                self.yeidsEntry = data.yeidChartDataSet(ydates: self.ydates)
+                DispatchQueue.main.async {
+                    
+                    self.reloadChart()
+                    self.loadingDismiss()
+                }
                 
-            }else if data.state == 3{
-                self.loadingDismiss()
-                self.msgLab.text = self.celldata?.message
-            }else if data.state == 2{
-                self.msgLab.text = self.celldata?.message
-                self.loading()
             }
+        
         }
         
         
     }
     
+    func reloadChart(){
+        let yiedset = LineChartDataSet(entries: self.yeidsEntry, label: "资产")
+        yiedset.mode = .cubicBezier
+        yiedset.lineWidth = 1.5
+        yiedset.label = "资产"
+        yiedset.drawCirclesEnabled = false
+        yiedset.drawFilledEnabled = false
+        yiedset.drawValuesEnabled = false
+        yiedset.fillColor = .yellow.withAlphaComponent(0.1)
+        yiedset.colors = [UIColor.red]
+        let closeSets = self.closes.map { (key,value) -> LineChartDataSet in
+            let set = LineChartDataSet(entries: value as? [ChartDataEntry], label: "\(key)")
+            set.mode = .cubicBezier
+            set.label = key
+            set.drawCirclesEnabled = false
+            set.drawFilledEnabled = false
+            set.drawValuesEnabled = false
+            set.fillColor = .yellow.withAlphaComponent(0.1)
+            set.colors = [UIColor.random().alpha(0.5) ]
+            return set
+        }
+        let sets = closeSets+[yiedset]
+        
+        chartView.data = LineChartData(dataSets: sets)
+    }
+    
 }
 
 extension SchemeYieldCurveCell:ChartViewDelegate{
+    
     // 选中
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight){
-        self.makerView.text = entry.y.price()
-     
+        let yeidentry = self.yeidsEntry.first(where: {$0.x == entry.x})?.y
+        let vclose = closes.map { (key: String, value: Any) -> String in
+            guard let entrys = value as? [ChartDataEntry] else {
+                return "---"
+            }
+            if let selectentrys = entrys.first(where: { item in  entry.x==item.x }){
+                return "\(key):\(selectentrys.y.price())"
+            }
+            else{
+                return "---"
+            }
+
+        }.joined(separator: "\n")
+        markView.text =
+        """
+        时间:\(self.ydates[entry.x.int()])
+        资产:\(yeidentry.price("%0.3f"))
+        \(vclose)
+        """
+
+        chartView.addSubview(markView)
+        markView.snp.remakeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.equalToSuperview()
+        }
+        // 震动
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.impactOccurred()
     }
 }

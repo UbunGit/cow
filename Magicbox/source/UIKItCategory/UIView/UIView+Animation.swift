@@ -10,13 +10,22 @@ public extension UIView{
     
     // 旋转
     func beginrefresh() {
-        let refresh = CABasicAnimation(keyPath: "transform.rotation.z")
-        refresh.fromValue = 0
-        refresh.toValue = Double.pi*2
-        refresh.repeatCount = MAXFLOAT
-        refresh.duration = 2
-        refresh.isRemovedOnCompletion = false
-        layer.add(refresh,forKey: "")
+        DispatchQueue.main.async {
+            let refresh = CABasicAnimation(keyPath: "transform.rotation.z")
+            refresh.fromValue = 0
+            refresh.toValue = Double.pi*2
+            refresh.repeatCount = MAXFLOAT
+            refresh.duration = 2
+            refresh.isRemovedOnCompletion = false
+            self.layer.add(refresh,forKey: "")
+        }
+     
+    }
+    func stoprefresh(){
+        DispatchQueue.main.async {
+            self.layer.removeAllAnimations()
+        }
+       
     }
     func transformAnimation(){
         self.layoutIfNeeded()

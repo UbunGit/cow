@@ -24,10 +24,10 @@
                     <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="yRk-gQ-BR8">
-                        <size key="itemSize" width="400" height="1000"/>
+                        <size key="itemSize" width="0.0" height="0.0"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="sectionInset" minX="4" minY="4" maxX="4" maxY="4"/>
                     </collectionViewFlowLayout>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="q0p-KH-hAU"/>

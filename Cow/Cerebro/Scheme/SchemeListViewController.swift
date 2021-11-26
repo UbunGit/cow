@@ -27,6 +27,7 @@ class SchemeListViewController: BaseViewController {
         configTableview()
     }
     override func updateUI() {
+        tableView.mj_header?.endRefreshing()
         tableView.reloadData()
     }
     

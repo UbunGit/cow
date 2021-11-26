@@ -105,10 +105,10 @@ extension Session {
         }
         var wherestr = " where code='\(code)' "
         if let be = begin,
-        let en = end
+           let en = end
         {
             wherestr.append(" AND date BETWEEN '\(be)' AND '\(en)' ")
-           
+            
         }else if let be = begin{
             wherestr.append(" AND date>'\(be)' ")
         }else if let en = end{
@@ -123,6 +123,7 @@ extension Session {
         let sql = " select * FROM back_trade where scheme_id = '\(schemeId)' "
         return AF.select(sql)
     }
+    
     // 给策略添加股票
     func scheme_addCode(_ scheme_id:Int, item:[String:Any]) -> DataRequest{
         let url = "\(baseurl)/scheme/update"
@@ -144,6 +145,7 @@ extension Session {
         }
         )
     }
+    
     // 删除股票池股票
     func scheme_deleteCode(_ scheme_id:Int, codeId:Int) -> DataRequest{
         let url = "\(baseurl)/scheme/update"
@@ -164,14 +166,15 @@ extension Session {
         }
         )
     }
+    
     // 回测
     func scheme_exit(_ scheme_id:Int) -> DataRequest{
         let url = "\(baseurl)/scheme/exit"
-      
+        
         let param = [
             "id":"\(scheme_id)",
         ]
- 
+        
         return self.request(url, method: .post,
                             parameters: param,
                             encoder: JSONParameterEncoder.default,
@@ -183,7 +186,7 @@ extension Session {
     
     // 获取最后一个交易日
     func scheme_lastDate(_ scheme_id:Int)-> DataRequest{
-       let sql = """
+        let sql = """
         select max(date) date from
                 (
                 SELECT date,code FROM etfdaily
@@ -197,6 +200,34 @@ extension Session {
         return AF.select(sql)
     }
     
+    /**
+     获取策略预交易
+     */
+    func scheme_beforeOrder(_ scheme_id:Int,date:String)-> DataRequest{
+        let url = "\(baseurl)/scheme/beforeOrder"
+        let param = [
+            "id":scheme_id.string(),
+            "date":date
+        ]
+        return self.request(url, method: .post,
+                            parameters: param,
+                            encoder: JSONParameterEncoder.default,
+                            requestModifier: { urlRequest in
+            urlRequest.timeoutInterval = 15
+        })
+    }
+    
+    /**
+     获取策略回测执行状态
+     */
+    func scheme_status(_ id:Int)-> DataRequest{
+        let sql = """
+        SELECT * FROM job_history
+        WHERE id =\(id)
+        """
+        return AF.select(sql)
+    }
+ 
 }
 
 

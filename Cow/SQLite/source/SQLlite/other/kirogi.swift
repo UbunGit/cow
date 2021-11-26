@@ -39,7 +39,7 @@ extension SqlliteManage{
         return sql
     }
     
-    func af_kirogidates(limmit:NSRange = NSRange(location: 0, length: 10), type:String="stock", callback:@escaping (Result< [[String:Any]], Error>)  ->  ()) {
+    func af_kirogidates(limmit:NSRange = NSRange(location: 0, length: 10), type:String="stock", callback:@escaping (Result< [[String:Any]], BaseError>)  ->  ()) {
         let url = "\(baseurl)/select"
         let param = ["sql":self.kirogidatesSql(limmit: limmit, type: type)
         ]

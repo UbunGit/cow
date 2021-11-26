@@ -11,6 +11,9 @@ public extension Double {
     func double() -> Double{
         Double(self)
     }
+    func int() -> Int {
+        Int(self)
+    }
     func string(_ formatter:String="%0.2f") -> String {
         String(format: formatter, self)
     }
@@ -123,6 +126,9 @@ public extension Optional{
             return defual
         }
         return value1
+    }
+    func bool(_ defual:Int=0) -> Bool{
+        return int()>0
     }
  
     func price(_ formatter:String="%0.3f") -> String {

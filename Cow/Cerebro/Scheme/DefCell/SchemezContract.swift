@@ -19,6 +19,9 @@ class SchemezContract{
         WHERE scheme_id = \(schemeId) AND date='\(selectDate)'
         """
         self.datas = sm.select(sql)
+        if let change = valueChange{
+            change()
+        }
        
     }
 }

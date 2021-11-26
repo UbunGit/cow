@@ -7,14 +7,14 @@
 
 import UIKit
 
-class HTCollectionBaseHeaderView: UICollectionReusableView {
+public class HTCollectionBaseHeaderView: UICollectionReusableView {
 
-    @IBOutlet weak var roundView: UIView!
-    @IBOutlet weak var moreLab: UILabel!
-    @IBOutlet weak var arrowImageView: UIImageView!
-    @IBOutlet weak var moreBtn: UIButton!
-    @IBOutlet weak var titleLab: UILabel!
-    override func awakeFromNib() {
+    @IBOutlet public weak var roundView: UIView!
+    @IBOutlet public weak var moreLab: UILabel!
+    @IBOutlet public weak var arrowImageView: UIImageView!
+    @IBOutlet public weak var moreBtn: UIButton!
+    @IBOutlet public weak var titleLab: UILabel!
+    public  override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }

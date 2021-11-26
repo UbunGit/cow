@@ -69,7 +69,7 @@ extension DataRequest{
     }
     
     
-    open func responseModel<T>(_ type: T.Type, callback:@escaping (Result<T,Error>)  ->  ()) {
+    open func responseModel<T>(_ type: T.Type, callback:@escaping (Result<T,BaseError>)  ->  ()) {
         
         self.responseJSON { (response) in
             self.debugLog(response)
@@ -144,7 +144,7 @@ extension Data {
 
 extension Session {
     
-    func af_select(_ sql:String, callback:@escaping (Result<[[String:Any]],Error>)  ->  ())  {
+    func af_select(_ sql:String, callback:@escaping (Result<[[String:Any]],BaseError>)  ->  ())  {
         let url = "\(baseurl)/select"
         let param = ["sql":sql]
         print("🐶："+sql)
@@ -158,7 +158,7 @@ extension Session {
             .responseModel([[String:Any]].self, callback: callback)
     }
     
-    func af_update(_ sql:String, callback:@escaping (Result<[String:Any], Error>)  ->  ())  {
+    func af_update(_ sql:String, callback:@escaping (Result<[String:Any], BaseError>)  ->  ())  {
         print("🐒："+sql)
         let url = "\(baseurl)/update"
         let param = ["sql":sql]

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import DoraemonKit
+
 
  @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,10 +18,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.rootViewController = HomeTabViewController()
         window?.makeKeyAndVisible()
+        let timer =  Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
+        RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
         return true
     }
 
 
 
+}
+
+
+extension AppDelegate{
+    
+    @objc private func updateTime() {
+        NotificationCenter.default.post(name: NSNotification.Name("GloableTimer"), object: nil)
+    }
 }
 

@@ -22,4 +22,14 @@ public extension UIColor{
     static var cw_text6:UIColor = UIColor(named: "Text 6") ?? .darkText
     
     static var mb_line:UIColor = UIColor(named: "Text 3") ?? .lightGray
+    
+    static var input:UIColor = .red
+    static var output:UIColor = .green
+    
+    static func random()->UIColor{
+        let r = CGFloat.random(in: 0...255)/255
+        let g = CGFloat.random(in: 0...255)/255
+        let b = CGFloat.random(in: 0...255)/255
+        return UIColor(red: r, green: g, blue:b, alpha: 1)
+    }
 }
