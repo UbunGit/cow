@@ -13,6 +13,23 @@ class SchemeListViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var dataSource:[[String:Any]] = []
+    
+    lazy var refresh: UIButton = {
+        let button = UIButton.init(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        button.setImage(.init(systemName: "plus"), for: .normal)
+        button.setBlockFor(.touchUpInside) {[weak self] _ in
+            let vc = SchemeEditViewController()
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+        return button
+    }()
+    
+    // 添加
+    lazy var refreshItem: UIBarButtonItem = {
+        let mineItem = UIBarButtonItem.init(customView: refresh)
+        return mineItem
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         makeUI()
@@ -23,7 +40,9 @@ class SchemeListViewController: BaseViewController {
         loadData()
     }
     
+    
     func makeUI(){
+        navigationItem.rightBarButtonItems = [refreshItem]
         configTableview()
     }
     override func updateUI() {

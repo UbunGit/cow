@@ -74,14 +74,12 @@ let creatdTabledic =
             "name":"scheme",
             "create":
              """
-                CREATE TABLE "scheme" ( -- 方案
-                    "id"    INTEGER NOT NULL UNIQUE,
-                    "template"    INTEGER, -- 模版id
-                    "name"    TEXT NOT NULL, -- 方案名
-                    "des"    TEXT NOT NULL, -- 方案描述
-                    "param"    TEXT NOT NULL, -- 参数
-                    PRIMARY KEY("id" AUTOINCREMENT)
-                );
+                 CREATE TABLE IF NOT EXISTS "scheme" ( -- 策略表
+                        "id"    INTEGER NOT NULL UNIQUE,
+                        "template"    INTEGER, -- 参数id
+                        "name"    TEXT NOT NULL, -- 参数名
+                        PRIMARY KEY("id" AUTOINCREMENT)
+                 );
             """
               
         ],
@@ -89,11 +87,28 @@ let creatdTabledic =
             "name":"scheme_template",
             "create":
              """
-               CREATE TABLE "scheme_template" ( -- 方案代码
-                   "id"    INTEGER NOT NULL UNIQUE,
-                   "name"    TEXT NOT NULL, -- 方案名
-                   "des"    TEXT NOT NULL, -- 方案描述
-                   PRIMARY KEY("id" AUTOINCREMENT)
+                 CREATE TABLE IF NOT EXISTS "scheme_template" ( -- 策略模版表
+                       "id"    INTEGER NOT NULL UNIQUE,
+                       "name"    TEXT NOT NULL, -- 方案名
+                       "des"    TEXT NOT NULL, -- 方案描述
+                       PRIMARY KEY("id" AUTOINCREMENT)
+                   );
+            """
+              
+        ],
+        [
+            "name":"scheme_template_param",
+            "create":
+             """
+               CREATE TABLE IF NOT EXISTS "scheme_template_param" ( -- 策略参数表
+                           "id"    INTEGER NOT NULL UNIQUE,
+                           "template_id"    INTEGER, -- 参数id
+                           "name"    TEXT NOT NULL, -- 参数名
+                           "key"    TEXT NOT NULL, -- 参数key
+                           "defual"    TEXT NOT NULL, -- 默认值
+                           "type"    TEXT NOT NULL, -- 类型
+                           "des"    TEXT NOT NULL, -- 参数描述
+                           PRIMARY KEY("id" AUTOINCREMENT)
                );
             """
               
@@ -102,30 +117,16 @@ let creatdTabledic =
             "name":"scheme_template_param",
             "create":
              """
-               CREATE TABLE "scheme_template_param" ( -- 方案代码
-                   "id"    INTEGER NOT NULL UNIQUE,
-                   "template"    INTEGER, -- 参数id
-                   "name"    TEXT NOT NULL, -- 参数名
-                   "key"    TEXT NOT NULL, -- 参数key
-                   "defual"    TEXT NOT NULL, -- 默认值
-                   "type"    TEXT NOT NULL, -- 类型
-                   "des"    TEXT NOT NULL, -- 参数描述
-                   PRIMARY KEY("id" AUTOINCREMENT)
-               );
-            """
-              
-        ],
-        [
-            "name":"scheme_template_param",
-            "create":
-             """
-               CREATE TABLE "recommend_etf" ( -- ETF每日推荐
-                   "id"    INTEGER NOT NULL UNIQUE,d
-                   "scheme_id"    INTEGER, -- 方案id
-                   "date"    TEXT NOT NULL, -- 推荐时间
-                   "code"    TEXT NOT NULL, -- 推荐代码
-                   PRIMARY KEY("id" AUTOINCREMENT)
-               );
+                CREATE TABLE IF NOT EXISTS "scheme_template_param" ( -- 策略参数表
+                           "id"    INTEGER NOT NULL UNIQUE,
+                           "template_id"    INTEGER, -- 参数id
+                           "name"    TEXT NOT NULL, -- 参数名
+                           "key"    TEXT NOT NULL, -- 参数key
+                           "defual"    TEXT NOT NULL, -- 默认值
+                           "type"    TEXT NOT NULL, -- 类型
+                           "des"    TEXT NOT NULL, -- 参数描述
+                           PRIMARY KEY("id" AUTOINCREMENT)
+                       );
             """
               
         ],
@@ -151,19 +152,33 @@ let creatdTabledic =
             "create":
                 """
                     CREATE TABLE IF NOT EXISTS "back_trade" ( -- 回测记录
-                        "id"    INTEGER NOT NULL UNIQUE,
-                        "scheme_id"    INTEGER NOT NULL, -- 方案id
-                        "date" TEXT NOT NULL, -- 时间
-                        "type"    TEXT NOT NULL, -- 类型 0 股票 1 etf
-                        "code"    TEXT NOT NULL, -- 代码code
-                        "price"    NUMERIC NOT NULL, -- 价格
-                        "dir"    INTEGER NOT NULL, -- 买卖方向 0 买入 1卖出
-                        "count"    INTEGER NOT NULL, -- 数量
-                        "sid"    INTEGER , -- 对冲ID 买入对应卖出订单 卖出对应买入订单
-                        PRIMARY KEY("id" AUTOINCREMENT)
-                    );
+                            "id"    INTEGER NOT NULL UNIQUE,
+                            "scheme_id"    INTEGER NOT NULL, -- 方案id
+                            "date" TEXT NOT NULL, -- 时间
+                            "type"    TEXT NOT NULL, -- 类型 0 股票 1 etf
+                            "code"    TEXT NOT NULL, -- 代码code
+                            "price"    NUMERIC NOT NULL, -- 价格
+                            "dir"    INTEGER NOT NULL, -- 买卖方向 0 买入 1卖出
+                            "count"    INTEGER NOT NULL, -- 数量
+                            "sid"    INTEGER , -- 对冲ID 买入对应卖出订单 卖出对应买入订单
+                            PRIMARY KEY("id" AUTOINCREMENT)
+                        );
                     """
-        ]
+        ],
+        [
+            "name":"scheme_param",
+            "create":
+                    """
+                            CREATE TABLE IF NOT EXISTS "scheme_param" ( -- 方案参数表
+                                    "id"    INTEGER NOT NULL UNIQUE,
+                                    "scheme_id"    INTEGER NOT NULL, -- 方案id
+                                    "key"   TEXT NOT NULL, -- 参数key
+                                    "value" TEXT NOT NULL, -- 参数值
+                                    PRIMARY KEY("id" AUTOINCREMENT)
+                                );
+                    """
+        ],
+        
         
         
        

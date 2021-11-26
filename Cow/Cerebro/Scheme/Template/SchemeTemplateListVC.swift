@@ -10,7 +10,13 @@ import MJRefresh
 import Alamofire
 
 class SchemeTemplateListVC: BaseViewController {
+    /**
+     入参
+     **/
+    var selectBlock:((_ id:[String:Any])->())? = nil
+    
     var dataSouce:[[String:Any]] = []
+    
     @IBOutlet weak var tableView: UITableView!
     lazy var refresh: UIButton = {
         let button = UIButton.init(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
@@ -74,9 +80,16 @@ extension SchemeTemplateListVC:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = SchemeTemplateEditVC()
-        vc.param  = dataSouce[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        if let select = selectBlock{
+            select(dataSouce[indexPath.row])
+            self.dismiss(animated: true)
+        }else{
+            let vc = SchemeTemplateEditVC()
+            vc.param  = dataSouce[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+ 
     }
 
 }

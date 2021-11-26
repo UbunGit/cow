@@ -1,7 +1,8 @@
 //
 //  CollectionHeaderView.swift
 //  Cow
-//
+//  表头
+//  |综合|价格|距离|销量|好评|...|
 //  Created by admin on 2021/11/4.
 //
 
@@ -54,6 +55,7 @@ class CollectionHeaderCell:UICollectionViewCell{
         }
     }
 }
+
 class CollectionHeaderView: UIControl {
     var _value:Int=0
     var value:Int{

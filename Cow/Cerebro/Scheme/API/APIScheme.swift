@@ -227,6 +227,17 @@ extension Session {
         """
         return AF.select(sql)
     }
+    
+    /**
+     获取策略所需参数
+     */
+    func scheme_template_param(_ id:Int)-> DataRequest{
+        let sql = """
+        SELECT * FROM scheme_template_param
+        WHERE template_id =\(id)
+        """
+        return AF.select(sql)
+    }
  
 }
 
