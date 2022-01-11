@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 import Magicbox
 
+
 class OSS{
     private var downurl:String? = nil
     private var downloadRequest:DownloadRequest!
@@ -35,13 +36,13 @@ class OSS{
         return (downfile,[.removePreviousFile,.createIntermediateDirectories])
     }
     func downloadProgress(progress:Progress){
-        print("当前进度:\(progress.fractionCompleted*100)%")
+        log("当前进度:\(progress.fractionCompleted*100)%")
     }
     
     func downloadResponse(response:AFDownloadResponse<Data>){
         switch response.result {
         case .success( _):
-            print("下载完成")
+            log("下载完成")
             do{
                 if fileManager.fileExists(atPath: savefile) {
                     try self.fileManager.removeItem(at: URL(fileURLWithPath:savefile))
@@ -51,7 +52,7 @@ class OSS{
                     try self.fileManager.removeItem(at: URL(fileURLWithPath:cachefile))
                 }
             }catch{
-                print("\(error)")
+                log("\(error)")
             }
             
 
@@ -62,7 +63,7 @@ class OSS{
             do {
                 try cdata.write(to: URL(fileURLWithPath:cachefile))
             } catch  {
-                print("\(error)")
+                log("\(error)")
             }
             break
         }
@@ -84,3 +85,5 @@ class OSS{
         
     }
 }
+
+

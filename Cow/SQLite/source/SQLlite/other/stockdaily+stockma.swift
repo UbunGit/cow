@@ -38,7 +38,7 @@ extension SqlliteManage{
             LIMIT \(limmit!.length) OFFSET \(limmit!.location*limmit!.length)
             """)
         }
-        print(sql)
+        log(sql)
         guard let datas = try db?.prepare(sql).to_dict() else {
             return []
         }

@@ -23,7 +23,7 @@ public extension SqlliteManage{
         PRIMARY KEY("code","date")
      )
      """
-        print(sql)
+        log(sql)
         try db?.execute(sql)
     }
     

@@ -7,17 +7,12 @@
 
 import UIKit
 
-class CollectionViewGridCell: UICollectionViewCell {
+public class CollectionViewGridCell: UICollectionViewCell {
 
     
     @IBOutlet weak var imageView: UIImageView!
-    
-    @IBOutlet weak var imageLab: UILabel!
+
     @IBOutlet weak var titleLab: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-       
-    }
+   
 
 }

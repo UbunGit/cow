@@ -142,6 +142,10 @@
 		84B443ED26EB324B00768F60 /* TransactionDefCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B443EB26EB324A00768F60 /* TransactionDefCell.swift */; };
 		84B443EE26EB324B00768F60 /* TransactionDefCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B443EC26EB324A00768F60 /* TransactionDefCell.xib */; };
 		84B443F026EB588100768F60 /* UpdateAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B443EF26EB588100768F60 /* UpdateAble.swift */; };
+		84B7C946278966D600DA95C1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B7C945278966D600DA95C1 /* Log.swift */; };
+		84B7C9492789685F00DA95C1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B7C9482789685F00DA95C1 /* API.swift */; };
+		84B7C94C27896F0D00DA95C1 /* HomeSummarizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B7C94A27896F0D00DA95C1 /* HomeSummarizeCell.swift */; };
+		84B7C94D27896F0D00DA95C1 /* HomeSummarizeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B7C94B27896F0D00DA95C1 /* HomeSummarizeCell.xib */; };
 		84BACCCF26F5D2D8004EEE9A /* NewWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BACCC926F5D2D8004EEE9A /* NewWork.swift */; };
 		84BACCD026F5D2D8004EEE9A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BACCCC26F5D2D8004EEE9A /* Extension.swift */; };
 		84BACCD126F5D2D8004EEE9A /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BACCCD26F5D2D8004EEE9A /* BaseError.swift */; };
@@ -340,6 +344,10 @@
 		84B443EB26EB324A00768F60 /* TransactionDefCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDefCell.swift; sourceTree = "<group>"; };
 		84B443EC26EB324A00768F60 /* TransactionDefCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionDefCell.xib; sourceTree = "<group>"; };
 		84B443EF26EB588100768F60 /* UpdateAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAble.swift; sourceTree = "<group>"; };
+		84B7C945278966D600DA95C1 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		84B7C9482789685F00DA95C1 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		84B7C94A27896F0D00DA95C1 /* HomeSummarizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSummarizeCell.swift; sourceTree = "<group>"; };
+		84B7C94B27896F0D00DA95C1 /* HomeSummarizeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeSummarizeCell.xib; sourceTree = "<group>"; };
 		84BACCC926F5D2D8004EEE9A /* NewWork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewWork.swift; sourceTree = "<group>"; };
 		84BACCCC26F5D2D8004EEE9A /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		84BACCCD26F5D2D8004EEE9A /* BaseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
@@ -594,6 +602,7 @@
 		844D5ADB26BA604300AC08AF /* Cow */ = {
 			isa = PBXGroup;
 			children = (
+				84B7C944278966B400DA95C1 /* Log */,
 				84E62FE0270408F4008A14C4 /* Dorkit */,
 				84BACCC426F5D2D7004EEE9A /* SQLite */,
 				84BACCC326F5D2BD004EEE9A /* magbox */,
@@ -662,6 +671,8 @@
 				845E45D026CD1877002E77C3 /* SoreSimpleView.xib */,
 				84463B9226CF7BEC00F2262B /* KlineNavBarView.swift */,
 				84463B9426CF7BFF00F2262B /* KlineNavBarView.xib */,
+				84B7C94A27896F0D00DA95C1 /* HomeSummarizeCell.swift */,
+				84B7C94B27896F0D00DA95C1 /* HomeSummarizeCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -711,6 +722,7 @@
 		8474457F2731119700F9201B /* UICategory */ = {
 			isa = PBXGroup;
 			children = (
+				84B7C94E2789718100DA95C1 /* UICollectionViewCell */,
 				849B76B8275080CB00F70289 /* UITableViewCell */,
 				849B76B72750803600F70289 /* UICollectionViewFooter */,
 				849B76B62750800B00F70289 /* UITableViewHeader */,
@@ -732,6 +744,7 @@
 		8483CEDE26E08CD5009F7A7D /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
+				84B7C9472789684800DA95C1 /* API */,
 				8483CEE326E08D45009F7A7D /* view */,
 				8483CEDF26E08D0E009F7A7D /* TransactionListViewController.swift */,
 				8483CEE026E08D0E009F7A7D /* TransactionListViewController.xib */,
@@ -886,6 +899,29 @@
 				84A51D572743B64E0009684B /* SelectDateViewController.xib */,
 			);
 			path = Date;
+			sourceTree = "<group>";
+		};
+		84B7C944278966B400DA95C1 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				84B7C945278966D600DA95C1 /* Log.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		84B7C9472789684800DA95C1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				84B7C9482789685F00DA95C1 /* API.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		84B7C94E2789718100DA95C1 /* UICollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UICollectionViewCell;
 			sourceTree = "<group>";
 		};
 		84BACCC326F5D2BD004EEE9A /* magbox */ = {
@@ -1161,6 +1197,7 @@
 				84F736AD26DB7405008D28C1 /* ETFBaseListVC.xib in Resources */,
 				844D5AE926BA604400AC08AF /* LaunchScreen.storyboard in Resources */,
 				841A95A626DA2AC800EFA126 /* loginViewController.xib in Resources */,
+				84B7C94D27896F0D00DA95C1 /* HomeSummarizeCell.xib in Resources */,
 				84463B9526CF7BFF00F2262B /* KlineNavBarView.xib in Resources */,
 				8492CBF426C4BACD004048EF /* FollowListViewController.xib in Resources */,
 				849D787926C287F5003DFE5F /* StockBasicListCell.xib in Resources */,
@@ -1327,6 +1364,7 @@
 				843555D22734DAD800B05956 /* SchemeDesRecommendHeader.swift in Sources */,
 				84E62FD9270323EE008A14C4 /* FormRoundHeader.swift in Sources */,
 				841A95B726DA8B6100EFA126 /* KirogiSettingVC.swift in Sources */,
+				84B7C94C27896F0D00DA95C1 /* HomeSummarizeCell.swift in Sources */,
 				845E45B126CBB988002E77C3 /* SQLTableInfoVC.swift in Sources */,
 				8492CBEC26C3CC6B004048EF /* WebViewController.swift in Sources */,
 				8492CBF326C4BACD004048EF /* FollowListViewController.swift in Sources */,
@@ -1372,6 +1410,7 @@
 				849A0AF826F9A261001387CF /* KoinuHistoryCell.swift in Sources */,
 				84A51D51273E6EF70009684B /* SchemeSettingPoolVC.swift in Sources */,
 				84E62FE827041038008A14C4 /* SqlTableView.swift in Sources */,
+				84B7C9492789685F00DA95C1 /* API.swift in Sources */,
 				841A95AA26DA30B800EFA126 /* user.swift in Sources */,
 				843555C72733B99000B05956 /* SchemeDesViewController.swift in Sources */,
 				84D8DD7326D380390074E9A4 /* stockdaily+stockma.swift in Sources */,
@@ -1384,6 +1423,7 @@
 				8400CD4126CFAF0700C6DE3F /* Cerebro.swift in Sources */,
 				8400CD4026CFAF0700C6DE3F /* Scheme.swift in Sources */,
 				844D5AE126BA604300AC08AF /* HomeTabViewController.swift in Sources */,
+				84B7C946278966D600DA95C1 /* Log.swift in Sources */,
 				844D5AF426BA6C8000AC08AF /* BaseViewController.swift in Sources */,
 				849A0AEB26F796DE001387CF /* SchemeTemplateListVC.swift in Sources */,
 				8483CEEA26E08F96009F7A7D /* TransactionListCell.swift in Sources */,

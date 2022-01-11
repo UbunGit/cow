@@ -29,7 +29,7 @@ extension SqlliteManage{
                 ORDER BY t1.speed\(speed)  DESC
                 LIMIT 10 OFFSET 0
                 """
-        print(sql)
+        log(sql)
         guard let datas = try db?.prepare(sql).to_dict() else {
             return []
         }

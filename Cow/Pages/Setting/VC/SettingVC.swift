@@ -124,13 +124,13 @@ extension SettingVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewGridCell", for: indexPath) as! CollectionViewGridCell
-            cell.imageLab.text = downGrids[indexPath.row].icon;
+      
             cell.titleLab.text = downGrids[indexPath.row].name
             cell.imageView.image = UIImage(systemName: downGrids[indexPath.row].icon)
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewGridCell", for: indexPath) as! CollectionViewGridCell
-            cell.imageLab.text = tableGrids[indexPath.row].icon;
+  
             cell.titleLab.text = tableGrids[indexPath.row].name
             cell.imageView.image = UIImage(systemName: tableGrids[indexPath.row].icon)
             return cell

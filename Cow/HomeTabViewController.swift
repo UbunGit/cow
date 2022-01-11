@@ -11,7 +11,7 @@ class HomeTabViewController: UITabBarController,UITabBarControllerDelegate
 {
 
     lazy var nav1: BaseNavigationController = {
-        let vc1 = TransactionListViewController()
+        let vc1 = HomeViewController()
         vc1.title = "首页"
         vc1.tabBarItem.image = UIImage(systemName: "house")
         let nav1 = BaseNavigationController.init(rootViewController: vc1)

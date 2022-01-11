@@ -136,7 +136,7 @@ extension Session {
             "id":"\(scheme_id)",
             "sql":sql
         ]
-        print("🐶："+sql)
+        log("🐶："+sql)
         return self.request(url, method: .post,
                             parameters: param,
                             encoder: JSONParameterEncoder.default,

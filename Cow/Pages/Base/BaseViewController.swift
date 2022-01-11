@@ -33,7 +33,7 @@ class BaseViewController: UIViewController,BasetModelDelegate {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("🍎\(self)")
+        log("🍎 viewWillAppear")
     }
    
     

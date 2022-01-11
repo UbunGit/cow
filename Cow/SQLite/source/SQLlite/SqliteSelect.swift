@@ -20,8 +20,8 @@ extension SqlliteManage{
             return datas
             
         }catch {
-            print("err sql:\(sql)")
-            print("error:\(error)")
+            log("err sql:\(sql)")
+            log("error:\(error)")
             return []
         }
     }
@@ -43,7 +43,7 @@ extension SqlliteManage{
         if fitter != nil{
             sql.append(fitter!)
         }
-        print("sql:"+sql)
+        log("sql:"+sql)
         guard let smb = try db?.scalar(sql)  else {
             throw(BaseError(code: -1, msg: "prepare nil"))
         }
@@ -120,7 +120,7 @@ extension SqlliteManage{
             LIMIT \(limmit!.length) OFFSET \(limmit!.location*limmit!.length)
             """)
         }
-        print(sql)
+        log(sql)
         guard let datas = try db?.prepare(sql).to_dict() else {
             return []
         }

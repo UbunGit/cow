@@ -38,7 +38,7 @@ public extension SqlliteManage{
                 return "(\(tvar))"
             }.joined(separator: ",")
             sql.append(val)
-            debugPrint(sql)
+            log(sql)
             _ = try db?.execute(sql)
             return true
         }catch{
@@ -67,7 +67,7 @@ public extension SqlliteManage{
             return "('\(item)')"
         }.joined(separator: ",")
         sql.append(val)
-        print(sql)
+            log(sql)
         _ = try db?.execute(sql)
             return true
         }catch{

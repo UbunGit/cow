@@ -24,7 +24,7 @@ public extension SqlliteManage{
         PRIMARY KEY("code","date")
      )
      """
-        print(sql)
+        log(sql)
         try db?.execute(sql)
     }
     
@@ -33,7 +33,7 @@ public extension SqlliteManage{
          delete FROM  "stockdaily"
          where code = '\(code)'
          """
-        print(sql)
+        log(sql)
         try db?.execute(sql)
     }
 }

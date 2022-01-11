@@ -48,11 +48,8 @@ class Transaction {
     // 当前价格
     var price = 0.00
     var datas:[[String:Any]] = []
-    
     var storeCount:Int = 0
-    
-  
-    
+
     // 最低成本
     var lowcost:[String:Any] {
         guard let low = datas.min(by: { $0["bprice"].double()<=$1["bprice"].double() }) else {
@@ -139,11 +136,13 @@ class Transaction {
 
 
 class TransactionListViewController: BaseViewController {
-    
+    var state:Int = 0 // 0->持仓列表 1-> 已卖出
     var dataSouce:[Transaction] = []
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        title = state==0 ? "持仓列表" : "已卖列表"
         configTableview()
   
     }
@@ -165,14 +164,9 @@ class TransactionListViewController: BaseViewController {
             needLogin()
             return
         }
-        let sql = """
-            SELECT t1.code,t2.name
-            FROM (SELECT code from rel_transaction where userid=\(Global.share.user!.userId) GROUP BY code ) t1
-            
-            LEFT JOIN (select code, name from stockbasic union all select code,name from etfbasic) t2 ON t1.code=t2.code
-            """
         view.loading()
-        AF.af_select(sql) { result in
+        AF.api_reltransaction(state)
+            .responseModel([[String:Any]].self) { result in
             self.view.loadingDismiss()
             switch result{
             case .success(let value):
@@ -229,8 +223,5 @@ extension TransactionListViewController:UITableViewDelegate,UITableViewDataSourc
         vc.data = dataSouce[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
-    
-    
 }
 

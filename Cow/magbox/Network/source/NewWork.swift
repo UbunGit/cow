@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 import HandyJSON
+import Magicbox
 
 var baseurl:String{
     get{
@@ -19,7 +20,7 @@ var baseurl:String{
     
 }
 
-//typealias ResultClosure<T> = (Result<T, Error>)  ->  ()
+
 
 extension DataRequest{
     
@@ -38,7 +39,7 @@ extension DataRequest{
               let method = request.httpMethod,
               let headers = request.allHTTPHeaderFields
         else {
-            return debugPrint("DM No request created yet.")
+            return log("DM No request created yet.")
         }
         var body = ""
         
@@ -52,7 +53,7 @@ extension DataRequest{
         let result = json.description
         let icon = (response?.statusCode == 200) ? "🧘‍♂️" : " 🧱"
         
-        print(
+        log(
             
             """
             *****************\(icon)******************
@@ -63,7 +64,6 @@ extension DataRequest{
             ******************************************
             """
         )
-        
 #endif
         
     }
@@ -71,12 +71,10 @@ extension DataRequest{
     
     open func responseModel<T>(_ type: T.Type, callback:@escaping (Result<T,BaseError>)  ->  ()) {
         
-        self.responseJSON { (response) in
-            self.debugLog(response)
+        self.responseJSON {[weak self] (response) in
+            self?.debugLog(response)
             switch response.result {
             case .success(let value):
-                
-                
                 guard  let apidata = APIData<T>.deserialize(from: value as? [String:Any]) else{
                     callback(.failure(BaseError(code: -1, msg: "json error")))
                     return
@@ -90,7 +88,7 @@ extension DataRequest{
                 
                 
             case .failure(let error):
-                print("🐬 \(error)")
+                self?.log("🐬 \(error)")
                 callback(.failure(BaseError(code: -200, msg: "http error")))
                 
             }
@@ -147,7 +145,7 @@ extension Session {
     func af_select(_ sql:String, callback:@escaping (Result<[[String:Any]],BaseError>)  ->  ())  {
         let url = "\(baseurl)/select"
         let param = ["sql":sql]
-        print("🐶："+sql)
+        log("🐶："+sql)
         self.request(url, method: .post,
                      parameters: param,
                      encoder: JSONParameterEncoder.default,
@@ -159,7 +157,7 @@ extension Session {
     }
     
     func af_update(_ sql:String, callback:@escaping (Result<[String:Any], BaseError>)  ->  ())  {
-        print("🐒："+sql)
+        log("🐒："+sql)
         let url = "\(baseurl)/update"
         let param = ["sql":sql]
         self.request(url,
@@ -176,7 +174,7 @@ extension Session {
     func select(_ sql:String) -> DataRequest  {
         let url = "\(baseurl)/select"
         let param = ["sql":sql]
-        print("🐶："+sql)
+        log("🐶："+sql)
         return self.request(url, method: .post,
                             parameters: param,
                             encoder: JSONParameterEncoder.default,
@@ -188,7 +186,7 @@ extension Session {
     }
     
     func update(_ sql:String) -> DataRequest  {
-        print("🐒："+sql)
+        log("🐒："+sql)
         let url = "\(baseurl)/update"
         let param = ["sql":sql]
         return  self.request(url,

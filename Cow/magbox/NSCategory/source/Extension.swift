@@ -111,11 +111,12 @@ public extension Optional{
         }
     }
     
-    func string(_ defual:String="") -> String {
-        guard let str = self else {
+    func string(_ defual:String = "") -> String {
+        guard let value = self else {
             return defual
         }
-        return "\(str)"
+      
+        return "\(value)"
     }
     
     func int(_ defual:Int=0) -> Int {

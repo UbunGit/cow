@@ -25,8 +25,8 @@ public extension SqlliteManage{
             return true
             
         }catch {
-            print("err sql:\(sql)")
-            print("error:\(error)")
+            log("err sql:\(sql)")
+            log("error:\(error)")
             return false
         }
     }

@@ -10,6 +10,7 @@ import Magicbox
 import SQLite
 import HandyJSON
 
+
 public extension DispatchQueue{
     private static var _onceTracker = [String]()
     
@@ -26,6 +27,8 @@ public extension DispatchQueue{
     }
 }
 public let sm = SqlliteManage.share()
+
+
 
 public class SqlliteManage{
     
@@ -111,7 +114,7 @@ public extension SqlliteManage{
         "type" INTEGER,
         "pid" INTEGER)
      """
-        print(sql)
+        log(sql)
         try db?.execute(sql)
     }
     
@@ -125,7 +128,7 @@ public extension SqlliteManage{
                         WHERE type = '\(type)'
                         AND pid = '\(pid)');
      """
-        print(sql)
+        log(sql)
         try db?.execute(sql)
     }
     
@@ -134,7 +137,7 @@ public extension SqlliteManage{
          delete FROM  "follow"
          where id = '\(id)'
          """
-        print(sql)
+        log(sql)
         try db?.execute(sql)
         }
 
@@ -186,6 +189,7 @@ public extension Array where Element == [String:Any]  {
         map { T.deserialize(from: $0)! }
     }
 }
+
 
 
 
