@@ -12,9 +12,10 @@ import Magicbox
 
 class TransactionListCell: UITableViewCell {
     
-	var celldata:Transaction? = nil
-	private var price:Double = 0.00
-	
+    var code:String? = nil
+    var state:Int = 0
+    private var datas:[[String:Any]] =  []
+    
     lazy var limitLine: ChartLimitLine = {
         let limitLine = ChartLimitLine(limit: 0.00, label: "当前价")
         limitLine.lineWidth = 1;
@@ -40,6 +41,7 @@ class TransactionListCell: UITableViewCell {
         chareView.xAxis.labelRotationAngle = -30
         chareView.rightAxis.enabled = false
         chareView.leftAxis.labelPosition = .outsideChart
+        chareView.xAxis.labelPosition = .bottomInside
         chareView.leftAxis.axisMinimum = 0
      
     }
@@ -48,96 +50,75 @@ class TransactionListCell: UITableViewCell {
     @IBOutlet weak var nameLab: UILabel! // 股票名
     @IBOutlet weak var codeLab: UILabel! // 股票code
     @IBOutlet weak var storeCountLab: UILabel! //持仓数
-    @IBOutlet weak var refreshBtn: UIButton!
+
     @IBOutlet weak var nowpriceLab: UILabel! // 当前价格
     @IBOutlet weak var lowyieldLab: UILabel! //
     @IBOutlet weak var lowEarningsLab: UILabel!
-    
-    @IBOutlet weak var remarkImg: UIImageView! // 买卖提醒
+
     @IBOutlet weak var hightYieldLab: UILabel!
     @IBOutlet weak var hightEarningsLab: UILabel!
-    @IBOutlet weak var ballanceLab: UILabel!
+    @IBOutlet weak var ballanceLab: UILabel! // 总成本
     
     override func updateUI()  {
-		guard let data = celldata
-		else{
+		guard let _code = code else{
 			return
 		}
-		price = data.price
-		let datas = data.datas
-		
-        refreshBtn.layer.removeAllAnimations()
+       
+        
+        let price = StockManage.share.price(_code)
+        let name = StockManage.share.storeName(_code)
+        
+        if state == 0{
+            datas = Transaction.soreDatas(_code)
+        }else if state == 1{
+            datas = Transaction.finishDatas(_code)
+        }
+        // 总成本
+        let cost = Transaction.soreCost(datas)
+        ballanceLab.text = cost.price()
+       
+		nameLab.text = name
+		codeLab.text = _code
+        storeCountLab.text = Transaction.soreCount(datas).string()
+       
+        
+        limitLine.limit = price
+        limitLine.label = price.price()
+        nowpriceLab.text = price.price()
+      
+      
+        
+        // 最高成本收益/收益率
+        if let low = Transaction.max(datas){
+            let earnings = Transaction.earnings(low)
+            let yield = Transaction.yield(low)
+            lowEarningsLab.text = earnings.price()
+            lowyieldLab.text = yield.percentStr("%0.1f")
+        }
+        // 最低成本
+        if let hight = Transaction.min(datas){
+            let earnings = Transaction.earnings(hight)
+            let yield = Transaction.yield(hight)
+            hightEarningsLab.text = earnings.price()
+            hightYieldLab.text = yield.percentStr("%0.1f")
+        }
+        
         chareView.cowBarLineChartViewBaseStyle()
         chareView.xAxis.labelCount = datas.count
-
-		nameLab.text = data.name
-		codeLab.text = data.code
-        storeCountLab.text = data.storeCount.string()
         chareView.data = barset(datas: datas)
         let xaxis = chareView.xAxis
         xaxis.valueFormatter = IndexAxisValueFormatter.init(
             values:datas.map { $0["bdate"].string().date("yyyyMMdd").toString("MM-dd") }
         )
-        
-        limitLine.limit = price
-        limitLine.label = "当前价\n\(price)"
-        nowpriceLab.text = "当前价:\(price)"
         chareView.animate(yAxisDuration: 0.35)
-        chareView.legend.verticalAlignment = .top
-        chareView.legend.horizontalAlignment = .right
-        chareView.legend.drawInside = false
-      
-        if price != 0 {
-            // 最低收益
-//            let low = data.lowdata
-//            let value = low["bprice"].double()
-//            let bcount = low["bcount"].int()
-//            let yi = data.price-value
-//            lowyieldLab.text = (yi/data.price).percentStr()
-//            lowEarningsLab.text = (yi*bcount.double()).price("%0.1f")
-            
-            
-            
-            // 最高收益
-//            let hight = data.hightData
-//            let hvalue = hight["bprice"].double()
-//            let hbcount = hight["bcount"].int()
-//            let h = data.price-hvalue
-//            let hi = h/data.price
-//            hightYieldLab.text = hi.percentStr()
-//            hightEarningsLab.text = (h*hbcount.double()).price("%0.1f")
-//            let red = data.datas.reduce(0) {
-//                $0 + $1["bcount"].double() * $1["bprice"].double()
-//            }
-            
-            // 最低成本收益率
-      
-//            let lowcost = data.lowcost
-//            let lowcostprice = lowcost["bprice"].double()
-//            let lowcosttarget = lowcost["target"].double()
-//            let lowx = lowcostprice/data.price
-//            remarkImg.tintColor = .cw_bg1
-//            if lowcosttarget<=data.price{
-//                remarkImg.tintColor = .red
-//            }
-//            if lowx <= 0.9{
-//                remarkImg.tintColor = .blue
-//            }
-            
-            
-//            ballanceLab.text = red.price()
-//
-        }
-            
+        chareView.legend.drawInside = true
+        chareView.legend.verticalAlignment = .bottom
+        chareView.legend.horizontalAlignment = .left
+    
       
         
     }
-    
-    @IBAction func updatePrice() {
-      
-        refreshBtn.beginrefresh()
-//        celldata?.updatePrice()
-    }
+
     
 	func barset(datas:[[String:Any]]) -> BarChartData?  {
        
@@ -160,7 +141,8 @@ class TransactionListCell: UITableViewCell {
         bpriceSet.colors = [.yellow.alpha(0.5)]
         
         let targetSets =  datas.enumerated().map { (index,item) -> BarChartDataEntry in
-             BarChartDataEntry(x:index.double() , y: item["target"].double())
+            let set = BarChartDataEntry(x:index.double() , y: item["target"].double())
+            return set
         }
         let targetSet = BarChartDataSet(entries: targetSets, label: "目标价")
         targetSet.colors = [.red.alpha(0.5)]

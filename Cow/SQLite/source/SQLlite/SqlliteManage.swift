@@ -190,6 +190,10 @@ public extension Array where Element == [String:Any]  {
 
 extension SqlliteManage{
 	func setup(){
+        
+        if isExistsTable("rel_transaction") == false{
+            let _ = createTable("rel_transaction")
+        }
 		if isExistsTable("stock_price") == false{
 			let _ = createTable("stock_price")
 		}

@@ -112,7 +112,7 @@
     </objects>
     <resources>
         <namedColor name="AccentColor">
-            <color red="0.38431376218795776" green="0.20392158627510071" blue="0.83529412746429443" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81568627450980391" green="0.33725490196078434" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Text 1">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

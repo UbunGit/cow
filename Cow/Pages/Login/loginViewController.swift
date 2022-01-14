@@ -7,8 +7,9 @@
 
 import UIKit
 
-class loginViewController: BaseViewController {
+class loginViewController: UIViewController {
     
+    @IBOutlet weak var titleLab: UILabel!
     @IBOutlet weak var changeBtn: UIButton!
     @IBOutlet weak var commitBtn: UIButton!
     @IBOutlet weak var userTF: UITextField!
@@ -19,15 +20,18 @@ class loginViewController: BaseViewController {
             if islogin {
                 changeBtn.setTitle("免费注册", for: .normal)
                 commitBtn.setTitle("登  录", for: .normal)
+                titleLab.text = "密码登陆"
             }else{
                 changeBtn.setTitle("已有账号", for: .normal)
                 commitBtn.setTitle("注  册", for: .normal)
+                titleLab.text = "免费注册"
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         userTF.text = "test"
         passwdTF.text = "test"
     }
@@ -42,22 +46,33 @@ class loginViewController: BaseViewController {
     
     @IBAction func commitDoit(_ sender: Any) {
         guard
-            let user = userTF.text,
-            let paswd = passwdTF.text else {
+            let user = userTF.text else {
             view.error("请输入用户名")
             return
         }
-        if user.count<3{
+        guard let paswd = passwdTF.text else{
+            view.error("请输入密码")
+            return
+        }
+        login(userName: user, passWord: paswd)
+        
+        
+    }
+    
+}
+extension loginViewController{
+    func login(userName:String,passWord:String){
+        if userName.count<3{
             view.error("用户名不能少于6个字符")
             return
         }
-        if paswd.count<3{
+        if passWord.count<3{
             view.error("密码不能少于6个字符")
             return
         }
         if islogin {
             view.loading()
-            Global.share.login(userName: user, passWord: paswd) { error in
+            Global.share.login(userName: userName, passWord: passWord) { error in
                 self.view.loadingDismiss()
                 if error == nil{
                     self.view.success("登录成功")
@@ -68,7 +83,7 @@ class loginViewController: BaseViewController {
             }
         }else{
             view.loading()
-            Global.share.register(userName: user, passWord: paswd) { error in
+            Global.share.register(userName: userName, passWord: passWord) { error in
                 self.view.loadingDismiss()
                 if error == nil{
                     self.view.success("注册成功")
@@ -79,5 +94,4 @@ class loginViewController: BaseViewController {
             }
         }
     }
-    
 }

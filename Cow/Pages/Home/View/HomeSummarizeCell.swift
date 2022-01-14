@@ -13,10 +13,10 @@ import UIKit
 class HomeSummarizeCell: UICollectionViewCell {
 	var cutdown = 0
 	@IBOutlet weak var freelab: UILabel!
-	@IBOutlet weak var totalAssetsLab: UILabel!
+	@IBOutlet weak var totalAssetsLab: UILabel! // 持仓成本
     
 	@IBOutlet weak var earningsLab: UILabel!
-	@IBOutlet weak var storeMoneyLab: UILabel!
+	@IBOutlet weak var storeMoneyLab: UILabel! // 持仓收益
 	override func awakeFromNib() {
         super.awakeFromNib()
 		NotificationCenter.default.addObserver(self, selector: #selector(globlaTimerDoit), name: Global.globleNotification, object: nil)
@@ -28,46 +28,26 @@ class HomeSummarizeCell: UICollectionViewCell {
 			return
 		}
 		gettotalAssets()
-		cutdown = 20
+		cutdown = 10
 		
 	}
 	// 获取持仓收益
 	func gettotalAssets(){
-		let sql = """
-	select t1.*,t2.price from rel_transaction t1
-	left join stock_price t2 on t2.code=t1.code
-	where t1.userid=\(Global.share.userId)
-	"""
-		let datas = sm.select(sql)
-		var sum:Double = 0
-		var amount:Double = 0
-		var ear:Double=0
-		var free:Double=0
-		datas.forEach { item in
-			let bcount = item["bcount"].int()
-			let price = item["price"].double()
-			let bprice = item["bprice"].double()
-			let sprice = item["sprice"].double()
-			let bfree = item["bfree"].double()
-			let sfree = item["sfree"].double()
-			let sdate = item["sdate"].string()
-			
-			if sdate == ""{
-				let am = bprice*bcount.double()
-				let value = (price-bprice)*bcount.double()
-				sum += value
-				amount += am
-			}else{
-				let val = (sprice-bprice)*bcount.double() - (bfree+sfree)
-				ear += val
-			}
-			free+=(bfree+sfree)
-			
-		}
-		storeMoneyLab.text = sum.price()
-		totalAssetsLab.text = amount.price()
-		earningsLab.text = ear.price()
-		freelab.text = free.price()
+		
+        let datas = StockManage.share.datas
+        
+        let stores  = datas.filter { $0["sprice"].double()<=0}
+        let finesh  = datas.filter { $0["sprice"].double()>0}
+        // 持仓收益
+        storeMoneyLab.text = Transaction.soreEarnings(stores).string()
+        // 持仓成本
+        totalAssetsLab.text = Transaction.soreCost(stores).price()
+        // 卖出总收益
+        earningsLab.text = Transaction.finishEarnings(finesh).price()
+        // 手续费
+        freelab.text = datas.reduce(0.0, { a, b in
+            a+b["bfree"].double()+b["sfree"].double()
+        }).price()
 		
 	}
 	deinit{

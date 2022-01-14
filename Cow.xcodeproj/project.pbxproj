@@ -140,6 +140,7 @@
 		84A51D582743B6540009684B /* SelectDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A51D562743B64E0009684B /* SelectDateViewController.swift */; };
 		84A51D592743B6540009684B /* SelectDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A51D572743B64E0009684B /* SelectDateViewController.xib */; };
 		84A51D5B2743C9A40009684B /* UICollectionEmptyFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A51D5A2743C9A40009684B /* UICollectionEmptyFootView.swift */; };
+		84AF6E722791230E00F1FEA4 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AF6E712791230E00F1FEA4 /* Transaction.swift */; };
 		84B25E1726DC984E00284679 /* ETFRecommendDetaiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B25E1526DC984E00284679 /* ETFRecommendDetaiVC.swift */; };
 		84B25E1826DC984E00284679 /* ETFRecommendDetaiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B25E1626DC984E00284679 /* ETFRecommendDetaiVC.xib */; };
 		84B443ED26EB324B00768F60 /* TransactionDefCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B443EB26EB324A00768F60 /* TransactionDefCell.swift */; };
@@ -346,6 +347,7 @@
 		84A51D562743B64E0009684B /* SelectDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateViewController.swift; sourceTree = "<group>"; };
 		84A51D572743B64E0009684B /* SelectDateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectDateViewController.xib; sourceTree = "<group>"; };
 		84A51D5A2743C9A40009684B /* UICollectionEmptyFootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionEmptyFootView.swift; sourceTree = "<group>"; };
+		84AF6E712791230E00F1FEA4 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		84B25E1526DC984E00284679 /* ETFRecommendDetaiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFRecommendDetaiVC.swift; sourceTree = "<group>"; };
 		84B25E1626DC984E00284679 /* ETFRecommendDetaiVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ETFRecommendDetaiVC.xib; sourceTree = "<group>"; };
 		84B443EB26EB324A00768F60 /* TransactionDefCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDefCell.swift; sourceTree = "<group>"; };
@@ -1104,6 +1106,7 @@
 			isa = PBXGroup;
 			children = (
 				84FE7A59278E851D00872F61 /* StockManage.swift */,
+				84AF6E712791230E00F1FEA4 /* Transaction.swift */,
 			);
 			path = StockManage;
 			sourceTree = "<group>";
@@ -1420,6 +1423,7 @@
 				84E62FD627031B27008A14C4 /* SchemeTemplateParamCell.swift in Sources */,
 				8405464126D8C206007E7F0F /* ETFDetaiKlineCell.swift in Sources */,
 				846B4CB826C0F82D00EB5BA7 /* SettingVC.swift in Sources */,
+				84AF6E722791230E00F1FEA4 /* Transaction.swift in Sources */,
 				84E62FE227040914008A14C4 /* ConfigDor.swift in Sources */,
 				841A95A526DA2AC800EFA126 /* loginViewController.swift in Sources */,
 				842C3E9026D6353C00F012DD /* OSS.swift in Sources */,

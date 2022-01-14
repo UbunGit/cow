@@ -238,6 +238,18 @@ extension Session {
         """
         return AF.select(sql)
     }
+    
+//    /**
+//     新增或修改策略
+//     */
+    func scheme_create(name:String, templateId:Int)-> DataRequest{
+        let sql = """
+                INSERT INTO scheme
+                (name,template) VALUES
+                ('\(name)','\(templateId)')
+        """
+        return AF.update(sql)
+    }
  
 }
 

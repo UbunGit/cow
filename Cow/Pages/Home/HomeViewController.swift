@@ -174,10 +174,8 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
 			cell.priceLab.text = price.price()
 			cell.rateLab.backgroundColor = (pix>=0) ? .red : .green
 			cell.rateLab.text = "\(pix.string("%0.1f"))%"
-			StockManage.share.storeName(code) { name in
-				cell.nameLab.text = "\(name)"
-			}
-			cell.bgview.backgroundColor = .green.alpha(0.5)
+            cell.nameLab.text = StockManage.share.storeName(code)
+			cell.bgview.backgroundColor = .down
 			
 			return cell
 		case 3:
@@ -196,10 +194,8 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
 			cell.rateLab.backgroundColor = (pix>=0) ? .red : .green
 			
 			cell.rateLab.text = "\(pix.string("%0.1f"))%"
-			StockManage.share.storeName(code) { name in
-				cell.nameLab.text = "\(name)"
-			}
-			cell.bgview.backgroundColor = .red.alpha(0.5)
+            cell.nameLab.text = StockManage.share.storeName(code)
+			cell.bgview.backgroundColor = .up
 			
 			return cell
 		default:
@@ -209,6 +205,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
 		switch indexPath.section{
 		case 0:
 			return .init(width: collectionView.size.width-16, height: 200)

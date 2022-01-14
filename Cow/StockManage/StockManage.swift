@@ -7,11 +7,20 @@
 
 import Foundation
 import Alamofire
+
 class StockManage:NSObject{
 	
 	static let `share` = StockManage()
 	var cutdown = 0
-	var datas:[[String:Any]] = []
+    var datas:[[String:Any]]{
+        let sql = """
+        select t1.*,t2.price,t3.name from rel_transaction  t1
+        left join stock_price t2 on t1.code=t2.code
+        left join stock_basic t3 on t1.code=t3.code
+        where t1.userid=\(Global.share.user!.userId)
+        """
+        return sm.select(sql)
+    }
 	
 	var codes:[String]{
 		let sql = """
@@ -40,37 +49,47 @@ class StockManage:NSObject{
 		cutdown-=1
 		
 	}
-	// 重新加载数据
-	public func reloadStoreData(){
-		AF.af_select(" select * from rel_transaction "){ [weak self] result in
-			switch result{
-			case .success(let value):
-				self?.datas = value
-				self?.cacheStoreData()
-			case .failure(let err):
-				self?.log(err.msg)
-			}
-		}
-	}
-	// 缓存交易数据
-	func cacheStoreData(){
-		
-		let _ = sm.drop("rel_transaction")
-		let _ = sm.createTable("rel_transaction")
-		guard 	let firstdata = datas.first
-		else{
-			return
-		}
-		let keys = firstdata.keys.map { $0 }
-		let _  = sm.mutableinster(table: "rel_transaction", column: keys, datas: datas)
-	}
+}
+// 更新交易数据
+extension StockManage{
+    // 重新加载数据
+    public func reloadStoreData(){
+        AF.af_select(" select * from rel_transaction "){ [weak self] result in
+            switch result{
+            case .success(let value):
+                
+                self?.cacheStoreData(value)
+            case .failure(let err):
+                self?.log(err.msg)
+            }
+        }
+    }
+    // 缓存交易数据
+    func cacheStoreData(_ data:[[String:Any]]){
+  
+        guard let firstdata = data.first
+        else{
+            return
+        }
+        let keys = firstdata.keys.map { $0 }
+        let _  = sm.mutableinster(table: "rel_transaction", column: keys, datas: data)
+    }
 }
 
 // 更新股票价格
 extension StockManage{
 	
+    func price(_ code:String)->Double{
+        let sql = " select price from stock_price where code='\(code)'"
+        if let data = sm.select(sql).first{
+            return data["price"].double()
+        }else{
+            return 0
+        }
+        
+    }
 	func reloadPrice(){
-		
+ 
 		let tcodes = codes.map { item -> String in
 			let arr = item.split(separator: ".")
 			var code = item
@@ -118,14 +137,13 @@ extension StockManage{
 		]
 		let _ = sm.mutableinster(table: "stock_basic", column: ["code","name"], datas: [param])
 	}
-	func storeName(_ code:String, callback:@escaping (_ name:String)->()){
+	func storeName(_ code:String)->String{
 		// 从本地数据库获取
 		let sql = """
 		select name from stock_basic where code='\(code)'
 		"""
 		if let data = sm.select(sql).first{
-			callback(data["name"].string())
-			return
+			return data["name"].string()
 		}
 		
 		// 从服务器获取
@@ -143,15 +161,12 @@ extension StockManage{
 				let name = data["name"] as? String
 				{
 					self?.cacheStoreName(code, name: name)
-					callback(name)
-					
-				}else{
-					callback("--")
 				}
 			case .failure(let err):
-				callback(err.msg)
+                self?.log(err.msg)
 			}
 		}
+        return "获取中"
 
 	}
 }

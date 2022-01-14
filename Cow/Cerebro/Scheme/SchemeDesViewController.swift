@@ -29,15 +29,26 @@ class SchemeDesViewController: BaseViewController {
         return button
     }()
     
+    lazy var settingBtn: UIButton = {
+        let button = UIButton.init(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        button.setImage(.init(systemName: "gearshape"), for: .normal)
+        button.setBlockFor(.touchUpInside) {[weak self] _ in
+        
+        }
+        return button
+    }()
+    
     // 添加
     lazy var refreshItem: UIBarButtonItem = {
         let mineItem = UIBarButtonItem.init(customView: refresh)
         return mineItem
     }()
- 
-    
-  
- 
+    // 添加
+    lazy var setingItem: UIBarButtonItem = {
+        let mineItem = UIBarButtonItem.init(customView: settingBtn)
+        return mineItem
+    }()
+
     
     lazy var headrtView:CollectionHeaderView = {
         let view = CollectionHeaderView()
@@ -57,7 +68,7 @@ class SchemeDesViewController: BaseViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItems = [refreshItem]
+        navigationItem.rightBarButtonItems = [refreshItem,setingItem]
         makeUI()
         loadData()
     }
@@ -456,8 +467,8 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
             cell.codeLab.text = code
             cell.priceLab.text = price.price()
             cell.dirLab.text = dirstr
-            cell.dirLab.textColor = dir ? .input : .output
-            cell.remarkView.backgroundColor = dir ? .input : .output
+            cell.dirLab.textColor = dir ? .up : .down
+            cell.remarkView.backgroundColor = dir ? .up : .down
             return cell
         case cellType.beforehand.rawValue: // 预交易
         
@@ -473,8 +484,8 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
             cell.codeLab.text = code
             cell.priceLab.text = price.price()
             cell.dirLab.text = dirstr
-            cell.dirLab.textColor = dir ? .input : .output
-            cell.remarkView.backgroundColor = dir ? .input : .output
+            cell.dirLab.textColor = dir ? .up : .down
+            cell.remarkView.backgroundColor = dir ?  .up : .down
             return cell
        
         case cellType.yide.rawValue: // 收益曲线
@@ -498,8 +509,8 @@ extension SchemeDesViewController:UICollectionViewDelegate,UICollectionViewDataS
             cell.codeLab.text = code
             cell.priceLab.text = price
             cell.dirLab.text = dirstr
-            cell.dirLab.textColor = dir ? .input : .output
-            cell.remarkView.backgroundColor = dir ? .input : .output
+            cell.dirLab.textColor = dir ? .up : .down
+            cell.remarkView.backgroundColor = dir ? .up : .down
             return cell
         case cellType.history.rawValue: // 历史
         

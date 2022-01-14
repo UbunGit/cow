@@ -40,99 +40,6 @@ struct  TransactionEditModel:HandyJSON {
     }
 }
 
-class Transaction {
-    
-    var delegate:UpdateAble? = nil
-    var code:String=""
-    var name:String=""
-    // 当前价格
-    var price = 0.00
-    var datas:[[String:Any]] = []
-    var storeCount:Int = 0
-
-    // 最低成本
-    var lowcost:[String:Any] {
-        guard let low = datas.min(by: { $0["bprice"].double()<=$1["bprice"].double() }) else {
-            return [:]
-        }
-        return low
-    }
-    // 最低收益
-    var lowdata:[String:Any] {
-        guard let low = datas.min(by: { $0["bprice"].double()>=$1["bprice"].double() }) else {
-            return [:]
-        }
-        return low
-    }
-    
-
-    // 最高收益
-    var hightData:[String:Any] {
-        guard let hight = datas.max(by: { $0["bprice"].double()>=$1["bprice"].double() }) else {
-            return [:]
-        }
-        return hight
-    }
-    
-    func loadeDef(type:Int=1)  {
-        var whereStr = """
-                    WHERE code = "\(code)" and userid=\(Global.share.user!.userId)
-                    """
-        // 持仓中
-        if type == 1{
-            whereStr.append(" and sprice<=0")
-        }else if type == 2{
-            whereStr.append(" and sprice>0")
-        }
-        
-        let sql = """
-            SELECT  id,code, bdate,bprice,bfree,bcount,sdate,sprice,sfree,target,plan,remarks from rel_transaction
-            \(whereStr)
-            ORDER BY bdate
-            """
-        
-        AF.af_select(sql) { [self] result in
-            switch result{
-            case .success(let value):
-                self.datas = value
-            case .failure(let err):
-                self.delegate?.error(err)
-            }
-
-            self.storeCount = datas.filter { $0["sdate"].string().count<=0 }.reduce(0){
-       
-                return $0 + $1["bcount"].int()
-            }
-            
-            self.delegate?.updateUI()
-        }
-    }
-    
-    func updatePrice()  {
-        var tcode = code
-        let arr = tcode.split(separator: ".")
-        if arr.count == 2 {
-            tcode = String(arr[1]+arr[0])
-        }
-        let url = "http://hq.sinajs.cn/list=\(tcode.lowercased())"
-        AF.request(url)
-            .responseString { result in
-                DispatchQueue.main.async { [weak self] in
-                    let value = result.value?.split(separator: ",")
-                    if value?.count ?? 0 <= 3{
-                        self?.price =  0
-                        self?.delegate?.updateUI()
-                        return
-                    }
-                    if let price = value?[3]{
-                        self?.price = Double(price) ?? 0
-                        self?.delegate?.updateUI()
-                    }
-                }
-            }
-    }
-}
-
 
 
 class TransactionListViewController: BaseViewController {
@@ -194,9 +101,8 @@ extension TransactionListViewController:UITableViewDelegate,UITableViewDataSourc
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionListCell", for: indexPath) as! TransactionListCell
-		let info = AF.api_reltransactioninfo(state, code: dataSouce[indexPath.row]["code"].string())
-		cell.celldata = info
-
+        let celldata = dataSouce[indexPath.row]
+		cell.code = celldata["code"].string()
 		cell.updateUI()
         return cell
     }

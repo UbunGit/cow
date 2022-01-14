@@ -23,8 +23,8 @@ public extension UIColor{
     
     static var mb_line:UIColor = UIColor(named: "Text 3") ?? .lightGray
     
-    static var input:UIColor = .red
-    static var output:UIColor = .green
+    static var up:UIColor = UIColor(named: "up") ?? .red
+    static var down:UIColor = UIColor(named: "down") ?? .green
     
     static func random()->UIColor{
         let r = CGFloat.random(in: 0...255)/255

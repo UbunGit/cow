@@ -15,7 +15,7 @@ class TransactionDefVC: BaseViewController {
 	var code:String = ""
 	var state:Int = 0
     
-	var data:Transaction = Transaction()
+    var datas:[[String:Any]] = []
     
     
     lazy var addbtn: UIButton = {
@@ -56,17 +56,13 @@ class TransactionDefVC: BaseViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        
 		let titleLab = UILabel()
 		titleLab.numberOfLines = 2
 		titleLab.font = .systemFont(ofSize: 14)
 		self.navigationItem.titleView = titleLab
-		StockManage.share.storeName(code) {[weak self] name in
-			guard let cod = self?.code else{
-				return
-			}
-			titleLab.text = "\(cod)\n\(name)"
-		}
-	
+        titleLab.text = StockManage.share.storeName(code)
 		
         loadData()
         navigationItem.rightBarButtonItems = [mineItem,addItem]
@@ -121,7 +117,7 @@ extension TransactionDefVC:UITableViewDelegate,UITableViewDataSource{
         if section == 0 {
             return 1
         }
-		return data.datas.count
+		return datas.count
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -134,13 +130,13 @@ extension TransactionDefVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionListCell", for: indexPath) as! TransactionListCell
-            cell.celldata = data
-            cell.refreshBtn.isHidden = true
+            cell.code = code
+          
             cell.updateUI()
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionDefCell", for: indexPath) as! TransactionDefCell
-			cell.cellData = data.datas[indexPath.row]
+			cell.cellData = datas[indexPath.row]
             cell.updateUI()
             return cell
         }
@@ -150,7 +146,7 @@ extension TransactionDefVC:UITableViewDelegate,UITableViewDataSource{
         if indexPath.section==0 {
             return
         }
-		guard  let moden = TransactionEditModel.deserialize(from: data.datas[indexPath.row] as [String:Any]) else {
+		guard  let moden = TransactionEditModel.deserialize(from: datas[indexPath.row] as [String:Any]) else {
             view.error("数据转换失败")
             return
         }
@@ -177,7 +173,11 @@ extension TransactionDefVC{
 
 
 	func loadData(){
-		self.data = AF.api_reltransactioninfo(state, code:code)
+        if state == 0 {
+            datas = Transaction.soreDatas(code)
+        }else if state == 1{
+            datas = Transaction.finishDatas(code)
+        }
 		self.updateUI()
 	}
 }

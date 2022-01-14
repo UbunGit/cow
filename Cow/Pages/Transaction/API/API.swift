@@ -44,48 +44,4 @@ extension Session{
 		"""
 		return sm.select(sql)
 	}
-	
-	func api_reltransactioninfo(_ state:Int? = -1, code:String) -> Transaction{
-		var info = Transaction()
-		let  datas = api_reltransaction(state,code: code)
-		info.datas = datas
-		if let first = datas.first{
-			info.code = first["code"].string()
-			info.name = first["name"].string()
-		}
-		
-	
-		var sum:Double = 0 // 持仓总收益
-		var amount:Double = 0 // 总成本
-		var ear:Double=0 // 实现总收益
-		var allcount:Int=0 // 总持仓股数
-		var free:Double=0 // 总手续费
-	
-		datas.forEach { item in
-			let bcount = item["bcount"].int()
-			let price = item["price"].double()
-			let bprice = item["bprice"].double()
-			let sprice = item["sprice"].double()
-			let bfree = item["bfree"].double()
-			let sfree = item["sfree"].double()
-			let am = bprice*bcount.double()
-			let value = (price-bprice)*bcount.double()
-			let val = (sprice-bprice)*bcount.double() - (bfree+sfree)
-			sum += value
-			amount += am
-			allcount += bcount
-			ear += val
-			free+=(bfree+sfree)
-			
-		}
-		info.storeCount = allcount
-//		info["datas"] = datas
-//		info["sum"] = sum
-//		info["amount"] = sum
-//		info["ear"] = ear
-//		info["allcount"] = allcount
-//		info["free"] = free
-		return info
-		
-	}
 }
