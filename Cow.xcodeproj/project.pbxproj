@@ -52,6 +52,9 @@
 		843555DF2735052000B05956 /* HTCollectionBaseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843555DD2735052000B05956 /* HTCollectionBaseHeaderView.swift */; };
 		843555E22735266500B05956 /* SchemeYieldCurveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843555E02735266500B05956 /* SchemeYieldCurveCell.swift */; };
 		843555E32735266500B05956 /* SchemeYieldCurveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843555E12735266500B05956 /* SchemeYieldCurveCell.xib */; };
+		8445C77B278FBB150003284E /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445C77A278FBB150003284E /* Route.swift */; };
+		8445C781279000640003284E /* HomeRecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445C77F279000640003284E /* HomeRecommendCell.swift */; };
+		8445C782279000640003284E /* HomeRecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8445C780279000640003284E /* HomeRecommendCell.xib */; };
 		84463B9326CF7BEC00F2262B /* KlineNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84463B9226CF7BEC00F2262B /* KlineNavBarView.swift */; };
 		84463B9526CF7BFF00F2262B /* KlineNavBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84463B9426CF7BFF00F2262B /* KlineNavBarView.xib */; };
 		844D5ADD26BA604300AC08AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D5ADC26BA604300AC08AF /* AppDelegate.swift */; };
@@ -188,6 +191,7 @@
 		84F736B626DB7E77008D28C1 /* FollowListSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F736B426DB7E77008D28C1 /* FollowListSettingVC.swift */; };
 		84F736B726DB7E77008D28C1 /* FollowListSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F736B526DB7E77008D28C1 /* FollowListSettingVC.xib */; };
 		84FB1D232744F78600011946 /* SchemezContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB1D222744F78600011946 /* SchemezContract.swift */; };
+		84FE7A5A278E851E00872F61 /* StockManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE7A59278E851D00872F61 /* StockManage.swift */; };
 		B361F4813D5409C336DE9241 /* Pods_Cow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F60CF171DAB942E8AD2C091 /* Pods_Cow.framework */; };
 /* End PBXBuildFile section */
 
@@ -250,6 +254,9 @@
 		843555DD2735052000B05956 /* HTCollectionBaseHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTCollectionBaseHeaderView.swift; sourceTree = "<group>"; };
 		843555E02735266500B05956 /* SchemeYieldCurveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeYieldCurveCell.swift; sourceTree = "<group>"; };
 		843555E12735266500B05956 /* SchemeYieldCurveCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchemeYieldCurveCell.xib; sourceTree = "<group>"; };
+		8445C77A278FBB150003284E /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		8445C77F279000640003284E /* HomeRecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendCell.swift; sourceTree = "<group>"; };
+		8445C780279000640003284E /* HomeRecommendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeRecommendCell.xib; sourceTree = "<group>"; };
 		84463B9226CF7BEC00F2262B /* KlineNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlineNavBarView.swift; sourceTree = "<group>"; };
 		84463B9426CF7BFF00F2262B /* KlineNavBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KlineNavBarView.xib; sourceTree = "<group>"; };
 		844D5AD926BA604300AC08AF /* Cow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -390,6 +397,7 @@
 		84F736B426DB7E77008D28C1 /* FollowListSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowListSettingVC.swift; sourceTree = "<group>"; };
 		84F736B526DB7E77008D28C1 /* FollowListSettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowListSettingVC.xib; sourceTree = "<group>"; };
 		84FB1D222744F78600011946 /* SchemezContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemezContract.swift; sourceTree = "<group>"; };
+		84FE7A59278E851D00872F61 /* StockManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockManage.swift; sourceTree = "<group>"; };
 		8944AC9A803FD0C9983B9A34 /* Pods-CowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CowTests.debug.xcconfig"; path = "Target Support Files/Pods-CowTests/Pods-CowTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B2C7744FD96C6DA2CA9753D2 /* Pods_CowTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CowTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7410E06C8E6185BA9732D2 /* Pods-Cow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cow.debug.xcconfig"; path = "Target Support Files/Pods-Cow/Pods-Cow.debug.xcconfig"; sourceTree = "<group>"; };
@@ -579,6 +587,14 @@
 			path = UICollectionViewHeader;
 			sourceTree = "<group>";
 		};
+		8445C779278FBAE80003284E /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				8445C77A278FBB150003284E /* Route.swift */,
+			);
+			path = Route;
+			sourceTree = "<group>";
+		};
 		844D5AD026BA604300AC08AF = {
 			isa = PBXGroup;
 			children = (
@@ -602,6 +618,7 @@
 		844D5ADB26BA604300AC08AF /* Cow */ = {
 			isa = PBXGroup;
 			children = (
+				84FE7A58278E84DF00872F61 /* StockManage */,
 				84B7C944278966B400DA95C1 /* Log */,
 				84E62FE0270408F4008A14C4 /* Dorkit */,
 				84BACCC426F5D2D7004EEE9A /* SQLite */,
@@ -637,6 +654,7 @@
 		844D5AF126BA6C5600AC08AF /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				8445C779278FBAE80003284E /* Route */,
 				8483CEDE26E08CD5009F7A7D /* Transaction */,
 				841A95A226DA2A7F00EFA126 /* Login */,
 				8405463D26D8BFC1007E7F0F /* ETF */,
@@ -673,6 +691,8 @@
 				84463B9426CF7BFF00F2262B /* KlineNavBarView.xib */,
 				84B7C94A27896F0D00DA95C1 /* HomeSummarizeCell.swift */,
 				84B7C94B27896F0D00DA95C1 /* HomeSummarizeCell.xib */,
+				8445C77F279000640003284E /* HomeRecommendCell.swift */,
+				8445C780279000640003284E /* HomeRecommendCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1080,6 +1100,14 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
+		84FE7A58278E84DF00872F61 /* StockManage */ = {
+			isa = PBXGroup;
+			children = (
+				84FE7A59278E851D00872F61 /* StockManage.swift */,
+			);
+			path = StockManage;
+			sourceTree = "<group>";
+		};
 		8F8AB82B2CEEF3700D010E99 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1210,6 +1238,7 @@
 				849A0AF926F9A261001387CF /* KoinuHistoryCell.xib in Resources */,
 				845E45A926CBA94E002E77C3 /* SQLTableListVC.xib in Resources */,
 				846B4CBE26C0F95300EB5BA7 /* SettingHeaderCollectionViewCell.xib in Resources */,
+				8445C782279000640003284E /* HomeRecommendCell.xib in Resources */,
 				84E62FD327031576008A14C4 /* UITableViewAddCell.xib in Resources */,
 				843555C42733B2FC00B05956 /* SchemeListTableCell.xib in Resources */,
 				841A95B826DA8B6100EFA126 /* KirogiSettingVC.xib in Resources */,
@@ -1375,6 +1404,7 @@
 				845E45A826CBA94E002E77C3 /* SQLTableListVC.swift in Sources */,
 				843555CA2733BAA100B05956 /* CollectionHeaderView.swift in Sources */,
 				844D5AFB26BA6EBC00AC08AF /* HomeViewController.swift in Sources */,
+				84FE7A5A278E851E00872F61 /* StockManage.swift in Sources */,
 				849B76A2274DE4A100F70289 /* SchemeTimeYieldCell.swift in Sources */,
 				84A51D5B2743C9A40009684B /* UICollectionEmptyFootView.swift in Sources */,
 				84FB1D232744F78600011946 /* SchemezContract.swift in Sources */,
@@ -1407,6 +1437,7 @@
 				8400CD4326CFB85700C6DE3F /* lib.swift in Sources */,
 				84E7F25826EB2D7100F3F61C /* TransactionDefVC.swift in Sources */,
 				84E62FCE2703113A008A14C4 /* SchemeTemplateParamEditVC.swift in Sources */,
+				8445C781279000640003284E /* HomeRecommendCell.swift in Sources */,
 				849A0AF826F9A261001387CF /* KoinuHistoryCell.swift in Sources */,
 				84A51D51273E6EF70009684B /* SchemeSettingPoolVC.swift in Sources */,
 				84E62FE827041038008A14C4 /* SqlTableView.swift in Sources */,
@@ -1424,6 +1455,7 @@
 				8400CD4026CFAF0700C6DE3F /* Scheme.swift in Sources */,
 				844D5AE126BA604300AC08AF /* HomeTabViewController.swift in Sources */,
 				84B7C946278966D600DA95C1 /* Log.swift in Sources */,
+				8445C77B278FBB150003284E /* Route.swift in Sources */,
 				844D5AF426BA6C8000AC08AF /* BaseViewController.swift in Sources */,
 				849A0AEB26F796DE001387CF /* SchemeTemplateListVC.swift in Sources */,
 				8483CEEA26E08F96009F7A7D /* TransactionListCell.swift in Sources */,

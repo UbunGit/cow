@@ -25,7 +25,7 @@ extension Session{
 }
 
 extension SqlliteManage{
-    static var islog = false
+    static var islog = true
     func log(_ format: String, _ args: CVarArg...){
         if Self.islog{
             NSLog("【\(type(of: self))】 \(format)", args)

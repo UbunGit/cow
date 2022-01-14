@@ -19,16 +19,16 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VjJ-oC-VW1">
-                        <rect key="frame" x="15" y="32" width="43" height="46.5"/>
+                        <rect key="frame" x="15" y="32" width="57.5" height="46.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总资产" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Wy-90-78q">
-                                <rect key="frame" x="0.0" y="0.0" width="43" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="持仓成本" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Wy-90-78q">
+                                <rect key="frame" x="0.0" y="0.0" width="57.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" name="Text 3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fu-kJ-iHH">
-                                <rect key="frame" x="0.0" y="25" width="43" height="21.5"/>
+                                <rect key="frame" x="0.0" y="25" width="57.5" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" name="Text 1"/>
                                 <nil key="highlightedColor"/>
@@ -38,7 +38,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kwb-V6-rng">
                         <rect key="frame" x="183.5" y="91.5" width="91.5" height="46.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收益" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wg-2L-K2v">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="实现收益" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wg-2L-K2v">
                                 <rect key="frame" x="0.0" y="0.0" width="91.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" name="Text 3"/>
@@ -55,7 +55,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="D3Q-ZA-hv8">
                         <rect key="frame" x="15" y="91.5" width="57.5" height="46.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="持仓金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4z3-Bn-HRp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="持仓收益" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4z3-Bn-HRp">
                                 <rect key="frame" x="0.0" y="0.0" width="57.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" name="Text 3"/>
@@ -69,20 +69,42 @@
                             </label>
                         </subviews>
                     </stackView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ym1-v2-pRK">
+                        <rect key="frame" x="123.5" y="91.5" width="43" height="46.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手续费" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKl-ye-4sY">
+                                <rect key="frame" x="0.0" y="0.0" width="43" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="Text 3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0M-wW-gjP">
+                                <rect key="frame" x="0.0" y="25" width="43" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" name="Text 1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" name="AccentColor"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="kwb-V6-rng" secondAttribute="trailing" constant="15" id="1bn-xT-dv8"/>
+                <constraint firstItem="ym1-v2-pRK" firstAttribute="centerY" secondItem="D3Q-ZA-hv8" secondAttribute="centerY" id="4v5-vS-yGM"/>
                 <constraint firstItem="VjJ-oC-VW1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="ASO-FR-FVb"/>
                 <constraint firstAttribute="bottom" secondItem="D3Q-ZA-hv8" secondAttribute="bottom" constant="32" id="L3z-n3-YU9"/>
                 <constraint firstItem="VjJ-oC-VW1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="32" id="Mb4-jT-o7u"/>
+                <constraint firstItem="ym1-v2-pRK" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="ea4-6p-JEy"/>
                 <constraint firstItem="D3Q-ZA-hv8" firstAttribute="leading" secondItem="VjJ-oC-VW1" secondAttribute="leading" id="kH6-qu-FtZ"/>
                 <constraint firstItem="kwb-V6-rng" firstAttribute="centerY" secondItem="D3Q-ZA-hv8" secondAttribute="centerY" id="zrr-wo-44G"/>
             </constraints>
             <size key="customSize" width="290" height="170"/>
             <connections>
+                <outlet property="earningsLab" destination="Wfl-Jh-v98" id="dhE-ir-dKP"/>
+                <outlet property="freelab" destination="f0M-wW-gjP" id="TAu-RY-Oag"/>
+                <outlet property="storeMoneyLab" destination="bwu-Oz-OlP" id="0ZQ-A8-oaW"/>
                 <outlet property="totalAssetsLab" destination="1fu-kJ-iHH" id="gK1-se-sRR"/>
             </connections>
             <point key="canvasLocation" x="300" y="106"/>

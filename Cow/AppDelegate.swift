@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         configDor()
+		let _ = StockManage.share
+		sm.setup()
         window = UIWindow()
         window?.rootViewController = HomeTabViewController()
         window?.makeKeyAndVisible()

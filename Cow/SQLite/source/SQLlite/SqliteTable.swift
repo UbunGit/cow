@@ -76,8 +76,20 @@ extension SqlliteManage{
             _ = try db?.execute(create)
             return true
         }catch{
+			log("\(error)")
             return false
         }
     }
+	
+	func drop(_ name:String)->Bool{
+		let sql = "drop table if exists \(name) "
+		do{
+			_ = try db?.execute(sql)
+			return true
+		}catch{
+			self.log(sql)
+			return false
+		}
+	}
     
 }

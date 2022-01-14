@@ -12,7 +12,7 @@ class TransactionDefCell: UITableViewCell {
     
     var cellData:[String:Any]
         = [:]
-    var price = 8.00
+
     @IBOutlet weak var chartView: HorizontalBarChartView!
     
     @IBOutlet weak var countLab: UILabel!
@@ -43,15 +43,19 @@ class TransactionDefCell: UITableViewCell {
     }
     override func updateUI()  {
         chartView.data = barset()
+	
         countLab.text = cellData["bcount"].string()
         bdateLab.text = cellData["bdate"].string()
+		
         let sellprice = cellData["sprice"].double()
-        
+		let bprice = cellData["bprice"].double()
+		let bcount = cellData["bcount"].int()
+		let price = cellData["price"].double()
         // 已卖出
         if sellprice>0{
-            let cha = sellprice - cellData["bprice"].double()
-            yaidLab.text = (cha/sellprice).percentStr()
-            esLab.text = (cha * cellData["bcount"].double()).price()
+            let cha = sellprice - bprice
+            yaidLab.text = ((sellprice/bprice) - 1).percentStr()
+			esLab.text = (cha * bcount.double()).price()
             if cha > 0 {
                 chartView.backgroundColor = .red.alpha(0.1)
             }else{
@@ -59,10 +63,10 @@ class TransactionDefCell: UITableViewCell {
             }
         }else{
             if price != 0 {
-                let cha = price - cellData["bprice"].double()
-                yaidLab.text = (cha/price).percentStr()
-                esLab.text = (cha * cellData["bcount"].double()).price()
-                if cha > 0 {
+				let yaid = (price/bprice)-1.00
+                yaidLab.text = yaid.percentStr()
+				esLab.text = ((bprice-price) * bcount.double()).price()
+                if yaid > 0 {
                     chartView.backgroundColor = .red.alpha(0.1)
                 }else{
                     chartView.backgroundColor = .green.alpha(0.1)
@@ -75,10 +79,14 @@ class TransactionDefCell: UITableViewCell {
     }
     
     func barset() -> BarChartData?  {
-        
-        let set0 = BarChartDataSet(entries: [BarChartDataEntry(x:0 , y: cellData["bprice"].double())], label: "成本\(cellData["bprice"].price())")
+        let bprice = cellData["bprice"].double()
+		let sellprice = cellData["sprice"].double()
+		
+		let price = cellData["price"].double()
+		let target = cellData["target"].double()
+        let set0 = BarChartDataSet(entries: [BarChartDataEntry(x:0 , y: bprice)], label: "成本\(cellData["bprice"].price())")
         set0.colors = [.red.alpha(0.1)]
-        let sellprice = cellData["sprice"].double()
+       
         var set2:BarChartDataSet
         if sellprice>0{
             set2 = BarChartDataSet(entries: [BarChartDataEntry(x:2 , y: sellprice)], label: "卖出价\(sellprice.price())")
@@ -87,10 +95,8 @@ class TransactionDefCell: UITableViewCell {
             set2 = BarChartDataSet(entries: [BarChartDataEntry(x:2 , y: price)], label: "现价\(price.price())")
             set2.colors = [.red.alpha(0.2)]
         }
-        
 
-        
-        let set1 = BarChartDataSet(entries: [BarChartDataEntry(x:1 , y: cellData["target"].double())], label: "目标\(cellData["target"].price())")
+        let set1 = BarChartDataSet(entries: [BarChartDataEntry(x:1 , y: target)], label: "目标\(target.price())")
         set1.colors = [.red.alpha(0.3)]
 
         

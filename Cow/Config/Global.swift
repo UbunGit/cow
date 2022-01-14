@@ -12,6 +12,7 @@ import Magicbox
 
 
 class Global {
+	static let globleNotification = NSNotification.Name("GloableTimer")
     struct User {
         var userName:String = "未登录"
         var avatar: String = ""
@@ -43,6 +44,10 @@ class Global {
             
         }
     }
+	
+	var userId:String{
+		user?.userId.string() ?? ""
+	}
     
     static let `share` = Global()
     private init(){}

@@ -137,7 +137,7 @@ class Transaction {
 
 class TransactionListViewController: BaseViewController {
     var state:Int = 0 // 0->持仓列表 1-> 已卖出
-    var dataSouce:[Transaction] = []
+	var dataSouce:[[String:Any]] = []
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -164,24 +164,9 @@ class TransactionListViewController: BaseViewController {
             needLogin()
             return
         }
-        view.loading()
-        AF.api_reltransaction(state)
-            .responseModel([[String:Any]].self) { result in
-            self.view.loadingDismiss()
-            switch result{
-            case .success(let value):
-                self.dataSouce = value.map({ item in
-                    let data = Transaction()
-                    data.code = item["code"].string()
-                    data.name = item["name"].string()
-                    return data
-                })
-            case .failure(let err):
-                self.view.error(err.localizedDescription)
-            }
-            self.updateUI()
-          
-        }
+     
+		self.dataSouce = AF.api_reltransaction(state)
+		self.updateUI()
     }
     
 
@@ -209,19 +194,16 @@ extension TransactionListViewController:UITableViewDelegate,UITableViewDataSourc
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionListCell", for: indexPath) as! TransactionListCell
-        cell.celldata = dataSouce[indexPath.row]
-        
-        cell.celldata?.delegate = cell
-        cell.celldata?.loadeDef()
-        cell.celldata?.updatePrice()
-    
-     
+		let info = AF.api_reltransactioninfo(state, code: dataSouce[indexPath.row]["code"].string())
+		cell.celldata = info
+
+		cell.updateUI()
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = TransactionDefVC()
-        vc.data = dataSouce[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: true)
+		let celldata = dataSouce[indexPath.row]
+		self.push_transaction(code: celldata["code"].string(),state: state)
+      
     }
 }
 

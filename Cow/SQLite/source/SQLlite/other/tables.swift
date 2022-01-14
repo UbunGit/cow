@@ -178,12 +178,28 @@ let creatdTabledic =
                                 );
                     """
         ],
-        
-        
-        
-       
-       
-      
+		[
+			"name":"stock_price",
+			"create":
+					"""
+							CREATE TABLE IF NOT EXISTS "stock_price" ( -- 股票当前价格
+									"code"    TEXT NOT NULL ,
+									"price"   NUMERIC , -- 价格
+									PRIMARY KEY("code")
+								);
+					"""
+		],
+		[
+			"name":"stock_basic",
+			"create":
+					"""
+							CREATE TABLE IF NOT EXISTS "stock_basic" ( -- 股票名称
+									"code"    TEXT NOT NULL ,
+									"name"   NUMERIC , -- 价格
+									PRIMARY KEY("code")
+								);
+					"""
+		],
   
 ]
 

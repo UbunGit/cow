@@ -12,8 +12,10 @@ import YYKit
 class TransactionDefVC: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
+	var code:String = ""
+	var state:Int = 0
     
-    var data:Transaction = Transaction()
+	var data:Transaction = Transaction()
     
     
     lazy var addbtn: UIButton = {
@@ -21,7 +23,7 @@ class TransactionDefVC: BaseViewController {
         button.setImage(.init(systemName: "plus.circle"), for: .normal)
         button.addBlock(for: .touchUpInside) { _ in
             let vc = TransactionEdit()
-            vc.editData = TransactionEditModel( userId: Global.share.user!.userId, code: self.data.code, type: 1)
+//            vc.editData = TransactionEditModel( userId: Global.share.user!.userId, code: self.datas.code, type: 1)
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }
@@ -33,7 +35,7 @@ class TransactionDefVC: BaseViewController {
         let button = UIButton.init(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
         button.setImage(.init(systemName: "arrow.clockwise"), for: .normal)
         button.addBlock(for: .touchUpInside) { _ in
-            self.reloadData()
+            self.loadData()
         }
         
         return button
@@ -54,31 +56,41 @@ class TransactionDefVC: BaseViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "持仓详细"
-        data.delegate = self
+		let titleLab = UILabel()
+		titleLab.numberOfLines = 2
+		titleLab.font = .systemFont(ofSize: 14)
+		self.navigationItem.titleView = titleLab
+		StockManage.share.storeName(code) {[weak self] name in
+			guard let cod = self?.code else{
+				return
+			}
+			titleLab.text = "\(cod)\n\(name)"
+		}
+	
+		
+        loadData()
         navigationItem.rightBarButtonItems = [mineItem,addItem]
         configTableview()
      
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        reloadData()
+        loadData()
     }
     override func updateUI() {
         tableView.mj_header?.endRefreshing()
         refresh.layer.removeAllAnimations()
         tableView.reloadData()
     }
-    func reloadData()  {
-        refresh.beginrefresh()
-        data.loadeDef(type: tableCategoryHeader.value)
-        data.updatePrice()
-    }
+    
     
     lazy var tableCategoryHeader:TransactionListTableHeader = {
         let header = TransactionListTableHeader.initWithNib()
-        header.addBlock(for: .valueChanged) { _ in
-            self.reloadData()
+		header.setvalue(state+1)
+        header.addBlock(for: .valueChanged) {[weak self] _ in
+			
+			self?.state =  header.value-1
+            self?.loadData()
         }
         return header
     }()
@@ -97,7 +109,7 @@ extension TransactionDefVC:UITableViewDelegate,UITableViewDataSource{
 
         
         tableView.mj_header = MJRefreshGifHeader(refreshingBlock: {
-            self.reloadData()
+            self.loadData()
         })
         
     }
@@ -109,7 +121,7 @@ extension TransactionDefVC:UITableViewDelegate,UITableViewDataSource{
         if section == 0 {
             return 1
         }
-        return data.datas.count
+		return data.datas.count
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -128,8 +140,7 @@ extension TransactionDefVC:UITableViewDelegate,UITableViewDataSource{
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionDefCell", for: indexPath) as! TransactionDefCell
-            cell.cellData = data.datas[indexPath.row]
-            cell.price = data.price
+			cell.cellData = data.datas[indexPath.row]
             cell.updateUI()
             return cell
         }
@@ -139,7 +150,7 @@ extension TransactionDefVC:UITableViewDelegate,UITableViewDataSource{
         if indexPath.section==0 {
             return
         }
-        guard  let moden = TransactionEditModel.deserialize(from: data.datas[indexPath.row] as [String:Any]) else {
+		guard  let moden = TransactionEditModel.deserialize(from: data.datas[indexPath.row] as [String:Any]) else {
             view.error("数据转换失败")
             return
         }
@@ -160,4 +171,13 @@ extension TransactionDefVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return tableCategoryHeader
     }
+}
+
+extension TransactionDefVC{
+
+
+	func loadData(){
+		self.data = AF.api_reltransactioninfo(state, code:code)
+		self.updateUI()
+	}
 }

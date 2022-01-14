@@ -38,6 +38,7 @@ public class SqlliteManage{
     public static func share()->SqlliteManage{
         DispatchQueue.once(onceToken) {
             _share = SqlliteManage()
+			
         }
         return _share!
     }
@@ -145,10 +146,6 @@ public extension SqlliteManage{
 
 
 
-
-
-
-
 extension Statement{
 
     
@@ -184,10 +181,22 @@ extension Statement{
     }
 
 }
+
 public extension Array where Element == [String:Any]  {
     func to_model<T>() -> [T]  where T:HandyJSON{
         map { T.deserialize(from: $0)! }
     }
+}
+
+extension SqlliteManage{
+	func setup(){
+		if isExistsTable("stock_price") == false{
+			let _ = createTable("stock_price")
+		}
+		if isExistsTable("stock_basic") == false{
+			let _ = createTable("stock_basic")
+		}
+	}
 }
 
 
