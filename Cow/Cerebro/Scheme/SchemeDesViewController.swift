@@ -33,7 +33,9 @@ class SchemeDesViewController: BaseViewController {
         let button = UIButton.init(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
         button.setImage(.init(systemName: "gearshape"), for: .normal)
         button.setBlockFor(.touchUpInside) {[weak self] _ in
-        
+            let vc = SchemeEditViewController()
+            vc.schemeID = self?.schemeId
+            self?.navigationController?.pushViewController(vc, animated: true)
         }
         return button
     }()

@@ -85,9 +85,7 @@ class TransactionListCell: UITableViewCell {
         limitLine.limit = price
         limitLine.label = price.price()
         nowpriceLab.text = price.price()
-      
-      
-        
+
         // 最高成本收益/收益率
         if let low = Transaction.max(datas){
             let earnings = Transaction.earnings(low)
@@ -114,16 +112,11 @@ class TransactionListCell: UITableViewCell {
         chareView.legend.drawInside = true
         chareView.legend.verticalAlignment = .bottom
         chareView.legend.horizontalAlignment = .left
-    
-      
-        
+
     }
 
-    
 	func barset(datas:[[String:Any]]) -> BarChartData?  {
-       
-        
-        
+  
         let bpriceSets =  datas.enumerated().map { (index,item) -> BarChartDataEntry in
 			let price =  item["price"].double()
             let bprice = item["bprice"].double()
@@ -133,27 +126,22 @@ class TransactionListCell: UITableViewCell {
             }else{
                 return BarChartDataEntry(x:index.double() , y: bprice, icon: .init(named: "hand.thumbsup.fill"))
             }
-             
- 
         }
        
         let bpriceSet = BarChartDataSet(entries: bpriceSets,label: "买入价")
-        bpriceSet.colors = [.yellow.alpha(0.5)]
+        bpriceSet.colors = [.up.alpha(0.2)]
         
         let targetSets =  datas.enumerated().map { (index,item) -> BarChartDataEntry in
             let set = BarChartDataEntry(x:index.double() , y: item["target"].double())
             return set
         }
         let targetSet = BarChartDataSet(entries: targetSets, label: "目标价")
-        targetSet.colors = [.red.alpha(0.5)]
+        targetSet.colors = [.up.alpha(0.3)]
      
         let bdata = BarChartData(dataSets: [bpriceSet,targetSet])
         bdata.barWidth = 0.3
         bdata.groupBars(fromX: -0.5, groupSpace: 0.4, barSpace: 0.03)
         return bdata
     }
-    
-    
-    
-    
+
 }

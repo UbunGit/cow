@@ -30,9 +30,14 @@ class TableInfoPageViewController: BaseViewController {
         let infovc = (rootIN==0) ? SQLTableInfoVC() : SQLLocalTableInfoVC()
         infovc.tableName = tableName
         infovc.rootIN = rootIN
+        
+        let createVC = SQLTableCreateInfoVC()
+        createVC.tableName = tableName
+        createVC.view.backgroundColor = UIColor.random()
+        createVC.rootIN = rootIN
         let vcs = [
             infovc,
-            BaseViewController(),
+            createVC,
             BaseViewController(),
             BaseViewController(),
             BaseViewController()

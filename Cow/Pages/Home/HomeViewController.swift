@@ -114,6 +114,7 @@ extension HomeViewController{
 		navigationItem.rightBarButtonItems = [newItem,searchBtn]
 	}
 	func configUI() {
+        collecttionView.backgroundColor = .clear
 		collecttionView.register(UINib(nibName: "HomeSummarizeCell", bundle: nil), forCellWithReuseIdentifier: "HomeSummarizeCell")
 		collecttionView.register(UINib(nibName: "CollectionViewGridCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewGridCell")
 		collecttionView.register(UINib(nibName: "HomeRecommendCell", bundle: nil), forCellWithReuseIdentifier: "HomeRecommendCell")
@@ -175,7 +176,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
 			cell.rateLab.backgroundColor = (pix>=0) ? .red : .green
 			cell.rateLab.text = "\(pix.string("%0.1f"))%"
             cell.nameLab.text = StockManage.share.storeName(code)
-			cell.bgview.backgroundColor = .down
+			cell.bgview.backgroundColor = .white
 			
 			return cell
 		case 3:
@@ -195,7 +196,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
 			
 			cell.rateLab.text = "\(pix.string("%0.1f"))%"
             cell.nameLab.text = StockManage.share.storeName(code)
-			cell.bgview.backgroundColor = .up
+			cell.bgview.backgroundColor = .white
 			
 			return cell
 		default:
@@ -208,7 +209,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         
 		switch indexPath.section{
 		case 0:
-			return .init(width: collectionView.size.width-16, height: 200)
+			return .init(width: collectionView.size.width-16, height: 180)
 		case 1:
 			return .init(width: (collectionView.size.width-16)/5, height: (collectionView.size.width-16)/5)
 		case 2,3:

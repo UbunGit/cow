@@ -19,8 +19,8 @@ class SchemeEditViewController: BaseViewController {
         super.viewDidLoad()
         self.title = "策略设置"
         makeTableView()
-        if schemeID == nil{
-            
+        if schemeID != nil{
+            loadData()
         }
         
     }
@@ -39,9 +39,27 @@ class SchemeEditViewController: BaseViewController {
         }
         createOrupdateScheme(schemeID, name: name, templeId: stemplate["id"].int())
     }
+    override func updateUI() {
+        tableView.reloadData()
+    }
     
 }
 extension SchemeEditViewController{
+    func loadData(){
+        let sql = """
+select * from scheme where id = \(schemeID.int())
+"""
+        AF.select(sql).responseModel([[String:Any]].self) { result in
+            switch result{
+            case .success(let value):
+                self.template = value.first
+                break
+            case .failure(let err):
+                self.view.error(err.msg)
+            }
+            self.updateUI()
+        }
+    }
     // 获取参数列表
     func loadParam(){
         guard let templateid = template?["id"].int() else{
@@ -57,7 +75,7 @@ extension SchemeEditViewController{
                 case .failure(let err):
                     self.error(err)
                 }
-                self.tableView.reloadData()
+                self.updateUI()
             }
     }
     // 创建策略
@@ -113,7 +131,9 @@ extension SchemeEditViewController:UITableViewDelegate,UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewIntCell", for: indexPath) as! TableViewIntCell
            
             cell.titleLab.text = "策略名"
-            cell.valueTF.text = schemeName
+            if let temp = template{
+                cell.valueTF.text = temp["name"].string()
+            }
             cell.valueTF.placeholder = "请输入策略名"
             cell.valueTF.addBlock(for: .editingDidEnd) { sender in
                 self.schemeName = cell.valueTF.text

@@ -16,14 +16,14 @@ class SettingVC: BaseViewController {
         let grids = [
             DataHandleModel.init(
                 name: "股票列表",
-                icon: "🐶",
+                icon: "eurosign.circle",
                 handle: {
                     self.mb_push("Cow.StockBasicListVC", params: [:])
                 }
             ),
             DataHandleModel.init(
                 name: "ETF列表",
-                icon: "🐱",
+                icon: "dongsign.square",
                 handle: {
                     
                     self.mb_push("Cow.ETFBaseListVC", params: [:])
@@ -31,21 +31,21 @@ class SettingVC: BaseViewController {
             ),
             DataHandleModel.init(
                 name: "可转债",
-                icon: "🐭",
+                icon: "tengesign.circle",
                 handle: {
                    
                 }
             ),
             DataHandleModel.init(
                 name: "指数",
-                icon: "🐹",
+                icon: "kipsign.circle",
                 handle: {
                     
                 }
             ),
             DataHandleModel.init(
                 name: "板块",
-                icon: "🐰",
+                icon: "wonsign.square",
                 handle: {
                     
                 }
@@ -58,14 +58,14 @@ class SettingVC: BaseViewController {
         let grids = [
             DataHandleModel.init(
                 name: "表管理",
-                icon: "🦊",
+                icon: "perspective",
                 handle: {
                     self.mb_push("Cow.SQLTableListVC", params: [:])
                 }
             ),
             DataHandleModel.init(
                 name: "策略模版",
-                icon: "🐻",
+                icon: "slider.horizontal.3",
                 handle: {
                     self.mb_push("Cow.SchemeTemplateListVC", params: [:])
                 }
@@ -121,18 +121,25 @@ extension SettingVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SettingHeaderCollectionViewCell", for: indexPath)
             cell.updateUI()
+          
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewGridCell", for: indexPath) as! CollectionViewGridCell
       
             cell.titleLab.text = downGrids[indexPath.row].name
             cell.imageView.image = UIImage(systemName: downGrids[indexPath.row].icon)
+            cell.mb_borderColor = .white
+            cell.mb_borderWidth = 1
+            cell.mb_radius = 4
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewGridCell", for: indexPath) as! CollectionViewGridCell
   
             cell.titleLab.text = tableGrids[indexPath.row].name
             cell.imageView.image = UIImage(systemName: tableGrids[indexPath.row].icon)
+            cell.mb_borderColor = .white
+            cell.mb_borderWidth = 1
+            cell.mb_radius = 4
             return cell
         default:
             return UICollectionViewCell()
@@ -157,9 +164,9 @@ extension SettingVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         case 0:
             return CGSize(width: collectionView.bounds.size.width, height: 100)
         case 1:
-            return CGSize(width: ((collectionView.bounds.size.width-16)/5)-1, height: (collectionView.bounds.size.width-16)/5 + 20 )
+            return CGSize(width: ((collectionView.bounds.size.width-16)/5)-1, height: (collectionView.bounds.size.width-16)/5  )
         case 2:
-            return CGSize(width: ((collectionView.bounds.size.width-16)/5)-1, height: (collectionView.bounds.size.width-16)/5 + 20 )
+            return CGSize(width: ((collectionView.bounds.size.width-16)/5)-1, height: (collectionView.bounds.size.width-16)/5  )
         default:
             return .zero
         }

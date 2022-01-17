@@ -7,10 +7,10 @@
 
 import Foundation
 let creatdTabledic =
+[
     [
-        [
-            "name":"rel_transaction",
-            "create":
+        "name":"rel_transaction",
+        "create":
                 """
                     CREATE TABLE "rel_transaction" (
                     "id"    INTEGER NOT NULL UNIQUE,
@@ -30,28 +30,11 @@ let creatdTabledic =
                     PRIMARY KEY("id" AUTOINCREMENT)
                 );
             """
-        ],
-        [
-            "name":"scheme",
-            "create":
-             """
-                    CREATE TABLE "scheme" ( -- 方案表
-                    "id"    INTEGER NOT NULL UNIQUE, -- id
-                    "name"    TEXT NOT NULL,  -- 方案名
-                    "count"    TEXT , -- 个数语句
-                    "select"    TEXT , -- 结果语句
-                    "where"    TEXT , -- 条件语句
-                    "order"    TEXT, -- 排序语句
-                    "limit"    TEXT, -- 分页语句
-                    "remarks"  TEXT, -- 备注
-                    PRIMARY KEY("id" AUTOINCREMENT)
-                );
-            """
-              
-        ],
-        [
-            "name":"back_transaction",
-            "create":
+    ],
+    
+    [
+        "name":"back_transaction",
+        "create":
              """
                  CREATE TABLE "back_transaction" ( -- 回测记录表
                      "id"    INTEGER NOT NULL UNIQUE,
@@ -68,11 +51,11 @@ let creatdTabledic =
                       PRIMARY KEY("id" AUTOINCREMENT)
                  );
             """
-              
-        ],
-        [
-            "name":"scheme",
-            "create":
+        
+    ],
+    [
+        "name":"scheme",
+        "create":
              """
                  CREATE TABLE IF NOT EXISTS "scheme" ( -- 策略表
                         "id"    INTEGER NOT NULL UNIQUE,
@@ -81,11 +64,11 @@ let creatdTabledic =
                         PRIMARY KEY("id" AUTOINCREMENT)
                  );
             """
-              
-        ],
-        [
-            "name":"scheme_template",
-            "create":
+        
+    ],
+    [
+        "name":"scheme_template",
+        "create":
              """
                  CREATE TABLE IF NOT EXISTS "scheme_template" ( -- 策略模版表
                        "id"    INTEGER NOT NULL UNIQUE,
@@ -94,11 +77,11 @@ let creatdTabledic =
                        PRIMARY KEY("id" AUTOINCREMENT)
                    );
             """
-              
-        ],
-        [
-            "name":"scheme_template_param",
-            "create":
+        
+    ],
+    [
+        "name":"scheme_template_param",
+        "create":
              """
                CREATE TABLE IF NOT EXISTS "scheme_template_param" ( -- 策略参数表
                            "id"    INTEGER NOT NULL UNIQUE,
@@ -111,11 +94,11 @@ let creatdTabledic =
                            PRIMARY KEY("id" AUTOINCREMENT)
                );
             """
-              
-        ],
-        [
-            "name":"scheme_template_param",
-            "create":
+        
+    ],
+    [
+        "name":"scheme_template_param",
+        "create":
              """
                 CREATE TABLE IF NOT EXISTS "scheme_template_param" ( -- 策略参数表
                            "id"    INTEGER NOT NULL UNIQUE,
@@ -128,11 +111,11 @@ let creatdTabledic =
                            PRIMARY KEY("id" AUTOINCREMENT)
                        );
             """
-              
-        ],
-        [
-            "name":"loc_ochl",
-            "create":
+        
+    ],
+    [
+        "name":"loc_ochl",
+        "create":
              """
                CREATE TABLE "loc_ochl" ( -- 本地ochl
                        "date"    TEXT,
@@ -145,12 +128,12 @@ let creatdTabledic =
                        PRIMARY KEY("code","date")
                );
             """
-              
-        ],
-        [
-            "name":"back_trade",
-            "create":
-                """
+        
+    ],
+    [
+        "name":"back_trade",
+        "create":
+                    """
                     CREATE TABLE IF NOT EXISTS "back_trade" ( -- 回测记录
                             "id"    INTEGER NOT NULL UNIQUE,
                             "scheme_id"    INTEGER NOT NULL, -- 方案id
@@ -164,10 +147,10 @@ let creatdTabledic =
                             PRIMARY KEY("id" AUTOINCREMENT)
                         );
                     """
-        ],
-        [
-            "name":"scheme_param",
-            "create":
+    ],
+    [
+        "name":"scheme_param",
+        "create":
                     """
                             CREATE TABLE IF NOT EXISTS "scheme_param" ( -- 方案参数表
                                     "id"    INTEGER NOT NULL UNIQUE,
@@ -177,30 +160,30 @@ let creatdTabledic =
                                     PRIMARY KEY("id" AUTOINCREMENT)
                                 );
                     """
-        ],
-		[
-			"name":"stock_price",
-			"create":
-					"""
-							CREATE TABLE IF NOT EXISTS "stock_price" ( -- 股票当前价格
-									"code"    TEXT NOT NULL ,
-									"price"   NUMERIC , -- 价格
-									PRIMARY KEY("code")
-								);
-					"""
-		],
-		[
-			"name":"stock_basic",
-			"create":
-					"""
-							CREATE TABLE IF NOT EXISTS "stock_basic" ( -- 股票名称
-									"code"    TEXT NOT NULL ,
-									"name"   NUMERIC , -- 价格
-									PRIMARY KEY("code")
-								);
-					"""
-		],
-  
+    ],
+    [
+        "name":"stock_price",
+        "create":
+     """
+       CREATE TABLE IF NOT EXISTS "stock_price" ( -- 股票当前价格
+         "code"    TEXT NOT NULL ,
+         "price"   NUMERIC , -- 价格
+         PRIMARY KEY("code")
+        );
+     """
+    ],
+    [
+        "name":"stock_basic",
+        "create":
+     """
+       CREATE TABLE IF NOT EXISTS "stock_basic" ( -- 股票名称
+         "code"    TEXT NOT NULL ,
+         "name"   NUMERIC , -- 价格
+         PRIMARY KEY("code")
+        );
+     """
+    ],
+    
 ]
 
 extension SqlliteManage{

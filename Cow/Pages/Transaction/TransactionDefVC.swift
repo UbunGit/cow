@@ -131,7 +131,7 @@ extension TransactionDefVC:UITableViewDelegate,UITableViewDataSource{
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionListCell", for: indexPath) as! TransactionListCell
             cell.code = code
-          
+            cell.state = state
             cell.updateUI()
             return cell
         }else{

@@ -71,7 +71,12 @@ class TransactionListViewController: BaseViewController {
             needLogin()
             return
         }
-     
+        let datas = StockManage.share.datas
+        if state == 0{
+            self.dataSouce = datas.filter{ $0["sprice"].double()<=0 }
+        }else if state == 1{
+            self.dataSouce = datas.filter{ $0["sprice"].double()>0 }
+        }
 		self.dataSouce = AF.api_reltransaction(state)
 		self.updateUI()
     }
@@ -103,11 +108,13 @@ extension TransactionListViewController:UITableViewDelegate,UITableViewDataSourc
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionListCell", for: indexPath) as! TransactionListCell
         let celldata = dataSouce[indexPath.row]
 		cell.code = celldata["code"].string()
+        cell.state = state
 		cell.updateUI()
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let celldata = dataSouce[indexPath.row]
+        
 		self.push_transaction(code: celldata["code"].string(),state: state)
       
     }

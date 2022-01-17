@@ -184,6 +184,8 @@
 		84E62FF02705B805008A14C4 /* TablePageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E62FEF2705B805008A14C4 /* TablePageView.xib */; };
 		84E7F25826EB2D7100F3F61C /* TransactionDefVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7F25626EB2D7100F3F61C /* TransactionDefVC.swift */; };
 		84E7F25926EB2D7100F3F61C /* TransactionDefVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E7F25726EB2D7100F3F61C /* TransactionDefVC.xib */; };
+		84F5BA7E279512E6004C0AAF /* SQLTableCreateInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F5BA7C279512E6004C0AAF /* SQLTableCreateInfoVC.swift */; };
+		84F5BA7F279512E6004C0AAF /* SQLTableCreateInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F5BA7D279512E6004C0AAF /* SQLTableCreateInfoVC.xib */; };
 		84F736AC26DB7405008D28C1 /* ETFBaseListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F736AA26DB7405008D28C1 /* ETFBaseListVC.swift */; };
 		84F736AD26DB7405008D28C1 /* ETFBaseListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F736AB26DB7405008D28C1 /* ETFBaseListVC.xib */; };
 		84F736AF26DB7592008D28C1 /* etf_follow+basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F736AE26DB7592008D28C1 /* etf_follow+basic.swift */; };
@@ -391,6 +393,8 @@
 		84E62FEF2705B805008A14C4 /* TablePageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TablePageView.xib; sourceTree = "<group>"; };
 		84E7F25626EB2D7100F3F61C /* TransactionDefVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDefVC.swift; sourceTree = "<group>"; };
 		84E7F25726EB2D7100F3F61C /* TransactionDefVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionDefVC.xib; sourceTree = "<group>"; };
+		84F5BA7C279512E6004C0AAF /* SQLTableCreateInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLTableCreateInfoVC.swift; sourceTree = "<group>"; };
+		84F5BA7D279512E6004C0AAF /* SQLTableCreateInfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SQLTableCreateInfoVC.xib; sourceTree = "<group>"; };
 		84F736AA26DB7405008D28C1 /* ETFBaseListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFBaseListVC.swift; sourceTree = "<group>"; };
 		84F736AB26DB7405008D28C1 /* ETFBaseListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ETFBaseListVC.xib; sourceTree = "<group>"; };
 		84F736AE26DB7592008D28C1 /* etf_follow+basic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "etf_follow+basic.swift"; sourceTree = "<group>"; };
@@ -707,6 +711,8 @@
 				845E45AF26CBB988002E77C3 /* SQLTableInfoVC.swift */,
 				845E45B026CBB988002E77C3 /* SQLTableInfoVC.xib */,
 				84E62FEB270432F9008A14C4 /* TableInfoPageViewController.swift */,
+				84F5BA7C279512E6004C0AAF /* SQLTableCreateInfoVC.swift */,
+				84F5BA7D279512E6004C0AAF /* SQLTableCreateInfoVC.xib */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -1261,6 +1267,7 @@
 				849E9B592702C9BF00864C2A /* FormTextInputCell.xib in Resources */,
 				84B25E1826DC984E00284679 /* ETFRecommendDetaiVC.xib in Resources */,
 				84712B5226E45781008E55D6 /* BaseTableSearchHeaderView.xib in Resources */,
+				84F5BA7F279512E6004C0AAF /* SQLTableCreateInfoVC.xib in Resources */,
 				84E62FCF2703113A008A14C4 /* SchemeTemplateParamEditVC.xib in Resources */,
 				8483CEEB26E08F96009F7A7D /* TransactionListCell.xib in Resources */,
 				846B4CC826C104E400EB5BA7 /* CollectionViewGridCell.xib in Resources */,
@@ -1418,6 +1425,7 @@
 				84E62FEE2705B7E6008A14C4 /* TablePageView.swift in Sources */,
 				849E9B582702C9BF00864C2A /* FormTextInputCell.swift in Sources */,
 				849B76B427507C6200F70289 /* SchemeEditViewController.swift in Sources */,
+				84F5BA7E279512E6004C0AAF /* SQLTableCreateInfoVC.swift in Sources */,
 				84B443ED26EB324B00768F60 /* TransactionDefCell.swift in Sources */,
 				84E62FDF27032629008A14C4 /* FormRoundFooter.swift in Sources */,
 				84E62FD627031B27008A14C4 /* SchemeTemplateParamCell.swift in Sources */,

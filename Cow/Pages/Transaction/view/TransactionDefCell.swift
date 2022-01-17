@@ -15,6 +15,7 @@ class TransactionDefCell: UITableViewCell {
 
     @IBOutlet weak var chartView: BarChartView!
     
+    @IBOutlet weak var customView: UIView!
     @IBOutlet weak var countLab: UILabel!
     @IBOutlet weak var esLab: UILabel!
     @IBOutlet weak var yaidLab: UILabel!
@@ -50,12 +51,13 @@ class TransactionDefCell: UITableViewCell {
         esLab.text = Transaction.earnings(cellData).price()
         
         if yaid > 0 {
-            backgroundColor = .up.alpha(0.1)
+     
             chartView.mb_borderColor = .up.alpha(0.1)
         }else{
-            backgroundColor = .down.alpha(0.1)
+            
             chartView.mb_borderColor = .down.alpha(0.1)
         }
+        customView.backgroundColor = .white
         chartView.data = barset()
     }
     
