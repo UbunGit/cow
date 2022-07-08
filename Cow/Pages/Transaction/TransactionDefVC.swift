@@ -9,13 +9,15 @@ import UIKit
 import MJRefresh
 import Alamofire
 import YYKit
+import UniformTypeIdentifiers
 class TransactionDefVC: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
-	var code:String = ""
-	var state:Int = 0
+	var code:String = "" // 代码
+    var type:Int = 1 // 类型
+    var state:TradeStatus = .didbuy // 状态 0 未卖出 1 卖出
     
-    var datas:[[String:Any]] = []
+    var datas:[TransactionItem] = []
     
     
     lazy var addbtn: UIButton = {
@@ -23,7 +25,11 @@ class TransactionDefVC: BaseViewController {
         button.setImage(.init(systemName: "plus.circle"), for: .normal)
         button.addBlock(for: .touchUpInside) { _ in
             let vc = TransactionEdit()
-//            vc.editData = TransactionEditModel( userId: Global.share.user!.userId, code: self.datas.code, type: 1)
+            let editdata = TransactionItem()
+            editdata.userid = Global.share.user!.userId
+            editdata.code = self.code
+            editdata.type = self.type
+            vc.editData = editdata
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }
@@ -82,10 +88,10 @@ class TransactionDefVC: BaseViewController {
     
     lazy var tableCategoryHeader:TransactionListTableHeader = {
         let header = TransactionListTableHeader.initWithNib()
-		header.setvalue(state+1)
+        header.setvalue(state.rawValue+1)
         header.addBlock(for: .valueChanged) {[weak self] _ in
 			
-			self?.state =  header.value-1
+            self?.state = .init(rawValue: header.value-1) ?? .didbuy
             self?.loadData()
         }
         return header
@@ -94,6 +100,7 @@ class TransactionDefVC: BaseViewController {
     
     
 }
+
 extension TransactionDefVC:UITableViewDelegate,UITableViewDataSource{
     func configTableview()  {
         
@@ -146,13 +153,10 @@ extension TransactionDefVC:UITableViewDelegate,UITableViewDataSource{
         if indexPath.section==0 {
             return
         }
-		guard  let moden = TransactionEditModel.deserialize(from: datas[indexPath.row] as [String:Any]) else {
-            view.error("数据转换失败")
-            return
-        }
+        
         
         let vc = TransactionEdit()
-        vc.editData = moden
+        vc.editData = datas[indexPath.row]
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
@@ -173,11 +177,16 @@ extension TransactionDefVC{
 
 
 	func loadData(){
-        if state == 0 {
+        if state == .didbuy {
             datas = Transaction.soreDatas(code)
-        }else if state == 1{
+        }else if state == .didsell{
             datas = Transaction.finishDatas(code)
         }
 		self.updateUI()
 	}
+}
+
+enum TradeStatus:Int{
+    case didbuy = 0
+    case didsell = 1
 }

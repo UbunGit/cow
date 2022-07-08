@@ -149,8 +149,6 @@ public extension Optional{
      
 }
 
-
-
 extension Date{
     
    public func toString(_ format:String="yyyy-MM-dd HH:mm:ss") -> String {
@@ -162,7 +160,20 @@ extension Date{
     }
 }
 
-
+public extension Array where Element:Decodable{
+    
+    static func array(any:[Any])->Self{
+        do {
+           let data = try JSONSerialization.data(withJSONObject: any, options: .prettyPrinted)
+           let list = try  JSONDecoder().decode(Self.self, from: data)
+            return list
+        } catch  {
+            print(error)
+            return []
+        }
+    
+    }
+}
 
 
 

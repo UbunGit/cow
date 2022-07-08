@@ -10,46 +10,16 @@ import Alamofire
 import MJRefresh
 import HandyJSON
 
-struct  TransactionEditModel:HandyJSON {
-    var id = 0
-    var userId = 0
-    var code = ""
-    var type = 1 // 股票类型 1->股票 2->ETF
-    var bdate:String? // 买入时间
-    var bprice = 0.0 // 买入价格
-    var bcount = 0 //买入数量
-    var bfree = 0.0 // 买入手续费
-    var sdate:String? // 卖出时间
-    var sprice = 0.0 // 卖出价格
-    var sfree = 0.0 // 卖出手续费
-    var target = 0.0 // 目标价格
-    var plan = "" // 策略
-    var remarks = "" // 备注
-    var price = 0.00
-    
-    // get
-    var typeStr:String{
-        switch type {
-        case 1:
-            return "股票"
-        case 2:
-            return "ETF"
-        default:
-            return "选择股票类型"
-        }
-    }
-}
-
 
 
 class TransactionListViewController: BaseViewController {
-    var state:Int = 0 // 0->持仓列表 1-> 已卖出
+    var state:TradeStatus = .didbuy // 0->持仓列表 1-> 已卖出
 	var dataSouce:[[String:Any]] = []
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        title = state==0 ? "持仓列表" : "已卖列表"
+        title = state == .didbuy ? "持仓列表" : "已卖列表"
         configTableview()
   
     }
@@ -72,12 +42,12 @@ class TransactionListViewController: BaseViewController {
             return
         }
         let datas = StockManage.share.datas
-        if state == 0{
+        if state == .didbuy{
             self.dataSouce = datas.filter{ $0["sprice"].double()<=0 }
-        }else if state == 1{
+        }else if state == .didsell{
             self.dataSouce = datas.filter{ $0["sprice"].double()>0 }
         }
-		self.dataSouce = AF.api_reltransaction(state)
+        self.dataSouce = AF.api_reltransaction(state.rawValue)
 		self.updateUI()
     }
     

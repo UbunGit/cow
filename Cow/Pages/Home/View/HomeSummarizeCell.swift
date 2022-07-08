@@ -34,10 +34,11 @@ class HomeSummarizeCell: UICollectionViewCell {
 	// 获取持仓收益
 	func gettotalAssets(){
 		
-        let datas = StockManage.share.datas
+        let items = StockManage.share.datas
+        let datas = [TransactionItem].array(any: items)
         
-        let stores  = datas.filter { $0["sprice"].double()<=0}
-        let finesh  = datas.filter { $0["sprice"].double()>0}
+        let stores  = datas.filter { $0.sprice.double()<=0}
+        let finesh  = datas.filter { $0.sprice.double()>0}
         // 持仓收益
         storeMoneyLab.text = Transaction.soreEarnings(stores).string()
         // 持仓成本
@@ -46,7 +47,7 @@ class HomeSummarizeCell: UICollectionViewCell {
         earningsLab.text = Transaction.finishEarnings(finesh).price()
         // 手续费
         freelab.text = datas.reduce(0.0, { a, b in
-            a+b["bfree"].double()+b["sfree"].double()
+            a+b.bfree.double()+b.sfree.double()
         }).price()
 		
 	}
