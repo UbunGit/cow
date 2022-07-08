@@ -102,8 +102,8 @@ class HomeViewController: BaseViewController {
 		]
 		return datas
 	}()
-	var buylist:[[String:Any]] = []
-	var selllist:[[String:Any]] = []
+	var minlist:[[String:Any]] = []
+
 	
 }
 
@@ -139,9 +139,8 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
 		case 1:
 			return griddata.count
 		case 2:
-			return buylist.count
-		case 3:
-			return selllist.count
+			return minlist.count
+		
 		default:
 			return 0
 		}
@@ -162,7 +161,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
 			return cell
 		case 2:
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier:"HomeRecommendCell", for: indexPath) as! HomeRecommendCell
-			let celldata = buylist[indexPath.row]
+			let celldata = minlist[indexPath.row]
 			let bprice = celldata["bprice"].double()
 			let price = celldata["price"].double()
 			let orderdata = bprice*0.90
@@ -177,28 +176,10 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
 			cell.rateLab.text = "\(pix.string("%0.1f"))%"
             cell.nameLab.text = StockManage.share.storeName(code)
 			cell.bgview.backgroundColor = .white
-			
+            let sorderdata = celldata["target"].double()
+            cell.sOrderLab.text = sorderdata.price()
 			return cell
-		case 3:
-			let cell = collectionView.dequeueReusableCell(withReuseIdentifier:"HomeRecommendCell", for: indexPath) as! HomeRecommendCell
-			let celldata = selllist[indexPath.row]
-			let bprice = celldata["bprice"].double()
-			let price = celldata["price"].double()
-			let orderdata = celldata["target"].double()
-			let pix = ((price/bprice) - 1)*100
-			
-			let code = celldata["code"].string()
-			cell.codeLab.text = celldata["code"].string()
-			cell.costLab.text = bprice.price()
-			cell.orderLab.text = orderdata.price()
-			cell.priceLab.text = price.price()
-			cell.rateLab.backgroundColor = (pix>=0) ? .red : .green
-			
-			cell.rateLab.text = "\(pix.string("%0.1f"))%"
-            cell.nameLab.text = StockManage.share.storeName(code)
-			cell.bgview.backgroundColor = .white
-			
-			return cell
+		
 		default:
 			return UICollectionViewCell()
 		}
@@ -212,8 +193,8 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
 			return .init(width: collectionView.size.width-16, height: 180)
 		case 1:
 			return .init(width: (collectionView.size.width-16)/5, height: (collectionView.size.width-16)/5)
-		case 2,3:
-			return .init(width: (collectionView.size.width-16)/2, height: 72)
+		case 2:
+			return .init(width: (collectionView.size.width-16), height: 120)
 		
 		default:
 			return .zero
@@ -232,30 +213,27 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
 				self.perform(Selector(selector), with: nil)
 			}
 		case 2:
-			let data = buylist[indexPath.row]
+			let data = minlist[indexPath.row]
 			self.push_transaction(code: data["code"].string())
-		case 3:
-			let data = selllist[indexPath.row]
-			self.push_transaction(code: data["code"].string())
-			
-			
-			
+	
 		default:
 			break
 		}
 	}
+    
+    
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
 		return 0
 	}
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-		return 4
+		return 3
 	}
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 		switch section{
 		case 0:
 			return .init(top: 8, left: 8, bottom: 0, right: 8)
-		case 1,2,3:
+		case 1,2:
 			return .init(top: 4, left: 8, bottom: 0, right: 8)
 		default:
 			return .zero
@@ -284,22 +262,8 @@ extension HomeViewController{
 			}
 			
 		}
-		buylist = mindatas.filter { item in
-			let bprice = item["bprice"].double()
-			let price = item["price"].double()
-			let waramprice = bprice*0.91
-			return price<=waramprice
-		}
-		selllist = mindatas.filter { item in
-			if item["code"].string() == "sz159825"{
-				log("")
-			}
+        minlist = mindatas
 	
-			let price = item["price"].double()
-			let target = item["target"].double()
-			return price>=target*0.99
-		}
-		
 		collecttionView.reloadData()
 		
 	}
