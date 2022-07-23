@@ -100,8 +100,9 @@ extension StockManage{
 			return code.lowercased()
 		}
 		//
+        let header:HTTPHeaders = ["Referer":"https://finance.sina.com.cn"]
 		let url = "http://hq.sinajs.cn/list=\(tcodes.joined(separator: ","))"
-		AF.request(url)
+		AF.request(url,headers: header)
 			.responseString { [weak self] result in
 				guard let datastr = result.value else{
 					return
