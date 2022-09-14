@@ -10,8 +10,7 @@ import Charts
 
 class TransactionDefCell: UITableViewCell {
     
-    var cellData:[String:Any]
-        = [:]
+    var cellData:TransactionItem = .init()
 
     @IBOutlet weak var chartView: BarChartView!
     
@@ -44,11 +43,11 @@ class TransactionDefCell: UITableViewCell {
     override func updateUI()  {
         
 	
-        countLab.text = cellData["bcount"].string()
-        bdateLab.text = cellData["bdate"].string()
-        let yaid = Transaction.yield(cellData)
+        countLab.text = cellData.bcount.string()
+        bdateLab.text = cellData.bdate.string()
+        let yaid = cellData.yield
         yaidLab.text = yaid.percentStr("%0.1f")
-        esLab.text = Transaction.earnings(cellData).price()
+        esLab.text = cellData.earnings.price()
         
         if yaid > 0 {
      
@@ -62,12 +61,12 @@ class TransactionDefCell: UITableViewCell {
     }
     
     func barset() -> BarChartData?  {
-        let bprice = cellData["bprice"].double()
-		let sellprice = cellData["sprice"].double()
+        let bprice = cellData.bprice
+        let sellprice = cellData.sprice
 		
-		let price = cellData["price"].double()
-		let target = cellData["target"].double()
-        let set0 = BarChartDataSet(entries: [BarChartDataEntry(x:0 , y: bprice)], label: "成本\(cellData["bprice"].price())")
+        let price = cellData.price
+        let target = cellData.target
+        let set0 = BarChartDataSet(entries: [BarChartDataEntry(x:0 , y: bprice)], label: "成本\(cellData.bprice.price())")
         set0.colors = [.red.alpha(0.1)]
        
         var set2:BarChartDataSet

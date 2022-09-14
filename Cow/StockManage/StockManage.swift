@@ -13,11 +13,12 @@ class StockManage:NSObject{
 	static let `share` = StockManage()
 	var cutdown = 0
     var datas:[[String:Any]]{
+        let userid:String = Global.share.user?.userId.string() ?? "0"
         let sql = """
         select t1.*,t2.price,t3.name from rel_transaction  t1
         left join stock_price t2 on t1.code=t2.code
         left join stock_basic t3 on t1.code=t3.code
-        where t1.userid=\(Global.share.user!.userId)
+        where t1.userid=\(userid)
         """
         return sm.select(sql)
     }
@@ -99,12 +100,14 @@ extension StockManage{
 			return code.lowercased()
 		}
 		//
+      
 		let url = "http://hq.sinajs.cn/list=\(tcodes.joined(separator: ","))"
-	
+
 		let headers: HTTPHeaders = [
 			"Referer": "https://finance.sina.com.cn/"
 		]
 		AF.request(url,headers: headers)
+
 			.responseString { [weak self] result in
 				guard let datastr = result.value else{
 					return

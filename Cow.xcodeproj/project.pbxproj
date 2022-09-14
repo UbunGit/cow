@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		049B56C52878229D00420A26 /* TransactionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B56C42878229D00420A26 /* TransactionData.swift */; };
 		3FBF569FA57EA29049EC978F /* Pods_CowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C7744FD96C6DA2CA9753D2 /* Pods_CowTests.framework */; };
 		8400CD3F26CFAF0700C6DE3F /* Kirogi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400CD3C26CFAF0700C6DE3F /* Kirogi.swift */; };
 		8400CD4026CFAF0700C6DE3F /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400CD3D26CFAF0700C6DE3F /* Scheme.swift */; };
@@ -140,7 +141,6 @@
 		84A51D582743B6540009684B /* SelectDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A51D562743B64E0009684B /* SelectDateViewController.swift */; };
 		84A51D592743B6540009684B /* SelectDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A51D572743B64E0009684B /* SelectDateViewController.xib */; };
 		84A51D5B2743C9A40009684B /* UICollectionEmptyFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A51D5A2743C9A40009684B /* UICollectionEmptyFootView.swift */; };
-		84AF6E722791230E00F1FEA4 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AF6E712791230E00F1FEA4 /* Transaction.swift */; };
 		84B25E1726DC984E00284679 /* ETFRecommendDetaiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B25E1526DC984E00284679 /* ETFRecommendDetaiVC.swift */; };
 		84B25E1826DC984E00284679 /* ETFRecommendDetaiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B25E1626DC984E00284679 /* ETFRecommendDetaiVC.xib */; };
 		84B443ED26EB324B00768F60 /* TransactionDefCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B443EB26EB324A00768F60 /* TransactionDefCell.swift */; };
@@ -209,6 +209,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		049B56C42878229D00420A26 /* TransactionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionData.swift; sourceTree = "<group>"; };
 		151F7326438B1BA4C0FF8619 /* Pods-Cow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cow.release.xcconfig"; path = "Target Support Files/Pods-Cow/Pods-Cow.release.xcconfig"; sourceTree = "<group>"; };
 		5F60CF171DAB942E8AD2C091 /* Pods_Cow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74237E86FA104E2E54D663EC /* Pods-CowTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CowTests.release.xcconfig"; path = "Target Support Files/Pods-CowTests/Pods-CowTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -349,7 +350,6 @@
 		84A51D562743B64E0009684B /* SelectDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateViewController.swift; sourceTree = "<group>"; };
 		84A51D572743B64E0009684B /* SelectDateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectDateViewController.xib; sourceTree = "<group>"; };
 		84A51D5A2743C9A40009684B /* UICollectionEmptyFootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionEmptyFootView.swift; sourceTree = "<group>"; };
-		84AF6E712791230E00F1FEA4 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		84B25E1526DC984E00284679 /* ETFRecommendDetaiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETFRecommendDetaiVC.swift; sourceTree = "<group>"; };
 		84B25E1626DC984E00284679 /* ETFRecommendDetaiVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ETFRecommendDetaiVC.xib; sourceTree = "<group>"; };
 		84B443EB26EB324A00768F60 /* TransactionDefCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDefCell.swift; sourceTree = "<group>"; };
@@ -429,6 +429,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		049B56C32878228E00420A26 /* Moden */ = {
+			isa = PBXGroup;
+			children = (
+				049B56C42878229D00420A26 /* TransactionData.swift */,
+			);
+			path = Moden;
+			sourceTree = "<group>";
+		};
 		8400CD3B26CFAF0700C6DE3F /* Cerebro */ = {
 			isa = PBXGroup;
 			children = (
@@ -772,6 +780,7 @@
 		8483CEDE26E08CD5009F7A7D /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
+				049B56C32878228E00420A26 /* Moden */,
 				84B7C9472789684800DA95C1 /* API */,
 				8483CEE326E08D45009F7A7D /* view */,
 				8483CEDF26E08D0E009F7A7D /* TransactionListViewController.swift */,
@@ -955,7 +964,6 @@
 		84BACCC326F5D2BD004EEE9A /* magbox */ = {
 			isa = PBXGroup;
 			children = (
-				84FB1D2427478FD200011946 /* UIView */,
 				84A51D552743B61F0009684B /* Date */,
 				8474457F2731119700F9201B /* UICategory */,
 				848E99AA27008BCD00868654 /* InputView */,
@@ -1101,18 +1109,10 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		84FB1D2427478FD200011946 /* UIView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UIView;
-			sourceTree = "<group>";
-		};
 		84FE7A58278E84DF00872F61 /* StockManage */ = {
 			isa = PBXGroup;
 			children = (
 				84FE7A59278E851D00872F61 /* StockManage.swift */,
-				84AF6E712791230E00F1FEA4 /* Transaction.swift */,
 			);
 			path = StockManage;
 			sourceTree = "<group>";
@@ -1431,7 +1431,6 @@
 				84E62FD627031B27008A14C4 /* SchemeTemplateParamCell.swift in Sources */,
 				8405464126D8C206007E7F0F /* ETFDetaiKlineCell.swift in Sources */,
 				846B4CB826C0F82D00EB5BA7 /* SettingVC.swift in Sources */,
-				84AF6E722791230E00F1FEA4 /* Transaction.swift in Sources */,
 				84E62FE227040914008A14C4 /* ConfigDor.swift in Sources */,
 				841A95A526DA2AC800EFA126 /* loginViewController.swift in Sources */,
 				842C3E9026D6353C00F012DD /* OSS.swift in Sources */,
@@ -1465,6 +1464,7 @@
 				8410011C26C106EA00C64E53 /* DataHandleModel.swift in Sources */,
 				8400CD4126CFAF0700C6DE3F /* Cerebro.swift in Sources */,
 				8400CD4026CFAF0700C6DE3F /* Scheme.swift in Sources */,
+				049B56C52878229D00420A26 /* TransactionData.swift in Sources */,
 				844D5AE126BA604300AC08AF /* HomeTabViewController.swift in Sources */,
 				84B7C946278966D600DA95C1 /* Log.swift in Sources */,
 				8445C77B278FBB150003284E /* Route.swift in Sources */,

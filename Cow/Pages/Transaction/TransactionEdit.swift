@@ -33,7 +33,7 @@ class TransactionEdit: BaseViewController {
     @IBOutlet weak var planTF: UITextField!
     @IBOutlet weak var remarkTF: UITextField!
     
-    var editData = TransactionEditModel()
+    var editData = TransactionItem()
     override func viewDidLoad() {
         super.viewDidLoad()
      
@@ -44,7 +44,6 @@ class TransactionEdit: BaseViewController {
         targetTF.x10Btn.setBlockFor(.touchUpInside) { _ in
             self.targetTF.text = (self.bpriceTF.text.double()*1.10).price()
         }
-       
     }
     override func updateUI() {
         typeBtn.setTitle(editData.typeStr, for: .normal)
